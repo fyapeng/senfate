@@ -16,7 +16,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v6", calculationStatus: "configurable-annual-topic-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v7", calculationStatus: "source-level-event-predicate-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -81,7 +81,7 @@ describe("SenFate API", () => {
     expect(response.status).toBe(200);
     const body = await response.json() as ApiAnalysisResponse;
     expect(body).toMatchObject({
-      schemaVersion: "senfate-analysis-response.v4",
+      schemaVersion: "senfate-analysis-response.v5",
       calendar: { schemaVersion: "senfate-calendar-response.v1", pillars: { day: { stem: "戊", branch: "戌" } } },
       modelConfiguration:{schema:"senfate-public-model-configuration.v1",customized:false,overrideCount:0,overrideFingerprint:"none"},
       structure: {
@@ -91,7 +91,7 @@ describe("SenFate API", () => {
         normalForm: { status: "stable" },
       },
       interpretation: { schema: "senfate-interpretive-model.v1", climate: { schema: "senfate-climate-coordinate.v1" } },
-      annual:{schema:"senfate-annual-analysis.v1",targetYear:2026,normalForm:{status:"stable"},topics:{schema:"senfate-topic-contribution-certificate.v2",evaluated:3,activated:3,contribution:{atoms:{career:3}}}},
+      annual:{schema:"senfate-annual-analysis.v1",targetYear:2026,normalForm:{status:"stable"},topics:{schema:"senfate-topic-contribution-certificate.v3",evaluated:3,activated:3,contribution:{atoms:{career:3}},eventHypotheses:[{schema:"senfate-topic-event-hypothesis.v2",predicateId:"annual:career:support"}]}},
     });
     expect(body.structure.elementMeasure.total).toBeGreaterThan(0);
     expect(body.interpretation.balancing.candidates).toHaveLength(5);

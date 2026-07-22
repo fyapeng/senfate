@@ -18,9 +18,10 @@ natal pillars + enclosing major luck + annual pillar
 → resolved reference features
 → kinship role projection
 → 4,118 executable TopicFunctions
-→ TopicContributionCertificate v2
+→ TopicContributionCertificate v3
 → signed ten-domain topic measure
-→ source-linked topic event hypotheses
+→ 50-class source-level event predicates
+→ source-linked event hypotheses
 ```
 
 Annual evaluation always includes rules scoped to natal, major luck and annual
@@ -39,13 +40,24 @@ outcomes.
 ## Contribution and hypotheses
 
 Every activated source records book ID, source lines, family ID, affected
-domains and polarity. The certificate separates evaluated, activated, inactive
-and unresolved functions. Unknown conditions enter the unresolved list and
-never contribute zero silently.
+domains, polarity and normalized event evidence. Event evidence is a finite
+tuple of canonical effect operator, topic domain and polarity. The certificate
+separates evaluated, activated, inactive and unresolved functions. Unknown
+conditions enter the unresolved list and never contribute zero silently.
 
-Event hypotheses aggregate source-backed domain direction and magnitude. Their
-epistemic status is always `traditional-model-hypothesis`; they are not event
-probabilities, causal estimates or factual predictions.
+Event predicates use only five executable corpus operators:
+`complete_or_transform`, `pressure`, `reveal`, `support` and
+`weaken_or_block`. Combined with ten topic domains, the current corpus contains
+50 predicate classes. A predicate ID also includes the calculation phase, for
+example `annual:career:reveal`.
+
+Each hypothesis publishes its signed contribution, unique source, family and
+book counts, plus one evidence state. `single-source`,
+`same-book-corroborated` and `cross-book-corroborated` describe provenance
+coverage; `mixed-evidence` means both supporting and pressuring effects are
+present. Their epistemic status is always `traditional-model-hypothesis`.
+These fields are not event probabilities, causal estimates or factual
+predictions. No keyword scan of the source text participates in execution.
 
 Public topic-domain weights scale the signed contribution measure only after a
 rule condition has activated. They cannot make a false rule true, query raw
@@ -55,4 +67,4 @@ recomputation. Both kinds are included in the model-configuration certificate.
 
 `pnpm audit:resolved-topic-features` recompiles the canonical corpus, checks the
 complete disposition partition, executes an annual fixture and reports the
-actual TopicFunction and TopicRule counts.
+actual TopicFunction, TopicRule and event-predicate counts.

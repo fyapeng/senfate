@@ -41,12 +41,15 @@ DynamicChartState
 → TopicFunction conditions
 → topic contribution certificate
 → finite signed topic measure
+→ phase × domain × canonical effect operator
+→ source-level event hypothesis
 ```
 
 The public annual runtime now implements this chain. Its topic certificate
 includes the compiler disposition ledger and source line references. Event
-hypotheses consume only the signed topic measure and activated sources; they do
-not query raw chart edges or unresolved candidates.
+hypotheses consume normalized effect tuples attached to activated sources and
+their signed topic contribution. They do not query raw chart edges, source text
+or unresolved candidates.
 
 ## 终止语义
 
