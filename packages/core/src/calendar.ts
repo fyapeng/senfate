@@ -1,5 +1,6 @@
 import type { ClosedResult } from "./algebra";
 import { BRANCHES, STEMS, modulo, sexagenary, type GanZhi } from "./ontology";
+import type { SenFateModelProfile } from "./model";
 
 export interface CivilBirthInput {
   readonly year: number; readonly month: number; readonly day: number;
@@ -34,6 +35,8 @@ export interface MajorLuckPeriod { readonly ordinal: number; readonly pillar: Ga
 export interface BaziCalendarResult { readonly normalizedTime: NormalizedBirthTime; readonly pillars: FourPillars; readonly direction: "forward"|"reverse"; readonly luckStartAgeYears: number; readonly majorLuck: readonly MajorLuckPeriod[] }
 
 export type CalendarFailure = "invalid-input"|"ephemeris-window-mismatch"|"boundary-ambiguous";
+
+export function calendarProfileFromModel(model:SenFateModelProfile):CalendarProfile{return{id:model.id,version:model.version,useApparentSolarTime:model.calendar.useApparentSolarTime,dayBoundary:model.calendar.dayBoundary,luckDirection:"yang-male-yin-female-forward",daysPerLuckYear:model.calendar.daysPerLuckYear}}
 
 function isGregorianDate(input: CivilBirthInput): boolean {
   const date = new Date(Date.UTC(input.year,input.month-1,input.day,input.hour,input.minute,input.second??0));
