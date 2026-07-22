@@ -19,12 +19,18 @@ Birth input is submitted only to the calculation Worker and is not stored in a
 user database. Results must come from the certified calendar and stable-normal-
 form chain; the interface does not substitute sample data after a calculation
 failure. Public model settings are stored locally, accepted only through the
-closed 18-parameter API contract and included in the returned certificate.
+closed 19-parameter API contract and included in the returned certificate.
 Internal contribution measures are never labelled as empirical probability.
 The workbench restores form state and the last compatible result from
 `sessionStorage` while the browser tab remains open. A visible clear action
 removes this session copy. No account or server-side birth profile is implied
 by the convenience layer.
+
+The first analysis response supplies the complete annual trajectory. The client
+then requests consecutive one-to-four-year flow-month batches with bounded
+parallelism and merges each candle by year. A batch failure remains an explicit
+gap and is never replaced with an estimated wick. Navigation does not require a
+second user action, and completed batches are included in the session copy.
 
 ## Responsive acceptance
 

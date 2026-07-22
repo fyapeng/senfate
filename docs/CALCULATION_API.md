@@ -64,21 +64,28 @@ effective `senfate-model-profile.v3`, computes a deterministic fingerprint and
 recomputes every downstream stage. The response and calculation certificate
 publish the exact override object, count, fingerprint and effective version.
 
-The response includes `senfate-annual-trajectory.v2`. The Worker walks every
-certified Lichun year covered by the requested major-luck sequence, recomputes
-the complete annual normal form and then the twelve flow-month normal forms.
-A stable point contains strength, the ten-domain topic vector, special-state
-codes, and a monthly open/high/low/close candle derived from those twelve samples.
+The response includes `senfate-annual-trajectory.v2`. The primary analysis call
+walks every certified Lichun year covered by the requested major-luck sequence
+and recomputes its annual normal form. It returns the complete annual line while
+marking each not-yet-loaded candle with `monthly-candle-not-loaded`.
+
+`POST /senfate/api/v1/analysis/trajectory?startYear=YYYY&endYear=YYYY` accepts
+the same request body and computes one to four consecutive years. Each stable
+batch point adds a monthly open/high/low/close candle derived from twelve
+flow-month normal forms. The web client schedules bounded batches automatically
+and merges them by year; users still make one analysis action. Transport
+batching does not remove functions, weaken conditions or interpolate failures.
 
 ```text
 normalized topic index = signed topic total / topic total variation ∈ [-1, 1].
 ```
 
-Monthly samples evaluate the same 4,118 executable functions through a compact
-trajectory certificate; the selected detailed year still receives the complete
-source and event certificate. An ambiguous luck boundary or failed normal form produces an explicit
+Annual and monthly trajectory samples evaluate the same 4,118 executable
+functions through a compact trajectory summary; the selected detailed year
+still receives the complete source and event certificate. An ambiguous luck boundary or failed normal form produces an explicit
 `unavailable` point without a synthetic index. If any monthly sample fails, the
-annual point remains available but its monthly candle fails closed. `targetYear` only determines
+annual point remains available but its monthly candle fails closed. Failed
+batches stay visible as gaps in the client. `targetYear` only determines
 which year also receives the full source and contribution certificate.
 
 `GET /senfate/api/v1/models` returns `senfate-model-catalog.v1`, the three

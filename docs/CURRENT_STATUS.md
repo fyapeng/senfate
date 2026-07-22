@@ -40,7 +40,7 @@
 - annual recomputation accumulating natal, luck and annual layers before topic evaluation;
 - six-role `KinshipProjection v2` with sex-dependent mappings, visible/hidden evidence, model weights and natal/luck/annual decomposition;
 - annual special-state certificate for same luck-year pillars, phase extremes and seven-symbol support/pressure consensus candidates;
-- compact all-covered-year trajectory with stable-normal-form gaps, normalized topic index, twelve certified flow-month samples per year and per-year special-state markers;
+- compact all-covered-year trajectory with stable-normal-form gaps, normalized topic index and per-year special-state markers, plus bounded one-to-four-year requests for twelve certified flow-month samples per year;
 - public `TopicContributionCertificate v4` with activated source books, line ranges, declared time scopes and normalized event evidence;
 - 50 source-level event predicates defined by phase, topic domain and canonical effect operator;
 - event evidence grades for single-source, same-book, cross-book and mixed-direction support;
@@ -51,7 +51,7 @@
 - locally persisted model controls that drive full server recomputation and a
   fingerprinted model-configuration certificate.
 - browser-session restoration of birth input and the last compatible certified result, with explicit local clearing and no server-side profile storage;
-- element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations.
+- element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations; the browser loads these candles automatically in bounded batches and preserves failed batches as gaps.
 
 ## Recomputed reference disposition
 
@@ -89,4 +89,4 @@ pressuring source effects and remain explicitly mixed.
 - finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;
 - source-semantic review of the 7,785 deferred and 41 contested records.
 
-The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles and audited topic certificates. Event hypotheses are grouped by annual phase, topic domain and normalized effect operator, and each item links back to activated source records. Empirical event probabilities remain outside the product.
+The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles, audited topic certificates and the lightweight annual trajectory. `POST /senfate/api/v1/analysis/trajectory` adds twelve-flow-month candles in bounded year ranges without changing the mathematical chain. Event hypotheses are grouped by annual phase, topic domain and normalized effect operator, and each item links back to activated source records. Empirical event probabilities remain outside the product.

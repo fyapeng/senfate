@@ -106,7 +106,7 @@ describe("SenFate API", () => {
     expect(body.annualTrajectory.points.length).toBeGreaterThan(20);
     const trajectoryTarget=body.annualTrajectory.points.find(point=>point.year===2026)!;
     expect(trajectoryTarget).toMatchObject({status:"stable",luckOrdinal:body.annual.luckOrdinal,normalFormFingerprint:body.annual.normalForm.fingerprint});
-    if(trajectoryTarget.status==="stable"){expect(trajectoryTarget.normalizedTopicIndex).toBeGreaterThanOrEqual(-1);expect(trajectoryTarget.monthlyCandle).toMatchObject({status:"stable",samples:12});}
+    if(trajectoryTarget.status==="stable"){expect(trajectoryTarget.normalizedTopicIndex).toBeGreaterThanOrEqual(-1);expect(trajectoryTarget.monthlyCandle).toMatchObject({status:"unavailable",samples:0,failureCode:"monthly-candle-not-loaded"});}
     expect(body.annual.kinship.roles).toHaveLength(6);
     const partner=body.annual.kinship.roles.find(role=>role.id==="partner")!;
     expect(partner.observedCount).toBe(partner.visibleCount+partner.hiddenCount);
@@ -116,6 +116,17 @@ describe("SenFate API", () => {
   });
 
   it("publishes the bounded public model catalog",async()=>{const response=await handleRequest(new Request("https://example.test/senfate/api/v1/models"));expect(response.status).toBe(200);const body=await response.json() as {schemaVersion:string;parameters:readonly {path:string;minimum:number;maximum:number}[];presets:readonly {id:string;values:Record<string,number>}[]};expect(body.schemaVersion).toBe("senfate-model-catalog.v1");expect(body.parameters).toHaveLength(19);expect(body.parameters[0]).toMatchObject({path:"temporalLayers.natal",minimum:0,maximum:4});expect(body.presets).toHaveLength(3);expect(body.presets[0]).toMatchObject({id:"transparent-baseline",values:{"temporalLayers.natal":1}})});
+
+  it("loads twelve flow-month samples in bounded trajectory batches",async()=>{
+    const payload={schemaVersion:"senfate-analysis-request.v2",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male"};
+    const response=await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/trajectory?startYear=2024&endYear=2027",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
+    expect(response.status).toBe(200);const body=await response.json() as ApiAnalysisResponse;
+    expect(body.annualTrajectory).toMatchObject({schema:"senfate-annual-trajectory.v2",startYear:2024,endYear:2027});
+    expect(body.annualTrajectory.points).toHaveLength(4);
+    for(const point of body.annualTrajectory.points){expect(point.status).toBe("stable");if(point.status==="stable")expect(point.monthlyCandle).toMatchObject({status:"stable",samples:12});}
+    const tooWide=await handleRequest(new Request("https://example.test/analysis/trajectory?startYear=2024&endYear=2028",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
+    expect(tooWide.status).toBe(400);
+  });
 
   it("applies only bounded public model overrides and certifies the effective configuration",async()=>{
     const request=(modelOverrides:unknown)=>new Request("https://example.test/senfate/api/v1/analysis/calculate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({schemaVersion:"senfate-analysis-request.v2",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male",modelOverrides})});
