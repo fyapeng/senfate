@@ -26,6 +26,12 @@ importers:
       '@senfate/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      '@senfate/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@senfate/ephemeris':
+        specifier: workspace:*
+        version: link:../../packages/ephemeris
       '@senfate/locations':
         specifier: workspace:*
         version: link:../../packages/locations
