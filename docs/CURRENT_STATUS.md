@@ -16,7 +16,7 @@
 - annual runtime scope accumulation of natal, luck and annual rules.
 - versioned and range-validated model profiles with editable parameter metadata;
 - three initial model presets using the same public configuration contract;
-- historical IANA time-zone resolution with repeated/skipped local-time handling;
+- pinned IANA 2026c time-zone resolution with repeated/skipped local-time handling;
 - root/exposure materialization and parameterized day-master support-pressure decomposition.
 - canonical GeoNames location schema, streaming importer and D1 migration;
 - reproducible 235,015-record `cities500-2026-07-22` location snapshot with pinned hashes;
@@ -79,7 +79,6 @@ pressuring source effects and remain explicitly mixed.
 
 ## Open dependencies
 
-- pinned production tzdb distribution;
 - source-specific pattern, climate and balancing rewrite operators beyond the published parameterized projections;
 - semantic review of feature equivalence for the full executable reference set;
 - empirical validation contracts and observed-outcome data for event predicates;

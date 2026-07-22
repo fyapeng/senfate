@@ -8,12 +8,13 @@ apps/api ───────→ packages/contracts, packages/core, packages/ep
 packages/rules ─→ packages/core
 packages/locations → no application dependency
 packages/ephemeris → packages/core
-packages/core ──→ no application dependency
+packages/core ──→ pinned IANA tzdb distribution
 ```
 
 The browser never imports the calculation kernel. The Worker owns request
 validation and calculation orchestration. Core functions do not know about HTTP,
-Cloudflare, React or storage.
+Cloudflare, React or storage. Historical offsets come from the dependency-locked
+IANA distribution, not from the Worker host's mutable time-zone database.
 
 ## Deployment
 

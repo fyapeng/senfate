@@ -22,7 +22,7 @@ import {
   type ApiModelId,
   type ApiModelOverrides,
 } from "@senfate/contracts";
-import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
+import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TIME_ZONE_PROVIDER, TRANSPARENT_BASELINE_MODEL, TZDB_VERSION, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
 import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
@@ -37,7 +37,6 @@ const JSON_HEADERS = {
   "access-control-allow-headers": "content-type",
 } as const;
 
-const TZDB_PROVENANCE = "Cloudflare-Intl@compatibility-2026-07-22";
 const MAX_JSON_BYTES = 8_192;
 const COORDINATE_UNCERTAINTY_METERS = {
   "administrative-centroid": 200_000,
@@ -254,7 +253,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     disambiguation: input.disambiguation ?? "reject",
     clockUncertaintySeconds: input.clockUncertaintySeconds ?? 60,
     coordinateUncertaintyMeters: coordinate.uncertaintyMeters,
-  }, model, input.sex, TZDB_PROVENANCE, input.periodCount ?? 8);
+  }, model, input.sex, input.periodCount ?? 8);
   if (!result.ok) {
     const status = result.code === "ambiguous-local-time" || result.code === "nonexistent-local-time" ? 409 : 422;
     return error(requestId, status, result.code, result.reason);
@@ -293,7 +292,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       calendarSchema: value.schema,
       ephemeris: "NASA/JPL Horizons DE441",
       ephemerisDigest: EPHEMERIS_MANIFEST.sha256,
-      tzdb: TZDB_PROVENANCE,
+      tzdb: `${TIME_ZONE_PROVIDER}/${TZDB_VERSION}`,
       locationDataset: `${location.source}@${location.sourceVersion}`,
     },
     certificate: result.certificate,

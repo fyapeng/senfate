@@ -16,7 +16,7 @@ The index is public geographical reference data only. Birth records, names and c
 
 The initial production index is generated from GeoNames `cities500`, which covers settlements with population above 500 and administrative seats down to PPLA4. Alternate names support Chinese names, romanization and common historical spellings when supplied by GeoNames. The source is UTF-8, versioned by import date and distributed under CC BY 4.0.
 
-GeoNames points are suitable for place search and default longitude correction. They are not asserted to be a hospital or household coordinate. A future exact-location control may replace the centroid while preserving the selected IANA zone and place provenance.
+GeoNames points are suitable for place search and default longitude correction. They are not asserted to be a hospital or household coordinate. The analysis workbench therefore permits an explicit coordinate override with a user-supplied uncertainty radius while preserving the selected IANA zone and place provenance.
 
 ## API
 
