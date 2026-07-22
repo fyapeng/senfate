@@ -1,0 +1,13 @@
+import {describe,expect,it} from "vitest";
+import type {ApiAnalysisResponse,ApiAnnualTrajectory} from "@senfate/contracts";
+import {mergeAnnualDetail,mergeTrajectoryBatch,selectableTrajectoryYears} from "./analysis-result";
+
+function trajectory(points:ApiAnnualTrajectory["points"]):ApiAnnualTrajectory{return{schema:"senfate-annual-trajectory.v3",startYear:2025,endYear:2027,indexDefinition:"topic-total-divided-by-total-variation",points}}
+function response(requestId:string,targetYear:number,value:ApiAnnualTrajectory):ApiAnalysisResponse{return{requestId,annual:{targetYear},annualTrajectory:value} as unknown as ApiAnalysisResponse}
+
+describe("composite analysis result",()=>{
+  it("selects stable and not-yet-loaded years but excludes closed failures",()=>{const value=trajectory([{status:"unavailable",year:2025,boundaryUtcMs:1,failureCode:"trajectory-not-loaded",reason:"pending"},{status:"unavailable",year:2026,boundaryUtcMs:2,failureCode:"cycle",reason:"closed"},{status:"stable",year:2027} as ApiAnnualTrajectory["points"][number]]);expect(selectableTrajectoryYears(value)).toEqual([2025,2027])});
+  it("merges bounded trajectory points without replacing the selected annual certificate",()=>{const current=response("base",2026,trajectory([{status:"unavailable",year:2025,boundaryUtcMs:1,failureCode:"trajectory-not-loaded",reason:"pending"}]));const batch=response("batch",2025,trajectory([{status:"stable",year:2025} as ApiAnnualTrajectory["points"][number]]));const merged=mergeTrajectoryBatch(current,batch);expect(merged.requestId).toBe("base");expect(merged.annual.targetYear).toBe(2026);expect(merged.annualTrajectory.points[0]?.status).toBe("stable")});
+  it("switches annual detail while preserving the accumulated life trajectory",()=>{const accumulated=trajectory([{status:"stable",year:2025} as ApiAnnualTrajectory["points"][number]]);const current=response("base",2025,accumulated);const detail=response("detail",2027,trajectory([]));const merged=mergeAnnualDetail(current,detail);expect(merged.requestId).toBe("detail");expect(merged.annual.targetYear).toBe(2027);expect(merged.annualTrajectory).toBe(accumulated)});
+  it("replaces a pending selected year with its certified annual point",()=>{const current=response("base",2025,trajectory([{status:"unavailable",year:2027,boundaryUtcMs:1,failureCode:"trajectory-not-loaded",reason:"pending"}]));const detail=response("detail",2027,trajectory([{status:"stable",year:2027} as ApiAnnualTrajectory["points"][number]]));expect(mergeAnnualDetail(current,detail).annualTrajectory.points[0]?.status).toBe("stable")});
+});

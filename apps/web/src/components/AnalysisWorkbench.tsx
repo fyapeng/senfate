@@ -15,6 +15,7 @@ import {clearModelSettings,loadModelSettings,modelOverrideCount} from "../model-
 import {formatCoordinateUncertainty,validateExactCoordinates} from "../coordinates";
 import {ANALYSIS_TABS,clearAnalysisSession,loadAnalysisSession,saveAnalysisSession,type AnalysisTab} from "../analysis-session";
 import {userFacingRequestError} from "../request-error";
+import {mergeAnnualDetail,mergeTrajectoryBatch,selectableTrajectoryYears} from "../analysis-result";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
 const tabs = ANALYSIS_TABS;
@@ -60,15 +61,20 @@ export function AnalysisWorkbench() {
   const [searching, setSearching] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<ApiAnalysisResponse>();
+  const [resultLocationLabel,setResultLocationLabel]=useState<string>();
+  const [analysisRequest,setAnalysisRequest]=useState<ApiAnalysisRequest>();
   const [message, setMessage] = useState("");
   const [sessionLoaded,setSessionLoaded]=useState(false);
   const [trajectoryLoading,setTrajectoryLoading]=useState(false);
+  const [annualSelectingYear,setAnnualSelectingYear]=useState<number>();
   const trajectoryAbort=useRef<AbortController | undefined>(undefined);
+  const annualDetailAbort=useRef<AbortController | undefined>(undefined);
+  const analysisGeneration=useRef(0);
 
   useEffect(()=>{const stored=loadModelSettings();if(stored){setModelId(stored.baseModelId);setModelOverrides(stored.overrides)}},[]);
-  useEffect(()=>{const stored=loadAnalysisSession(window.sessionStorage);if(stored){setDate(stored.date);setTime(stored.time);setTargetYear(stored.targetYear);setSex(stored.sex);setClockUncertaintySeconds(stored.clockUncertaintySeconds);setUseExactCoordinates(stored.useExactCoordinates);setLatitude(stored.latitude);setLongitude(stored.longitude);setCoordinateUncertaintyMeters(stored.coordinateUncertaintyMeters);setDisambiguation(stored.disambiguation);setQuery(stored.query);setSelectedLocation(stored.selectedLocation);setResult(stored.result);setActive(stored.activeTab)}setSessionLoaded(true)},[]);
-  useEffect(()=>{if(!sessionLoaded)return;saveAnalysisSession(window.sessionStorage,{version:1,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,...(selectedLocation?{selectedLocation}:{}),...(result?{result}:{}),activeTab:active})},[sessionLoaded,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,selectedLocation,result,active]);
-  useEffect(()=>()=>trajectoryAbort.current?.abort(),[]);
+  useEffect(()=>{const stored=loadAnalysisSession(window.sessionStorage);if(stored){setDate(stored.date);setTime(stored.time);setTargetYear(stored.targetYear);setSex(stored.sex);setClockUncertaintySeconds(stored.clockUncertaintySeconds);setUseExactCoordinates(stored.useExactCoordinates);setLatitude(stored.latitude);setLongitude(stored.longitude);setCoordinateUncertaintyMeters(stored.coordinateUncertaintyMeters);setDisambiguation(stored.disambiguation);setQuery(stored.query);setSelectedLocation(stored.selectedLocation);setResultLocationLabel(stored.resultLocationLabel);setAnalysisRequest(stored.request);setResult(stored.result);setActive(stored.activeTab)}setSessionLoaded(true)},[]);
+  useEffect(()=>{if(!sessionLoaded)return;saveAnalysisSession(window.sessionStorage,{version:2,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,...(selectedLocation?{selectedLocation}:{}),...(resultLocationLabel?{resultLocationLabel}:{}),...(analysisRequest?{request:analysisRequest}:{}),...(result?{result}:{}),activeTab:active})},[sessionLoaded,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,selectedLocation,resultLocationLabel,analysisRequest,result,active]);
+  useEffect(()=>()=>{trajectoryAbort.current?.abort();annualDetailAbort.current?.abort()},[]);
 
   useEffect(() => {
     if (selectedLocation && query === selectedLocation.displayName) return;
@@ -89,36 +95,44 @@ export function AnalysisWorkbench() {
   }, [query, selectedLocation]);
 
   const exactCoordinate=useMemo(()=>validateExactCoordinates({enabled:useExactCoordinates,latitude,longitude,uncertaintyMeters:coordinateUncertaintyMeters}),[useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters]);
-  const canSubmit = Boolean(selectedLocation && date && time && exactCoordinate.valid && !submitting);
+  const canSubmit = Boolean(selectedLocation && date && time && exactCoordinate.valid && !submitting && annualSelectingYear===undefined);
   const inputSummary = useMemo(() => selectedLocation ? `${selectedLocation.displayName} · ${selectedLocation.timeZone}${useExactCoordinates?" · 精确坐标":""}` : "尚未选择规范地点", [selectedLocation,useExactCoordinates]);
+
+  function requestPayloadFor(yearToOpen:number):ApiAnalysisRequest|undefined{
+    if(!selectedLocation||!exactCoordinate.valid)return undefined;
+    const [year,month,day]=date.split("-").map(Number);const [hour,minute]=time.split(":").map(Number);
+    if(!year||!month||!day||hour===undefined||minute===undefined)return undefined;
+    return{schemaVersion:ANALYSIS_REQUEST_SCHEMA,targetYear:yearToOpen,locationId:selectedLocation.id,localDateTime:{year,month,day,hour,minute},sex,modelId,...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),...(exactCoordinate.value?{exactCoordinates:exactCoordinate.value}:{}),disambiguation,clockUncertaintySeconds,periodCount:12};
+  }
+
+  async function requestFullAnalysis(payload:ApiAnalysisRequest,signal?:AbortSignal):Promise<ApiAnalysisResponse>{
+    for(let attempt=0;attempt<2;attempt++){
+      try{
+        const response=await fetch(`${API_BASE}/analysis/calculate`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),...(signal?{signal}:{})});
+        const candidate=await response.json() as ApiAnalysisResponse|ApiErrorResponse;
+        if(response.ok&&"structure" in candidate)return candidate;
+        const code="error" in candidate?candidate.error.code:"request-failed";
+        throw new Error(errorLabels[code]??"计算服务暂时不可用，请稍后重试。");
+      }catch(cause){if(signal?.aborted||attempt===1)throw cause}
+      await new Promise(resolve=>window.setTimeout(resolve,700));
+    }
+    throw new Error("计算服务暂时不可用，请稍后重试。");
+  }
 
   async function calculate(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!selectedLocation) { setMessage("请从搜索结果中选择出生地点。 "); return; }
     if(!exactCoordinate.valid){setMessage(exactCoordinate.reason);return}
-    const [year, month, day] = date.split("-").map(Number);
-    const [hour, minute] = time.split(":").map(Number);
-    trajectoryAbort.current?.abort();setTrajectoryLoading(false);setSubmitting(true); setMessage(""); setResult(undefined);
+    const requestPayload=requestPayloadFor(targetYear);if(!requestPayload){setMessage("请检查出生日期、时间与地点。");return}
+    const generation=++analysisGeneration.current;trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();setAnnualSelectingYear(undefined);setTrajectoryLoading(false);setSubmitting(true); setMessage("");setAnalysisRequest(undefined); setResult(undefined);
     try {
-      const requestPayload:ApiAnalysisRequest={schemaVersion:ANALYSIS_REQUEST_SCHEMA,targetYear,locationId:selectedLocation.id,localDateTime:{year,month,day,hour,minute},sex,modelId,...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),...(exactCoordinate.value?{exactCoordinates:exactCoordinate.value}:{}),disambiguation,clockUncertaintySeconds,periodCount:12};
-      let body:ApiAnalysisResponse|undefined;
-      for(let attempt=0;attempt<2&&!body;attempt++){
-        try{
-          const response=await fetch(`${API_BASE}/analysis/calculate`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(requestPayload)});
-          const candidate=await response.json() as ApiAnalysisResponse|ApiErrorResponse;
-          if(response.ok&&"structure" in candidate){body=candidate;break;}
-          const code="error" in candidate?candidate.error.code:"request-failed";
-          if(errorLabels[code])throw new Error(errorLabels[code]);
-        }catch(cause){if(attempt===1)throw cause;}
-        if(attempt===0)await new Promise(resolve=>window.setTimeout(resolve,700));
-      }
-      if(!body)throw new Error("计算服务暂时不可用，请稍后重试。");
-      setResult(body);setActive("命盘");void loadMonthlyCandles(body,requestPayload);
+      const body=await requestFullAnalysis(requestPayload);if(analysisGeneration.current!==generation)return;
+      setResultLocationLabel(selectedLocation.displayName);setAnalysisRequest(requestPayload);setResult(body);setActive("命盘");void loadMonthlyCandles(body,requestPayload,generation);
     } catch (cause) { setMessage(userFacingRequestError(cause,"计算服务暂时不可用，请稍后重试。")); }
-    finally { setSubmitting(false); }
+    finally { if(analysisGeneration.current===generation)setSubmitting(false); }
   }
 
-  async function loadMonthlyCandles(base:ApiAnalysisResponse,payload:ApiAnalysisRequest){
+  async function loadMonthlyCandles(base:ApiAnalysisResponse,payload:ApiAnalysisRequest,generation:number){
     const years=base.annualTrajectory.points.filter(point=>point.status==="unavailable"?point.failureCode==="trajectory-not-loaded":point.monthlyCandle.status==="unavailable"&&point.monthlyCandle.failureCode==="monthly-candle-not-loaded").map(point=>point.year);
     if(years.length===0)return;
     const batches:Readonly<{startYear:number;endYear:number}>[]=[];
@@ -140,15 +154,23 @@ export function AnalysisWorkbench() {
       while(!controller.signal.aborted){
         const batch=batches[nextBatch++];if(!batch)return;
         const body=await requestBatch(batch);if(!body){if(!controller.signal.aborted)failed+=1;continue;}
-        const replacements=new Map(body.annualTrajectory.points.map(point=>[point.year,point]));
-        setResult(current=>current?.requestId===base.requestId?{...current,annualTrajectory:{...current.annualTrajectory,points:current.annualTrajectory.points.map(point=>replacements.get(point.year)??point)}}:current);
+        setResult(current=>current&&analysisGeneration.current===generation?mergeTrajectoryBatch(current,body):current);
       }
     }
     await worker();
-    if(trajectoryAbort.current===controller){trajectoryAbort.current=undefined;setTrajectoryLoading(false);if(failed>0)setMessage(`${failed} 个流月区间暂未完成，图中已保留缺口，可以重新生成后再试。`);}
+    if(trajectoryAbort.current===controller&&analysisGeneration.current===generation){trajectoryAbort.current=undefined;setTrajectoryLoading(false);if(failed>0)setMessage(`${failed} 个流月区间暂未完成，图中已保留缺口，可以重新生成后再试。`);}
   }
 
-  function clearSession(){trajectoryAbort.current?.abort();trajectoryAbort.current=undefined;setTrajectoryLoading(false);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResult(undefined);setSelectedLocation(undefined);setQuery("");setUseExactCoordinates(false);setLatitude("");setLongitude("");setMessage("本次浏览会话中的出生信息和结果已清除。");setActive("命盘")}
+  async function selectAnnualYear(year:number){
+    if(!result||annualSelectingYear!==undefined)return;if(result.annual.targetYear===year){setActive("年度主题");return}
+    if(!analysisRequest){setMessage("当前结果缺少完整的计算请求，请重新生成一次分析。");return}const payload:ApiAnalysisRequest={...analysisRequest,targetYear:year};
+    annualDetailAbort.current?.abort();const controller=new AbortController();annualDetailAbort.current=controller;const generation=analysisGeneration.current;setAnnualSelectingYear(year);setMessage("");
+    try{const detail=await requestFullAnalysis(payload,controller.signal);if(controller.signal.aborted||analysisGeneration.current!==generation)return;setTargetYear(year);setAnalysisRequest(payload);setResult(current=>current?mergeAnnualDetail(current,detail):detail);setActive("年度主题")}
+    catch(cause){if(!controller.signal.aborted)setMessage(userFacingRequestError(cause,`${year} 年度详情暂时无法载入，请稍后重试。`))}
+    finally{if(annualDetailAbort.current===controller){annualDetailAbort.current=undefined;setAnnualSelectingYear(undefined)}}
+  }
+
+  function clearSession(){analysisGeneration.current++;trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();trajectoryAbort.current=undefined;annualDetailAbort.current=undefined;setTrajectoryLoading(false);setAnnualSelectingYear(undefined);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResultLocationLabel(undefined);setAnalysisRequest(undefined);setResult(undefined);setSelectedLocation(undefined);setQuery("");setUseExactCoordinates(false);setLatitude("");setLongitude("");setMessage("本次浏览会话中的出生信息和结果已清除。");setActive("命盘")}
 
   return (
     <div className="workbench live-workbench">
@@ -167,7 +189,7 @@ export function AnalysisWorkbench() {
             {!searching && <small>{inputSummary}</small>}
           </label>
           <label>模型预设<select value={modelId} onChange={(event) => {setModelId(event.target.value as ApiModelId);setModelOverrides({});clearModelSettings()}}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select><small>{modelOverrideCount(modelOverrides)>0?`已应用 ${modelOverrideCount(modelOverrides)} 项自定义权重。`:"使用公开预设参数。"} <a className="inline-link" href="/senfate/models/">调整模型参数</a></small></label>
-          <label>首次展开年度<input type="number" min={Math.max(1850,Number(date.slice(0,4))||1850)} max="2100" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>只决定首先查看哪一年；其余大运、流年和流月轨迹会随后自动生成。</small></label>
+          <label>首次展开年度<input type="number" min={Math.max(1850,Number(date.slice(0,4))||1850)} max="2100" value={targetYear} disabled={Boolean(result)} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>{result?"请在人生轨迹中直接选择其他年份。":"只决定首先查看哪一年；其余大运、流年和流月轨迹会随后自动生成。"}</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
             <label className="coordinate-toggle"><input type="checkbox" checked={useExactCoordinates} onChange={(event)=>setUseExactCoordinates(event.target.checked)}/><span>使用精确出生坐标<small>时区仍由上方规范地点确定；经纬度用于地方视太阳时和边界误差。</small></span></label>
@@ -184,14 +206,14 @@ export function AnalysisWorkbench() {
 
       <section className="result-panel" aria-label="排盘计算结果">
         {!result ? <EmptyResult /> : <>
-          <div className="result-header"><div><span className="step-label">分析结果</span><h2>{selectedLocation?.displayName??result.calendar.location.displayName}命盘</h2><p>{result.calendar.model.label} · {result.calendar.time.timeZone}{result.modelConfiguration.customized?` · ${result.modelConfiguration.overrideCount} 项自定义设置`:""}</p></div><span className="verified-pill">计算完成</span></div>
+          <div className="result-header"><div><span className="step-label">分析结果</span><h2>{resultLocationLabel??result.calendar.location.displayName}命盘</h2><p>{result.calendar.model.label} · {result.calendar.time.timeZone}{result.modelConfiguration.customized?` · ${result.modelConfiguration.overrideCount} 项自定义设置`:""}</p></div><span className="verified-pill">计算完成</span></div>
           <div className="result-tabs" role="tablist" aria-label="结果层级">{tabs.map((tab) => <button role="tab" type="button" aria-selected={active === tab} className={active === tab ? "active" : ""} onClick={() => setActive(tab)} key={tab}>{tab}</button>)}</div>
           <div className="result-body">
             {active === "命盘" && <ChartResult result={result} date={date} time={time} />}
             {active === "结构" && <StructureResult result={result} />}
             {active === "格局与调候" && <InterpretationResult result={result} />}
             {active === "大运" && <LuckResult result={result} />}
-            {active === "人生轨迹" && <LifeTrajectoryResult result={result} loading={trajectoryLoading} />}
+            {active === "人生轨迹" && <LifeTrajectoryResult result={result} loading={trajectoryLoading} selectingYear={annualSelectingYear} onSelectYear={selectAnnualYear} />}
             {active === "年度主题" && <AnnualTopicResult result={result} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
@@ -261,16 +283,17 @@ function LuckResult({ result }: { result: ApiAnalysisResponse }) {
   return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{calendar.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(calendar.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(calendar.luckStartAgeInterval.lower, 3)}—{decimal(calendar.luckStartAgeInterval.upper, 3)}</small></div><p>每一步均累计原局与当步大运，重新计算五行测度、强弱、关系正规形和候选向量。</p></div><div className="luck-grid">{result.luckDynamics.map((period) => { const calendarPeriod = calendar.majorLuck.find((item) => item.ordinal === period.ordinal)!; const supportive = period.interpretation.balancing.candidates.filter((item) => item.status === "supportive").slice(0, 2).map((item) => item.element).join("、") || "无显著项"; return <article key={period.ordinal}><span>第 {period.ordinal} 运 · {strengthLabels[period.strength.state]}</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(calendarPeriod.startUtcMs, calendar.time.timeZone)} · 增益候选 {supportive}</small><em>支持比 {decimal(period.strength.supportRatio * 100, 1)}% · {period.relations.length} 条关系</em></article>; })}</div></div>;
 }
 
-function LifeTrajectoryResult({result,loading}:{result:ApiAnalysisResponse;loading:boolean}){
+function LifeTrajectoryResult({result,loading,selectingYear,onSelectYear}:{result:ApiAnalysisResponse;loading:boolean;selectingYear:number|undefined;onSelectYear:(year:number)=>void}){
   const trajectory=result.annualTrajectory;const points=trajectory.points;const width=Math.max(760,points.length*24+70);const height=300;const plotTop=28;const plotHeight=210;const x=(index:number)=>50+(points.length<=1?0:index*(width-80)/(points.length-1));const y=(value:number)=>plotTop+(1-Math.max(-1,Math.min(1,value)))/2*plotHeight;
-  const stable=points.filter((point):point is Extract<(typeof points)[number],{status:"stable"}>=>point.status==="stable");const pending=points.filter(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded");const candles=stable.filter(point=>point.monthlyCandle.status==="stable");const special=stable.filter(point=>point.specialStateCodes.length>0);const visibleSpecial=[...special].sort((a,b)=>Number(b.year===result.annual.targetYear)-Number(a.year===result.annual.targetYear)||Number(b.specialStateCodes.includes("luck-annual-repeat"))-Number(a.specialStateCodes.includes("luck-annual-repeat"))||a.year-b.year).slice(0,12);const tickEvery=Math.max(1,Math.ceil(points.length/8));
+  const stable=points.filter((point):point is Extract<(typeof points)[number],{status:"stable"}>=>point.status==="stable");const pending=points.filter(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded");const candles=stable.filter(point=>point.monthlyCandle.status==="stable");const special=stable.filter(point=>point.specialStateCodes.length>0);const visibleSpecial=[...special].sort((a,b)=>Number(b.year===result.annual.targetYear)-Number(a.year===result.annual.targetYear)||Number(b.specialStateCodes.includes("luck-annual-repeat"))-Number(a.specialStateCodes.includes("luck-annual-repeat"))||a.year-b.year).slice(0,12);const tickEvery=Math.max(1,Math.ceil(points.length/8));const selectableYears=selectableTrajectoryYears(trajectory);
   return <div className="life-trajectory-result">
-    <div className="trajectory-lead"><div><span>人生状态 K 线</span><h3>{trajectory.startYear}—{trajectory.endYear}</h3></div><p>每个年度累计原局、所属大运和流年；蜡烛的开、高、低、收来自立春起连续十二个流月的逐月重算。绿色主线表示年度综合方向，蓝色虚线表示命局支持结构。</p><div><strong>{candles.length}/{points.length}</strong><span>{loading?"正在生成年度与流月轨迹":candles.length===stable.length&&pending.length===0?"流月影线已生成":"部分流月影线暂缺"}</span><small>{loading?`${pending.length} 个年度正在排队`:`${points.length-stable.length} 个明确缺口`}</small></div></div>
+    <div className="trajectory-lead"><div><span>人生状态 K 线</span><h3>{trajectory.startYear}—{trajectory.endYear}</h3></div><p>每个年度累计原局、所属大运和流年；蜡烛的开、高、低、收来自立春起连续十二个流月的逐月重算。点击任一 K 线即可继续查看该年的六亲、主题与古籍来源。</p><div><strong>{candles.length}/{points.length}</strong><span>{loading?"正在生成年度与流月轨迹":candles.length===stable.length&&pending.length===0?"流月影线已生成":"部分流月影线暂缺"}</span><small>{loading?`${pending.length} 个年度正在排队`:`${points.length-stable.length} 个明确缺口`}</small></div></div>
+    <div className="trajectory-year-control"><label>查看年度<select value={result.annual.targetYear} disabled={selectingYear!==undefined} onChange={event=>onSelectYear(Number(event.target.value))}>{selectableYears.map(year=><option value={year} key={year}>{year} 年</option>)}</select></label><span>{selectingYear===undefined?`${result.annual.targetYear} 年详情已载入`:`正在载入 ${selectingYear} 年的完整分析…`}</span></div>
     <div className="trajectory-chart" role="img" aria-label={`${trajectory.startYear}年至${trajectory.endYear}人生状态轨迹`}><svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
       <line className="trajectory-grid zero" x1="45" x2={width-25} y1={y(0)} y2={y(0)}/><line className="trajectory-grid" x1="45" x2={width-25} y1={y(1)} y2={y(1)}/><line className="trajectory-grid" x1="45" x2={width-25} y1={y(-1)} y2={y(-1)}/>
       <text x="8" y={y(1)+4}>+1</text><text x="18" y={y(0)+4}>0</text><text x="8" y={y(-1)+4}>−1</text>
       {points.slice(1).map((point,index)=>{const previous=points[index];if(point.status!=="stable"||previous?.status!=="stable")return null;return <g key={`segment-${point.year}`}><line className="trajectory-support-segment" x1={x(index)} y1={y(previous.supportRatio*2-1)} x2={x(index+1)} y2={y(point.supportRatio*2-1)}/><line className="trajectory-index-segment" x1={x(index)} y1={y(previous.normalizedTopicIndex)} x2={x(index+1)} y2={y(point.normalizedTopicIndex)}/></g>})}
-      {points.map((point,index)=>{if(point.status!=="stable"){const isPending=point.failureCode==="trajectory-not-loaded";return <g className={isPending?"trajectory-pending":"trajectory-gap"} key={point.year}><line x1={x(index)} x2={x(index)} y1={plotTop} y2={plotTop+plotHeight}/><title>{point.year} · {isPending?"正在计算":"年度不可用"}</title></g>}const candle=point.monthlyCandle;const direction=candle.status==="stable"&&candle.close<candle.open?"negative":"positive";return <g className={`trajectory-candle ${direction} ${point.year===result.annual.targetYear?"selected":""}`} key={point.year}>{candle.status==="stable"?<><line x1={x(index)} x2={x(index)} y1={y(candle.high)} y2={y(candle.low)}/><rect x={x(index)-3} y={Math.min(y(candle.open),y(candle.close))} width="6" height={Math.max(3,Math.abs(y(candle.open)-y(candle.close)))}/></>:<line className="monthly-gap" x1={x(index)} x2={x(index)} y1={y(.08)} y2={y(-.08)}/>}<circle cx={x(index)} cy={y(point.normalizedTopicIndex)} r={point.year===result.annual.targetYear?4:2.5}/>{point.specialStateCodes.length>0&&<path d={`M ${x(index)-5} ${plotTop-4} L ${x(index)+5} ${plotTop-4} L ${x(index)} ${plotTop+5} Z`}/>}<title>{point.year} · {ganZhi(point.luckPillar)}运 / {ganZhi(point.annualPillar)}年 · 年度方向 {decimal(point.normalizedTopicIndex,3)} · {candle.status==="stable"?`流月 开 ${decimal(candle.open,3)} / 高 ${decimal(candle.high,3)} / 低 ${decimal(candle.low,3)} / 收 ${decimal(candle.close,3)}`:"流月序列不可用"}{point.specialStateCodes.length?` · ${point.specialStateCodes.map(code=>specialStateLabels[code]??"特殊状态").join("、")}`:""}</title></g>})}
+      {points.map((point,index)=>{if(point.status!=="stable"){const isPending=point.failureCode==="trajectory-not-loaded";const canOpen=isPending&&selectingYear===undefined;return <g className={`${isPending?"trajectory-pending":"trajectory-gap"} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role={canOpen?"button":undefined} tabIndex={canOpen?0:undefined} aria-label={canOpen?`查看 ${point.year} 年完整分析`:undefined} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}><line x1={x(index)} x2={x(index)} y1={plotTop} y2={plotTop+plotHeight}/><title>{point.year} · {isPending?"年度轨迹正在生成，可先查看完整分析":"年度不可用"}</title></g>}const candle=point.monthlyCandle;const direction=candle.status==="stable"&&candle.close<candle.open?"negative":"positive";const canOpen=selectingYear===undefined;return <g className={`trajectory-candle ${direction} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role="button" tabIndex={canOpen?0:undefined} aria-label={`查看 ${point.year} 年完整分析`} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}>{candle.status==="stable"?<><line x1={x(index)} x2={x(index)} y1={y(candle.high)} y2={y(candle.low)}/><rect x={x(index)-3} y={Math.min(y(candle.open),y(candle.close))} width="6" height={Math.max(3,Math.abs(y(candle.open)-y(candle.close)))}/></>:<line className="monthly-gap" x1={x(index)} x2={x(index)} y1={y(.08)} y2={y(-.08)}/>}<circle cx={x(index)} cy={y(point.normalizedTopicIndex)} r={point.year===result.annual.targetYear?4:2.5}/>{point.specialStateCodes.length>0&&<path d={`M ${x(index)-5} ${plotTop-4} L ${x(index)+5} ${plotTop-4} L ${x(index)} ${plotTop+5} Z`}/>}<title>{point.year} · {ganZhi(point.luckPillar)}运 / {ganZhi(point.annualPillar)}年 · 年度方向 {decimal(point.normalizedTopicIndex,3)} · {candle.status==="stable"?`流月 开 ${decimal(candle.open,3)} / 高 ${decimal(candle.high,3)} / 低 ${decimal(candle.low,3)} / 收 ${decimal(candle.close,3)}`:"流月序列不可用"}{point.specialStateCodes.length?` · ${point.specialStateCodes.map(code=>specialStateLabels[code]??"特殊状态").join("、")}`:""}</title></g>})}
       {points.map((point,index)=>index%tickEvery===0||index===points.length-1?<text className="trajectory-year" x={x(index)} y="274" textAnchor="middle" key={`year-${point.year}`}>{point.year}</text>:null)}
     </svg></div>
     <div className="trajectory-legend"><span><i className="index"></i>年度综合方向</span><span><i className="support"></i>命局支持结构</span><span><b></b>十二流月开高低收</span><span><em></em>特殊状态</span></div>
