@@ -9,7 +9,7 @@ The body is limited to 8 KiB and must use `application/json`.
 Required inputs are a canonical `locationId`, local Gregorian date-time and
 sex. Optional inputs select one of the three published model profiles, clock
 uncertainty, repeated-time disambiguation, period count and exact coordinates.
-The endpoint supports 1900–2035, matching the pinned ephemeris range.
+The endpoint supports 1850–2100, matching the pinned ephemeris range.
 The web workbench exposes the exact-coordinate override inside its time-precision
 controls. The selected canonical location continues to supply the IANA time
 zone; the override changes longitude/latitude and their uncertainty only.
@@ -51,18 +51,35 @@ inference are not added to this stable calendar response.
 ## Natal structure analysis
 
 `POST /senfate/api/v1/analysis/calculate` accepts
-`senfate-analysis-request.v2` and returns `senfate-analysis-response.v6`.
+`senfate-analysis-request.v2` and returns `senfate-analysis-response.v8`.
 The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
 
 The request may include `modelOverrides`. This is a closed, range-validated
-object covering 18 published parameters: natal/luck/annual layer weights,
+object covering 19 published parameters: natal/luck/annual/month layer weights,
 month-command weight, climate and balancing weights, and ten topic-domain
 weights. Unknown fields and values outside 0–4 reject the complete request.
 The server merges accepted values into the selected preset, validates the
-effective `senfate-model-profile.v2`, computes a deterministic fingerprint and
+effective `senfate-model-profile.v3`, computes a deterministic fingerprint and
 recomputes every downstream stage. The response and calculation certificate
 publish the exact override object, count, fingerprint and effective version.
+
+The response includes `senfate-annual-trajectory.v2`. The Worker walks every
+certified Lichun year covered by the requested major-luck sequence, recomputes
+the complete annual normal form and then the twelve flow-month normal forms.
+A stable point contains strength, the ten-domain topic vector, special-state
+codes, and a monthly open/high/low/close candle derived from those twelve samples.
+
+```text
+normalized topic index = signed topic total / topic total variation ∈ [-1, 1].
+```
+
+Monthly samples evaluate the same 4,118 executable functions through a compact
+trajectory certificate; the selected detailed year still receives the complete
+source and event certificate. An ambiguous luck boundary or failed normal form produces an explicit
+`unavailable` point without a synthetic index. If any monthly sample fails, the
+annual point remains available but its monthly candle fails closed. `targetYear` only determines
+which year also receives the full source and contribution certificate.
 
 `GET /senfate/api/v1/models` returns `senfate-model-catalog.v1`, the three
 presets, their effective public parameter values and the authoritative slider
@@ -82,7 +99,9 @@ The response nests the certified calendar and adds:
 - every requested major-luck period recomputed from natal plus luck state,
   including strength, relations, stable normal form and interpretive projection.
 - the selected annual state accumulated from natal, enclosing luck and annual pillars;
-- six kinship role projections;
+- six kinship role projections with visible/hidden atoms, model weights and natal/luck/annual decomposition;
+- a special-state certificate for same luck-year pillars, phase extremes and seven-symbol consensus candidates;
+- the complete covered annual trajectory with explicit unavailable gaps;
 - the complete reference-program disposition ledger, topic contribution
   certificate, signed topic vector and source-level event predicates;
 - event evidence grouped by canonical effect operator and topic domain, with

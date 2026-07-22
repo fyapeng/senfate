@@ -7,7 +7,7 @@ export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
 export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v2" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v6" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v8" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -223,11 +223,35 @@ export interface ApiLuckPhaseAnalysis {
 }
 
 export interface ApiKinshipProjection {
-  readonly schema:"senfate-kinship-projection.v1";
+  readonly schema:"senfate-kinship-projection.v2";
   readonly sex:ApiSex;
   readonly phase:"annual";
   readonly normalFormFingerprint:string;
-  readonly roles:readonly Readonly<{id:"self"|"peers"|"mother"|"father"|"partner"|"children";label:string;primaryTenGods:readonly ApiTenGod[];observedCount:number;observedTenGods:readonly ApiTenGod[]}>[];
+  readonly model:string;
+  readonly roles:readonly Readonly<{
+    id:"self"|"peers"|"mother"|"father"|"partner"|"children";
+    label:string;
+    primaryTenGods:readonly ApiTenGod[];
+    observedCount:number;
+    observedTenGods:readonly ApiTenGod[];
+    visibleCount:number;
+    hiddenCount:number;
+    weightedExposure:number;
+    visibility:"absent"|"latent"|"visible";
+    layerExposure:Readonly<Record<"natal"|"luck"|"annual"|"month",Readonly<{observedCount:number;weightedExposure:number}>>>;
+    evidence:readonly Readonly<{pillarId:string;layer:"natal"|"luck"|"annual"|"month";position:"year"|"month"|"day"|"hour"|"period";stem:string;tenGod:ApiTenGod;source:"visible-stem"|"hidden-stem";hiddenRank?:"main"|"middle"|"residual";weight:number}>[];
+  }>[];
+}
+
+export interface ApiAnnualTrajectory {
+  readonly schema:"senfate-annual-trajectory.v2";
+  readonly startYear:number;
+  readonly endYear:number;
+  readonly indexDefinition:"topic-total-divided-by-total-variation";
+  readonly points:readonly (
+    | Readonly<{status:"stable";year:number;boundaryUtcMs:number;annualPillar:ApiGanZhi;luckOrdinal:number;luckPillar:ApiGanZhi;strength:ApiStrengthClass;supportRatio:number;normalizedTopicIndex:number;domainRange:Readonly<{lower:number;upper:number}>;monthlyCandle:Readonly<{status:"stable";samples:12;open:number;high:number;low:number;close:number;sampleFingerprints:readonly string[]}|{status:"unavailable";samples:number;failureCode:string;reason:string}>;topicVector:Readonly<Record<ApiTopicDomain,number>>;activated:number;normalFormFingerprint:string;specialStateCodes:readonly ("luck-annual-repeat"|"phase-very-weak"|"phase-very-strong"|"natal-seven-supportive"|"natal-seven-pressuring")[]}>
+    | Readonly<{status:"unavailable";year:number;boundaryUtcMs:number;failureCode:string;reason:string}>
+  )[];
 }
 export interface ApiTopicContributionCertificate {
   readonly schema:"senfate-topic-contribution-certificate.v4";
@@ -276,6 +300,7 @@ export interface ApiAnalysisResponse {
   }>;
   readonly interpretation: ApiInterpretation;
   readonly luckDynamics: readonly ApiLuckPhaseAnalysis[];
+  readonly annualTrajectory:ApiAnnualTrajectory;
   readonly annual:Readonly<{
     schema:"senfate-annual-analysis.v1";
     targetYear:number;
@@ -289,6 +314,13 @@ export interface ApiAnalysisResponse {
     relations:readonly ApiResolvedRelation[];
     normalForm:Readonly<{status:"stable";iterations:number;fingerprint:string;trace:readonly string[]}>;
     interpretation:ApiInterpretation;
+    specialStates:Readonly<{
+      schema:"senfate-special-state-certificate.v1";
+      phase:"annual";
+      normalFormFingerprint:string;
+      natalSevenSymbolConsensus:Readonly<{status:"all-support"|"all-pressure"|"mixed";supportCount:number;pressureCount:number;total:7}>;
+      signals:readonly Readonly<{code:"luck-annual-repeat"|"phase-very-weak"|"phase-very-strong"|"natal-seven-supportive"|"natal-seven-pressuring";label:string;scope:"natal"|"luck"|"annual";evidence:readonly string[]}>[];
+    }>;
     kinship:ApiKinshipProjection;
     topics:ApiTopicContributionCertificate;
   }>;

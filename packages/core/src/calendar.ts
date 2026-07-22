@@ -79,15 +79,16 @@ export function compileBaziCalendar(input:CivilBirthInput,profile:CalendarProfil
   if(dateParts(shiftedLower).join("-")!==dateParts(shiftedUpper).join("-")) return {ok:false,code:"boundary-ambiguous",reason:"Input uncertainty crosses the configured day boundary",certificate:cert};
   const [dayYear,dayMonth,dayDate]=dateParts(shiftedLower); const dayPillar=sexagenary(gregorianJdn(dayYear,dayMonth,dayDate)+49);
   const yearPillar=sexagenary(terms.baziYear-4); const yearStemIndex=STEMS.indexOf(yearPillar.stem);
-  const monthStemIndex=modulo((yearStemIndex%5)*2+2+terms.monthOrdinal,10); const monthBranchIndex=modulo(2+terms.monthOrdinal,12);
-  const monthPillarIndex=sexagenaryIndexFromComponents(monthStemIndex,monthBranchIndex);
+  const monthPillar=baziMonthPillar(terms.baziYear,terms.monthOrdinal);const monthPillarIndex=sexagenaryIndexFromComponents(STEMS.indexOf(monthPillar.stem),BRANCHES.indexOf(monthPillar.branch));
   const hourBranchAt=(ms:number)=>modulo(Math.floor((new Date(ms).getUTCHours()+1)/2),12);
   const hbLower=hourBranchAt(calcLower); const hbUpper=hourBranchAt(calcUpper); if(hbLower!==hbUpper)return{ok:false,code:"boundary-ambiguous",reason:"Input uncertainty crosses a two-hour branch boundary",certificate:cert};
   const hourStemIndex=modulo((STEMS.indexOf(dayPillar.stem)%5)*2+hbLower,10); const hourPillarIndex=sexagenaryIndexFromComponents(hourStemIndex,hbLower);
   const yangYear=yearStemIndex%2===0; const direction=(yangYear&&sex==="male")||(!yangYear&&sex==="female")?"forward":"reverse";
   const intervalMs=direction==="forward"?terms.nextJieUtcMs-n.civilUtcMs:n.civilUtcMs-terms.previousJieUtcMs; const luckStartAgeYears=intervalMs/86_400_000/3;const termUncertaintySeconds=direction==="forward"?(terms.nextJieUncertaintySeconds??0):(terms.previousJieUncertaintySeconds??0);const luckAgeUncertaintyYears=(termUncertaintySeconds+n.uncertaintySeconds)/86_400/3;const luckStartAgeInterval=interval(Math.max(0,luckStartAgeYears-luckAgeUncertaintyYears),luckStartAgeYears+luckAgeUncertaintyYears,"years");
   const majorLuck=Array.from({length:periodCount},(_,index)=>{const ordinal=index+1; const pillar=sexagenary(monthPillarIndex+(direction==="forward"?ordinal:-ordinal)); const startAgeYears=luckStartAgeYears+index*10;const startAgeInterval=interval(luckStartAgeInterval.lower+index*10,luckStartAgeInterval.upper+index*10,"years");const startUtcMs=n.civilUtcMs+startAgeYears*365.2425*86_400_000;const startUtcUncertaintyMs=n.uncertaintySeconds*1000+luckAgeUncertaintyYears*365.2425*86_400_000;return{ordinal,pillar,startAgeYears,startAgeInterval,startUtcMs,startUtcInterval:interval(startUtcMs-startUtcUncertaintyMs,startUtcMs+startUtcUncertaintyMs,"unix-ms")};});
-  return{ok:true,value:{normalizedTime:n,pillars:{year:yearPillar,month:sexagenary(monthPillarIndex),day:dayPillar,hour:sexagenary(hourPillarIndex)},direction,luckStartAgeYears,luckStartAgeInterval,majorLuck},certificate:{...cert,dayCycleAnchor:"JDN+49 mod 60",luckConversion:"3 days = 1 year",luckAgeUncertaintyYears,termWindow:terms}};
+  return{ok:true,value:{normalizedTime:n,pillars:{year:yearPillar,month:monthPillar,day:dayPillar,hour:sexagenary(hourPillarIndex)},direction,luckStartAgeYears,luckStartAgeInterval,majorLuck},certificate:{...cert,dayCycleAnchor:"JDN+49 mod 60",luckConversion:"3 days = 1 year",luckAgeUncertaintyYears,termWindow:terms}};
 }
+
+export function baziMonthPillar(baziYear:number,monthOrdinal:number):GanZhi{const yearStemIndex=STEMS.indexOf(sexagenary(baziYear-4).stem);const stemIndex=modulo((yearStemIndex%5)*2+2+monthOrdinal,10);const branchIndex=modulo(2+monthOrdinal,12);return sexagenary(sexagenaryIndexFromComponents(stemIndex,branchIndex))}
 
 function sexagenaryIndexFromComponents(stemIndex:number,branchIndex:number):number{for(let index=modulo(stemIndex,10);index<60;index+=10)if(index%12===modulo(branchIndex,12))return index;throw new Error("Stem and branch parity mismatch")}

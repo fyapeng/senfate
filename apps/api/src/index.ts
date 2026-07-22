@@ -10,6 +10,7 @@ import {
   LOCATION_SEARCH_SCHEMA,
   MODEL_CATALOG_SCHEMA,
   type ApiAnalysisResponse,
+  type ApiAnnualTrajectory,
   type ApiCalendarRequest,
   type ApiCalendarResponse,
   type ApiErrorResponse,
@@ -22,7 +23,7 @@ import {
   type ApiModelId,
   type ApiModelOverrides,
 } from "@senfate/contracts";
-import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TIME_ZONE_PROVIDER, TRANSPARENT_BASELINE_MODEL, TZDB_VERSION, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
+import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, baziMonthPillar, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, materializeSpecialStateCertificate, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TIME_ZONE_PROVIDER, TRANSPARENT_BASELINE_MODEL, TZDB_VERSION, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
 import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
@@ -49,6 +50,10 @@ const MODELS: Readonly<Record<ApiModelId, SenFateModelProfile>> = {
   "climate-priority": CLIMATE_PRIORITY_MODEL,
 };
 const SOLAR_TERM_BY_UTC = new Map(SOLAR_TERM_ENTRIES.map((term) => [term.utcMs, term]));
+const LICHUN_BY_YEAR = new Map(SOLAR_TERM_ENTRIES.filter(term=>term.longitude===315).map(term=>[new Date(term.utcMs).getUTCFullYear(),term.utcMs]));
+const PUBLIC_START_YEAR=1850;const PUBLIC_END_YEAR=2100;
+const JIE_MONTH_ORDINAL:Readonly<Record<number,number>>={315:0,345:1,15:2,45:3,75:4,105:5,135:6,165:7,195:8,225:9,255:10,285:11};
+function monthBoundaries(year:number):readonly Readonly<{boundaryUtcMs:number;monthOrdinal:number}>[]{const start=LICHUN_BY_YEAR.get(year),end=LICHUN_BY_YEAR.get(year+1);if(start===undefined||end===undefined)return[];return SOLAR_TERM_ENTRIES.filter(term=>term.kind==="jie"&&term.utcMs>=start&&term.utcMs<end).map(term=>({boundaryUtcMs:term.utcMs,monthOrdinal:JIE_MONTH_ORDINAL[term.longitude]!})).filter(item=>item.monthOrdinal!==undefined)}
 
 interface LocationRow {
   readonly id: number;
@@ -175,7 +180,7 @@ function parseModelOverrides(value:unknown):ApiModelOverrides|undefined{
 function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
   if (!isRecord(value) || !hasOnlyKeys(value,["schemaVersion","locationId","localDateTime","sex","modelId","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion !== CALENDAR_REQUEST_SCHEMA || !integerIn(value.locationId, 1, Number.MAX_SAFE_INTEGER)) return undefined;
   const local = value.localDateTime;
-  if (!isRecord(local) || !hasOnlyKeys(local,["year","month","day","hour","minute","second"])||!integerIn(local.year, 1900, 2035) || !integerIn(local.month, 1, 12) || !integerIn(local.day, 1, 31) || !integerIn(local.hour, 0, 23) || !integerIn(local.minute, 0, 59) || (local.second !== undefined && !integerIn(local.second, 0, 59))) return undefined;
+  if (!isRecord(local) || !hasOnlyKeys(local,["year","month","day","hour","minute","second"])||!integerIn(local.year, PUBLIC_START_YEAR, PUBLIC_END_YEAR) || !integerIn(local.month, 1, 12) || !integerIn(local.day, 1, 31) || !integerIn(local.hour, 0, 23) || !integerIn(local.minute, 0, 59) || (local.second !== undefined && !integerIn(local.second, 0, 59))) return undefined;
   if (value.sex !== "female" && value.sex !== "male") return undefined;
   if (value.modelId !== undefined && !isModelId(value.modelId)) return undefined;
   if (value.disambiguation !== undefined && !isDisambiguation(value.disambiguation)) return undefined;
@@ -201,7 +206,7 @@ function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
 }
 
 function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number;modelOverrides:ApiModelOverrides}>|undefined{
-  if(!isRecord(value)||!hasOnlyKeys(value,["schemaVersion","targetYear","locationId","localDateTime","sex","modelId","modelOverrides","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,1900,2035))return undefined;
+  if(!isRecord(value)||!hasOnlyKeys(value,["schemaVersion","targetYear","locationId","localDateTime","sex","modelId","modelOverrides","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,PUBLIC_START_YEAR,PUBLIC_END_YEAR))return undefined;
   const modelOverrides=value.modelOverrides===undefined?{}:parseModelOverrides(value.modelOverrides);if(!modelOverrides)return undefined;
   const calendar=parseCalendarRequest({schemaVersion:CALENDAR_REQUEST_SCHEMA,locationId:value.locationId,localDateTime:value.localDateTime,sex:value.sex,modelId:value.modelId,disambiguation:value.disambiguation,clockUncertaintySeconds:value.clockUncertaintySeconds,periodCount:value.periodCount,exactCoordinates:value.exactCoordinates});
   return calendar?{calendar,targetYear:value.targetYear,modelOverrides}:undefined;
@@ -315,7 +320,25 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     if(!annualResult.ok)return error(requestId,422,annualResult.code,annualResult.reason);
     const annualInterpretation=evaluateInterpretiveModel(value.calendar.pillars,annualResult.value.normalForm.dynamicState.strength,annualResult.value.normalForm.dynamicState.elementMeasure,annualResult.value.normalForm,model);
     if(!annualInterpretation.ok)return error(requestId,422,annualInterpretation.code,annualInterpretation.reason);
-    const kinship=materializeKinshipProjection(annualResult.value.normalForm,input.sex);
+    const kinshipResult=materializeKinshipProjection(annualResult.value.normalForm,input.sex,model);
+    if(!kinshipResult.ok)return error(requestId,422,kinshipResult.code,kinshipResult.reason);
+    const kinship=kinshipResult.value;
+    const specialStates=materializeSpecialStateCertificate(annualResult.value.normalForm);
+    const trajectoryPoints:ApiAnnualTrajectory["points"][number][]=[];
+    for(const[year,boundaryUtcMs]of LICHUN_BY_YEAR){
+      if(year<input.localDateTime.year||year>PUBLIC_END_YEAR)continue;
+      const context=year===analysisInput!.targetYear?annualContext:resolveAnnualContext(year,boundaryUtcMs,value.calendar.majorLuck);
+      if(!context.ok){if(context.code==="target-before-major-luck"||context.code==="target-after-major-luck-range")continue;trajectoryPoints.push({status:"unavailable",year,boundaryUtcMs,failureCode:context.code,reason:context.reason});continue}
+      const calculation=year===analysisInput!.targetYear?annualResult:referenceRuntime.calculate({natal:value.calendar.pillars,luck:context.value.luckPeriod.pillar,annual:context.value.annualPillar,luckDirection:value.calendar.direction,sex:input.sex});
+      if(!calculation.ok){trajectoryPoints.push({status:"unavailable",year,boundaryUtcMs,failureCode:calculation.code,reason:calculation.reason});continue}
+      const contribution=calculation.value.topicCertificate.contribution;const scale=contribution.totalVariation;const topicVector=contribution.atoms;const normalized=Object.values(topicVector).map(item=>scale>0?item/scale:0);const pointSpecialStates=year===analysisInput!.targetYear?specialStates:materializeSpecialStateCertificate(calculation.value.normalForm);
+      const boundaries=monthBoundaries(year);const monthlyIndexes:number[]=[];const monthlyFingerprints:string[]=[];let monthlyFailure:Readonly<{code:string;reason:string}>|undefined;
+      if(boundaries.length!==12)monthlyFailure={code:"monthly-boundary-unavailable",reason:"The certified twelve-month jie sequence is incomplete"};
+      else for(const month of boundaries){const monthly=referenceRuntime.calculateTrajectorySample({natal:value.calendar.pillars,luck:context.value.luckPeriod.pillar,annual:context.value.annualPillar,month:baziMonthPillar(year,month.monthOrdinal),luckDirection:value.calendar.direction,sex:input.sex});if(!monthly.ok){monthlyFailure={code:monthly.code,reason:monthly.reason};break}const monthlyContribution=monthly.value.contribution;monthlyIndexes.push(monthlyContribution.totalVariation>0?monthlyContribution.total/monthlyContribution.totalVariation:0);monthlyFingerprints.push(monthly.value.normalFormFingerprint)}
+      const monthlyCandle:Extract<ApiAnnualTrajectory["points"][number],{status:"stable"}>["monthlyCandle"]=monthlyFailure?{status:"unavailable",samples:monthlyIndexes.length,failureCode:monthlyFailure.code,reason:monthlyFailure.reason}:{status:"stable",samples:12,open:monthlyIndexes[0]!,high:Math.max(...monthlyIndexes),low:Math.min(...monthlyIndexes),close:monthlyIndexes.at(-1)!,sampleFingerprints:monthlyFingerprints};
+      trajectoryPoints.push({status:"stable",year,boundaryUtcMs,annualPillar:context.value.annualPillar,luckOrdinal:context.value.luckPeriod.ordinal,luckPillar:context.value.luckPeriod.pillar,strength:calculation.value.normalForm.dynamicState.strength.state,supportRatio:calculation.value.normalForm.dynamicState.strength.supportRatio,normalizedTopicIndex:scale>0?contribution.total/scale:0,domainRange:{lower:Math.min(0,...normalized),upper:Math.max(0,...normalized)},monthlyCandle,topicVector,activated:calculation.value.topicCertificate.activated,normalFormFingerprint:calculation.value.normalForm.fingerprint,specialStateCodes:pointSpecialStates.signals.map(signal=>signal.code)});
+    }
+    const trajectory:ApiAnnualTrajectory={schema:"senfate-annual-trajectory.v2",startYear:trajectoryPoints[0]?.year??analysisInput!.targetYear,endYear:trajectoryPoints.at(-1)?.year??analysisInput!.targetYear,indexDefinition:"topic-total-divided-by-total-variation",points:trajectoryPoints};
     const analysis: ApiAnalysisResponse = {
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,
@@ -354,8 +377,9 @@ async function calculate(request: Request, requestId: string, locations: Locatio
         relations: apiRelations(item.normalForm),
         normalForm: { status: item.normalForm.status, iterations: item.normalForm.iterations, fingerprint: item.normalForm.fingerprint, trace: item.normalForm.trace },
       })),
-      annual:{schema:"senfate-annual-analysis.v1",targetYear:annualContext.value.targetYear,convention:annualContext.value.convention,boundaryUtcMs:annualContext.value.boundaryUtcMs,annualPillar:annualContext.value.annualPillar,luckOrdinal:annualContext.value.luckPeriod.ordinal,luckPillar:annualContext.value.luckPeriod.pillar,elementMeasure:annualResult.value.normalForm.dynamicState.elementMeasure,strength:annualResult.value.normalForm.dynamicState.strength,relations:apiRelations(annualResult.value.normalForm),normalForm:{status:annualResult.value.normalForm.status,iterations:annualResult.value.normalForm.iterations,fingerprint:annualResult.value.normalForm.fingerprint,trace:annualResult.value.normalForm.trace},interpretation:annualInterpretation.value,kinship:{...kinship,phase:"annual"},topics:{...annualResult.value.topicCertificate,phase:"annual"}},
-      certificate: { functional: "api.annual-reference-analysis", modelConfiguration:{baseModelId:modelId,effectiveVersion:model.version,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate },
+      annualTrajectory:trajectory,
+      annual:{schema:"senfate-annual-analysis.v1",targetYear:annualContext.value.targetYear,convention:annualContext.value.convention,boundaryUtcMs:annualContext.value.boundaryUtcMs,annualPillar:annualContext.value.annualPillar,luckOrdinal:annualContext.value.luckPeriod.ordinal,luckPillar:annualContext.value.luckPeriod.pillar,elementMeasure:annualResult.value.normalForm.dynamicState.elementMeasure,strength:annualResult.value.normalForm.dynamicState.strength,relations:apiRelations(annualResult.value.normalForm),normalForm:{status:annualResult.value.normalForm.status,iterations:annualResult.value.normalForm.iterations,fingerprint:annualResult.value.normalForm.fingerprint,trace:annualResult.value.normalForm.trace},interpretation:annualInterpretation.value,specialStates:{...specialStates,phase:"annual"},kinship:{...kinship,phase:"annual"},topics:{...annualResult.value.topicCertificate,phase:"annual"}},
+      certificate: { functional: "api.annual-reference-analysis", modelConfiguration:{baseModelId:modelId,effectiveVersion:model.version,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate,kinship:kinshipResult.certificate,specialStates:{schema:specialStates.schema,normalFormFingerprint:specialStates.normalFormFingerprint,signalCount:specialStates.signals.length},annualTrajectory:{schema:trajectory.schema,startYear:trajectory.startYear,endYear:trajectory.endYear,stable:trajectory.points.filter(point=>point.status==="stable").length,unavailable:trajectory.points.filter(point=>point.status==="unavailable").length,indexDefinition:trajectory.indexDefinition} },
     };
     return json(analysis);
   }

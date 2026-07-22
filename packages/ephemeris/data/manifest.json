@@ -1,14 +1,14 @@
 {
   "schema": "senfate-ephemeris-manifest.v1",
   "table": "solar-terms.jpl-de441.v1.json",
-  "sha256": "28507233f62547464e3b630a825c1d5d34b8f77f9a6b98b5a500fca9d60635f7",
-  "bytes": 121724,
-  "terms": 3264,
-  "startYear": 1900,
-  "endYear": 2035,
+  "sha256": "a1db612da8a228a93c7e79f2ec9b639f68b8fdc47d6073ebb04d0755792a00eb",
+  "bytes": 230120,
+  "terms": 6072,
+  "startYear": 1849,
+  "endYear": 2101,
   "provider": "NASA/JPL Horizons",
   "sourceEphemeris": "DE441",
-  "generatedAt": "2026-07-22T10:23:31.901Z",
+  "generatedAt": "2026-07-22T13:52:24.627Z",
   "query": {
     "target": "Sun (10)",
     "center": "Earth geocenter (500@399)",
@@ -19,5 +19,5 @@
     "apparent": "airless"
   },
   "sourceUrl": "https://ssd.jpl.nasa.gov/api/horizons.api",
-  "reproduction": "NODE_USE_ENV_PROXY=1 pnpm --filter @senfate/ephemeris generate:solar-terms -- 1900 2035"
+  "reproduction": "NODE_USE_ENV_PROXY=1 pnpm --filter @senfate/ephemeris generate:solar-terms -- 1849 2101"
 }

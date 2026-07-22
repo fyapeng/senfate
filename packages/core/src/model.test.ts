@@ -1,2 +1,32 @@
-import{describe,expect,it}from"vitest";import{applyPublicModelOverrides,MODEL_PRESETS,serializeModelProfile,TRANSPARENT_BASELINE_MODEL,validateModelProfile}from"./model";
-describe("model profiles",()=>{it("validates every built-in preset",()=>{for(const profile of MODEL_PRESETS)expect(validateModelProfile(profile)).toEqual([])});it("uses canonical serialization",()=>{const serialized=serializeModelProfile(TRANSPARENT_BASELINE_MODEL);expect(serialized).toContain('"schema":"senfate-model-profile.v2"');expect(serialized).toBe(serializeModelProfile(TRANSPARENT_BASELINE_MODEL))});it("rejects unordered strength thresholds",()=>{const invalid={...TRANSPARENT_BASELINE_MODEL,strength:{...TRANSPARENT_BASELINE_MODEL.strength,thresholds:{veryWeakUpper:.5,weakUpper:.4,strongLower:.6,veryStrongLower:.8}}};expect(validateModelProfile(invalid)).toContainEqual({path:"strength.thresholds",message:"Strength thresholds must be strictly increasing"})});it("applies deterministic bounded public overrides without mutating the preset",()=>{const overrides={temporalLayers:{annual:1.5},topics:{domainWeights:{career:2}}};const first=applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL,overrides);const second=applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL,{topics:{domainWeights:{career:2}},temporalLayers:{annual:1.5}});expect(first.fingerprint).toBe(second.fingerprint);expect(first.count).toBe(2);expect(first.profile.temporalLayers.annual).toBe(1.5);expect(first.profile.topics.domainWeights.career).toBe(2);expect(first.profile.version).toContain(first.fingerprint);expect(TRANSPARENT_BASELINE_MODEL.temporalLayers.annual).toBe(1);expect(()=>applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL,{temporalLayers:{annual:4.1}})).toThrow("Invalid public model overrides")})});
+import { describe, expect, it } from "vitest";
+import { applyPublicModelOverrides, MODEL_PRESETS, serializeModelProfile, TRANSPARENT_BASELINE_MODEL, validateModelProfile } from "./model";
+
+describe("model profiles", () => {
+  it("validates every built-in preset", () => {
+    for (const profile of MODEL_PRESETS) expect(validateModelProfile(profile)).toEqual([]);
+  });
+
+  it("uses canonical serialization", () => {
+    const serialized = serializeModelProfile(TRANSPARENT_BASELINE_MODEL);
+    expect(serialized).toContain('"schema":"senfate-model-profile.v3"');
+    expect(serialized).toBe(serializeModelProfile(TRANSPARENT_BASELINE_MODEL));
+  });
+
+  it("rejects unordered strength thresholds", () => {
+    const invalid = { ...TRANSPARENT_BASELINE_MODEL, strength: { ...TRANSPARENT_BASELINE_MODEL.strength, thresholds: { veryWeakUpper: .5, weakUpper: .4, strongLower: .6, veryStrongLower: .8 } } };
+    expect(validateModelProfile(invalid)).toContainEqual({ path: "strength.thresholds", message: "Strength thresholds must be strictly increasing" });
+  });
+
+  it("applies deterministic bounded public overrides without mutating the preset", () => {
+    const overrides = { temporalLayers: { annual: 1.5 }, topics: { domainWeights: { career: 2 } } };
+    const first = applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL, overrides);
+    const second = applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL, { topics: { domainWeights: { career: 2 } }, temporalLayers: { annual: 1.5 } });
+    expect(first.fingerprint).toBe(second.fingerprint);
+    expect(first.count).toBe(2);
+    expect(first.profile.temporalLayers.annual).toBe(1.5);
+    expect(first.profile.topics.domainWeights.career).toBe(2);
+    expect(first.profile.version).toContain(first.fingerprint);
+    expect(TRANSPARENT_BASELINE_MODEL.temporalLayers.annual).toBe(1);
+    expect(() => applyPublicModelOverrides(TRANSPARENT_BASELINE_MODEL, { temporalLayers: { annual: 4.1 } })).toThrow("Invalid public model overrides");
+  });
+});

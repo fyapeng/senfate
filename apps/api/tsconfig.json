@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": { "types": ["vitest/globals", "./src/env.d.ts"] },
+  "compilerOptions": { "types": ["vitest/globals", "./src/env.d.ts"], "allowImportingTsExtensions": true },
   "include": ["src"]
 }

@@ -4,7 +4,7 @@
 
 The pinned table uses NASA/JPL Horizons DE441 output for the Sun observed from the Earth geocenter. The requested quantity is observer-centered IAU76/80 ecliptic-of-date apparent longitude (`ObsEcLon`, quantity 31), with light-time, gravitational deflection and stellar aberration included and atmospheric refraction disabled.
 
-This matches the Horizons convention for determining Earth seasonal boundaries. The table covers 1900–2035 and contains all 3,264 crossings at multiples of 15 degrees.
+This matches the Horizons convention for determining Earth seasonal boundaries. The public calculation domain is 1850–2100. The pinned table retains 1849 and 2101 as boundary buffers and contains all 6,072 crossings at multiples of 15 degrees.
 
 ## Generation
 
@@ -12,7 +12,7 @@ The generator requests six-hour samples in ten-year blocks and linearly solves e
 
 ```text
 NODE_USE_ENV_PROXY=1 pnpm --filter @senfate/ephemeris \
-  generate:solar-terms -- 1900 2035
+  generate:solar-terms -- 1849 2101
 ```
 
 The manifest records the DE441 source, query settings, generation time, byte size and SHA-256 digest. CI checks the digest and table structure.

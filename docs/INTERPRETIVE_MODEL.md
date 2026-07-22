@@ -41,5 +41,5 @@ or below the configured decision threshold become `supportive` or `avoid`;
 the remainder stay `neutral`. The API describes this output as a balancing
 candidate vector and does not label it a final useful-god decision.
 
-All parameters live in `senfate-model-profile.v2`. The response certificate
+All parameters live in `senfate-model-profile.v3`. The response certificate
 records the model version and upstream normal-form fingerprint.
