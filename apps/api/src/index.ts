@@ -2,10 +2,12 @@ import {
   API_HEALTH_SCHEMA,
   API_META_SCHEMA,
   API_PREFIX,
+  ANALYSIS_RESPONSE_SCHEMA,
   CALENDAR_REQUEST_SCHEMA,
   CALENDAR_RESPONSE_SCHEMA,
   LOCATION_DETAIL_SCHEMA,
   LOCATION_SEARCH_SCHEMA,
+  type ApiAnalysisResponse,
   type ApiCalendarRequest,
   type ApiCalendarResponse,
   type ApiErrorResponse,
@@ -16,7 +18,7 @@ import {
   type ApiMetaResponse,
   type ApiModelId,
 } from "@senfate/contracts";
-import { CLIMATE_PRIORITY_MODEL, MONTH_COMMAND_MODEL, TRANSPARENT_BASELINE_MODEL, type SenFateModelProfile } from "@senfate/core";
+import { analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, MONTH_COMMAND_MODEL, TRANSPARENT_BASELINE_MODEL, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
 
@@ -185,7 +187,7 @@ async function readBoundedJson(request: Request): Promise<unknown> {
   try { return JSON.parse(new TextDecoder().decode(bytes)); } catch { throw new Error("invalid-json"); }
 }
 
-async function calculateCalendar(request: Request, requestId: string, locations?: LocationStore): Promise<Response> {
+async function calculate(request: Request, requestId: string, locations: LocationStore | undefined, includeStructure: boolean): Promise<Response> {
   if (!locations) return error(requestId, 503, "location-index-unavailable", "The canonical location index is unavailable");
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return error(requestId, 415, "unsupported-media-type", "Use application/json");
   let raw: unknown;
@@ -253,6 +255,47 @@ async function calculateCalendar(request: Request, requestId: string, locations?
     },
     certificate: result.certificate,
   };
+  if (includeStructure) {
+    const structureResult = analyzeNatalStructure(value.calendar.pillars, model);
+    if (!structureResult.ok) return error(requestId, 422, structureResult.code, structureResult.reason);
+    const structure = structureResult.value;
+    const analysis: ApiAnalysisResponse = {
+      schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
+      requestId,
+      calendar: body,
+      structure: {
+        schema: structure.schema,
+        dayMaster: structure.dayMaster,
+        pillars: structure.pillars,
+        elementMeasure: structure.strength.elementMeasure.measure,
+        strength: {
+          state: structure.strength.state,
+          supportRatio: structure.strength.supportRatio,
+          support: structure.strength.support,
+          pressure: structure.strength.pressure,
+          decomposition: structure.strength.decomposition,
+        },
+        rootExposure: structure.strength.rootExposure,
+        relations: structure.normalForm.relations.map((relation) => ({
+          id: relation.id,
+          kind: relation.candidate.kind,
+          members: relation.candidate.members,
+          ...(relation.candidate.targetElement ? { targetElement: relation.candidate.targetElement } : {}),
+          status: relation.status,
+          score: relation.score,
+          competingIds: relation.competingIds,
+        })),
+        normalForm: {
+          status: structure.normalForm.status,
+          iterations: structure.normalForm.iterations,
+          fingerprint: structure.normalForm.fingerprint,
+          trace: structure.normalForm.trace,
+        },
+      },
+      certificate: { functional: "api.natal-analysis", calendar: result.certificate, structure: structureResult.certificate },
+    };
+    return json(analysis);
+  }
   return json(body);
 }
 
@@ -262,9 +305,14 @@ export async function handleRequest(request: Request, locations?: LocationStore)
   const { pathname } = url;
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: JSON_HEADERS });
   const calendarPath = pathname === `${API_PREFIX}/calendar/calculate` || pathname === "/calendar/calculate";
+  const analysisPath = pathname === `${API_PREFIX}/analysis/calculate` || pathname === "/analysis/calculate";
+  if (analysisPath) {
+    if (request.method !== "POST") return error(requestId, 405, "method-not-allowed", "Use POST for natal structure analysis");
+    return calculate(request, requestId, locations, true);
+  }
   if (calendarPath) {
     if (request.method !== "POST") return error(requestId, 405, "method-not-allowed", "Use POST for calendar calculation");
-    return calculateCalendar(request, requestId, locations);
+    return calculate(request, requestId, locations, false);
   }
   if (request.method !== "GET") return error(requestId, 405, "method-not-allowed", "Use GET for this resource");
   if (pathname === `${API_PREFIX}/health` || pathname === "/health") {
@@ -274,7 +322,7 @@ export async function handleRequest(request: Request, locations?: LocationStore)
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "calendar-public-beta",
+      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "structure-public-beta",
     };
     return json(body);
   }

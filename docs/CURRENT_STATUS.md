@@ -30,6 +30,8 @@
 - certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
+- certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
+- additive `senfate-analysis-response.v1` API and live structure-analysis result tab.
 
 ## Recomputed reference disposition
 
@@ -47,10 +49,10 @@ These are compiler dispositions produced from structural completeness, source ro
 ## Open dependencies
 
 - pinned production tzdb distribution and exact-coordinate input UI;
-- root/exposure, strength, pattern, climate and balancing model profiles;
+- pattern, climate and balancing functionals beyond the existing root/exposure and strength profiles;
 - structure, pattern, climate and balancing rewrite operators beyond relation resolution;
 - semantic review of feature equivalence for the full executable reference set;
 - event ontology and empirical validation contracts;
 - full structure and topic inference exposure through the public API.
 
-The Calendar Engine is publicly available at `POST /senfate/api/v1/calendar/calculate`. It requires a certified solar-term window and never estimates a nearby term to continue silently. The public workbench currently ends at four pillars and major luck; structure and topic inference remain withheld until their executable rule set has completed semantic review.
+The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. The additive `POST /senfate/api/v1/analysis/calculate` route returns the same certified calendar plus deterministic ontology expansion, profiled five-element and strength evaluation, and a stable natal relation normal form. Pattern, climate, balancing, topic and event output remain withheld until their corresponding functionals and executable rule semantics complete review.

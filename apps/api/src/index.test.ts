@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import type { ApiCalendarResponse, ApiLocation } from "@senfate/contracts";
+import type { ApiAnalysisResponse, ApiCalendarResponse, ApiLocation } from "@senfate/contracts";
 import { handleRequest, type LocationStore } from "./index";
 
 const beijing: ApiLocation = {
@@ -12,7 +12,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v2", calculationStatus: "calendar-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v3", calculationStatus: "structure-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -66,5 +66,26 @@ describe("SenFate API", () => {
     expect(malformed.status).toBe(400);
     const wrongMethod = await handleRequest(new Request("https://example.test/calendar/calculate"), store);
     expect(wrongMethod.status).toBe(405);
+  });
+
+  it("returns a stable natal structure analysis without changing the calendar contract", async () => {
+    const response = await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/calculate", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ schemaVersion: "senfate-calendar-request.v1", locationId: beijing.id, localDateTime: { year: 2000, month: 2, day: 10, hour: 12, minute: 0 }, sex: "male" }),
+    }), store);
+    expect(response.status).toBe(200);
+    const body = await response.json() as ApiAnalysisResponse;
+    expect(body).toMatchObject({
+      schemaVersion: "senfate-analysis-response.v1",
+      calendar: { schemaVersion: "senfate-calendar-response.v1", pillars: { day: { stem: "戊", branch: "戌" } } },
+      structure: {
+        schema: "senfate-natal-structure-analysis.v1",
+        dayMaster: { stem: "戊", element: "土", polarity: "阳" },
+        pillars: { day: { tenGod: "比肩" } },
+        normalForm: { status: "stable" },
+      },
+    });
+    expect(body.structure.elementMeasure.total).toBeGreaterThan(0);
   });
 });

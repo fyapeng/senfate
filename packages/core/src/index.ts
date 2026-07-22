@@ -1,4 +1,5 @@
 export * from "./algebra";
+export * from "./analysis";
 export * from "./calendar";
 export * from "./model";
 export * from "./lifecycle";
