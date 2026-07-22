@@ -26,6 +26,9 @@ importers:
       '@senfate/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      '@senfate/locations':
+        specifier: workspace:*
+        version: link:../../packages/locations
     devDependencies:
       wrangler:
         specifier: 4.113.0
@@ -62,6 +65,8 @@ importers:
   packages/contracts: {}
 
   packages/core: {}
+
+  packages/locations: {}
 
   packages/rules:
     dependencies:

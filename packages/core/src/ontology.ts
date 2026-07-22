@@ -65,11 +65,11 @@ export function tenGod(dayStem: Stem, observedStem: Stem): TenGod {
   return samePolarity ? "偏印" : "正印";
 }
 
-export type RelationKind = "stem-combine" | "branch-combine" | "branch-clash" | "branch-harm" | "branch-break" | "three-harmony" | "three-meeting";
+export type RelationKind = "stem-combine" | "branch-combine" | "branch-clash" | "branch-harm" | "branch-break" | "branch-punishment" | "three-harmony" | "three-meeting";
 export interface RelationCandidate { readonly kind: RelationKind; readonly members: readonly (Stem | Branch)[]; readonly targetElement?: Element }
 
 const STEM_COMBINES: readonly [Stem,Stem,Element][] = [["甲","己","土"],["乙","庚","金"],["丙","辛","水"],["丁","壬","木"],["戊","癸","火"]];
-const BRANCH_PAIRS: Readonly<Record<Exclude<RelationKind,"stem-combine"|"three-harmony"|"three-meeting">,readonly [Branch,Branch][]>> = {
+const BRANCH_PAIRS: Readonly<Record<Exclude<RelationKind,"stem-combine"|"branch-punishment"|"three-harmony"|"three-meeting">,readonly [Branch,Branch][]>> = {
   "branch-combine":[["子","丑"],["寅","亥"],["卯","戌"],["辰","酉"],["巳","申"],["午","未"]],
   "branch-clash":[["子","午"],["丑","未"],["寅","申"],["卯","酉"],["辰","戌"],["巳","亥"]],
   "branch-harm":[["子","未"],["丑","午"],["寅","巳"],["卯","辰"],["申","亥"],["酉","戌"]],
@@ -77,12 +77,17 @@ const BRANCH_PAIRS: Readonly<Record<Exclude<RelationKind,"stem-combine"|"three-h
 };
 const THREE_HARMONY: readonly [Branch,Branch,Branch,Element][] = [["申","子","辰","水"],["亥","卯","未","木"],["寅","午","戌","火"],["巳","酉","丑","金"]];
 const THREE_MEETING: readonly [Branch,Branch,Branch,Element][] = [["寅","卯","辰","木"],["巳","午","未","火"],["申","酉","戌","金"],["亥","子","丑","水"]];
+const THREE_PUNISHMENT:readonly [Branch,Branch,Branch][]=[["寅","巳","申"],["丑","戌","未"]];
+const SELF_PUNISHMENT:readonly Branch[]=["辰","午","酉","亥"];
 
 export function detectRelationCandidates(stems: readonly Stem[], branches: readonly Branch[]): readonly RelationCandidate[] {
-  const stemSet = new Set(stems); const branchSet = new Set(branches); const output: RelationCandidate[] = [];
+  const stemSet = new Set(stems); const branchSet = new Set(branches); const branchCount=new Map<Branch,number>();for(const branch of branches)branchCount.set(branch,(branchCount.get(branch)??0)+1); const output: RelationCandidate[] = [];
   for (const [a,b,targetElement] of STEM_COMBINES) if (stemSet.has(a)&&stemSet.has(b)) output.push({kind:"stem-combine",members:[a,b],targetElement});
   for (const [kind,pairs] of Object.entries(BRANCH_PAIRS) as [keyof typeof BRANCH_PAIRS,(readonly [Branch,Branch][])][]) for (const [a,b] of pairs) if(branchSet.has(a)&&branchSet.has(b)) output.push({kind,members:[a,b]});
   for (const [a,b,c,targetElement] of THREE_HARMONY) if(branchSet.has(a)&&branchSet.has(b)&&branchSet.has(c)) output.push({kind:"three-harmony",members:[a,b,c],targetElement});
   for (const [a,b,c,targetElement] of THREE_MEETING) if(branchSet.has(a)&&branchSet.has(b)&&branchSet.has(c)) output.push({kind:"three-meeting",members:[a,b,c],targetElement});
+  if(branchSet.has("子")&&branchSet.has("卯"))output.push({kind:"branch-punishment",members:["子","卯"]});
+  for(const [a,b,c]of THREE_PUNISHMENT)if(branchSet.has(a)&&branchSet.has(b)&&branchSet.has(c))output.push({kind:"branch-punishment",members:[a,b,c]});
+  for(const branch of SELF_PUNISHMENT)if((branchCount.get(branch)??0)>=2)output.push({kind:"branch-punishment",members:[branch,branch]});
   return output;
 }

@@ -8,6 +8,14 @@
     "enabled": true,
     "head_sampling_rate": 1
   },
+  "d1_databases": [
+    {
+      "binding": "LOCATIONS",
+      "database_name": "senfate-locations",
+      "database_id": "b8205d07-17d2-4912-9348-74f607f10ff4",
+      "migrations_dir": "migrations"
+    }
+  ],
   "routes": [
     {
       "pattern": "fyapeng.com/senfate/api/*",

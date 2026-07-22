@@ -1,0 +1,17 @@
+{
+  "schema": "senfate-location-source-manifest.v1",
+  "logicalName": "GeoNames cities500",
+  "sourceUrl": "https://download.geonames.org/export/dump/cities500.zip",
+  "license": "CC BY 4.0",
+  "retrievedAt": "2026-07-22",
+  "sourceVersion": "cities500-2026-07-22",
+  "records": 235015,
+  "archiveBytes": 13501901,
+  "archiveSha256": "4aab00f229f650aff98a6c2f087214239026c62fa0c9760b1bc624986c383153",
+  "expandedBytes": 40620514,
+  "expandedSha256": "435f333aaf6397ee08d9a3bb4de859d883b6b659dc882481b93e751330c57289",
+  "importChunkSize": 25000,
+  "insertBatchSize": 50,
+  "importChunks": 10,
+  "reproduction": "pnpm --filter @senfate/locations import:geonames -- local-data/geonames/cities500.txt local-data/geonames/cities500-bulk.sql cities500-2026-07-22 25000 50"
+}
