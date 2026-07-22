@@ -1,12 +1,13 @@
 export const API_PREFIX = "/senfate/api/v1" as const;
 export const API_HEALTH_SCHEMA = "senfate-api-health.v1" as const;
-export const API_META_SCHEMA = "senfate-api-meta.v5" as const;
+export const API_META_SCHEMA = "senfate-api-meta.v6" as const;
 export const LOCATION_SEARCH_SCHEMA = "senfate-location-search.v1" as const;
 export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
+export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
-export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v1" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v3" as const;
+export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v2" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v4" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -26,7 +27,7 @@ export interface ApiMetaResponse {
     families: 11_306;
     books: 7;
   }>;
-  readonly calculationStatus: "annual-topic-public-beta";
+  readonly calculationStatus: "configurable-annual-topic-public-beta";
 }
 
 export interface ApiErrorResponse {
@@ -71,6 +72,20 @@ export interface ApiLocationDetailResponse {
 
 export type ApiModelId = "transparent-baseline" | "month-command" | "climate-priority";
 export type ApiSex = "female" | "male";
+export type ApiTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
+export interface ApiModelOverrides {
+  readonly temporalLayers?:Readonly<Partial<Record<"natal"|"luck"|"annual",number>>>;
+  readonly pattern?:Readonly<{monthCommand?:number}>;
+  readonly climate?:Readonly<{temperature?:number;humidity?:number}>;
+  readonly balancing?:Readonly<{strength?:number;climate?:number}>;
+  readonly topics?:Readonly<{domainWeights?:Readonly<Partial<Record<ApiTopicDomain,number>>>}>;
+}
+export interface ApiModelCatalogResponse {
+  readonly schemaVersion:typeof MODEL_CATALOG_SCHEMA;
+  readonly requestId:string;
+  readonly parameters:readonly Readonly<{path:string;label:string;group:"dynamic"|"pattern"|"climate"|"balancing"|"topics";minimum:number;maximum:number;step:number}>[];
+  readonly presets:readonly Readonly<{id:ApiModelId;label:string;version:string;values:Readonly<Record<string,number>>}>[];
+}
 
 export interface ApiCalendarRequest {
   readonly schemaVersion: typeof CALENDAR_REQUEST_SCHEMA;
@@ -86,6 +101,7 @@ export interface ApiCalendarRequest {
 export interface ApiAnalysisRequest extends Omit<ApiCalendarRequest,"schemaVersion"> {
   readonly schemaVersion:typeof ANALYSIS_REQUEST_SCHEMA;
   readonly targetYear:number;
+  readonly modelOverrides?:ApiModelOverrides;
 }
 
 export interface ApiGanZhi { readonly stem: string; readonly branch: string; readonly index: number }
@@ -206,7 +222,6 @@ export interface ApiLuckPhaseAnalysis {
   readonly normalForm: Readonly<{ status: "stable"; iterations: number; fingerprint: string; trace: readonly string[] }>;
 }
 
-export type ApiTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
 export interface ApiKinshipProjection {
   readonly schema:"senfate-kinship-projection.v1";
   readonly sex:ApiSex;
@@ -230,6 +245,15 @@ export interface ApiAnalysisResponse {
   readonly schemaVersion: typeof ANALYSIS_RESPONSE_SCHEMA;
   readonly requestId: string;
   readonly calendar: ApiCalendarResponse;
+  readonly modelConfiguration:Readonly<{
+    schema:"senfate-public-model-configuration.v1";
+    baseModelId:ApiModelId;
+    effectiveVersion:string;
+    customized:boolean;
+    overrideFingerprint:string;
+    overrideCount:number;
+    overrides:ApiModelOverrides;
+  }>;
   readonly structure: Readonly<{
     schema: "senfate-natal-structure-analysis.v1";
     dayMaster: Readonly<{ stem: string; element: ApiElement; polarity: ApiYinYang }>;

@@ -16,7 +16,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v5", calculationStatus: "annual-topic-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v6", calculationStatus: "configurable-annual-topic-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -76,13 +76,14 @@ describe("SenFate API", () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/calculate", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ schemaVersion: "senfate-analysis-request.v1", targetYear:2026,locationId: beijing.id, localDateTime: { year: 2000, month: 2, day: 10, hour: 12, minute: 0 }, sex: "male" }),
+      body: JSON.stringify({ schemaVersion: "senfate-analysis-request.v2", targetYear:2026,locationId: beijing.id, localDateTime: { year: 2000, month: 2, day: 10, hour: 12, minute: 0 }, sex: "male" }),
     }), store,program);
     expect(response.status).toBe(200);
     const body = await response.json() as ApiAnalysisResponse;
     expect(body).toMatchObject({
-      schemaVersion: "senfate-analysis-response.v3",
+      schemaVersion: "senfate-analysis-response.v4",
       calendar: { schemaVersion: "senfate-calendar-response.v1", pillars: { day: { stem: "戊", branch: "戌" } } },
+      modelConfiguration:{schema:"senfate-public-model-configuration.v1",customized:false,overrideCount:0,overrideFingerprint:"none"},
       structure: {
         schema: "senfate-natal-structure-analysis.v1",
         dayMaster: { stem: "戊", element: "土", polarity: "阳" },
@@ -98,5 +99,13 @@ describe("SenFate API", () => {
     expect(body.luckDynamics.every((item) => item.normalForm.status === "stable")).toBe(true);
     expect(body.annual.kinship.roles).toHaveLength(6);
     expect(body.annual.topics.activatedSources).toHaveLength(3);
+  });
+
+  it("publishes the bounded public model catalog",async()=>{const response=await handleRequest(new Request("https://example.test/senfate/api/v1/models"));expect(response.status).toBe(200);const body=await response.json() as {schemaVersion:string;parameters:readonly {path:string;minimum:number;maximum:number}[];presets:readonly {id:string;values:Record<string,number>}[]};expect(body.schemaVersion).toBe("senfate-model-catalog.v1");expect(body.parameters).toHaveLength(18);expect(body.parameters[0]).toMatchObject({path:"temporalLayers.natal",minimum:0,maximum:4});expect(body.presets).toHaveLength(3);expect(body.presets[0]).toMatchObject({id:"transparent-baseline",values:{"temporalLayers.natal":1}})});
+
+  it("applies only bounded public model overrides and certifies the effective configuration",async()=>{
+    const request=(modelOverrides:unknown)=>new Request("https://example.test/senfate/api/v1/analysis/calculate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({schemaVersion:"senfate-analysis-request.v2",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male",modelOverrides})});
+    const response=await handleRequest(request({temporalLayers:{annual:1.5},topics:{domainWeights:{career:2}}}),store,program);expect(response.status).toBe(200);const body=await response.json() as ApiAnalysisResponse;expect(body.modelConfiguration).toMatchObject({customized:true,overrideCount:2,overrides:{temporalLayers:{annual:1.5},topics:{domainWeights:{career:2}}}});expect(body.modelConfiguration.overrideFingerprint).toMatch(/^[0-9a-f]{8}$/u);expect(body.calendar.model.version).toContain(body.modelConfiguration.overrideFingerprint);expect(body.annual.topics.contribution.atoms.career).toBe(6);
+    expect((await handleRequest(request({topics:{domainWeights:{career:4.1}}}),store,program)).status).toBe(400);expect((await handleRequest(request({rawGraphQuery:"day.branch"}),store,program)).status).toBe(400);const raw=JSON.parse(await request({}).text()) as Record<string,unknown>;raw.rawGraphQuery="day.branch";expect((await handleRequest(new Request("https://example.test/analysis/calculate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(raw)}),store,program)).status).toBe(400);
   });
 });

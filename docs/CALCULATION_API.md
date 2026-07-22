@@ -42,9 +42,22 @@ inference are not added to this stable calendar response.
 ## Natal structure analysis
 
 `POST /senfate/api/v1/analysis/calculate` accepts
-`senfate-analysis-request.v1` and returns `senfate-analysis-response.v3`.
+`senfate-analysis-request.v2` and returns `senfate-analysis-response.v4`.
 The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
+
+The request may include `modelOverrides`. This is a closed, range-validated
+object covering 18 published parameters: natal/luck/annual layer weights,
+month-command weight, climate and balancing weights, and ten topic-domain
+weights. Unknown fields and values outside 0–4 reject the complete request.
+The server merges accepted values into the selected preset, validates the
+effective `senfate-model-profile.v2`, computes a deterministic fingerprint and
+recomputes every downstream stage. The response and calculation certificate
+publish the exact override object, count, fingerprint and effective version.
+
+`GET /senfate/api/v1/models` returns `senfate-model-catalog.v1`, the three
+presets, their effective public parameter values and the authoritative slider
+ranges. The web interface builds its controls from this endpoint.
 
 The response nests the certified calendar and adds:
 
@@ -63,6 +76,7 @@ The response nests the certified calendar and adds:
 - six kinship role projections;
 - the complete reference-program disposition ledger, topic contribution
   certificate, signed topic vector and source-linked event hypotheses.
+- the effective public model configuration and override fingerprint.
 
 The analysis route stops if calendar calculation, strength evaluation,
 normal-form evaluation, major-luck projection, annual context selection or

@@ -26,7 +26,9 @@ Each numeric parameter has a finite range, step, unit and owning stage in `MODEL
 - `month-command`: increases month-position and seasonal-command influence;
 - `climate-priority`: increases temperature and humidity coordinates.
 
-Presets are ordinary model profiles and can be selected in the public analysis request. The model page exposes a preview of custom weights, while arbitrary profile submission remains disabled until authorization and resource limits are specified. Changing an upstream parameter invalidates cached downstream states and requires complete recomputation.
+Presets are ordinary model profiles and can be selected in the public analysis request. `GET /senfate/api/v1/models` publishes 18 exact public parameter paths and their 0–4 ranges. The model page reads this catalog, stores user choices locally and sends only differences from the selected preset in `modelOverrides`.
+
+The public override contract covers temporal layers, month-command pattern weight, climate coordinates, balancing weights and ten topic-domain weights. Unknown paths, raw graph selectors, condition strings and out-of-range values fail request validation. The server merges accepted values into the preset, validates the complete profile, assigns a deterministic configuration fingerprint and recomputes the full chain. Arbitrary full-profile submission remains closed.
 
 ## Interpretation
 
