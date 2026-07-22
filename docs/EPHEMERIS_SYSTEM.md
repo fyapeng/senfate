@@ -36,4 +36,4 @@ Only the twelve `jie` boundaries advance the Bazi month:
 立秋 申  白露 酉  寒露 戌  立冬 亥  大雪 子  小寒 丑
 ```
 
-`compileCertifiedBaziCalendar` performs historical IANA-zone resolution, obtains the enclosing `jie` window, derives the four pillars and calculates major-luck direction, start age and periods. Every result carries the time-zone version and ephemeris digest.
+`compileCertifiedBaziCalendar` performs historical IANA-zone resolution, obtains the enclosing `jie` window, derives the four pillars and calculates major-luck direction, start age and periods. Runtime offsets come from the exact `moment-timezone@0.6.3` dependency and its bundled IANA 2026c distribution, rather than the host's `Intl` database. Repeated and skipped local times are detected from all offsets declared by the selected zone and remain failure-closed. Every result carries the provider, IANA version and ephemeris digest.

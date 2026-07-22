@@ -59,8 +59,9 @@ describe("SenFate API", () => {
       coordinateProvenance: { source: "settlement-centroid", uncertaintyMeters: 50_000 },
       pillars: { year: { stem: "庚", branch: "辰" } },
       direction: "forward",
-      provenance: { calendarSchema: "senfate-certified-bazi-calendar.v1", ephemeris: "NASA/JPL Horizons DE441" },
+      provenance: { calendarSchema: "senfate-certified-bazi-calendar.v1", ephemeris: "NASA/JPL Horizons DE441", tzdb: "moment-timezone@0.6.3/IANA-2026c" },
     });
+    expect(body.certificate).toMatchObject({tzdbVersion:"IANA-2026c",upstream:{timeZone:{provider:"moment-timezone@0.6.3",tzdbVersion:"IANA-2026c"}}});
     expect(body.majorLuck).toHaveLength(8);
     expect(body.majorLuck[0]).toMatchObject({ ordinal: 1, pillar: { stem: "己", branch: "卯" } });
   });

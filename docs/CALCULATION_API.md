@@ -27,6 +27,12 @@ canonical location
 → versioned response and certificate
 ```
 
+Historical UTC offsets are resolved from the repository-pinned IANA 2026c
+distribution (`moment-timezone@0.6.3`). The Worker runtime's host time-zone
+database is not consulted, so the same commit and input produce the same
+offset candidates. Provider and tzdb versions are included in provenance and
+the upstream calculation certificate.
+
 When exact coordinates are absent, the API assigns conservative uncertainty to
 the location source: 200 km for an administrative centroid, 50 km for a
 settlement centroid and 10 km for a source point. This uncertainty is propagated
@@ -37,7 +43,7 @@ boundary overlap and dates outside the ephemeris range return explicit errors.
 No fallback chart is produced. The endpoint does not store birth input or
 calculation output.
 
-The public response includes location and coordinate provenance, model version,
+The public response includes location, coordinate and pinned-tzdb provenance, model version,
 time normalization, enclosing solar terms, four pillars, major-luck intervals,
 ephemeris digest and an upstream calculation certificate. Structure and topic
 inference are not added to this stable calendar response.
