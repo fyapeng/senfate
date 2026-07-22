@@ -31,7 +31,7 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v9` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v10` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
@@ -41,11 +41,11 @@
 - six-role `KinshipProjection v2` with sex-dependent mappings, visible/hidden evidence, model weights and natal/luck/annual decomposition;
 - annual special-state certificate for same luck-year pillars, phase extremes and seven-symbol support/pressure consensus candidates;
 - compact all-covered-year trajectory with stable-normal-form gaps, normalized topic index and per-year special-state markers, plus bounded one-to-four-year requests for twelve certified flow-month samples per year;
-- public `TopicContributionCertificate v4` with activated source books, line ranges, declared time scopes and normalized event evidence;
+- public `TopicContributionCertificate v5` with activated source books, line ranges, declared time scopes, closed normalized trigger conditions and normalized event evidence;
 - 50 source-level event predicates defined by phase, topic domain and canonical effect operator;
 - event evidence grades for single-source, same-book, cross-book and mixed-direction support;
 - per-predicate natal, major-luck, annual and unscoped source counts proving annual scope accumulation;
-- expandable source records for every published event hypothesis, with an explicit traditional-model epistemic status;
+- expandable source records for every published event hypothesis, including user-readable trigger conditions and an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
 - public 19-parameter model catalog, including the flow-month layer weight, and closed `modelOverrides` request contract;
 - `senfate-analysis-request.v3`, which accepts the published flow-month layer weight and records it in the effective model certificate;
