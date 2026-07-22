@@ -29,7 +29,7 @@
 - digest-verified `jie` window resolver with UT1/UTC and future leap-second uncertainty;
 - certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
-- live analysis workbench for location search, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
+- live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
 - `senfate-analysis-response.v6` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
@@ -62,6 +62,13 @@ total       37,231
 
 These are compiler dispositions produced from structural completeness, source role and canonical condition expressibility. Element-state conditions are executable only when their element subjects bind one-to-one to the source terms; ambiguous bindings are deferred. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
 
+The resolved-topic audit now identifies 475 deferred records containing
+`symbol.abundant`. Their compact condition does not distinguish repeated
+appearance, seasonal vigor or element-level abundance. All extracted values
+are stems or branches, while the stable abundance feature is element-valued.
+The compiler therefore keeps every such record deferred; mapping the operator
+directly would turn an extraction ambiguity into executable theory.
+
 The resolved-topic audit currently reports 4,118 executable TopicFunctions,
 15,332 domain-level TopicRules and 50 normalized event predicates. On its fixed annual fixture all 4,118 functions
 are evaluated: 958 activate, 3,160 are false and zero are unresolved. Fixture
@@ -72,7 +79,7 @@ pressuring source effects and remain explicitly mixed.
 
 ## Open dependencies
 
-- pinned production tzdb distribution and exact-coordinate input UI;
+- pinned production tzdb distribution;
 - source-specific pattern, climate and balancing rewrite operators beyond the published parameterized projections;
 - semantic review of feature equivalence for the full executable reference set;
 - empirical validation contracts and observed-outcome data for event predicates;
