@@ -1,10 +1,11 @@
 export const API_PREFIX = "/senfate/api/v1" as const;
 export const API_HEALTH_SCHEMA = "senfate-api-health.v1" as const;
-export const API_META_SCHEMA = "senfate-api-meta.v2" as const;
+export const API_META_SCHEMA = "senfate-api-meta.v3" as const;
 export const LOCATION_SEARCH_SCHEMA = "senfate-location-search.v1" as const;
 export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v1" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -24,7 +25,7 @@ export interface ApiMetaResponse {
     families: 11_306;
     books: 7;
   }>;
-  readonly calculationStatus: "calendar-public-beta";
+  readonly calculationStatus: "structure-public-beta";
 }
 
 export interface ApiErrorResponse {
@@ -130,6 +131,65 @@ export interface ApiCalendarResponse {
     ephemerisDigest: string;
     tzdb: string;
     locationDataset: string;
+  }>;
+  readonly certificate: Readonly<Record<string, unknown>>;
+}
+
+export type ApiElement = "木" | "火" | "土" | "金" | "水";
+export type ApiYinYang = "阳" | "阴";
+export type ApiTenGod = "比肩" | "劫财" | "食神" | "伤官" | "偏财" | "正财" | "七杀" | "正官" | "偏印" | "正印";
+export type ApiStrengthClass = "very-weak" | "weak" | "balanced" | "strong" | "very-strong";
+export type ApiRelationStatus = "candidate" | "effective" | "contested" | "blocked" | "transformed";
+
+export interface ApiHiddenStemAnalysis {
+  readonly stem: string;
+  readonly rank: "main" | "middle" | "residual";
+  readonly element: ApiElement;
+  readonly polarity: ApiYinYang;
+  readonly tenGod: ApiTenGod;
+}
+
+export interface ApiPillarAnalysis {
+  readonly pillar: ApiGanZhi;
+  readonly visibleElement: ApiElement;
+  readonly visiblePolarity: ApiYinYang;
+  readonly tenGod: ApiTenGod;
+  readonly hiddenStems: readonly ApiHiddenStemAnalysis[];
+}
+
+export interface ApiResolvedRelation {
+  readonly id: string;
+  readonly kind: string;
+  readonly members: readonly string[];
+  readonly targetElement?: ApiElement;
+  readonly status: ApiRelationStatus;
+  readonly score: Readonly<{ base: number; completeness: number; seasonalSupport: number; exposure: number; rootedness: number; currentLayer: number; total: number }>;
+  readonly competingIds: readonly string[];
+}
+
+export interface ApiAnalysisResponse {
+  readonly schemaVersion: typeof ANALYSIS_RESPONSE_SCHEMA;
+  readonly requestId: string;
+  readonly calendar: ApiCalendarResponse;
+  readonly structure: Readonly<{
+    schema: "senfate-natal-structure-analysis.v1";
+    dayMaster: Readonly<{ stem: string; element: ApiElement; polarity: ApiYinYang }>;
+    pillars: Readonly<Record<"year" | "month" | "day" | "hour", ApiPillarAnalysis>>;
+    elementMeasure: Readonly<{ atoms: Readonly<Record<ApiElement, number>>; total: number; totalVariation: number }>;
+    strength: Readonly<{
+      state: ApiStrengthClass;
+      supportRatio: number;
+      support: number;
+      pressure: number;
+      decomposition: Readonly<{ sameElement: number; resource: number; root: number; output: number; wealth: number; officer: number }>;
+    }>;
+    rootExposure: Readonly<{
+      dayMasterRootMass: number;
+      roots: Readonly<Record<"year" | "month" | "day" | "hour", readonly Readonly<{ visiblePosition: string; branchPosition: string; rank: string; weight: number }>[]>>;
+      exposedHiddenStems: readonly Readonly<{ stem: string; branchPosition: string; rank: string }>[];
+    }>;
+    relations: readonly ApiResolvedRelation[];
+    normalForm: Readonly<{ status: "stable"; iterations: number; fingerprint: string; trace: readonly string[] }>;
   }>;
   readonly certificate: Readonly<Record<string, unknown>>;
 }

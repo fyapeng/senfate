@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type SyntheticEvent } from "react";
 import {
   CALENDAR_REQUEST_SCHEMA,
+  type ApiAnalysisResponse,
   type ApiCalendarResponse,
   type ApiErrorResponse,
   type ApiLocation,
@@ -10,7 +11,7 @@ import {
 } from "@senfate/contracts";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
-const tabs = ["命盘", "大运", "计算证书"] as const;
+const tabs = ["命盘", "结构", "大运", "计算证书"] as const;
 const modelLabels: Readonly<Record<ApiModelId, string>> = {
   "transparent-baseline": "透明综合基准",
   "month-command": "月令结构优先",
@@ -46,7 +47,7 @@ export function AnalysisWorkbench() {
   const [selectedLocation, setSelectedLocation] = useState<ApiLocation>();
   const [searching, setSearching] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<ApiCalendarResponse>();
+  const [result, setResult] = useState<ApiAnalysisResponse>();
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -77,7 +78,7 @@ export function AnalysisWorkbench() {
     const [hour, minute] = time.split(":").map(Number);
     setSubmitting(true); setMessage(""); setResult(undefined);
     try {
-      const response = await fetch(`${API_BASE}/calendar/calculate`, {
+      const response = await fetch(`${API_BASE}/analysis/calculate`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -87,8 +88,8 @@ export function AnalysisWorkbench() {
           sex, modelId, disambiguation, clockUncertaintySeconds, periodCount: 8,
         }),
       });
-      const body = await response.json() as ApiCalendarResponse | ApiErrorResponse;
-      if (!response.ok || !("pillars" in body)) {
+      const body = await response.json() as ApiAnalysisResponse | ApiErrorResponse;
+      if (!response.ok || !("structure" in body)) {
         const code = "error" in body ? body.error.code : "request-failed";
         const detail = "error" in body ? body.error.message : "计算请求失败";
         throw new Error(errorLabels[code] ?? detail);
@@ -120,7 +121,7 @@ export function AnalysisWorkbench() {
             <label>钟表时间精度<select value={clockUncertaintySeconds} onChange={(event) => setClockUncertaintySeconds(Number(event.target.value))}><option value={1}>精确到秒</option><option value={60}>精确到分钟</option><option value={1800}>约半小时</option><option value={3600}>约一小时</option></select></label>
             <label>重复当地时刻<select value={disambiguation} onChange={(event) => setDisambiguation(event.target.value as typeof disambiguation)}><option value="reject">停止并提示</option><option value="earlier">采用较早时刻</option><option value="later">采用较晚时刻</option></select></label>
           </div>}
-          <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成认证排盘"}</span><small>历史时区 · 真太阳时 · 节气 · 大运</small></button>
+          <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成结构分析"}</span><small>历法 · 十神 · 五行测度 · 关系正规形</small></button>
           {message && <p className="form-message" role="alert">{message}</p>}
         </form>
         <p className="privacy-copy">出生信息会发送至计算接口并立即求值；当前服务不写入用户数据库，也不建立个人档案。</p>
@@ -128,11 +129,12 @@ export function AnalysisWorkbench() {
 
       <section className="result-panel" aria-label="排盘计算结果">
         {!result ? <EmptyResult /> : <>
-          <div className="result-header"><div><span className="step-label">STEP 02 · CERTIFIED</span><h2>{result.location.displayName}排盘</h2><p>{result.model.label} v{result.model.version} · {result.time.timeZone}</p></div><span className="verified-pill">计算完成</span></div>
+          <div className="result-header"><div><span className="step-label">STEP 02 · CERTIFIED</span><h2>{result.calendar.location.displayName}结构分析</h2><p>{result.calendar.model.label} v{result.calendar.model.version} · {result.calendar.time.timeZone}</p></div><span className="verified-pill">正规形稳定</span></div>
           <div className="result-tabs" role="tablist" aria-label="结果层级">{tabs.map((tab) => <button role="tab" type="button" aria-selected={active === tab} className={active === tab ? "active" : ""} onClick={() => setActive(tab)} key={tab}>{tab}</button>)}</div>
           <div className="result-body">
             {active === "命盘" && <ChartResult result={result} date={date} time={time} />}
-            {active === "大运" && <LuckResult result={result} />}
+            {active === "结构" && <StructureResult result={result} />}
+            {active === "大运" && <LuckResult result={result.calendar} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
         </>}
@@ -142,23 +144,45 @@ export function AnalysisWorkbench() {
 }
 
 function EmptyResult() {
-  return <div className="empty-result"><span>CALCULATION READY</span><h2>从一个可核验的排盘开始</h2><p>选择出生时间和规范地点后，系统会先解析历史时区，再计算地方视太阳时、节气月界、四柱和大运。任何跨越边界的不确定输入都会停止求值。</p><div className="empty-flow"><b>当地时间</b><i>→</i><b>历史时区</b><i>→</i><b>节气窗口</b><i>→</i><b>四柱与大运</b></div></div>;
+  return <div className="empty-result"><span>CALCULATION READY</span><h2>从一个可核验的排盘开始</h2><p>选择出生时间和规范地点后，系统会依次完成历史时区、节气月界、四柱、五行测度和关系裁决。任何跨越边界或正规形失败的输入都会停止求值。</p><div className="empty-flow"><b>出生时空</b><i>→</i><b>四柱十神</b><i>→</i><b>五行测度</b><i>→</i><b>稳定正规形</b></div></div>;
 }
 
-function ChartResult({ result, date, time }: { result: ApiCalendarResponse; date: string; time: string }) {
-  const pillars = [["年柱", result.pillars.year], ["月柱", result.pillars.month], ["日柱", result.pillars.day], ["时柱", result.pillars.hour]] as const;
+function ChartResult({ result, date, time }: { result: ApiAnalysisResponse; date: string; time: string }) {
+  const calendar = result.calendar;
+  const pillars = [["年柱", calendar.pillars.year, result.structure.pillars.year], ["月柱", calendar.pillars.month, result.structure.pillars.month], ["日柱", calendar.pillars.day, result.structure.pillars.day], ["时柱", calendar.pillars.hour, result.structure.pillars.hour]] as const;
   return <>
-    <div className="chart-summary"><div><span>排盘年份</span><strong>{result.solarTerms.baziYear}</strong><small>以立春为年界</small></div><div className="season-chip"><span>节气月序</span><strong>第 {result.solarTerms.monthOrdinal + 1} 月</strong><small>{result.solarTerms.previous.name}之后</small></div><div className="summary-note"><span>输入可信区间</span><p>时间与地点合并不确定度约 ±{decimal(result.time.uncertaintySeconds, 0)} 秒。</p></div></div>
-    <div className="pillars">{pillars.map(([label, pillar], index) => <article className={index === 2 ? "day-pillar" : ""} key={label}><span>{label}</span><div className="stem">{pillar.stem}</div><div className="branch">{pillar.branch}</div><dl><div><dt>干支</dt><dd>{ganZhi(pillar)}</dd></div><div><dt>序号</dt><dd>{pillar.index + 1} / 60</dd></div></dl></article>)}</div>
-    <div className="method-row"><div><span>原始当地时间</span><strong>{date} {time}</strong></div><b>→</b><div><span>历史时区</span><strong>UTC{result.time.utcOffsetMinutes >= 0 ? "+" : ""}{decimal(result.time.utcOffsetMinutes / 60)}</strong></div><b>→</b><div><span>地方视太阳时</span><strong>{localWallClock(result.time.apparentSolarWallTimeMs)}</strong><small>修正 {result.time.apparentSolarCorrectionMinutes >= 0 ? "+" : ""}{decimal(result.time.apparentSolarCorrectionMinutes)} 分钟</small></div></div>
-    <div className="term-window"><div><span>前一节</span><strong>{result.solarTerms.previous.name}</strong><small>{utcDateTime(result.solarTerms.previous.utcMs)}</small></div><i>出生时刻位于认证节气窗口内</i><div><span>后一节</span><strong>{result.solarTerms.next.name}</strong><small>{utcDateTime(result.solarTerms.next.utcMs)}</small></div></div>
+    <div className="chart-summary"><div><span>日主</span><strong>{result.structure.dayMaster.stem}{result.structure.dayMaster.element}</strong><small>{result.structure.dayMaster.polarity}{result.structure.dayMaster.element}</small></div><div className="season-chip"><span>节气月序</span><strong>第 {calendar.solarTerms.monthOrdinal + 1} 月</strong><small>{calendar.solarTerms.previous.name}之后</small></div><div className="summary-note"><span>输入可信区间</span><p>时间与地点合并不确定度约 ±{decimal(calendar.time.uncertaintySeconds, 0)} 秒。</p></div></div>
+    <div className="pillars">{pillars.map(([label, pillar, detail], index) => <article className={index === 2 ? "day-pillar" : ""} key={label}><span>{label}</span><div className="stem">{pillar.stem}</div><div className="branch">{pillar.branch}</div><dl><div><dt>十神</dt><dd>{index === 2 ? "日主" : detail.tenGod}</dd></div><div><dt>藏干</dt><dd>{detail.hiddenStems.map((item) => item.stem).join(" ")}</dd></div></dl></article>)}</div>
+    <div className="method-row"><div><span>原始当地时间</span><strong>{date} {time}</strong></div><b>→</b><div><span>历史时区</span><strong>UTC{calendar.time.utcOffsetMinutes >= 0 ? "+" : ""}{decimal(calendar.time.utcOffsetMinutes / 60)}</strong></div><b>→</b><div><span>地方视太阳时</span><strong>{localWallClock(calendar.time.apparentSolarWallTimeMs)}</strong><small>修正 {calendar.time.apparentSolarCorrectionMinutes >= 0 ? "+" : ""}{decimal(calendar.time.apparentSolarCorrectionMinutes)} 分钟</small></div></div>
+    <div className="term-window"><div><span>前一节</span><strong>{calendar.solarTerms.previous.name}</strong><small>{utcDateTime(calendar.solarTerms.previous.utcMs)}</small></div><i>出生时刻位于认证节气窗口内</i><div><span>后一节</span><strong>{calendar.solarTerms.next.name}</strong><small>{utcDateTime(calendar.solarTerms.next.utcMs)}</small></div></div>
   </>;
+}
+
+const elementClass = { 木: "wood", 火: "fire", 土: "earth", 金: "metal", 水: "water" } as const;
+const strengthLabels = { "very-weak": "极弱", weak: "偏弱", balanced: "中和", strong: "偏强", "very-strong": "极强" } as const;
+const relationLabels: Readonly<Record<string, string>> = { "stem-combine": "天干合", "branch-combine": "地支合", "branch-clash": "地支冲", "branch-harm": "地支害", "branch-break": "地支破", "branch-punishment": "地支刑", "three-harmony": "三合", "three-meeting": "三会" };
+const statusLabels: Readonly<Record<string, string>> = { effective: "有效", transformed: "成化", contested: "争议", blocked: "阻断", candidate: "候选" };
+
+function StructureResult({ result }: { result: ApiAnalysisResponse }) {
+  const structure = result.structure;
+  const total = structure.elementMeasure.total || 1;
+  const elements = (["木", "火", "土", "金", "水"] as const).map((element) => ({ element, value: structure.elementMeasure.atoms[element], percent: structure.elementMeasure.atoms[element] / total * 100 }));
+  return <div className="structure-result">
+    <div className="structure-grid">
+      <article className="insight-card wide"><div className="card-title"><div><span>五行测度</span><h3>显干、藏干与月令修正后的有限测度</h3></div><em>模型内部量，不是自然比例</em></div><div className="measure-bars">{elements.map((item) => <div key={item.element}><span>{item.element}</span><i><b className={elementClass[item.element]} style={{ width: `${item.percent}%` }}></b></i><strong>{decimal(item.value, 2)}</strong></div>)}</div></article>
+      <article className="insight-card"><span>日主强弱</span><h3>{strengthLabels[structure.strength.state]}</h3><p>支持占总作用量 {decimal(structure.strength.supportRatio * 100, 1)}%，支持 {decimal(structure.strength.support)}，压力 {decimal(structure.strength.pressure)}。</p><footer><b className="state effective">已求值</b><span>根质量 {decimal(structure.rootExposure.dayMasterRootMass)}</span></footer></article>
+      <article className="insight-card"><span>关系正规形</span><h3>{structure.relations.length} 条关系进入裁决</h3><p>经过加权竞争后得到稳定状态；候选关系不会直接传给后续主题层。</p><footer><b className="state effective">稳定</b><span>{structure.normalForm.iterations} 次迭代</span></footer></article>
+    </div>
+    <div className="decomposition-grid">{Object.entries(structure.strength.decomposition).map(([key, value]) => <article key={key}><span>{{ sameElement: "同类", resource: "生扶", root: "通根", output: "泄秀", wealth: "财星", officer: "官杀" }[key as keyof typeof structure.strength.decomposition]}</span><strong>{decimal(value)}</strong></article>)}</div>
+    <div className="relation-list"><div className="relation-heading"><span>原局关系裁决</span><strong>正规形指纹 {structure.normalForm.fingerprint.slice(0, 18)}…</strong></div>{structure.relations.length === 0 ? <p className="empty-relations">当前原局没有形成需要裁决的干支关系，空关系集仍通过稳定性检查。</p> : structure.relations.map((relation) => <article key={relation.id}><div><strong>{relationLabels[relation.kind] ?? relation.kind}</strong><span>{relation.members.join(" · ")}{relation.targetElement ? ` → ${relation.targetElement}` : ""}</span></div><div><b className={`state ${relation.status}`}>{statusLabels[relation.status] ?? relation.status}</b><small>得分 {decimal(relation.score.total)}</small></div></article>)}</div>
+  </div>;
 }
 
 function LuckResult({ result }: { result: ApiCalendarResponse }) {
   return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{result.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(result.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(result.luckStartAgeInterval.lower, 3)}—{decimal(result.luckStartAgeInterval.upper, 3)}</small></div><p>按“节气间隔三日折一年”计算；每一步同时保留起始年龄和公历日期的不确定区间。</p></div><div className="luck-grid">{result.majorLuck.map((period) => <article key={period.ordinal}><span>第 {period.ordinal} 运</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(period.startUtcMs, result.time.timeZone)}</small></article>)}</div></div>;
 }
 
-function CertificateResult({ result }: { result: ApiCalendarResponse }) {
-  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{result.provenance.locationDataset}</strong><p>{result.coordinateProvenance.source} · ±{decimal(result.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{result.provenance.ephemeris}</strong><p>摘要 {result.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>时区运行时</span><strong>{result.provenance.tzdb}</strong><p>UTC 偏移 {result.time.utcOffsetMinutes} 分钟</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">这份证书证明“如何算出排盘”，不等同于现实事件预测。结构、主题和事件层将在规则审计完成后沿同一证书链接入。</p></div>;
+function CertificateResult({ result }: { result: ApiAnalysisResponse }) {
+  const calendar = result.calendar;
+  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>结构正规形</span><strong>{result.structure.normalForm.status}</strong><p>指纹 {result.structure.normalForm.fingerprint.slice(0, 16)}…</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型、五行测度和关系裁决链。当前结构状态是模型内部的形式化结果，不等同于现实事件概率。</p></div>;
 }

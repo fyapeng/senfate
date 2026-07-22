@@ -44,11 +44,12 @@ The public site has four first-level routes:
 /senfate/models/       visible model presets and parameter controls
 ```
 
-The analysis workbench is connected to the versioned Calendar Engine and shows
-calculated four pillars, solar-time corrections, solar-term boundaries and major
-luck. Structure and topic results remain unavailable in the public interface
-until their rule semantics complete review. The model-configuration page remains
-a product demonstration.
+The analysis workbench is connected to the versioned Calendar Engine and natal
+structure runtime. It shows four pillars, hidden stems, ten gods, solar-time
+corrections, solar-term boundaries, major luck, five-element measure, day-master
+support-pressure and stable relation dispositions. Pattern, climate, balancing
+and topic results remain unavailable until their functionals and rule semantics
+complete review. The model-configuration page remains a product demonstration.
 
 ## Commands
 

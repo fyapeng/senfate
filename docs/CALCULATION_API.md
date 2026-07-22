@@ -37,4 +37,24 @@ calculation output.
 The public response includes location and coordinate provenance, model version,
 time normalization, enclosing solar terms, four pillars, major-luck intervals,
 ephemeris digest and an upstream calculation certificate. Structure and topic
-inference are not yet part of this API contract.
+inference are not added to this stable calendar response.
+
+## Natal structure analysis
+
+`POST /senfate/api/v1/analysis/calculate` accepts the same
+`senfate-calendar-request.v1` body and returns
+`senfate-analysis-response.v1`. This is an additive contract: the calendar
+endpoint remains unchanged.
+
+The response nests the certified calendar and adds:
+
+- visible and hidden-stem ten-god mappings for every pillar;
+- the model-profiled finite five-element measure;
+- day-master support, pressure, decomposition and strength class;
+- root and exposure materialization;
+- relation candidates after weighted competition;
+- stable normal-form status, trace and fingerprint.
+
+The analysis route stops if calendar calculation, strength evaluation or
+normal-form evaluation fails. Pattern, climate, balancing, topic contribution
+and event hypotheses are outside this contract.
