@@ -52,6 +52,7 @@ results.
 ```bash
 pnpm install
 pnpm audit:rules
+pnpm audit:reference-compilation
 pnpm typecheck
 pnpm test
 pnpm build

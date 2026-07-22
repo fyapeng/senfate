@@ -12,10 +12,11 @@
     "dev:web": "pnpm --filter @senfate/web dev",
     "dev:api": "pnpm --filter @senfate/api dev",
     "audit:rules": "pnpm --filter @senfate/rules run audit",
+    "audit:reference-compilation": "pnpm --filter @senfate/rules run audit:compilation",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "build": "pnpm --filter @senfate/web build && pnpm --filter @senfate/api build",
-    "verify": "pnpm audit:rules && pnpm typecheck && pnpm test && pnpm build"
+    "verify": "pnpm audit:rules && pnpm audit:reference-compilation && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
     "@types/node": "24.10.10",

@@ -7,6 +7,7 @@
   "dependencies": { "@senfate/core": "workspace:*" },
   "scripts": {
     "audit": "vitest run src/audit.test.ts",
+    "audit:compilation": "node --experimental-strip-types scripts/audit-reference-compilation.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"
   }
