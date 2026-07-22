@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "dependencies": { "@senfate/contracts": "workspace:*", "@senfate/locations": "workspace:*" },
+  "dependencies": { "@senfate/contracts": "workspace:*", "@senfate/core": "workspace:*", "@senfate/ephemeris": "workspace:*", "@senfate/locations": "workspace:*" },
   "devDependencies": { "wrangler": "4.113.0" },
   "scripts": {
     "dev": "wrangler dev",

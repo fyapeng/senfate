@@ -44,10 +44,11 @@ The public site has four first-level routes:
 /senfate/models/       visible model presets and parameter controls
 ```
 
-The analysis and configuration interfaces are intentionally labelled as product
-demonstrations until the versioned Calendar Engine and stable-normal-form topic
-runtime are connected. Demo values must never be presented as calculated user
-results.
+The analysis workbench is connected to the versioned Calendar Engine and shows
+calculated four pillars, solar-time corrections, solar-term boundaries and major
+luck. Structure and topic results remain unavailable in the public interface
+until their rule semantics complete review. The model-configuration page remains
+a product demonstration.
 
 ## Commands
 
