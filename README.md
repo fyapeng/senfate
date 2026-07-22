@@ -1,0 +1,50 @@
+# SenFate
+
+SenFate is a clean-room implementation of an auditable modern Bazi reasoning
+system. Classical sources are preserved as evidence; executable behavior is
+defined by explicit, versioned functions and a closed inference pipeline.
+
+```text
+calendar input
+→ stems and branches
+→ elements, yin-yang and hidden stems
+→ ten gods and generation/control
+→ relation candidates and root/exposure
+→ element measure, strength, pattern, climate and balancing
+→ structure rewrites and relation resolution
+→ stable normal form
+→ kinship roles
+→ topic contributions
+→ event hypotheses
+→ transparent measurements
+```
+
+## Workspace
+
+```text
+apps/web           Astro + React product site, deployed by GitHub Pages
+apps/api           Cloudflare Worker API only
+packages/core      theory ontology and deterministic calculation kernel
+packages/rules     classical corpus validation and rule compilation
+packages/contracts versioned public API contracts
+data               seven source texts and the 37,231-record canonical corpus
+docs               product, architecture and theory specifications
+```
+
+## Commands
+
+```bash
+pnpm install
+pnpm audit:rules
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm dev:web
+pnpm dev:api
+```
+
+Large PDFs, databases, exports and generated snapshots belong in `local-data/`
+and are never committed. Their manifests and hashes may be tracked separately.
+
+The model represents a historical knowledge system. Its outputs are not medical,
+legal or financial advice and are not empirical probabilities.

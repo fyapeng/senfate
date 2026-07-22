@@ -1,0 +1,40 @@
+{
+  "schema": "senfate-classical-source-corpus.v4.0",
+  "sourcePolicy": "TXT-only automatic extraction; all source records retained without embedded runtime qualification",
+  "file": {
+    "path": "classical-source-corpus.v4.0.json.gz",
+    "compression": "gzip",
+    "bytes": 641575,
+    "uncompressedBytes": 2664605,
+    "sha256": "44f8a77abac4c0a607ef87e697730e0bd8f6e9ce8bba5d9ce5abc1bf797cb4e4"
+  },
+  "counts": {
+    "books": 7,
+    "records": 37231,
+    "sourcePassages": 15967,
+    "conditionValues": 145,
+    "ruleFamilies": 11306
+  },
+  "books": [
+    "san-ming-tong-hui",
+    "qian-li-ming-gao",
+    "zi-ping-zhen-quan",
+    "yuan-hai-zi-ping",
+    "di-tian-sui",
+    "shen-feng-tong-kao",
+    "qiong-tong-bao-jian"
+  ],
+  "recordEncoding": "[lineStart,lineEnd,ruleTypeId,sourceRoleId,scopeBits,conditions,effects,termBitsets,confidenceByte,familyIndex]",
+  "conditionEncoding": "[conditionOpId,valueDictionaryIndexOrArray]",
+  "effectEncoding": "[effectOpId,domainBitset,polarityId]",
+  "termBitsets": [
+    "stems",
+    "branches",
+    "elements",
+    "yinYang",
+    "tenGods",
+    "relations",
+    "structures"
+  ],
+  "provenance": "The outer book index plus lineStart/lineEnd locates the originating TXT passage. Runtime eligibility is computed only by the reference-function mapping and compiler pipeline."
+}

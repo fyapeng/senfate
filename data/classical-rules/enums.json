@@ -1,0 +1,71 @@
+{
+  "ruleType": [
+    "definition",
+    "prediction",
+    "preference_or_selection",
+    "relation_trigger",
+    "structural_principle",
+    "structure_transition",
+    "temporal_trigger"
+  ],
+  "sourceRole": [
+    "case_observation",
+    "critical_statement",
+    "definition",
+    "general_rule",
+    "paratext"
+  ],
+  "scope": [
+    "annual",
+    "luck",
+    "natal"
+  ],
+  "condOp": [
+    "branchFormation.equals",
+    "dayMasterState.equals",
+    "dayStem.equals",
+    "element.state",
+    "ganZhi.in",
+    "ganZhi.present",
+    "luckDirection.equals",
+    "monthBranch.equals",
+    "monthBranch.in",
+    "relation.exists",
+    "seasonalCommand",
+    "sex.equals",
+    "symbol.absent",
+    "symbol.abundant",
+    "symbol.present"
+  ],
+  "condSource": [
+    "condition_text",
+    "section_heading",
+    "text"
+  ],
+  "effOp": [
+    "complete_or_transform",
+    "describe",
+    "pressure",
+    "reveal",
+    "support",
+    "weaken_or_block"
+  ],
+  "polarity": [
+    "mixed",
+    "neutral",
+    "pressure",
+    "support"
+  ],
+  "domain": [
+    "career",
+    "family",
+    "general",
+    "health",
+    "mobility",
+    "personality",
+    "relationship",
+    "risk",
+    "study",
+    "wealth"
+  ]
+}

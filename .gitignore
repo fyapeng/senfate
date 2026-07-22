@@ -1,0 +1,32 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+coverage/
+artifacts/
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+.dev.vars
+/apps/api/src/env.d.ts
+
+# Local research material and generated datasets stay outside Git.
+local-data/
+input/
+output/
+*.zip
+*.7z
+*.rar
+*.pdf
+*.docx
+*.xlsx
+*.parquet
+*.dta
+*.db
+*.sqlite
+
+# The canonical compact corpus and seven TXT sources are intentionally tracked.
+!data/classical-rules/classical-source-corpus.v4.0.json.gz
+!data/classical-corpus/sources/*.txt
