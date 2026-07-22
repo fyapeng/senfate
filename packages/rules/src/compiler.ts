@@ -1,6 +1,3 @@
-import { readFileSync } from "node:fs";
-import { gunzipSync } from "node:zlib";
-
 export type ReferenceDisposition = "executable" | "deferred" | "contested" | "evidence" | "fixture";
 export type CanonicalConditionKind = "branch-formation"|"day-master-state"|"day-stem"|"element-state"|"ganzhi"|"luck-direction"|"month-branch"|"resolved-relation"|"seasonal-command"|"sex"|"typed-symbol";
 
@@ -35,8 +32,8 @@ function typedSymbol(value:unknown,corpus:CompactCorpus):boolean { if(typeof val
 
 interface Candidate extends Omit<CompiledReferenceRecord,"disposition"|"reason"> { readonly provisional:ReferenceDisposition; readonly provisionalReason:string; readonly order:number }
 
-export function compileReferenceCorpus(corpusPath:string):ReferenceCompilationAudit {
-  const corpus=JSON.parse(gunzipSync(readFileSync(corpusPath)).toString("utf8")) as CompactCorpus;
+export function compileReferenceCorpusData(input:unknown):ReferenceCompilationAudit {
+  const corpus=input as CompactCorpus;
   if(corpus.v!=="4.0"||corpus.books.length!==7||corpus.families.length!==11_306)throw new Error("Unsupported or damaged reference corpus");
   const candidates:Candidate[]=[]; let order=0;
   corpus.rules.forEach((bookRules,bookIndex)=>bookRules.forEach((raw,ruleIndex)=>{

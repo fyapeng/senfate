@@ -35,6 +35,9 @@ importers:
       '@senfate/locations':
         specifier: workspace:*
         version: link:../../packages/locations
+      '@senfate/rules':
+        specifier: workspace:*
+        version: link:../../packages/rules
     devDependencies:
       wrangler:
         specifier: 4.113.0

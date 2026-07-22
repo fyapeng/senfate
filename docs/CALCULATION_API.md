@@ -41,10 +41,10 @@ inference are not added to this stable calendar response.
 
 ## Natal structure analysis
 
-`POST /senfate/api/v1/analysis/calculate` accepts the same
-`senfate-calendar-request.v1` body and returns
-`senfate-analysis-response.v2`. The calendar
-endpoint remains unchanged.
+`POST /senfate/api/v1/analysis/calculate` accepts
+`senfate-analysis-request.v1` and returns `senfate-analysis-response.v3`.
+The request contains the calendar fields plus a required `targetYear`. The
+calendar endpoint and its v1 contract remain unchanged.
 
 The response nests the certified calendar and adds:
 
@@ -59,7 +59,11 @@ The response nests the certified calendar and adds:
 - a signed five-element balancing contribution vector;
 - every requested major-luck period recomputed from natal plus luck state,
   including strength, relations, stable normal form and interpretive projection.
+- the selected annual state accumulated from natal, enclosing luck and annual pillars;
+- six kinship role projections;
+- the complete reference-program disposition ledger, topic contribution
+  certificate, signed topic vector and source-linked event hypotheses.
 
 The analysis route stops if calendar calculation, strength evaluation,
-normal-form evaluation or any major-luck projection fails. Topic contribution
-and event hypotheses remain outside this contract.
+normal-form evaluation, major-luck projection, annual context selection or
+reference-program integrity fails.

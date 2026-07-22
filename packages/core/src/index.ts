@@ -8,5 +8,6 @@ export * from "./ontology";
 export * from "./normal-form";
 export * from "./structure";
 export * from "./resolution";
+export * from "./semantic";
 export * from "./timezone";
 export * from "./theory";

@@ -1,11 +1,12 @@
 export const API_PREFIX = "/senfate/api/v1" as const;
 export const API_HEALTH_SCHEMA = "senfate-api-health.v1" as const;
-export const API_META_SCHEMA = "senfate-api-meta.v4" as const;
+export const API_META_SCHEMA = "senfate-api-meta.v5" as const;
 export const LOCATION_SEARCH_SCHEMA = "senfate-location-search.v1" as const;
 export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v2" as const;
+export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v1" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v3" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -25,7 +26,7 @@ export interface ApiMetaResponse {
     families: 11_306;
     books: 7;
   }>;
-  readonly calculationStatus: "interpretive-public-beta";
+  readonly calculationStatus: "annual-topic-public-beta";
 }
 
 export interface ApiErrorResponse {
@@ -81,6 +82,10 @@ export interface ApiCalendarRequest {
   readonly clockUncertaintySeconds?: number;
   readonly periodCount?: number;
   readonly exactCoordinates?: Readonly<{ latitude: number; longitude: number; uncertaintyMeters: number }>;
+}
+export interface ApiAnalysisRequest extends Omit<ApiCalendarRequest,"schemaVersion"> {
+  readonly schemaVersion:typeof ANALYSIS_REQUEST_SCHEMA;
+  readonly targetYear:number;
 }
 
 export interface ApiGanZhi { readonly stem: string; readonly branch: string; readonly index: number }
@@ -201,6 +206,26 @@ export interface ApiLuckPhaseAnalysis {
   readonly normalForm: Readonly<{ status: "stable"; iterations: number; fingerprint: string; trace: readonly string[] }>;
 }
 
+export type ApiTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
+export interface ApiKinshipProjection {
+  readonly schema:"senfate-kinship-projection.v1";
+  readonly sex:ApiSex;
+  readonly phase:"annual";
+  readonly normalFormFingerprint:string;
+  readonly roles:readonly Readonly<{id:"self"|"peers"|"mother"|"father"|"partner"|"children";label:string;primaryTenGods:readonly ApiTenGod[];observedCount:number;observedTenGods:readonly ApiTenGod[]}>[];
+}
+export interface ApiTopicContributionCertificate {
+  readonly schema:"senfate-topic-contribution-certificate.v2";
+  readonly phase:"annual";
+  readonly model:string;
+  readonly program:Readonly<{total:number;executable:number;deferred:number;contested:number;evidence:number;fixture:number}>;
+  readonly evaluated:number;readonly activated:number;readonly inactive:number;readonly unresolved:number;
+  readonly activatedFamilies:readonly string[];readonly unresolvedFamilies:readonly string[];
+  readonly activatedSources:readonly Readonly<{recordId:string;familyId:string;bookId:string;lineStart:number;lineEnd:number;domains:readonly ApiTopicDomain[];polarity:string}>[];
+  readonly contribution:Readonly<{space:readonly ApiTopicDomain[];atoms:Readonly<Record<ApiTopicDomain,number>>;total:number;totalVariation:number}>;
+  readonly eventHypotheses:readonly Readonly<{schema:"senfate-topic-event-hypothesis.v1";domain:ApiTopicDomain;direction:"support"|"pressure"|"mixed";magnitude:number;sourceCount:number;epistemicStatus:"traditional-model-hypothesis"}>[];
+}
+
 export interface ApiAnalysisResponse {
   readonly schemaVersion: typeof ANALYSIS_RESPONSE_SCHEMA;
   readonly requestId: string;
@@ -227,5 +252,21 @@ export interface ApiAnalysisResponse {
   }>;
   readonly interpretation: ApiInterpretation;
   readonly luckDynamics: readonly ApiLuckPhaseAnalysis[];
+  readonly annual:Readonly<{
+    schema:"senfate-annual-analysis.v1";
+    targetYear:number;
+    convention:"certified-lichun-instant";
+    boundaryUtcMs:number;
+    annualPillar:ApiGanZhi;
+    luckOrdinal:number;
+    luckPillar:ApiGanZhi;
+    elementMeasure:Readonly<{atoms:Readonly<Record<ApiElement,number>>;total:number;totalVariation:number}>;
+    strength:Readonly<{state:ApiStrengthClass;supportRatio:number;support:number;pressure:number}>;
+    relations:readonly ApiResolvedRelation[];
+    normalForm:Readonly<{status:"stable";iterations:number;fingerprint:string;trace:readonly string[]}>;
+    interpretation:ApiInterpretation;
+    kinship:ApiKinshipProjection;
+    topics:ApiTopicContributionCertificate;
+  }>;
   readonly certificate: Readonly<Record<string, unknown>>;
 }

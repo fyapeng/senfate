@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "exports": { ".": "./src/index.ts" },
+  "exports": { ".": "./src/index.ts", "./compiler": "./src/compiler.ts", "./runtime": "./src/runtime.ts" },
   "dependencies": { "@senfate/core": "workspace:*" },
   "scripts": {
     "audit": "vitest run src/audit.test.ts",
     "audit:compilation": "node --experimental-strip-types scripts/audit-reference-compilation.mjs",
+    "audit:resolved-topic-features": "vitest run src/resolved-topic-audit.test.ts --disableConsoleIntercept",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"
   }
