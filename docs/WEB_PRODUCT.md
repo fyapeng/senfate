@@ -4,7 +4,7 @@
 
 | Route | Product responsibility | Interactive surface |
 | --- | --- | --- |
-| `/senfate/` | Birth input and progressive analysis workspace | location search, certified calculation and six result layers |
+| `/senfate/` | Birth input and progressive analysis workspace | location search, optional exact coordinates, certified calculation and six result layers |
 | `/senfate/principles/` | Public inference and resolution method | resolution-state explorer |
 | `/senfate/perspective/` | Historical and epistemic boundaries | editorial reading experience |
 | `/senfate/models/` | Public model presets and parameters | catalog-driven weights, local save, JSON export and analysis handoff |

@@ -10,6 +10,7 @@ import {
   type ApiSex,
 } from "@senfate/contracts";
 import {clearModelSettings,loadModelSettings,modelOverrideCount} from "../model-settings";
+import {formatCoordinateUncertainty,validateExactCoordinates} from "../coordinates";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
 const tabs = ["命盘", "结构", "格局与调候", "大运", "年度主题", "计算证书"] as const;
@@ -44,6 +45,10 @@ export function AnalysisWorkbench() {
   const [modelId, setModelId] = useState<ApiModelId>("transparent-baseline");
   const [modelOverrides,setModelOverrides]=useState<ApiModelOverrides>({});
   const [clockUncertaintySeconds, setClockUncertaintySeconds] = useState(60);
+  const [useExactCoordinates,setUseExactCoordinates]=useState(false);
+  const [latitude,setLatitude]=useState("");
+  const [longitude,setLongitude]=useState("");
+  const [coordinateUncertaintyMeters,setCoordinateUncertaintyMeters]=useState("100");
   const [disambiguation, setDisambiguation] = useState<"earlier" | "later" | "reject">("reject");
   const [query, setQuery] = useState("");
   const [locations, setLocations] = useState<readonly ApiLocation[]>([]);
@@ -73,12 +78,14 @@ export function AnalysisWorkbench() {
     return () => { window.clearTimeout(timer); controller.abort(); };
   }, [query, selectedLocation]);
 
-  const canSubmit = Boolean(selectedLocation && date && time && !submitting);
-  const inputSummary = useMemo(() => selectedLocation ? `${selectedLocation.displayName} · ${selectedLocation.timeZone}` : "尚未选择规范地点", [selectedLocation]);
+  const exactCoordinate=useMemo(()=>validateExactCoordinates({enabled:useExactCoordinates,latitude,longitude,uncertaintyMeters:coordinateUncertaintyMeters}),[useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters]);
+  const canSubmit = Boolean(selectedLocation && date && time && exactCoordinate.valid && !submitting);
+  const inputSummary = useMemo(() => selectedLocation ? `${selectedLocation.displayName} · ${selectedLocation.timeZone}${useExactCoordinates?" · 精确坐标":""}` : "尚未选择规范地点", [selectedLocation,useExactCoordinates]);
 
   async function calculate(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!selectedLocation) { setMessage("请从搜索结果中选择出生地点。 "); return; }
+    if(!exactCoordinate.valid){setMessage(exactCoordinate.reason);return}
     const [year, month, day] = date.split("-").map(Number);
     const [hour, minute] = time.split(":").map(Number);
     setSubmitting(true); setMessage(""); setResult(undefined);
@@ -90,7 +97,7 @@ export function AnalysisWorkbench() {
           schemaVersion: ANALYSIS_REQUEST_SCHEMA,targetYear,
           locationId: selectedLocation.id,
           localDateTime: { year, month, day, hour, minute },
-          sex, modelId, ...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),disambiguation, clockUncertaintySeconds, periodCount: 12,
+          sex, modelId, ...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),...(exactCoordinate.value?{exactCoordinates:exactCoordinate.value}:{}),disambiguation, clockUncertaintySeconds, periodCount: 12,
         }),
       });
       const body = await response.json() as ApiAnalysisResponse | ApiErrorResponse;
@@ -117,16 +124,19 @@ export function AnalysisWorkbench() {
           <label className="location-field">出生地点
             <div className="location-input"><span aria-hidden="true">⌖</span><input type="search" value={query} placeholder="搜索城市、县区或国家" autoComplete="off" onChange={(event) => { setQuery(event.target.value); setSelectedLocation(undefined); }} aria-expanded={locations.length > 0} /></div>
             {searching && <small>正在查询规范地点…</small>}
-            {locations.length > 0 && !selectedLocation && <div className="location-results" role="listbox" aria-label="地点搜索结果">{locations.map((location) => <button type="button" role="option" key={location.id} onClick={() => { setSelectedLocation(location); setQuery(location.displayName); setLocations([]); setMessage(""); }}><strong>{location.displayName}</strong><span>{location.countryCode} · {location.timeZone}</span></button>)}</div>}
+            {locations.length > 0 && !selectedLocation && <div className="location-results" role="listbox" aria-label="地点搜索结果">{locations.map((location) => <button type="button" role="option" key={location.id} onClick={() => { setSelectedLocation(location);setLatitude(String(location.latitude));setLongitude(String(location.longitude)); setQuery(location.displayName); setLocations([]); setMessage(""); }}><strong>{location.displayName}</strong><span>{location.countryCode} · {location.timeZone}</span></button>)}</div>}
             {!searching && <small>{inputSummary}</small>}
           </label>
           <label>模型预设<select value={modelId} onChange={(event) => {setModelId(event.target.value as ApiModelId);setModelOverrides({});clearModelSettings()}}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select><small>{modelOverrideCount(modelOverrides)>0?`已应用 ${modelOverrideCount(modelOverrides)} 项自定义权重。`:"使用公开预设参数。"} <a className="inline-link" href="/senfate/models/">调整模型参数</a></small></label>
           <label>分析流年<input type="number" min={Math.max(1900,Number(date.slice(0,4))||1900)} max="2035" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>按该年立春后的流年干支，自动匹配所属大运。</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
+            <label className="coordinate-toggle"><input type="checkbox" checked={useExactCoordinates} onChange={(event)=>setUseExactCoordinates(event.target.checked)}/><span>使用精确出生坐标<small>时区仍由上方规范地点确定；经纬度用于地方视太阳时和边界误差。</small></span></label>
+            {useExactCoordinates&&<div className="coordinate-fields"><label>纬度<input type="number" min="-90" max="90" step="0.000001" value={latitude} onChange={(event)=>setLatitude(event.target.value)}/></label><label>经度<input type="number" min="-180" max="180" step="0.000001" value={longitude} onChange={(event)=>setLongitude(event.target.value)}/></label><label>坐标误差（米）<input type="number" min="0" max="1000000" step="1" value={coordinateUncertaintyMeters} onChange={(event)=>setCoordinateUncertaintyMeters(event.target.value)}/></label></div>}
             <label>钟表时间精度<select value={clockUncertaintySeconds} onChange={(event) => setClockUncertaintySeconds(Number(event.target.value))}><option value={1}>精确到秒</option><option value={60}>精确到分钟</option><option value={1800}>约半小时</option><option value={3600}>约一小时</option></select></label>
             <label>重复当地时刻<select value={disambiguation} onChange={(event) => setDisambiguation(event.target.value as typeof disambiguation)}><option value="reject">停止并提示</option><option value="earlier">采用较早时刻</option><option value="later">采用较晚时刻</option></select></label>
           </div>}
+          {useExactCoordinates&&!exactCoordinate.valid&&<p className="field-error">{exactCoordinate.reason}</p>}
           <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成结构分析"}</span><small>历法 · 格局候选 · 调候 · 逐运正规形</small></button>
           {message && <p className="form-message" role="alert">{message}</p>}
         </form>
@@ -225,5 +235,5 @@ function AnnualTopicResult({result}:{result:ApiAnalysisResponse}){
 
 function CertificateResult({ result }: { result: ApiAnalysisResponse }) {
   const calendar = result.calendar;
-  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>模型配置</span><strong>{result.modelConfiguration.customized?`${result.modelConfiguration.overrideCount} 项自定义权重`:"公开预设"}</strong><p>指纹 {result.modelConfiguration.overrideFingerprint}</p></article><article><span>正规形链</span><strong>原局 + {result.luckDynamics.length} 步大运</strong><p>全部稳定后才返回结果</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型权重、五行测度、格局与调候投影、关系裁决及逐运重算链。当前结果不等同于现实事件概率。</p></div>;
+  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · {formatCoordinateUncertainty(calendar.coordinateProvenance.uncertaintyMeters)}</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>模型配置</span><strong>{result.modelConfiguration.customized?`${result.modelConfiguration.overrideCount} 项自定义权重`:"公开预设"}</strong><p>指纹 {result.modelConfiguration.overrideFingerprint}</p></article><article><span>正规形链</span><strong>原局 + {result.luckDynamics.length} 步大运</strong><p>全部稳定后才返回结果</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型权重、五行测度、格局与调候投影、关系裁决及逐运重算链。当前结果不等同于现实事件概率。</p></div>;
 }
