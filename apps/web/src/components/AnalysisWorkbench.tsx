@@ -6,8 +6,10 @@ import {
   type ApiLocation,
   type ApiLocationSearchResponse,
   type ApiModelId,
+  type ApiModelOverrides,
   type ApiSex,
 } from "@senfate/contracts";
+import {clearModelSettings,loadModelSettings,modelOverrideCount} from "../model-settings";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
 const tabs = ["命盘", "结构", "格局与调候", "大运", "年度主题", "计算证书"] as const;
@@ -40,6 +42,7 @@ export function AnalysisWorkbench() {
   const [targetYear,setTargetYear]=useState(2026);
   const [sex, setSex] = useState<ApiSex>("female");
   const [modelId, setModelId] = useState<ApiModelId>("transparent-baseline");
+  const [modelOverrides,setModelOverrides]=useState<ApiModelOverrides>({});
   const [clockUncertaintySeconds, setClockUncertaintySeconds] = useState(60);
   const [disambiguation, setDisambiguation] = useState<"earlier" | "later" | "reject">("reject");
   const [query, setQuery] = useState("");
@@ -49,6 +52,8 @@ export function AnalysisWorkbench() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<ApiAnalysisResponse>();
   const [message, setMessage] = useState("");
+
+  useEffect(()=>{const stored=loadModelSettings();if(stored){setModelId(stored.baseModelId);setModelOverrides(stored.overrides)}},[]);
 
   useEffect(() => {
     if (selectedLocation && query === selectedLocation.displayName) return;
@@ -85,7 +90,7 @@ export function AnalysisWorkbench() {
           schemaVersion: ANALYSIS_REQUEST_SCHEMA,targetYear,
           locationId: selectedLocation.id,
           localDateTime: { year, month, day, hour, minute },
-          sex, modelId, disambiguation, clockUncertaintySeconds, periodCount: 12,
+          sex, modelId, ...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),disambiguation, clockUncertaintySeconds, periodCount: 12,
         }),
       });
       const body = await response.json() as ApiAnalysisResponse | ApiErrorResponse;
@@ -115,7 +120,7 @@ export function AnalysisWorkbench() {
             {locations.length > 0 && !selectedLocation && <div className="location-results" role="listbox" aria-label="地点搜索结果">{locations.map((location) => <button type="button" role="option" key={location.id} onClick={() => { setSelectedLocation(location); setQuery(location.displayName); setLocations([]); setMessage(""); }}><strong>{location.displayName}</strong><span>{location.countryCode} · {location.timeZone}</span></button>)}</div>}
             {!searching && <small>{inputSummary}</small>}
           </label>
-          <label>模型预设<select value={modelId} onChange={(event) => setModelId(event.target.value as ApiModelId)}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select></label>
+          <label>模型预设<select value={modelId} onChange={(event) => {setModelId(event.target.value as ApiModelId);setModelOverrides({});clearModelSettings()}}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select><small>{modelOverrideCount(modelOverrides)>0?`已应用 ${modelOverrideCount(modelOverrides)} 项自定义权重。`:"使用公开预设参数。"} <a className="inline-link" href="/senfate/models/">调整模型参数</a></small></label>
           <label>分析流年<input type="number" min={Math.max(1900,Number(date.slice(0,4))||1900)} max="2035" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>按该年立春后的流年干支，自动匹配所属大运。</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
@@ -130,7 +135,7 @@ export function AnalysisWorkbench() {
 
       <section className="result-panel" aria-label="排盘计算结果">
         {!result ? <EmptyResult /> : <>
-          <div className="result-header"><div><span className="step-label">STEP 02 · CERTIFIED</span><h2>{result.calendar.location.displayName}结构分析</h2><p>{result.calendar.model.label} v{result.calendar.model.version} · {result.calendar.time.timeZone}</p></div><span className="verified-pill">正规形稳定</span></div>
+          <div className="result-header"><div><span className="step-label">STEP 02 · CERTIFIED</span><h2>{result.calendar.location.displayName}结构分析</h2><p>{result.calendar.model.label} v{result.calendar.model.version} · {result.calendar.time.timeZone}{result.modelConfiguration.customized?` · ${result.modelConfiguration.overrideCount} 项自定义权重`:""}</p></div><span className="verified-pill">正规形稳定</span></div>
           <div className="result-tabs" role="tablist" aria-label="结果层级">{tabs.map((tab) => <button role="tab" type="button" aria-selected={active === tab} className={active === tab ? "active" : ""} onClick={() => setActive(tab)} key={tab}>{tab}</button>)}</div>
           <div className="result-body">
             {active === "命盘" && <ChartResult result={result} date={date} time={time} />}
@@ -218,5 +223,5 @@ function AnnualTopicResult({result}:{result:ApiAnalysisResponse}){
 
 function CertificateResult({ result }: { result: ApiAnalysisResponse }) {
   const calendar = result.calendar;
-  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>正规形链</span><strong>原局 + {result.luckDynamics.length} 步大运</strong><p>全部稳定后才返回结果</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型、五行测度、格局与调候投影、关系裁决及逐运重算链。当前结果不等同于现实事件概率。</p></div>;
+  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>模型配置</span><strong>{result.modelConfiguration.customized?`${result.modelConfiguration.overrideCount} 项自定义权重`:"公开预设"}</strong><p>指纹 {result.modelConfiguration.overrideFingerprint}</p></article><article><span>正规形链</span><strong>原局 + {result.luckDynamics.length} 步大运</strong><p>全部稳定后才返回结果</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型权重、五行测度、格局与调候投影、关系裁决及逐运重算链。当前结果不等同于现实事件概率。</p></div>;
 }

@@ -8,6 +8,7 @@ import {
   CALENDAR_RESPONSE_SCHEMA,
   LOCATION_DETAIL_SCHEMA,
   LOCATION_SEARCH_SCHEMA,
+  MODEL_CATALOG_SCHEMA,
   type ApiAnalysisResponse,
   type ApiCalendarRequest,
   type ApiCalendarResponse,
@@ -17,9 +18,11 @@ import {
   type ApiLocationDetailResponse,
   type ApiLocationSearchResponse,
   type ApiMetaResponse,
+  type ApiModelCatalogResponse,
   type ApiModelId,
+  type ApiModelOverrides,
 } from "@senfate/contracts";
-import { analyzeLuckSequence, analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, resolveAnnualContext, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
+import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
 import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
@@ -154,10 +157,26 @@ function isDisambiguation(value: unknown): value is "earlier" | "later" | "rejec
   return value === "earlier" || value === "later" || value === "reject";
 }
 
+const TOPIC_DOMAINS=["career","family","general","health","mobility","personality","relationship","risk","study","wealth"] as const;
+function hasOnlyKeys(value:Record<string,unknown>,keys:readonly string[]):boolean{return Object.keys(value).every(key=>keys.includes(key))}
+function numberMap(value:unknown,keys:readonly string[]):Record<string,number>|undefined{
+  if(!isRecord(value)||!hasOnlyKeys(value,keys))return undefined;const result:Record<string,number>={};for(const[key,item]of Object.entries(value)){if(!finiteIn(item,0,4))return undefined;result[key]=item}return result;
+}
+function parseModelOverrides(value:unknown):ApiModelOverrides|undefined{
+  if(!isRecord(value)||!hasOnlyKeys(value,["temporalLayers","pattern","climate","balancing","topics"]))return undefined;
+  let temporalLayers:Record<string,number>|undefined;let pattern:Record<string,number>|undefined;let climate:Record<string,number>|undefined;let balancing:Record<string,number>|undefined;let domainWeights:Record<string,number>|undefined;
+  if(value.temporalLayers!==undefined){temporalLayers=numberMap(value.temporalLayers,["natal","luck","annual"]);if(!temporalLayers)return undefined}
+  if(value.pattern!==undefined){pattern=numberMap(value.pattern,["monthCommand"]);if(!pattern)return undefined}
+  if(value.climate!==undefined){climate=numberMap(value.climate,["temperature","humidity"]);if(!climate)return undefined}
+  if(value.balancing!==undefined){balancing=numberMap(value.balancing,["strength","climate"]);if(!balancing)return undefined}
+  if(value.topics!==undefined){if(!isRecord(value.topics)||!hasOnlyKeys(value.topics,["domainWeights"]))return undefined;domainWeights=numberMap(value.topics.domainWeights??{},TOPIC_DOMAINS);if(!domainWeights)return undefined}
+  return{...(temporalLayers?{temporalLayers}:{}),...(pattern?{pattern}:{}),...(climate?{climate}:{}),...(balancing?{balancing}:{}),...(domainWeights?{topics:{domainWeights}}:{})};
+}
+
 function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
-  if (!isRecord(value) || value.schemaVersion !== CALENDAR_REQUEST_SCHEMA || !integerIn(value.locationId, 1, Number.MAX_SAFE_INTEGER)) return undefined;
+  if (!isRecord(value) || !hasOnlyKeys(value,["schemaVersion","locationId","localDateTime","sex","modelId","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion !== CALENDAR_REQUEST_SCHEMA || !integerIn(value.locationId, 1, Number.MAX_SAFE_INTEGER)) return undefined;
   const local = value.localDateTime;
-  if (!isRecord(local) || !integerIn(local.year, 1900, 2035) || !integerIn(local.month, 1, 12) || !integerIn(local.day, 1, 31) || !integerIn(local.hour, 0, 23) || !integerIn(local.minute, 0, 59) || (local.second !== undefined && !integerIn(local.second, 0, 59))) return undefined;
+  if (!isRecord(local) || !hasOnlyKeys(local,["year","month","day","hour","minute","second"])||!integerIn(local.year, 1900, 2035) || !integerIn(local.month, 1, 12) || !integerIn(local.day, 1, 31) || !integerIn(local.hour, 0, 23) || !integerIn(local.minute, 0, 59) || (local.second !== undefined && !integerIn(local.second, 0, 59))) return undefined;
   if (value.sex !== "female" && value.sex !== "male") return undefined;
   if (value.modelId !== undefined && !isModelId(value.modelId)) return undefined;
   if (value.disambiguation !== undefined && !isDisambiguation(value.disambiguation)) return undefined;
@@ -166,7 +185,7 @@ function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
   const exact = value.exactCoordinates;
   let exactCoordinates: ApiCalendarRequest["exactCoordinates"];
   if (exact !== undefined) {
-    if (!isRecord(exact) || !finiteIn(exact.latitude, -90, 90) || !finiteIn(exact.longitude, -180, 180) || !finiteIn(exact.uncertaintyMeters, 0, 1_000_000)) return undefined;
+    if (!isRecord(exact)||!hasOnlyKeys(exact,["latitude","longitude","uncertaintyMeters"]) || !finiteIn(exact.latitude, -90, 90) || !finiteIn(exact.longitude, -180, 180) || !finiteIn(exact.uncertaintyMeters, 0, 1_000_000)) return undefined;
     exactCoordinates = { latitude: exact.latitude, longitude: exact.longitude, uncertaintyMeters: exact.uncertaintyMeters };
   }
   return {
@@ -182,10 +201,11 @@ function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
   };
 }
 
-function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number}>|undefined{
-  if(!isRecord(value)||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,1900,2035))return undefined;
-  const calendar=parseCalendarRequest({...value,schemaVersion:CALENDAR_REQUEST_SCHEMA});
-  return calendar?{calendar,targetYear:value.targetYear}:undefined;
+function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number;modelOverrides:ApiModelOverrides}>|undefined{
+  if(!isRecord(value)||!hasOnlyKeys(value,["schemaVersion","targetYear","locationId","localDateTime","sex","modelId","modelOverrides","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,1900,2035))return undefined;
+  const modelOverrides=value.modelOverrides===undefined?{}:parseModelOverrides(value.modelOverrides);if(!modelOverrides)return undefined;
+  const calendar=parseCalendarRequest({schemaVersion:CALENDAR_REQUEST_SCHEMA,locationId:value.locationId,localDateTime:value.localDateTime,sex:value.sex,modelId:value.modelId,disambiguation:value.disambiguation,clockUncertaintySeconds:value.clockUncertaintySeconds,periodCount:value.periodCount,exactCoordinates:value.exactCoordinates});
+  return calendar?{calendar,targetYear:value.targetYear,modelOverrides}:undefined;
 }
 
 async function readBoundedJson(request: Request): Promise<unknown> {
@@ -224,7 +244,8 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     ? { source: "exact-input" as const, latitude: input.exactCoordinates.latitude, longitude: input.exactCoordinates.longitude, uncertaintyMeters: input.exactCoordinates.uncertaintyMeters }
     : { source: location.coordinateUse, latitude: location.latitude, longitude: location.longitude, uncertaintyMeters: COORDINATE_UNCERTAINTY_METERS[location.coordinateUse] };
   const modelId = input.modelId ?? "transparent-baseline";
-  const model = MODELS[modelId];
+  const appliedModel=applyPublicModelOverrides(MODELS[modelId],analysisInput?.modelOverrides??{});
+  const model = appliedModel.profile;
   const result = compileCertifiedBaziCalendar({
     ...input.localDateTime,
     timeZone: location.timeZone,
@@ -300,6 +321,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,
       calendar: body,
+      modelConfiguration:{schema:"senfate-public-model-configuration.v1",baseModelId:modelId,effectiveVersion:model.version,customized:appliedModel.count>0,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},
       structure: {
         schema: structure.schema,
         dayMaster: structure.dayMaster,
@@ -334,7 +356,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
         normalForm: { status: item.normalForm.status, iterations: item.normalForm.iterations, fingerprint: item.normalForm.fingerprint, trace: item.normalForm.trace },
       })),
       annual:{schema:"senfate-annual-analysis.v1",targetYear:annualContext.value.targetYear,convention:annualContext.value.convention,boundaryUtcMs:annualContext.value.boundaryUtcMs,annualPillar:annualContext.value.annualPillar,luckOrdinal:annualContext.value.luckPeriod.ordinal,luckPillar:annualContext.value.luckPeriod.pillar,elementMeasure:annualResult.value.normalForm.dynamicState.elementMeasure,strength:annualResult.value.normalForm.dynamicState.strength,relations:apiRelations(annualResult.value.normalForm),normalForm:{status:annualResult.value.normalForm.status,iterations:annualResult.value.normalForm.iterations,fingerprint:annualResult.value.normalForm.fingerprint,trace:annualResult.value.normalForm.trace},interpretation:annualInterpretation.value,kinship:{...kinship,phase:"annual"},topics:{...annualResult.value.topicCertificate,phase:"annual"}},
-      certificate: { functional: "api.annual-reference-analysis", calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate },
+      certificate: { functional: "api.annual-reference-analysis", modelConfiguration:{baseModelId:modelId,effectiveVersion:model.version,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate },
     };
     return json(analysis);
   }
@@ -364,9 +386,12 @@ export async function handleRequest(request: Request, locations?: LocationStore,
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "annual-topic-public-beta",
+      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "configurable-annual-topic-public-beta",
     };
     return json(body);
+  }
+  if(pathname===`${API_PREFIX}/models`||pathname==="/models"){
+    const body:ApiModelCatalogResponse={schemaVersion:MODEL_CATALOG_SCHEMA,requestId,parameters:PUBLIC_MODEL_PARAMETER_METADATA,presets:Object.entries(MODELS).map(([id,profile])=>({id:id as ApiModelId,label:profile.label,version:profile.version,values:publicModelParameterValues(profile)}))};return json(body);
   }
   if (pathname === `${API_PREFIX}/locations/search` || pathname === "/locations/search") {
     if (!locations) return error(requestId, 503, "location-index-unavailable", "The canonical location index is unavailable");

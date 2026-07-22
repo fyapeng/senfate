@@ -4,25 +4,23 @@
 
 | Route | Product responsibility | Interactive surface |
 | --- | --- | --- |
-| `/senfate/` | Birth input and progressive analysis workspace | calculation options, five result layers |
+| `/senfate/` | Birth input and progressive analysis workspace | location search, certified calculation and six result layers |
 | `/senfate/principles/` | Public inference and resolution method | resolution-state explorer |
 | `/senfate/perspective/` | Historical and epistemic boundaries | editorial reading experience |
-| `/senfate/models/` | Public model presets and parameters | preset switching, parameter sensitivity |
+| `/senfate/models/` | Public model presets and parameters | catalog-driven weights, local save, JSON export and analysis handoff |
 
 The four routes share one navigation, responsive layout, visual token system and
 boundary statement. GitHub Pages owns all website assets. Cloudflare only owns
 `/senfate/api/*` and is not a web-page origin.
 
-## Honest-preview rule
+## Live-calculation rule
 
-The current calculation kernel is incomplete. The product therefore follows
-these constraints:
-
-1. Birth inputs remain in the browser and are not submitted.
-2. The calculation action is disabled until the formal runtime is connected.
-3. Any sample chart or model value is labelled as a product demonstration.
-4. The interface does not imply that sample output was calculated from input.
-5. Internal contribution measures are never labelled as empirical probability.
+Birth input is submitted only to the calculation Worker and is not stored in a
+user database. Results must come from the certified calendar and stable-normal-
+form chain; the interface does not substitute sample data after a calculation
+failure. Public model settings are stored locally, accepted only through the
+closed 18-parameter API contract and included in the returned certificate.
+Internal contribution measures are never labelled as empirical probability.
 
 ## Responsive acceptance
 

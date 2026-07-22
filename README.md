@@ -52,7 +52,9 @@ coordinates, a five-element balancing vector and dynamically recomputed
 major-luck periods, a selected annual state, six kinship roles and an audited
 ten-domain topic contribution vector. Source-linked event hypotheses are shown
 as traditional-model statements rather than empirical probabilities. The model
-page exposes active presets and previews future custom-profile controls.
+page reads the public model catalog and applies bounded user weights to real
+calculations. Saved changes remain in the browser; the API validates them,
+recomputes the full chain and returns a fingerprinted configuration certificate.
 
 ## Commands
 

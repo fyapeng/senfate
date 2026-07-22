@@ -2,7 +2,7 @@
 
 ## Public contract
 
-`senfate-analysis-request.v1` adds a required `targetYear` to the certified
+`senfate-analysis-request.v2` adds a required `targetYear` to the certified
 calendar inputs. The annual pillar and enclosing luck period are evaluated at
 the certified Lichun instant for that year. The
 runtime locates the enclosing major-luck period from its certified start time.
@@ -46,6 +46,12 @@ never contribute zero silently.
 Event hypotheses aggregate source-backed domain direction and magnitude. Their
 epistemic status is always `traditional-model-hypothesis`; they are not event
 probabilities, causal estimates or factual predictions.
+
+Public topic-domain weights scale the signed contribution measure only after a
+rule condition has activated. They cannot make a false rule true, query raw
+graph state or move a deferred record into the executable set. Temporal-layer
+overrides act earlier and therefore require full dynamic-state and normal-form
+recomputation. Both kinds are included in the model-configuration certificate.
 
 `pnpm audit:resolved-topic-features` recompiles the canonical corpus, checks the
 complete disposition partition, executes an annual fixture and reports the

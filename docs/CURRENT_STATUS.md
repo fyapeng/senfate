@@ -31,7 +31,7 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v3` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v4` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
@@ -42,6 +42,9 @@
 - public `TopicContributionCertificate v2` with activated source books and line ranges;
 - source-linked topic event hypotheses carrying an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
+- public 18-parameter model catalog and closed `modelOverrides` request contract;
+- locally persisted model controls that drive full server recomputation and a
+  fingerprinted model-configuration certificate.
 
 ## Recomputed reference disposition
 
