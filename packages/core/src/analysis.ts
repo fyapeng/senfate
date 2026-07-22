@@ -1,4 +1,6 @@
 import type { ClosedResult } from "./algebra";
+import type { MajorLuckPeriod } from "./calendar";
+import { evaluateInterpretiveModel, type InterpretiveModelFailure, type InterpretiveModelResult } from "./interpretation";
 import { materializeDynamicChartState, type DynamicStateFailure } from "./lifecycle";
 import type { SenFateModelProfile, PillarPosition } from "./model";
 import { BRANCH_DEFINITIONS, STEM_DEFINITIONS, tenGod, type Element, type GanZhi, type TenGod, type YinYang } from "./ontology";
@@ -33,6 +35,17 @@ export interface NatalStructureAnalysis {
 }
 
 export type NatalStructureFailure = DynamicStateFailure | NormalFormFailure | "invalid-profile" | "zero-measure";
+export interface LuckPhaseAnalysis {
+  readonly ordinal: number;
+  readonly pillar: MajorLuckPeriod["pillar"];
+  readonly startAgeYears: number;
+  readonly startAgeInterval: MajorLuckPeriod["startAgeInterval"];
+  readonly strength: ReferenceNormalFormPhaseResult["dynamicState"]["strength"];
+  readonly elementMeasure: ReferenceNormalFormPhaseResult["dynamicState"]["elementMeasure"];
+  readonly normalForm: ReferenceNormalFormPhaseResult;
+  readonly interpretation: InterpretiveModelResult;
+}
+export type LuckSequenceFailure = DynamicStateFailure | NormalFormFailure | InterpretiveModelFailure;
 const POSITIONS: readonly PillarPosition[] = ["year", "month", "day", "hour"];
 
 export function analyzeNatalStructure(pillars: FourPillarState, model: SenFateModelProfile): ClosedResult<NatalStructureAnalysis, NatalStructureFailure> {
@@ -77,4 +90,18 @@ export function analyzeNatalStructure(pillars: FourPillarState, model: SenFateMo
       upstream: { strength: strength.certificate, dynamic: dynamic.certificate, normalForm: normalForm.certificate },
     },
   };
+}
+
+export function analyzeLuckSequence(pillars: FourPillarState, periods: readonly MajorLuckPeriod[], model: SenFateModelProfile): ClosedResult<readonly LuckPhaseAnalysis[], LuckSequenceFailure> {
+  const output: LuckPhaseAnalysis[] = [];
+  for (const period of periods) {
+    const dynamic = materializeDynamicChartState({ natal: pillars, luck: period.pillar }, model);
+    if (!dynamic.ok) return { ...dynamic, certificate: { ...dynamic.certificate, functional: "analysis.luck-sequence", failedOrdinal: period.ordinal } };
+    const normalForm = resolveReferenceNormalForm(dynamic.value, model);
+    if (!normalForm.ok) return { ...normalForm, certificate: { ...normalForm.certificate, functional: "analysis.luck-sequence", failedOrdinal: period.ordinal } };
+    const interpretation = evaluateInterpretiveModel(pillars, dynamic.value.strength, dynamic.value.elementMeasure, normalForm.value, model);
+    if (!interpretation.ok) return { ...interpretation, certificate: { ...interpretation.certificate, functional: "analysis.luck-sequence", failedOrdinal: period.ordinal } };
+    output.push({ ordinal: period.ordinal, pillar: period.pillar, startAgeYears: period.startAgeYears, startAgeInterval: period.startAgeInterval, strength: dynamic.value.strength, elementMeasure: dynamic.value.elementMeasure, normalForm: normalForm.value, interpretation: interpretation.value });
+  }
+  return { ok: true, value: output, certificate: { functional: "analysis.luck-sequence", model: `${model.id}@${model.version}`, ordinals: output.map((item) => item.ordinal), normalFormFingerprints: output.map((item) => item.normalForm.fingerprint) } };
 }

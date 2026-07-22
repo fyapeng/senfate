@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState, type SyntheticEvent } from "react";
 import {
   CALENDAR_REQUEST_SCHEMA,
   type ApiAnalysisResponse,
-  type ApiCalendarResponse,
   type ApiErrorResponse,
   type ApiLocation,
   type ApiLocationSearchResponse,
@@ -11,7 +10,7 @@ import {
 } from "@senfate/contracts";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
-const tabs = ["命盘", "结构", "大运", "计算证书"] as const;
+const tabs = ["命盘", "结构", "格局与调候", "大运", "计算证书"] as const;
 const modelLabels: Readonly<Record<ApiModelId, string>> = {
   "transparent-baseline": "透明综合基准",
   "month-command": "月令结构优先",
@@ -121,7 +120,7 @@ export function AnalysisWorkbench() {
             <label>钟表时间精度<select value={clockUncertaintySeconds} onChange={(event) => setClockUncertaintySeconds(Number(event.target.value))}><option value={1}>精确到秒</option><option value={60}>精确到分钟</option><option value={1800}>约半小时</option><option value={3600}>约一小时</option></select></label>
             <label>重复当地时刻<select value={disambiguation} onChange={(event) => setDisambiguation(event.target.value as typeof disambiguation)}><option value="reject">停止并提示</option><option value="earlier">采用较早时刻</option><option value="later">采用较晚时刻</option></select></label>
           </div>}
-          <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成结构分析"}</span><small>历法 · 十神 · 五行测度 · 关系正规形</small></button>
+          <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成结构分析"}</span><small>历法 · 格局候选 · 调候 · 逐运正规形</small></button>
           {message && <p className="form-message" role="alert">{message}</p>}
         </form>
         <p className="privacy-copy">出生信息会发送至计算接口并立即求值；当前服务不写入用户数据库，也不建立个人档案。</p>
@@ -134,7 +133,8 @@ export function AnalysisWorkbench() {
           <div className="result-body">
             {active === "命盘" && <ChartResult result={result} date={date} time={time} />}
             {active === "结构" && <StructureResult result={result} />}
-            {active === "大运" && <LuckResult result={result.calendar} />}
+            {active === "格局与调候" && <InterpretationResult result={result} />}
+            {active === "大运" && <LuckResult result={result} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
         </>}
@@ -178,11 +178,29 @@ function StructureResult({ result }: { result: ApiAnalysisResponse }) {
   </div>;
 }
 
-function LuckResult({ result }: { result: ApiCalendarResponse }) {
-  return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{result.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(result.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(result.luckStartAgeInterval.lower, 3)}—{decimal(result.luckStartAgeInterval.upper, 3)}</small></div><p>按“节气间隔三日折一年”计算；每一步同时保留起始年龄和公历日期的不确定区间。</p></div><div className="luck-grid">{result.majorLuck.map((period) => <article key={period.ordinal}><span>第 {period.ordinal} 运</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(period.startUtcMs, result.time.timeZone)}</small></article>)}</div></div>;
+const patternStatusLabels = { qualified: "成立候选", contested: "并列待裁", candidate: "候选", unqualified: "未达阈值" } as const;
+const climateLabels = { cold: "偏寒", hot: "偏热", dry: "偏燥", humid: "偏湿", balanced: "中和" } as const;
+const balancingLabels = { supportive: "增益候选", neutral: "中性", avoid: "减益候选" } as const;
+
+function InterpretationResult({ result }: { result: ApiAnalysisResponse }) {
+  const projection = result.interpretation;
+  return <div className="interpretation-result">
+    <div className="interpretation-grid">
+      <article className="insight-card"><span>月令格局投影</span><h3>{patternStatusLabels[projection.pattern.status]}</h3><p>候选来自月支藏干，并计入透干、通根与模型阈值。它是可审计的结构候选，不替代流派专属格局裁决。</p></article>
+      <article className="insight-card"><span>调候坐标</span><h3>{climateLabels[projection.climate.temperatureState]} · {climateLabels[projection.climate.humidityState]}</h3><p>温度 {decimal(projection.climate.temperature, 3)}，湿度 {decimal(projection.climate.humidity, 3)}。坐标由月令基线与五行测度共同生成。</p></article>
+    </div>
+    <div className="pattern-list"><div className="relation-heading"><span>格局候选排序</span><strong>{projection.pattern.schema}</strong></div>{projection.pattern.candidates.map((candidate) => <article key={`${candidate.stem}-${candidate.rank}`}><div><strong>{candidate.tenGod}</strong><span>{candidate.stem} · {candidate.rank === "main" ? "本气" : candidate.rank === "middle" ? "中气" : "余气"}{candidate.exposed ? " · 透干" : ""}</span></div><div><b className={`state ${candidate.status}`}>{patternStatusLabels[candidate.status]}</b><small>得分 {decimal(candidate.score, 3)}</small></div></article>)}</div>
+    <div className="balancing-vector"><div className="relation-heading"><span>五行平衡贡献向量</span><strong>强弱项 + 调候项 × 正规形置信度</strong></div>{projection.balancing.candidates.map((candidate) => <article key={candidate.element}><strong className={elementClass[candidate.element]}>{candidate.element}</strong><div><i><b style={{ width: `${Math.min(100, Math.abs(candidate.score) * 70 + 3)}%` }}></b></i><small>强弱 {decimal(candidate.strengthContribution, 3)} · 调候 {decimal(candidate.climateContribution, 3)}</small></div><span>{balancingLabels[candidate.status]} {candidate.score >= 0 ? "+" : ""}{decimal(candidate.score, 3)}</span></article>)}</div>
+    <p className="boundary-note">这里展示的是参数化候选向量，便于比较模型和继续接入书证规则；尚未将它命名为最终“用神”，也不直接推出具体事件。</p>
+  </div>;
+}
+
+function LuckResult({ result }: { result: ApiAnalysisResponse }) {
+  const calendar = result.calendar;
+  return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{calendar.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(calendar.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(calendar.luckStartAgeInterval.lower, 3)}—{decimal(calendar.luckStartAgeInterval.upper, 3)}</small></div><p>每一步均累计原局与当步大运，重新计算五行测度、强弱、关系正规形和候选向量。</p></div><div className="luck-grid">{result.luckDynamics.map((period) => { const calendarPeriod = calendar.majorLuck.find((item) => item.ordinal === period.ordinal)!; const supportive = period.interpretation.balancing.candidates.filter((item) => item.status === "supportive").slice(0, 2).map((item) => item.element).join("、") || "无显著项"; return <article key={period.ordinal}><span>第 {period.ordinal} 运 · {strengthLabels[period.strength.state]}</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(calendarPeriod.startUtcMs, calendar.time.timeZone)} · 增益候选 {supportive}</small><em>支持比 {decimal(period.strength.supportRatio * 100, 1)}% · {period.relations.length} 条关系</em></article>; })}</div></div>;
 }
 
 function CertificateResult({ result }: { result: ApiAnalysisResponse }) {
   const calendar = result.calendar;
-  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>结构正规形</span><strong>{result.structure.normalForm.status}</strong><p>指纹 {result.structure.normalForm.fingerprint.slice(0, 16)}…</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型、五行测度和关系裁决链。当前结构状态是模型内部的形式化结果，不等同于现实事件概率。</p></div>;
+  return <div className="certificate-result"><div className="certificate-grid"><article><span>地点来源</span><strong>{calendar.provenance.locationDataset}</strong><p>{calendar.coordinateProvenance.source} · ±{decimal(calendar.coordinateProvenance.uncertaintyMeters / 1000, 0)} km</p></article><article><span>节气星历</span><strong>{calendar.provenance.ephemeris}</strong><p>摘要 {calendar.provenance.ephemerisDigest.slice(0, 16)}…</p></article><article><span>正规形链</span><strong>原局 + {result.luckDynamics.length} 步大运</strong><p>全部稳定后才返回结果</p></article></div><details><summary>查看机器可读证书</summary><pre>{JSON.stringify(result.certificate, null, 2)}</pre></details><p className="boundary-note">证书记录历法、模型、五行测度、格局与调候投影、关系裁决及逐运重算链。当前结果不等同于现实事件概率。</p></div>;
 }

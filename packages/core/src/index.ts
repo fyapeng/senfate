@@ -1,6 +1,7 @@
 export * from "./algebra";
 export * from "./analysis";
 export * from "./calendar";
+export * from "./interpretation";
 export * from "./model";
 export * from "./lifecycle";
 export * from "./ontology";

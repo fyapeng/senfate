@@ -18,7 +18,7 @@ import {
   type ApiMetaResponse,
   type ApiModelId,
 } from "@senfate/contracts";
-import { analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, MONTH_COMMAND_MODEL, TRANSPARENT_BASELINE_MODEL, type SenFateModelProfile } from "@senfate/core";
+import { analyzeLuckSequence, analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, MONTH_COMMAND_MODEL, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
 
@@ -112,6 +112,18 @@ export function d1LocationStore(database: D1Database): LocationStore {
 
 function json(value: unknown, status = 200): Response {
   return Response.json(value, { status, headers: JSON_HEADERS });
+}
+
+function apiRelations(normalForm: ReferenceNormalFormPhaseResult) {
+  return normalForm.relations.map((relation) => ({
+    id: relation.id,
+    kind: relation.candidate.kind,
+    members: relation.candidate.members,
+    ...(relation.candidate.targetElement ? { targetElement: relation.candidate.targetElement } : {}),
+    status: relation.status,
+    score: relation.score,
+    competingIds: relation.competingIds,
+  }));
 }
 
 function error(requestId: string, status: number, code: string, message: string): Response {
@@ -259,6 +271,10 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     const structureResult = analyzeNatalStructure(value.calendar.pillars, model);
     if (!structureResult.ok) return error(requestId, 422, structureResult.code, structureResult.reason);
     const structure = structureResult.value;
+    const interpretationResult = evaluateInterpretiveModel(value.calendar.pillars, structure.strength, structure.strength.elementMeasure.measure, structure.normalForm, model);
+    if (!interpretationResult.ok) return error(requestId, 422, interpretationResult.code, interpretationResult.reason);
+    const luckResult = analyzeLuckSequence(value.calendar.pillars, value.calendar.majorLuck, model);
+    if (!luckResult.ok) return error(requestId, 422, luckResult.code, luckResult.reason);
     const analysis: ApiAnalysisResponse = {
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,
@@ -276,15 +292,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
           decomposition: structure.strength.decomposition,
         },
         rootExposure: structure.strength.rootExposure,
-        relations: structure.normalForm.relations.map((relation) => ({
-          id: relation.id,
-          kind: relation.candidate.kind,
-          members: relation.candidate.members,
-          ...(relation.candidate.targetElement ? { targetElement: relation.candidate.targetElement } : {}),
-          status: relation.status,
-          score: relation.score,
-          competingIds: relation.competingIds,
-        })),
+        relations: apiRelations(structure.normalForm),
         normalForm: {
           status: structure.normalForm.status,
           iterations: structure.normalForm.iterations,
@@ -292,7 +300,19 @@ async function calculate(request: Request, requestId: string, locations: Locatio
           trace: structure.normalForm.trace,
         },
       },
-      certificate: { functional: "api.natal-analysis", calendar: result.certificate, structure: structureResult.certificate },
+      interpretation: interpretationResult.value,
+      luckDynamics: luckResult.value.map((item) => ({
+        ordinal: item.ordinal,
+        pillar: item.pillar,
+        startAgeYears: item.startAgeYears,
+        startAgeInterval: item.startAgeInterval,
+        elementMeasure: item.elementMeasure,
+        strength: item.strength,
+        interpretation: item.interpretation,
+        relations: apiRelations(item.normalForm),
+        normalForm: { status: item.normalForm.status, iterations: item.normalForm.iterations, fingerprint: item.normalForm.fingerprint, trace: item.normalForm.trace },
+      })),
+      certificate: { functional: "api.interpretive-analysis", calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate },
     };
     return json(analysis);
   }
@@ -322,7 +342,7 @@ export async function handleRequest(request: Request, locations?: LocationStore)
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "structure-public-beta",
+      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "interpretive-public-beta",
     };
     return json(body);
   }

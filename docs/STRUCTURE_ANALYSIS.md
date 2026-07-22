@@ -41,6 +41,7 @@ three-meeting candidates enter weighted competition. Each relation receives an
 explicit disposition: `effective`, `transformed`, `contested` or `blocked`.
 Downstream layers may consume only the stable result and its fingerprint.
 
-The current natal analysis does not claim pattern, climate, balancing, kinship,
-topic or event conclusions. Those require separate functionals and reference
-rule audits.
+Pattern, climate and balancing now exist as parameterized projections over the
+stable result. They are labelled as candidates and coordinates rather than
+cross-school conclusions. Kinship, topic and event output still require their
+separate reference-rule audits.
