@@ -19,4 +19,4 @@ manifest containing its logical name, version, byte size, digest, provenance and
 reproduction command. The binary itself remains local or moves to suitable object
 storage.
 
-The 121,724-byte solar-term table is a deliberate exception: it is a compact runtime dependency explicitly generated from NASA/JPL Horizons DE441. Its tracked manifest pins the digest, query and reproduction command; no large ephemeris kernel is stored in Git.
+The 230,120-byte solar-term table is a deliberate exception: it is a compact runtime dependency explicitly generated from NASA/JPL Horizons DE441. Its tracked manifest pins the digest, query and reproduction command; no large ephemeris kernel is stored in Git.

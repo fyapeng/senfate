@@ -25,29 +25,33 @@
 - concrete weighted resolution for combine, clash, harm, break, punishment, three-harmony and three-meeting candidates;
 - stable-normal-form-only resolved feature projection;
 - unified `ReferenceCalculationRuntime` from dynamic state through topic contribution certificate.
-- pinned NASA/JPL Horizons DE441 solar-term table for 1900–2035 (3,264 terms);
+- pinned NASA/JPL Horizons DE441 solar-term table with 1849/2101 boundary buffers for the public 1850–2100 domain (6,072 terms);
 - digest-verified `jie` window resolver with UT1/UTC and future leap-second uncertainty;
 - certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v6` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v8` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
 - requested major-luck sequence recomputation accumulating natal and current luck layers through a stable normal form;
 - target-year selection at the certified LiChun instant with the enclosing major-luck period;
 - annual recomputation accumulating natal, luck and annual layers before topic evaluation;
-- six-role kinship projection with explicit sex-dependent ten-god mappings;
+- six-role `KinshipProjection v2` with sex-dependent mappings, visible/hidden evidence, model weights and natal/luck/annual decomposition;
+- annual special-state certificate for same luck-year pillars, phase extremes and seven-symbol support/pressure consensus candidates;
+- compact all-covered-year trajectory with stable-normal-form gaps, normalized topic index, twelve certified flow-month samples per year and per-year special-state markers;
 - public `TopicContributionCertificate v4` with activated source books, line ranges, declared time scopes and normalized event evidence;
 - 50 source-level event predicates defined by phase, topic domain and canonical effect operator;
 - event evidence grades for single-source, same-book, cross-book and mixed-direction support;
 - per-predicate natal, major-luck, annual and unscoped source counts proving annual scope accumulation;
 - expandable source records for every published event hypothesis, with an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
-- public 18-parameter model catalog and closed `modelOverrides` request contract;
+- public 19-parameter model catalog, including the flow-month layer weight, and closed `modelOverrides` request contract;
 - locally persisted model controls that drive full server recomputation and a
   fingerprinted model-configuration certificate.
+- browser-session restoration of birth input and the last compatible certified result, with explicit local clearing and no server-side profile storage;
+- element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations.
 
 ## Recomputed reference disposition
 

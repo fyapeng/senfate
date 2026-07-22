@@ -1,6 +1,6 @@
 import { BRANCHES, ELEMENTS, type Branch, type Element, type RelationKind } from "./ontology";
 
-export const MODEL_PROFILE_SCHEMA="senfate-model-profile.v2" as const;
+export const MODEL_PROFILE_SCHEMA="senfate-model-profile.v3" as const;
 export type PillarPosition="year"|"month"|"day"|"hour";
 export interface ModelParameterMetadata {readonly path:string;readonly label:string;readonly unit:"coefficient"|"ratio"|"iterations";readonly minimum:number;readonly maximum:number;readonly step:number;readonly stage:string}
 export interface SenFateModelProfile {
@@ -8,7 +8,7 @@ export interface SenFateModelProfile {
   readonly calendar:Readonly<{useApparentSolarTime:boolean;dayBoundary:"midnight"|"zi-initial";daysPerLuckYear:3}>;
   readonly elementMeasure:Readonly<{visiblePosition:Readonly<Record<PillarPosition,number>>;hiddenRank:Readonly<{main:number;middle:number;residual:number}>;seasonalMultiplier:Readonly<Record<Branch,Readonly<Record<Element,number>>>>}>;
   readonly strength:Readonly<{sameElement:number;resource:number;output:number;wealth:number;officer:number;rootBonus:number;thresholds:Readonly<{veryWeakUpper:number;weakUpper:number;strongLower:number;veryStrongLower:number}>}>;
-  readonly temporalLayers:Readonly<{natal:number;luck:number;annual:number}>;
+  readonly temporalLayers:Readonly<{natal:number;luck:number;annual:number;month:number}>;
   readonly relationResolution:Readonly<{basePriority:Readonly<Record<RelationKind,number>>;completeness:number;seasonalSupport:number;exposure:number;rootedness:number;currentLayer:number;effectiveThreshold:number;transformThreshold:number;conflictMargin:number;maxIterations:number}>;
   readonly pattern:Readonly<{monthCommand:number;exposure:number;rootedness:number;qualificationThreshold:number;conflictMargin:number}>;
   readonly climate:Readonly<{temperature:number;humidity:number;seasonalCommand:number}>;
@@ -18,7 +18,7 @@ export interface SenFateModelProfile {
 
 export type PublicTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
 export interface PublicModelOverrides {
-  readonly temporalLayers?: Readonly<Partial<Record<"natal"|"luck"|"annual",number>>>;
+  readonly temporalLayers?: Readonly<Partial<Record<"natal"|"luck"|"annual"|"month",number>>>;
   readonly pattern?: Readonly<Partial<Pick<SenFateModelProfile["pattern"],"monthCommand">>>;
   readonly climate?: Readonly<Partial<Pick<SenFateModelProfile["climate"],"temperature"|"humidity">>>;
   readonly balancing?: Readonly<Partial<Pick<SenFateModelProfile["balancing"],"strength"|"climate">>>;
@@ -36,7 +36,7 @@ export interface PublicModelParameterMetadata {readonly path:string;readonly lab
 export interface ModelValidationIssue {readonly path:string;readonly message:string}
 const DOMAIN_KEYS:readonly PublicTopicDomain[]=["career","family","general","health","mobility","personality","relationship","risk","study","wealth"];
 export const PUBLIC_MODEL_PARAMETER_METADATA:readonly PublicModelParameterMetadata[]=[
-  {path:"temporalLayers.natal",label:"原局状态保留",group:"dynamic",minimum:0,maximum:4,step:.05},{path:"temporalLayers.luck",label:"大运参与强度",group:"dynamic",minimum:0,maximum:4,step:.05},{path:"temporalLayers.annual",label:"流年扰动强度",group:"dynamic",minimum:0,maximum:4,step:.05},
+  {path:"temporalLayers.natal",label:"原局状态保留",group:"dynamic",minimum:0,maximum:4,step:.05},{path:"temporalLayers.luck",label:"大运参与强度",group:"dynamic",minimum:0,maximum:4,step:.05},{path:"temporalLayers.annual",label:"流年扰动强度",group:"dynamic",minimum:0,maximum:4,step:.05},{path:"temporalLayers.month",label:"流月扰动强度",group:"dynamic",minimum:0,maximum:4,step:.05},
   {path:"pattern.monthCommand",label:"月令格局权重",group:"pattern",minimum:0,maximum:4,step:.05},{path:"climate.temperature",label:"寒热坐标权重",group:"climate",minimum:0,maximum:4,step:.05},{path:"climate.humidity",label:"燥湿坐标权重",group:"climate",minimum:0,maximum:4,step:.05},
   {path:"balancing.strength",label:"强弱平衡权重",group:"balancing",minimum:0,maximum:4,step:.05},{path:"balancing.climate",label:"调候平衡权重",group:"balancing",minimum:0,maximum:4,step:.05},
   ...DOMAIN_KEYS.map(domain=>({path:`topics.domainWeights.${domain}`,label:`主题权重 · ${domain}`,group:"topics" as const,minimum:0 as const,maximum:4 as const,step:.05 as const})),
@@ -47,7 +47,7 @@ export const MODEL_PARAMETER_METADATA:readonly ModelParameterMetadata[]=[
   {path:"elementMeasure.seasonalMultiplier.*.*",label:"月令季节乘数",unit:"coefficient",minimum:0,maximum:3,step:.05,stage:"element-measure"},
   {path:"strength.*",label:"强弱关系系数",unit:"coefficient",minimum:0,maximum:4,step:.05,stage:"strength"},
   {path:"strength.thresholds.*",label:"强弱分级阈值",unit:"ratio",minimum:0,maximum:1,step:.01,stage:"strength"},
-  {path:"temporalLayers.*",label:"原局、大运、流年层权重",unit:"coefficient",minimum:0,maximum:4,step:.05,stage:"dynamic-state"},
+  {path:"temporalLayers.*",label:"原局、大运、流年、流月层权重",unit:"coefficient",minimum:0,maximum:4,step:.05,stage:"dynamic-state"},
   {path:"relationResolution.*",label:"关系裁决参数",unit:"coefficient",minimum:0,maximum:10,step:.05,stage:"relation-resolution"},
   {path:"relationResolution.maxIterations",label:"正规形迭代上限",unit:"iterations",minimum:1,maximum:1000,step:1,stage:"normal-form"},
   {path:"pattern.*",label:"格局候选参数",unit:"coefficient",minimum:0,maximum:10,step:.05,stage:"pattern"},
@@ -61,7 +61,7 @@ function seasonalTable(dominant:number,other=1):Record<Branch,Record<Element,num
 const relationBase:Record<RelationKind,number>={"stem-combine":1,"branch-combine":1,"branch-clash":1,"branch-harm":.75,"branch-break":.6,"branch-punishment":.8,"three-harmony":1.5,"three-meeting":1.5};
 const domainWeights=Object.fromEntries(DOMAIN_KEYS.map(key=>[key,1]));
 
-export const TRANSPARENT_BASELINE_MODEL:SenFateModelProfile={schema:MODEL_PROFILE_SCHEMA,id:"transparent-baseline",version:"0.4.0",label:"透明综合基准",calendar:{useApparentSolarTime:true,dayBoundary:"zi-initial",daysPerLuckYear:3},elementMeasure:{visiblePosition:{year:.8,month:1.15,day:1,hour:.85},hiddenRank:{main:1,middle:.55,residual:.3},seasonalMultiplier:seasonalTable(1.35)},strength:{sameElement:1,resource:1,output:1,wealth:1,officer:1,rootBonus:.15,thresholds:{veryWeakUpper:.25,weakUpper:.42,strongLower:.58,veryStrongLower:.75}},temporalLayers:{natal:1,luck:1,annual:1},relationResolution:{basePriority:relationBase,completeness:1,seasonalSupport:1,exposure:.75,rootedness:.75,currentLayer:1,effectiveThreshold:2.5,transformThreshold:4,conflictMargin:.25,maxIterations:64},pattern:{monthCommand:2,exposure:1,rootedness:1,qualificationThreshold:2.5,conflictMargin:.25},climate:{temperature:1,humidity:1,seasonalCommand:1},balancing:{strength:1,climate:1,relationStability:.25,decisionThreshold:.2},topics:{domainWeights,unresolvedContribution:0}};
+export const TRANSPARENT_BASELINE_MODEL:SenFateModelProfile={schema:MODEL_PROFILE_SCHEMA,id:"transparent-baseline",version:"0.5.0",label:"透明综合基准",calendar:{useApparentSolarTime:true,dayBoundary:"zi-initial",daysPerLuckYear:3},elementMeasure:{visiblePosition:{year:.8,month:1.15,day:1,hour:.85},hiddenRank:{main:1,middle:.55,residual:.3},seasonalMultiplier:seasonalTable(1.35)},strength:{sameElement:1,resource:1,output:1,wealth:1,officer:1,rootBonus:.15,thresholds:{veryWeakUpper:.25,weakUpper:.42,strongLower:.58,veryStrongLower:.75}},temporalLayers:{natal:1,luck:1,annual:1,month:1},relationResolution:{basePriority:relationBase,completeness:1,seasonalSupport:1,exposure:.75,rootedness:.75,currentLayer:1,effectiveThreshold:2.5,transformThreshold:4,conflictMargin:.25,maxIterations:64},pattern:{monthCommand:2,exposure:1,rootedness:1,qualificationThreshold:2.5,conflictMargin:.25},climate:{temperature:1,humidity:1,seasonalCommand:1},balancing:{strength:1,climate:1,relationStability:.25,decisionThreshold:.2},topics:{domainWeights,unresolvedContribution:0}};
 export const MONTH_COMMAND_MODEL:SenFateModelProfile={...TRANSPARENT_BASELINE_MODEL,id:"month-command",label:"月令结构优先",elementMeasure:{...TRANSPARENT_BASELINE_MODEL.elementMeasure,visiblePosition:{...TRANSPARENT_BASELINE_MODEL.elementMeasure.visiblePosition,month:1.5},seasonalMultiplier:seasonalTable(1.65)},relationResolution:{...TRANSPARENT_BASELINE_MODEL.relationResolution,seasonalSupport:1.35},pattern:{...TRANSPARENT_BASELINE_MODEL.pattern,monthCommand:2.75,exposure:1.25}};
 export const CLIMATE_PRIORITY_MODEL:SenFateModelProfile={...TRANSPARENT_BASELINE_MODEL,id:"climate-priority",label:"调候优先",climate:{temperature:1.6,humidity:1.6,seasonalCommand:1.35},balancing:{...TRANSPARENT_BASELINE_MODEL.balancing,climate:1.6}};
 export const MODEL_PRESETS:readonly SenFateModelProfile[]=[TRANSPARENT_BASELINE_MODEL,MONTH_COMMAND_MODEL,CLIMATE_PRIORITY_MODEL];

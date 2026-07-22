@@ -17,6 +17,7 @@ natal pillars + enclosing major luck + annual pillar
 → stable relation normal form
 → resolved reference features
 → kinship role projection
+→ special-state certificate
 → 4,118 executable TopicFunctions
 → TopicContributionCertificate v4
 → signed ten-domain topic measure
@@ -30,12 +31,29 @@ and fixture records remain in the program ledger but cannot contribute a value.
 
 ## Kinship projection
 
-The projection publishes six role families: self, peers, mother-side caregiver,
-father-side resource provider, partner and children. Each role records the
-ten-god mapping used and the number of visible or hidden occurrences in the
-accumulated state. Sex-specific partner and children mappings are explicit in
-the certificate. These are traditional semantic roles, not verified family
-outcomes.
+`KinshipProjection v2` publishes six role families: self, peers, mother-side
+caregiver, father-side resource provider, partner and children. Each role keeps
+its ten-god mapping, visible and hidden occurrences, weighted exposure and the
+separate natal, major-luck and annual contributions. Every atom identifies its
+layer, pillar, stem, visibility, hidden-stem rank and coefficient. Self and
+peers intentionally overlap on peer evidence; these roles are projections, not
+a partition. Sex-specific partner and children mappings remain explicit. They
+are traditional semantic roles, not verified family outcomes.
+
+## Special states and trajectory
+
+The special-state certificate recognizes exact luck-year pillar repetition,
+phase-level very-weak or very-strong classifications, and a seven-symbol natal
+consensus test. The latter classifies the three non-day visible stems and the
+main hidden stem of all four natal branches as support or pressure. Unanimous
+evidence remains a consensus candidate; it is not promoted to a follow-strength
+or follow-weakness pattern without additional school-specific conditions.
+
+The compact trajectory repeats annual context selection, dynamic-state
+materialization, normal-form resolution and all TopicFunction evaluations for
+every covered Lichun year. Its normalized topic index divides the signed total
+by total variation. Unavailable years remain explicit gaps. The trajectory is
+a model-state time series, not a probability, utility or financial return.
 
 ## Contribution and hypotheses
 

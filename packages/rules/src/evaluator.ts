@@ -48,6 +48,8 @@ export function evaluateReferenceCondition(condition:NormalizedReferenceConditio
   }
 }
 
+export function evaluateReferenceContributionMeasure(records:readonly CompiledReferenceRecord[],snapshot:ReferenceFeatureSnapshot,model:SenFateModelProfile):FiniteSignedMeasure<TopicDomain>{const contributions:Record<TopicDomain,number>={career:0,family:0,general:0,health:0,mobility:0,personality:0,relationship:0,risk:0,study:0,wealth:0};for(const record of records){const truth=kleeneAnd(record.conditions.map(condition=>evaluateReferenceCondition(condition,snapshot)));if(truth!=="true")continue;for(const effect of record.effects)for(const domain of effect.domains)if(TOPIC_DOMAINS.includes(domain as TopicDomain))contributions[domain as TopicDomain]+=polaritySign(effect.polarity)*(model.topics.domainWeights[domain]??0)}return finiteSignedMeasure(TOPIC_DOMAINS,contributions)}
+
 function scopeApplies(record:CompiledReferenceRecord,phase:ReferenceFeatureSnapshot["phase"]):boolean {if(record.scopes.length===0)return true;if(record.scopes.includes("natal"))return true;if(phase==="luck"&&record.scopes.includes("luck"))return true;if(phase==="annual"&&(record.scopes.includes("luck")||record.scopes.includes("annual")))return true;return false}
 function isTopicEffectOperator(value:string):value is TopicEffectOperator{return value==="complete_or_transform"||value==="pressure"||value==="reveal"||value==="support"||value==="weaken_or_block"}
 function polaritySign(polarity:string):number{return polarity==="support"?1:polarity==="pressure"?-1:0}

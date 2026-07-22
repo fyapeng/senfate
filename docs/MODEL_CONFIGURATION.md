@@ -2,7 +2,7 @@
 
 ## Contract
 
-Every calculation consumes one `senfate-model-profile.v2` object. A profile is versioned, validated before execution and attached to calculation certificates. There are no runtime-only weight constants outside this contract.
+Every calculation consumes one `senfate-model-profile.v3` object. A profile is versioned, validated before execution and attached to calculation certificates. There are no runtime-only weight constants outside this contract. Version 3 adds an explicit flow-month temporal-layer weight.
 
 ## Parameter groups
 

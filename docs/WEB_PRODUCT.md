@@ -4,7 +4,7 @@
 
 | Route | Product responsibility | Interactive surface |
 | --- | --- | --- |
-| `/senfate/` | Birth input and progressive analysis workspace | location search, optional exact coordinates, certified calculation and six result layers |
+| `/senfate/` | Birth input and progressive analysis workspace | location search, optional exact coordinates, certified calculation, life trajectory and detailed result layers |
 | `/senfate/principles/` | Public inference and resolution method | resolution-state explorer |
 | `/senfate/perspective/` | Historical and epistemic boundaries | editorial reading experience |
 | `/senfate/models/` | Public model presets and parameters | catalog-driven weights, local save, JSON export and analysis handoff |
@@ -21,6 +21,10 @@ form chain; the interface does not substitute sample data after a calculation
 failure. Public model settings are stored locally, accepted only through the
 closed 18-parameter API contract and included in the returned certificate.
 Internal contribution measures are never labelled as empirical probability.
+The workbench restores form state and the last compatible result from
+`sessionStorage` while the browser tab remains open. A visible clear action
+removes this session copy. No account or server-side birth profile is implied
+by the convenience layer.
 
 ## Responsive acceptance
 

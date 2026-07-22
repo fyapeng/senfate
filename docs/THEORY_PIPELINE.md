@@ -25,6 +25,7 @@
 18 semantic.topics                主题贡献
 19 semantic.events                事件假设
 20 measurement.vector             透明向量测度
+21 measurement.trajectory         全覆盖年度时间序列
 ```
 
 ## 动态状态
@@ -52,6 +53,12 @@ their signed topic contribution. They do not query raw chart edges, source text
 or unresolved candidates. Each source retains its declared temporal scopes, so
 an annual certificate can expose the separate natal, luck and annual evidence
 counts without evaluating any effect more than once.
+
+年度轨迹对节气表和大运区间覆盖的每个年份重复上述完整链条。主题纵轴定义为
+有符号主题测度总量除以总变差，取值位于 `[-1, 1]`；支持结构另以
+`2 × supportRatio - 1` 表示。大运边界歧义或正规形失败形成时间序列缺口，
+不使用插值替代。岁运并临、阶段极弱/极强和原局七字同向检验由独立特殊
+状态证书发布，其中七字同向只构成候选特征，不直接等同于从格。
 
 ## 终止语义
 

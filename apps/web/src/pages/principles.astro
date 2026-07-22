@@ -2,37 +2,21 @@
 import { InferenceExplorer } from "../components/InferenceExplorer";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
-<SiteLayout active="principles" title="推断原理" description="公开 SenFate 从出生时空、关系图到主题贡献的完整推断过程。">
-  <section class="editorial-hero principles-hero">
-    <div class="page-intro"><div><span class="kicker">INFERENCE PRINCIPLES</span><h1>系统如何<br />形成一个判断？</h1></div><p>这里不是基础术语百科，而是 SenFate 的透明度中心。每个结论都必须沿同一条有类型、有边界、可失败关闭的计算链产生。</p></div>
-    <div class="pipeline-visual" aria-label="推断流程">
-      <div><span>01</span><strong>出生时空</strong><small>Calendar input</small></div><i>→</i><div><span>02</span><strong>命盘关系图</strong><small>Attributed graph</small></div><i>→</i><div><span>03</span><strong>结构裁决</strong><small>Normal form</small></div><i>→</i><div><span>04</span><strong>主题贡献</strong><small>Certificate</small></div>
-    </div>
-  </section>
-
-  <section class="content-section light-grid">
-    <header class="section-heading"><span>01 · CALENDAR</span><h2>从民用时间到四柱，<br />所有修正都留下证书。</h2><p>地点不是固定的“城市修正分钟表”。系统使用坐标、历史时区和具体日期计算地方视太阳时，再处理节气与日界。</p></header>
-    <div class="formula-card"><div class="formula-path"><span>钟表时间</span><i>+</i><span>历史 UTC 偏移</span><i>+</i><span>经度修正</span><i>+</i><span>均时差</span><b>=</b><strong>地方视太阳时</strong></div><dl><div><dt>坐标精度</dt><dd>城市 / 区县 / 精确地点</dd></div><div><dt>时间异常</dt><dd>重复与不存在时刻显式处理</dd></div><div><dt>排盘口径</dt><dd>节气、日界、起运方法版本化</dd></div></dl></div>
-  </section>
-
-  <section class="content-section dark-section">
-    <header class="section-heading"><span>02 · FORMAL SYSTEM</span><h2>一张随时间演化的<br />带属性关系图。</h2><p>节点、边、结构与上下文分别建模。原局给出初态，大运改变可用关系和算子，流年在当前大运中求值。</p></header>
-    <div class="graph-explainer"><div class="graph-card"><code>G = (V, E, S, X)</code><div class="graph-nodes"><span class="node a">甲<small>stem</small></span><span class="node b">辰<small>branch</small></span><span class="node c">乙<small>hidden</small></span><svg viewBox="0 0 420 190" aria-hidden="true"><path d="M90 85 C160 20 235 30 320 95"/><path d="M92 100 C165 170 235 165 320 112"/><path d="M205 52 L205 140"/></svg></div></div><div class="symbol-list"><article><span>V</span><div><strong>节点</strong><p>干支、藏干、时间层与角色。</p></div></article><article><span>E</span><div><strong>关系</strong><p>生克、根气与合冲刑害候选。</p></div></article><article><span>S</span><div><strong>结构</strong><p>格局、调候、强弱与裁决状态。</p></div></article><article><span>X</span><div><strong>上下文</strong><p>模型、阶段、来源与计算证书。</p></div></article></div></div>
-  </section>
-
-  <section class="content-section">
-    <header class="section-heading"><span>03 · RESOLUTION</span><h2>关系存在，<br />不等于主题含义成立。</h2><p>候选结构经过完整度、季节支持、显现、竞争、通关与阻断求值，直到获得稳定正规形。</p></header>
-    <InferenceExplorer client:load />
-  </section>
-
-  <section class="content-section lifecycle-principle">
-    <header class="section-heading"><span>04 · DYNAMIC LIFECYCLE</span><h2>同一个流年，<br />处在不同大运会有不同状态。</h2></header>
-    <div class="equation-row"><article><span>原局</span><strong>Z<sub>N</sub></strong><p>建立初始结构</p></article><i>→</i><article><span>大运</span><strong>Z<sub>N,D</sub></strong><p>改变关系与算子</p></article><i>→</i><article><span>流年</span><strong>Z<sub>N,D,Y</sub></strong><p>在当前状态重算</p></article></div>
-    <p class="center-note">显示层可以分解增量；底层从不把“原局分数 + 大运分数 + 流年分数”当作状态。</p>
-  </section>
-
-  <section class="content-section final-chain">
-    <header class="section-heading"><span>05 · SEMANTICS</span><h2>主题层只消费<br />稳定、规范的中间对象。</h2></header>
-    <div class="certificate-chain"><span>ReferenceNormalForm<br/>PhaseResult</span><i>→</i><span>ResolvedTopic<br/>FeatureSnapshot</span><i>→</i><span>TopicFunction<br/>条件求值</span><i>→</i><span>TopicContribution<br/>Certificate</span><i>→</i><strong>主题贡献<br/>向量</strong></div>
-  </section>
+<SiteLayout active="principles" title="推断原理指南" description="从出生时空到年度主题贡献：SenFate 计算链的逐步说明。">
+  <section class="guide-hero"><span class="kicker">INFERENCE GUIDE</span><h1>从出生时间到年度推断</h1><p>这是一份计算指南。它说明每一层接收什么、输出什么，以及什么情况下系统必须停止。传统术语被写成有定义域的状态、算子和证据；无法由规范条件表达的古籍规则不会被模糊匹配激活。</p></section>
+  <div class="guide-shell">
+    <aside class="guide-toc" aria-label="本页目录"><strong>计算目录</strong><a href="#input">出生时空</a><a href="#calendar">历法映射</a><a href="#chart">命盘状态</a><a href="#measure">五行与十神</a><a href="#resolution">关系裁决</a><a href="#pattern">格局与调候</a><a href="#dynamics">大运、流年与流月</a><a href="#topics">古籍函数</a><a href="#trajectory">人生 K 线</a><a href="#failure">失败与证书</a></aside>
+    <article class="guide-article">
+      <section id="input"><span>01 · 出生时空</span><h2>出生记录先成为带误差的时空观测</h2><p>输入对象包含民用日期、钟表时刻、地点、性别口径、时间误差和坐标误差。地点解析为经纬度与带版本的 IANA 时区。城市中心点和精确坐标拥有不同的不确定度，系统不使用固定的“城市加减分钟表”。</p><div class="math-block"><code>x=(d,t,φ,λ,z,ε<sub>t</sub>,ε<sub>s</sub>)</code><p>φ、λ 是纬度和经度，z 是历史时区，ε 表示时间与空间误差。夏令时回拨可能产生两个 UTC 候选，跳时可能没有合法候选。</p></div></section>
+      <section id="calendar"><span>02 · 历法映射</span><h2>民用时刻经过天文边界映射为四柱</h2><p>系统先解析历史 UTC 偏移，再由经度和均时差求地方视太阳时。太阳视黄经越过节气根时确定月界，立春确定干支年界；日界与起运方法由公开模型指定。</p><div class="math-block"><code>t<sub>apparent</sub>=t<sub>zone</sub>+4(λ−λ<sub>zone</sub>)+E(d)</code><p>节气来自 NASA/JPL DE441 的认证交点表。当前公开输入范围为 1850—2100，资产另保留前后一年作为边界缓冲。</p></div><ol><li>民用时刻映射到 UTC 候选集；</li><li>计算地方视太阳时与误差区间；</li><li>在认证节气表中定位年、月边界；</li><li>计算年、月、日、时四柱和起运区间；</li><li>记录时区、星历、坐标和模型版本。</li></ol></section>
+      <section id="chart"><span>03 · 命盘状态</span><h2>四柱展开为有层次的有限状态</h2><p>每柱包含显干、地支和按本气、中气、余气排列的藏干。合、冲、刑、害等只在此阶段登记为候选关系，不能在图建立时直接写成结论。</p><div class="math-block"><code>G=(V,E<sub>candidate</sub>,A,C)</code><p>V 是干支与藏干节点，E 是候选关系，A 是五行、阴阳、位置与显隐属性，C 是历法、时间层和模型上下文。</p></div></section>
+      <section id="measure"><span>04 · 五行与十神</span><h2>五行强度是有限测度，十神是相对映射</h2><p>显干、藏干、月令、通根和时间层共同形成五行集合上的非负有限测度 μ。它表示模型内部作用量，不等于物理能量或人群概率。</p><div class="math-block"><code>μ(e)=Σ<sub>i</sub>w<sub>layer,i</sub>w<sub>visibility,i</sub>w<sub>season,i</sub>1[element(i)=e]</code><p>十神 τ(s|dayMaster) 同时使用五行生克和阴阳同异。六亲投影继续保留所属柱、显干或藏干、时间层与权重。</p></div></section>
+      <section id="resolution"><span>05 · 关系裁决</span><h2>候选关系迭代到稳定正规形</h2><p>裁决算子 R 处理完整度、季节支持、透藏、通关、竞争与阻断。稳定状态满足 R(Z*)=Z*。出现循环或达到迭代上限时，后续主题层停止。</p><InferenceExplorer client:load /></section>
+      <section id="pattern"><span>06 · 格局与调候</span><h2>格局名称、成格条件和最终裁决分开处理</h2><p>月支本气、中气和余气分别形成候选，透干、通根、月令权重和竞争状态决定其是否通过当前条件。界面显示正官格、食神格等名称；“条件通过”仍需继续接入各书的成格、破格与救应规则。</p><p>建禄、羊刃和从格需要专门条件。系统对除日干外的三个显干与四个地支本气执行七字同向检验，记录是否全部生助或全部克泄耗；该结果只形成特殊状态证据，不自动命名从格。调候另建温度—湿度坐标，不与强弱压成一个来源不明的分数。</p></section>
+      <section id="dynamics"><span>07 · 大运、流年与流月</span><h2>每个时间层都在累计状态上重新计算</h2><div class="math-block"><code>Z<sub>N</sub>→Z<sub>N,D(k)</sub>→Z<sub>N,D(k),Y(t)</sub>→Z<sub>N,D(k),Y(t),M(m)</sub></code><p>大运加入当步干支，流年加入当年干支，流月按立春起的十二个节界加入月柱。每次都重新物化五行、关系和正规形，不采用静态分数相加。</p></div><p>大运柱与流年柱相同会生成岁运并临证据；证据本身不预设吉凶。极弱、极强和七字同向也采用同样的“先记录状态，再由来源规则解释”原则。</p></section>
+      <section id="topics"><span>08 · 古籍函数</span><h2>每条来源成为受限条件函数</h2><p>来源记录绑定书名、行号、规则家族、时间层、规范条件与效应。主题函数只读取稳定正规形的规范特征，不能查询原始图、未裁决边或任意字符串路径。不能等价表达的规则进入延期队列，尚无规范裁决的冲突进入争议队列。</p><div class="chain-block"><span>稳定正规形</span><i>→</i><span>规范特征</span><i>→</i><span>来源条件</span><i>→</i><span>贡献证据</span><i>→</i><strong>主题向量 ν</strong></div><p>ν 是事业、财务、关系、家庭、学习、迁动、身心与风险等主题上的有符号有限测度。正负表示传统规则体系内的支持与压力，不能直接解释为事件概率。</p></section>
+      <section id="trajectory"><span>09 · 人生 K 线</span><h2>影线来自十二流月，不来自主题横截面</h2><p>对每个年度先计算年度指数 I<sub>t</sub>=ν<sub>t</sub>(Ω)/|ν<sub>t</sub>|(Ω)，再从立春起逐月计算十二个 I<sub>t,m</sub>。蜡烛开、高、低、收分别为首月值、十二月最大值、最小值和末月值。</p><div class="math-block"><code>O<sub>t</sub>=I<sub>t,1</sub>, H<sub>t</sub>=max I<sub>t,m</sub>, L<sub>t</sub>=min I<sub>t,m</sub>, C<sub>t</sub>=I<sub>t,12</sub></code><p>这是一种状态轨迹，不是金融收益 K 线。任一流月无法稳定求值时，该年影线留空，系统不会插值补齐。</p></div></section>
+      <section id="failure"><span>10 · 失败与证书</span><h2>没有稳定结果时，系统明确停止</h2><ul class="failure-list"><li><strong>时间歧义</strong><span>重复时刻需要选择，跨越节气或日界需要提高精度。</span></li><li><strong>关系循环</strong><span>裁决状态循环，停止主题求值。</span></li><li><strong>迭代超限</strong><span>在上限内没有稳定，停止主题求值。</span></li><li><strong>模型不一致</strong><span>投影模型与正规形模型不同，拒绝混算。</span></li></ul><p>普通页面展示用户可理解的结论、依据和边界；版本号、指纹、迭代轨迹和完整来源位于“计算证书”中。</p></section>
+    </article>
+  </div>
 </SiteLayout>
