@@ -7,7 +7,7 @@ export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
 export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v3" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v9" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v10" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -254,13 +254,13 @@ export interface ApiAnnualTrajectory {
   )[];
 }
 export interface ApiTopicContributionCertificate {
-  readonly schema:"senfate-topic-contribution-certificate.v4";
+  readonly schema:"senfate-topic-contribution-certificate.v5";
   readonly phase:"annual";
   readonly model:string;
   readonly program:Readonly<{total:number;executable:number;deferred:number;contested:number;evidence:number;fixture:number}>;
   readonly evaluated:number;readonly activated:number;readonly inactive:number;readonly unresolved:number;
   readonly activatedFamilies:readonly string[];readonly unresolvedFamilies:readonly string[];
-  readonly activatedSources:readonly Readonly<{recordId:string;familyId:string;bookId:string;lineStart:number;lineEnd:number;scopes:readonly ("natal"|"luck"|"annual")[];domains:readonly ApiTopicDomain[];polarity:string;eventEvidence:readonly Readonly<{operator:"complete_or_transform"|"pressure"|"reveal"|"support"|"weaken_or_block";domain:ApiTopicDomain;polarity:string}>[]}>[];
+  readonly activatedSources:readonly Readonly<{recordId:string;familyId:string;bookId:string;lineStart:number;lineEnd:number;scopes:readonly ("natal"|"luck"|"annual")[];conditions:readonly Readonly<{kind:"branch-formation"|"day-master-state"|"day-stem"|"element-state"|"ganzhi"|"luck-direction"|"month-branch"|"resolved-relation"|"seasonal-command"|"sex"|"typed-symbol";operator:"branchFormation.equals"|"dayMasterState.equals"|"dayStem.equals"|"element.state"|"ganZhi.in"|"ganZhi.present"|"luckDirection.equals"|"monthBranch.equals"|"monthBranch.in"|"relation.exists"|"seasonalCommand"|"sex.equals"|"symbol.absent"|"symbol.present";value:string|readonly string[];subject?:string}>[];domains:readonly ApiTopicDomain[];polarity:string;eventEvidence:readonly Readonly<{operator:"complete_or_transform"|"pressure"|"reveal"|"support"|"weaken_or_block";domain:ApiTopicDomain;polarity:string}>[]}>[];
   readonly contribution:Readonly<{space:readonly ApiTopicDomain[];atoms:Readonly<Record<ApiTopicDomain,number>>;total:number;totalVariation:number}>;
   readonly eventHypotheses:readonly Readonly<{schema:"senfate-topic-event-hypothesis.v3";predicateId:string;phase:"natal"|"luck"|"annual";domain:ApiTopicDomain;operator:"complete_or_transform"|"pressure"|"reveal"|"support"|"weaken_or_block";direction:"support"|"pressure"|"mixed"|"neutral";contribution:number;magnitude:number;sourceCount:number;familyCount:number;bookCount:number;scopeEvidence:Readonly<{natalSources:number;luckSources:number;annualSources:number;unscopedSources:number}>;evidenceStatus:"single-source"|"same-book-corroborated"|"cross-book-corroborated"|"mixed-evidence";epistemicStatus:"traditional-model-hypothesis"}>[];
 }

@@ -86,7 +86,7 @@ describe("SenFate API", () => {
     expect(response.status).toBe(200);
     const body = await response.json() as ApiAnalysisResponse;
     expect(body).toMatchObject({
-      schemaVersion: "senfate-analysis-response.v9",
+      schemaVersion: "senfate-analysis-response.v10",
       calendar: { schemaVersion: "senfate-calendar-response.v1", pillars: { day: { stem: "戊", branch: "戌" } } },
       modelConfiguration:{schema:"senfate-public-model-configuration.v1",customized:false,overrideCount:0,overrideFingerprint:"none"},
       structure: {
@@ -97,7 +97,7 @@ describe("SenFate API", () => {
       },
       interpretation: { schema: "senfate-interpretive-model.v1", climate: { schema: "senfate-climate-coordinate.v1" } },
       annualTrajectory:{schema:"senfate-annual-trajectory.v3",indexDefinition:"topic-total-divided-by-total-variation",points:expect.any(Array)},
-      annual:{schema:"senfate-annual-analysis.v1",targetYear:2026,normalForm:{status:"stable"},specialStates:{schema:"senfate-special-state-certificate.v1",phase:"annual",natalSevenSymbolConsensus:{total:7}},kinship:{schema:"senfate-kinship-projection.v2",phase:"annual",roles:expect.any(Array)},topics:{schema:"senfate-topic-contribution-certificate.v4",evaluated:3,activated:3,contribution:{atoms:{career:3}},eventHypotheses:[{schema:"senfate-topic-event-hypothesis.v3",predicateId:"annual:career:support",scopeEvidence:{natalSources:1,luckSources:1,annualSources:1,unscopedSources:0}}]}},
+      annual:{schema:"senfate-annual-analysis.v1",targetYear:2026,normalForm:{status:"stable"},specialStates:{schema:"senfate-special-state-certificate.v1",phase:"annual",natalSevenSymbolConsensus:{total:7}},kinship:{schema:"senfate-kinship-projection.v2",phase:"annual",roles:expect.any(Array)},topics:{schema:"senfate-topic-contribution-certificate.v5",evaluated:3,activated:3,contribution:{atoms:{career:3}},eventHypotheses:[{schema:"senfate-topic-event-hypothesis.v3",predicateId:"annual:career:support",scopeEvidence:{natalSources:1,luckSources:1,annualSources:1,unscopedSources:0}}]}},
     });
     expect(body.structure.elementMeasure.total).toBeGreaterThan(0);
     expect(body.interpretation.balancing.candidates).toHaveLength(5);
@@ -114,6 +114,7 @@ describe("SenFate API", () => {
     expect(partner.weightedExposure).toBeCloseTo(Object.values(partner.layerExposure).reduce((sum,layer)=>sum+layer.weightedExposure,0));
     expect(body.certificate).toMatchObject({kinship:{functional:"semantic.kinship",normalFormFingerprint:body.annual.normalForm.fingerprint}});
     expect(body.annual.topics.activatedSources).toHaveLength(3);
+    expect(body.annual.topics.activatedSources.every(source=>source.conditions.length===1&&source.conditions[0]?.operator==="dayStem.equals"&&source.conditions[0].value==="戊")).toBe(true);
   });
 
   it("publishes the bounded public model catalog",async()=>{const response=await handleRequest(new Request("https://example.test/senfate/api/v1/models"));expect(response.status).toBe(200);const body=await response.json() as {schemaVersion:string;parameters:readonly {path:string;minimum:number;maximum:number}[];presets:readonly {id:string;values:Record<string,number>}[]};expect(body.schemaVersion).toBe("senfate-model-catalog.v1");expect(body.parameters).toHaveLength(19);expect(body.parameters[0]).toMatchObject({path:"temporalLayers.natal",minimum:0,maximum:4});expect(body.presets).toHaveLength(3);expect(body.presets[0]).toMatchObject({id:"transparent-baseline",values:{"temporalLayers.natal":1}})});

@@ -51,7 +51,7 @@ inference are not added to this stable calendar response.
 ## Natal structure analysis
 
 `POST /senfate/api/v1/analysis/calculate` accepts
-`senfate-analysis-request.v3` and returns `senfate-analysis-response.v9`.
+`senfate-analysis-request.v3` and returns `senfate-analysis-response.v10`.
 The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
 
@@ -112,6 +112,8 @@ The response nests the certified calendar and adds:
 - the complete covered annual trajectory with explicit unavailable gaps;
 - the complete reference-program disposition ledger, topic contribution
   certificate, signed topic vector and source-level event predicates;
+- each activated source's closed normalized trigger conditions, book and line
+  provenance, declared time scopes and normalized effect evidence;
 - event evidence grouped by canonical effect operator and topic domain, with
   book, family and source counts plus line-level provenance;
 - declared natal, major-luck, annual and unscoped source counts for every event predicate.

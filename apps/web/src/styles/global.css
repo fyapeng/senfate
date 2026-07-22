@@ -61,3 +61,5 @@ body{font-size:16px}.header-inner{width:min(1600px,calc(100% - 48px))}.brand sma
 .trajectory-pending line{stroke:#c9cdc8;stroke-width:1;stroke-dasharray:2 5}
 @media(max-width:980px){.live-workbench{grid-template-columns:360px minmax(0,1fr)}}
 @media(max-width:760px){.header-inner{width:calc(100% - 32px)}.workbench-hero{padding:28px 16px 48px}.workbench-hero .page-intro{display:block;margin-bottom:24px}.workbench-hero .page-intro h1{font-size:34px}.workbench-hero .page-intro>p{margin-top:16px;font-size:14px}.live-workbench{grid-template-columns:1fr}.input-panel{padding:24px 20px}.empty-result{min-height:420px;padding:40px 22px}.empty-result>span{margin-top:0}.trust-strip strong{font-size:13px}.trust-strip p{font-size:12px}}
+
+.event-sources>div{align-items:start}.source-conditions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}.source-conditions li{padding:5px 8px;border:1px solid #d8ddd8;border-radius:999px;background:#f5f7f3;color:#526159;font-size:11px;line-height:1.35}

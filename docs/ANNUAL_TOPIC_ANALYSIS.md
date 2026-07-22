@@ -19,7 +19,7 @@ natal pillars + enclosing major luck + annual pillar
 → kinship role projection
 → special-state certificate
 → 4,118 executable TopicFunctions
-→ TopicContributionCertificate v4
+→ TopicContributionCertificate v5
 → signed ten-domain topic measure
 → 50-class source-level event predicates
 → source-linked event hypotheses
@@ -58,10 +58,13 @@ a model-state time series, not a probability, utility or financial return.
 ## Contribution and hypotheses
 
 Every activated source records book ID, source lines, family ID, affected
-domains, polarity and normalized event evidence. Event evidence is a finite
+domains, polarity, the closed normalized conditions that evaluated true and
+normalized event evidence. Event evidence is a finite
 tuple of canonical effect operator, topic domain and polarity. The certificate
 separates evaluated, activated, inactive and unresolved functions. Unknown
 conditions enter the unresolved list and never contribute zero silently.
+Condition objects are certificate output only. They cannot form an arbitrary
+query against the chart graph, raw edges or unresolved candidates.
 
 Event predicates use only five executable corpus operators:
 `complete_or_transform`, `pressure`, `reveal`, `support` and
