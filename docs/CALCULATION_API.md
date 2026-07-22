@@ -51,9 +51,15 @@ inference are not added to this stable calendar response.
 ## Natal structure analysis
 
 `POST /senfate/api/v1/analysis/calculate` accepts
-`senfate-analysis-request.v3` and returns `senfate-analysis-response.v10`.
+`senfate-analysis-request.v3` and returns `senfate-analysis-response.v11`.
 The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
+
+Version 11 upgrades the interpretive payload to
+`senfate-interpretive-model.v2` / `senfate-pattern-projection.v2`. The pattern
+projection now publishes normalized conclusions for regular patterns, 建禄,
+羊刃 and strict following-pattern checks, including evidence and unmet
+conditions. Existing climate and balancing payloads are unchanged.
 
 The request may include `modelOverrides`. This is a closed, range-validated
 object covering 19 published parameters: natal/luck/annual/month layer weights,

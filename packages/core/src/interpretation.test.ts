@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { analyzeNatalStructure } from "./analysis";
-import { evaluateInterpretiveModel } from "./interpretation";
+import { evaluateInterpretiveModel, evaluatePatternProjection } from "./interpretation";
 import { CLIMATE_PRIORITY_MODEL, TRANSPARENT_BASELINE_MODEL } from "./model";
 import { sexagenary } from "./ontology";
 
@@ -30,5 +30,22 @@ describe("interpretive model", () => {
     expect(a.ok && b.ok).toBe(true);
     if (!a.ok || !b.ok) return;
     expect(b.value.climate.temperature).not.toBe(a.value.climate.temperature);
+  });
+
+  it("names 建禄格 only when the month branch is the day master's prosperity branch", () => {
+    const jiaProsperity = { year: sexagenary(0), month: sexagenary(2), day: sexagenary(50), hour: sexagenary(3) };
+    const structure = analyzeNatalStructure(jiaProsperity, TRANSPARENT_BASELINE_MODEL);
+    expect(structure.ok).toBe(true);
+    if (!structure.ok) return;
+    const result = evaluatePatternProjection(jiaProsperity, structure.value.strength, TRANSPARENT_BASELINE_MODEL);
+    expect(result.conclusions).toContainEqual(expect.objectContaining({ id:"special.established-prosperity",label:"建禄格",status:"qualified" }));
+  });
+
+  it("keeps extreme structures as candidates until the strict following conditions are satisfied", () => {
+    const structure = analyzeNatalStructure(pillars, TRANSPARENT_BASELINE_MODEL);
+    expect(structure.ok).toBe(true);
+    if (!structure.ok) return;
+    const result = evaluatePatternProjection(pillars, {...structure.value.strength,state:"very-weak",supportRatio:.1,support:1,pressure:9}, TRANSPARENT_BASELINE_MODEL);
+    expect(result.conclusions).toContainEqual(expect.objectContaining({id:"follow.follow-weak",label:"从弱格",status:"candidate"}));
   });
 });

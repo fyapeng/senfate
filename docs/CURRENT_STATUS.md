@@ -31,8 +31,8 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v10` API and live structure-analysis result tabs;
-- month-command pattern candidate projection with qualified, contested and unqualified outcomes;
+- `senfate-analysis-response.v11` API and live structure-analysis result tabs;
+- `senfate-pattern-projection.v2`, covering the eight month-command regular patterns, explicit 建禄 and 羊刃 branch conditions, and strict 从强/从弱 qualification with named unmet conditions;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
 - requested major-luck sequence recomputation accumulating natal and current luck layers through a stable normal form;
@@ -61,6 +61,8 @@
 - client request coordination that locks synchronous duplicate submits, cancels superseded work, applies bounded timeouts, retries only transient statuses, caches successful trajectory batches in memory and retries missing ranges without recalculating the base chart;
 - expanded inference guide covering LiChun year boundaries, twelve `jie` month boundaries, five-tiger month stems, continuous sexagenary days, five-rat hour stems, the complete hidden-stem dictionary, ten-god mapping and major-luck direction/start calculation;
 - expanded modern-perspective guide covering panel-feature construction, nested baselines, time leakage, measurement error, negative controls and the separation of seasonal biological exposures from symbolic labels.
+- homepage natal overview with visible stems, branches, every hidden stem and hidden-stem ten god, strength/support ratio, primary pattern conclusion, climate coordinate and balancing-element candidates;
+- Shanghai (`Asia/Shanghai`, UTC+08:00) as the default location while retaining canonical place search, historical time-zone resolution and optional exact-coordinate solar-time correction.
 
 ## Recomputed reference disposition
 

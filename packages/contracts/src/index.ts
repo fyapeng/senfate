@@ -7,7 +7,7 @@ export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
 export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v3" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v10" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v11" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -189,12 +189,14 @@ export interface ApiResolvedRelation {
 }
 
 export interface ApiInterpretation {
-  readonly schema: "senfate-interpretive-model.v1";
+  readonly schema: "senfate-interpretive-model.v2";
   readonly model: string;
   readonly pattern: Readonly<{
-    schema: "senfate-pattern-projection.v1";
+    schema: "senfate-pattern-projection.v2";
     status: "qualified" | "contested" | "unqualified";
     candidates: readonly Readonly<{ stem: string; tenGod: ApiTenGod; rank: "main" | "middle" | "residual"; exposed: boolean; rootMass: number; score: number; status: "qualified" | "contested" | "candidate" }>[];
+    primaryConclusionId?:string;
+    conclusions:readonly Readonly<{id:string;label:string;family:"regular"|"special"|"follow";status:"qualified"|"contested"|"candidate";evidence:readonly string[];unmetConditions:readonly string[]}>[];
   }>;
   readonly climate: Readonly<{
     schema: "senfate-climate-coordinate.v1";
