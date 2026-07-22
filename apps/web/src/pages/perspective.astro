@@ -1,0 +1,22 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+<SiteLayout active="perspective" title="现代视角" description="理解八字作为历史知识系统，以及形式化可以和不能解决的问题。">
+  <section class="editorial-hero perspective-hero">
+    <div class="page-intro"><div><span class="kicker">A MODERN PERSPECTIVE</span><h1>认真研究传统，<br />也认真说明边界。</h1></div><p>SenFate 把八字视为一个长期演化、内部多元的历史知识系统。形式化让它更清晰、更可检验，但不会自动证明它拥有现实预测效度。</p></div>
+    <div class="manifesto"><p>我们的目标不是替传统命理制造科学外观。</p><p>我们要做的是让术语、条件、分歧、来源与推断过程全部可见。</p></div>
+  </section>
+  <section class="content-section history-section">
+    <header class="section-heading"><span>01 · HISTORICAL SYSTEM</span><h2>理论从来不是<br />一套静止的说明书。</h2><p>不同文本、时代和流派对旺衰、格局、调候、用神都有不同处理。系统保留这种差异，把它转化为可比较的模型配置。</p></header>
+    <div class="source-books">{["三命通会","千里命稿","子平真诠","渊海子平","滴天髓","神峰通考","穷通宝鉴"].map((book,i)=><article><span>{String(i+1).padStart(2,"0")}</span><strong>《{book}》</strong><small>来源、片段与规则家族绑定</small></article>)}</div>
+  </section>
+  <section class="content-section capability-section">
+    <div class="boundary-column can"><span>FORMALIZATION CAN</span><h2>形式化可以改善</h2><ul><li><strong>条件完整</strong><p>把省略的前提变成显式谓词。</p></li><li><strong>来源可追溯</strong><p>从主题结论回到规则家族与古籍片段。</p></li><li><strong>冲突可见</strong><p>保留 contested 和 unknown，不强行给出单一答案。</p></li><li><strong>模型可比较</strong><p>同一命盘在不同参数和流派下并列求值。</p></li></ul></div>
+    <div class="boundary-column cannot"><span>FORMALIZATION CANNOT</span><h2>形式化不能证明</h2><ul><li><strong>现实预测效度</strong><p>内部一致不等于经验世界中的因果或概率。</p></li><li><strong>参数天然正确</strong><p>权重与阈值是模型选择，必须公开并接受敏感性分析。</p></li><li><strong>人生可化为单分数</strong><p>主题贡献向量不是幸福、成功或命运价格。</p></li><li><strong>文本命题都成立</strong><p>古籍来源提供历史证据，不替代独立经验验证。</p></li></ul></div>
+  </section>
+  <section class="content-section research-agenda">
+    <header class="section-heading"><span>02 · RESEARCH AGENDA</span><h2>经验验证应当成为<br />一项独立、可撤回的研究。</h2><p>未来若开展验证，需要匿名自愿数据、事前定义的可观察事件和预注册设计。它与当前传统体系的形式化工作分开。</p></header>
+    <div class="agenda-steps"><article><span>01</span><strong>自愿与分离</strong><p>排盘数据和身份信息分离，允许撤回。</p></article><article><span>02</span><strong>事前定义</strong><p>在看结果前定义事件、时间窗和评估指标。</p></article><article><span>03</span><strong>校准检验</strong><p>比较模型输出与观察，不做事后叙事补全。</p></article><article><span>04</span><strong>公开失败</strong><p>无效、冲突和负结果与支持结果同样保留。</p></article></div>
+  </section>
+  <section class="ethics-callout"><span>一句清楚的边界</span><blockquote>SenFate 展示一套传统知识系统如何形成判断；它不把这些判断包装成医疗、金融或人生决策建议。</blockquote></section>
+</SiteLayout>

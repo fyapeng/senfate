@@ -1,86 +1,19 @@
 ---
-import { API_PREFIX } from "@senfate/contracts";
-import { TheoryExplorer } from "../components/TheoryExplorer";
-import "../styles/global.css";
-
-const apiBase = import.meta.env.PUBLIC_API_BASE ?? `https://fyapeng.com${API_PREFIX}`;
+import { AnalysisWorkbench } from "../components/AnalysisWorkbench";
+import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="SenFate：可追溯、可检验、逐层解释的现代八字推断系统。" />
-    <title>SenFate — 形式化八字推断</title>
-  </head>
-  <body>
-    <header class="nav shell">
-      <a class="brand" href={import.meta.env.BASE_URL}><span>森</span>SenFate</a>
-      <nav aria-label="主导航">
-        <a href="#system">推断体系</a>
-        <a href="#evidence">古籍证据</a>
-        <a href="#boundary">模型边界</a>
-      </nav>
-      <span class="status"><i></i> 内核重建中</span>
-    </header>
-
-    <main>
-      <section class="hero shell">
-        <div class="eyebrow">FORMAL BAZI REASONING SYSTEM</div>
-        <h1>让每一步判断<br /><em>都有来处。</em></h1>
-        <p class="lead">从干支、五行与十神，到结构裁决、六亲和事件假设。SenFate 将古籍规则组织成可以审计、复算和质疑的完整推断过程。</p>
-        <div class="hero-actions">
-          <a class="primary" href="#system">查看推断体系</a>
-          <a class="secondary" href={`${apiBase}/meta`}>查看 API 状态</a>
-        </div>
-        <div class="metrics" aria-label="语料基线">
-          <div><strong>37,231</strong><span>古籍来源记录</span></div>
-          <div><strong>11,306</strong><span>语义规则家族</span></div>
-          <div><strong>7</strong><span>完整典籍来源</span></div>
-          <div><strong>20</strong><span>理论函数阶段</span></div>
-        </div>
-      </section>
-
-      <section id="system" class="section shell split">
-        <div class="section-copy">
-          <span class="section-number">01 / THEORY</span>
-          <h2>完整流程，拒绝结论跳跃</h2>
-          <p>任何主题或事件判断都必须经过规范化中间对象。无法等价表达的古籍条件进入延期队列，不通过削弱条件换取表面覆盖率。</p>
-        </div>
-        <TheoryExplorer client:load />
-      </section>
-
-      <section id="evidence" class="section shell evidence">
-        <span class="section-number">02 / EVIDENCE</span>
-        <div class="evidence-grid">
-          <h2>让每段原文<br />成为可核对的证据。</h2>
-          <div class="evidence-copy">
-            <p>每条规则保留典籍、行号、原文、语义家族和编译状态。系统区分可执行规则、解释证据、回归命例、争议规则和待补全规则。</p>
-            <ul>
-              <li>来源与计算证书绑定</li>
-              <li>冲突不压缩为确定分数</li>
-              <li>版本与语料摘要进入结果</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="boundary" class="section shell boundary">
-        <span class="section-number">03 / BOUNDARY</span>
-        <h2>清楚说明系统知道什么，<br />也说明它不知道什么。</h2>
-        <div class="boundary-cards">
-          <article><span>模型内部</span><h3>方向与结构</h3><p>输出规则作用、结构状态、证据和不确定性。</p></article>
-          <article><span>需要验证</span><h3>具体事件</h3><p>事件必须有独立谓词、时间条件和可证伪合同。</p></article>
-          <article><span>明确排除</span><h3>经验概率</h3><p>传统规则结果不包装为医学、金融或人生成功概率。</p></article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="shell">
-      <div class="brand"><span>森</span>SenFate</div>
-      <p>Open, auditable, and explicit about uncertainty.</p>
-      <small>© 2026 SenFate</small>
-    </footer>
-  </body>
-</html>
+<SiteLayout active="analysis" title="排盘分析" description="从出生时空到原局、大运、流年的透明八字分析工作台。">
+  <section class="workbench-hero">
+    <div class="page-intro compact">
+      <div><span class="kicker">ANALYSIS WORKBENCH</span><h1>从出生时空，进入一条<br />可以追问的推断链。</h1></div>
+      <p>排盘口径、结构裁决、主题贡献与古籍来源逐层展开。正式内核接通前，当前页面用于确认产品流程和解释体验。</p>
+    </div>
+    <AnalysisWorkbench client:load />
+  </section>
+  <section class="trust-strip">
+    <article><span>01</span><div><strong>不跳过时间口径</strong><p>历史时区、经纬度、均时差与日界均进入计算证书。</p></div></article>
+    <article><span>02</span><div><strong>不绕过关系裁决</strong><p>主题层只读取稳定正规形，不直接查询原始冲合关系。</p></div></article>
+    <article><span>03</span><div><strong>不伪装为经验概率</strong><p>输出模型内部状态、贡献和争议，不承诺现实事件。</p></div></article>
+  </section>
+</SiteLayout>

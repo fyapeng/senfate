@@ -1,0 +1,10 @@
+---
+import { ModelConfigurator } from "../components/ModelConfigurator";
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+<SiteLayout active="models" title="模型配置" description="查看、比较和导出 SenFate 的公开模型参数。">
+  <section class="model-hero">
+    <div class="page-intro compact"><div><span class="kicker">MODEL CONFIGURATION</span><h1>参数不藏在<br />代码背后。</h1></div><p>模型配置是一等公民。查看不同流派假设如何改变强弱、格局、关系裁决与主题贡献；正式引擎上线后，配置将随结果一起签名。</p></div>
+    <ModelConfigurator client:load />
+  </section>
+</SiteLayout>

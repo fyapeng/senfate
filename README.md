@@ -31,6 +31,22 @@ data               seven source texts and the 37,231-record canonical corpus
 docs               product, architecture and theory specifications
 ```
 
+## Product pages
+
+The public site has four first-level routes:
+
+```text
+/senfate/              analysis workbench
+/senfate/principles/   inference principles and formal pipeline
+/senfate/perspective/  historical context and epistemic boundaries
+/senfate/models/       visible model presets and parameter controls
+```
+
+The analysis and configuration interfaces are intentionally labelled as product
+demonstrations until the versioned Calendar Engine and stable-normal-form topic
+runtime are connected. Demo values must never be presented as calculated user
+results.
+
 ## Commands
 
 ```bash

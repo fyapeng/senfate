@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  active: "analysis" | "principles" | "perspective" | "models";
+}
+
+const { title, description, active } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const nav = [
+  { id: "analysis", label: "排盘分析", href: base },
+  { id: "principles", label: "推断原理", href: `${base}principles/` },
+  { id: "perspective", label: "现代视角", href: `${base}perspective/` },
+  { id: "models", label: "模型配置", href: `${base}models/` },
+] as const;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3f1eb" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <title>{title} · SenFate</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href={base} aria-label="SenFate 首页">
+          <span class="brand-mark" aria-hidden="true">申</span>
+          <span><strong>SenFate</strong><small>命理的现代建模与解构</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="主导航">
+          {nav.map((item) => <a class:list={{ active: active === item.id }} href={item.href} aria-current={active === item.id ? "page" : undefined}>{item.label}</a>)}
+        </nav>
+        <div class="header-status" title="正式计算内核正在重建">
+          <span></span>研究预览
+        </div>
+        <details class="mobile-menu">
+          <summary aria-label="打开导航"><i></i><i></i><i></i></summary>
+          <nav aria-label="移动端导航">
+            {nav.map((item) => <a class:list={{ active: active === item.id }} href={item.href}>{item.label}</a>)}
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="brand-mark">申</span><div><strong>SenFate</strong><p>让每一个判断都有来处。</p></div></div>
+        <div class="footer-note"><strong>模型边界</strong><p>展示传统命理体系内部的结构与推断，不代表现实概率或确定预测。</p></div>
+        <div class="footer-links">
+          <a href={`${base}principles/`}>计算方法</a><a href={`${base}perspective/`}>认识论边界</a><a href="https://github.com/fyapeng/senfate">开放源码</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 SenFate</span><span>Open rules · Traceable sources · Explicit uncertainty</span></div>
+    </footer>
+  </body>
+</html>
