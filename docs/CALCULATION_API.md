@@ -43,7 +43,7 @@ inference are not added to this stable calendar response.
 
 `POST /senfate/api/v1/analysis/calculate` accepts the same
 `senfate-calendar-request.v1` body and returns
-`senfate-analysis-response.v1`. This is an additive contract: the calendar
+`senfate-analysis-response.v2`. The calendar
 endpoint remains unchanged.
 
 The response nests the certified calendar and adds:
@@ -54,7 +54,12 @@ The response nests the certified calendar and adds:
 - root and exposure materialization;
 - relation candidates after weighted competition;
 - stable normal-form status, trace and fingerprint.
+- month-command pattern candidates and their dispositions;
+- temperature–humidity coordinates and decomposition;
+- a signed five-element balancing contribution vector;
+- every requested major-luck period recomputed from natal plus luck state,
+  including strength, relations, stable normal form and interpretive projection.
 
-The analysis route stops if calendar calculation, strength evaluation or
-normal-form evaluation fails. Pattern, climate, balancing, topic contribution
-and event hypotheses are outside this contract.
+The analysis route stops if calendar calculation, strength evaluation,
+normal-form evaluation or any major-luck projection fails. Topic contribution
+and event hypotheses remain outside this contract.

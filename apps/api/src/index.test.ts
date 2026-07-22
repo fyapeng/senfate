@@ -12,7 +12,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v3", calculationStatus: "structure-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v4", calculationStatus: "interpretive-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -77,7 +77,7 @@ describe("SenFate API", () => {
     expect(response.status).toBe(200);
     const body = await response.json() as ApiAnalysisResponse;
     expect(body).toMatchObject({
-      schemaVersion: "senfate-analysis-response.v1",
+      schemaVersion: "senfate-analysis-response.v2",
       calendar: { schemaVersion: "senfate-calendar-response.v1", pillars: { day: { stem: "戊", branch: "戌" } } },
       structure: {
         schema: "senfate-natal-structure-analysis.v1",
@@ -85,7 +85,11 @@ describe("SenFate API", () => {
         pillars: { day: { tenGod: "比肩" } },
         normalForm: { status: "stable" },
       },
+      interpretation: { schema: "senfate-interpretive-model.v1", climate: { schema: "senfate-climate-coordinate.v1" } },
     });
     expect(body.structure.elementMeasure.total).toBeGreaterThan(0);
+    expect(body.interpretation.balancing.candidates).toHaveLength(5);
+    expect(body.luckDynamics).toHaveLength(8);
+    expect(body.luckDynamics.every((item) => item.normalForm.status === "stable")).toBe(true);
   });
 });

@@ -1,11 +1,11 @@
 export const API_PREFIX = "/senfate/api/v1" as const;
 export const API_HEALTH_SCHEMA = "senfate-api-health.v1" as const;
-export const API_META_SCHEMA = "senfate-api-meta.v3" as const;
+export const API_META_SCHEMA = "senfate-api-meta.v4" as const;
 export const LOCATION_SEARCH_SCHEMA = "senfate-location-search.v1" as const;
 export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v1" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v2" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -25,7 +25,7 @@ export interface ApiMetaResponse {
     families: 11_306;
     books: 7;
   }>;
-  readonly calculationStatus: "structure-public-beta";
+  readonly calculationStatus: "interpretive-public-beta";
 }
 
 export interface ApiErrorResponse {
@@ -167,6 +167,40 @@ export interface ApiResolvedRelation {
   readonly competingIds: readonly string[];
 }
 
+export interface ApiInterpretation {
+  readonly schema: "senfate-interpretive-model.v1";
+  readonly model: string;
+  readonly pattern: Readonly<{
+    schema: "senfate-pattern-projection.v1";
+    status: "qualified" | "contested" | "unqualified";
+    candidates: readonly Readonly<{ stem: string; tenGod: ApiTenGod; rank: "main" | "middle" | "residual"; exposed: boolean; rootMass: number; score: number; status: "qualified" | "contested" | "candidate" }>[];
+  }>;
+  readonly climate: Readonly<{
+    schema: "senfate-climate-coordinate.v1";
+    temperature: number;
+    humidity: number;
+    temperatureState: "cold" | "balanced" | "hot";
+    humidityState: "dry" | "balanced" | "humid";
+    components: Readonly<{ seasonalTemperature: number; seasonalHumidity: number; elementTemperature: number; elementHumidity: number }>;
+  }>;
+  readonly balancing: Readonly<{
+    schema: "senfate-balancing-projection.v1";
+    candidates: readonly Readonly<{ element: ApiElement; score: number; status: "supportive" | "neutral" | "avoid"; strengthContribution: number; climateContribution: number; confidence: number }>[];
+  }>;
+}
+
+export interface ApiLuckPhaseAnalysis {
+  readonly ordinal: number;
+  readonly pillar: ApiGanZhi;
+  readonly startAgeYears: number;
+  readonly startAgeInterval: ApiClosedInterval;
+  readonly elementMeasure: Readonly<{ atoms: Readonly<Record<ApiElement, number>>; total: number; totalVariation: number }>;
+  readonly strength: Readonly<{ state: ApiStrengthClass; supportRatio: number; support: number; pressure: number }>;
+  readonly interpretation: ApiInterpretation;
+  readonly relations: readonly ApiResolvedRelation[];
+  readonly normalForm: Readonly<{ status: "stable"; iterations: number; fingerprint: string; trace: readonly string[] }>;
+}
+
 export interface ApiAnalysisResponse {
   readonly schemaVersion: typeof ANALYSIS_RESPONSE_SCHEMA;
   readonly requestId: string;
@@ -191,5 +225,7 @@ export interface ApiAnalysisResponse {
     relations: readonly ApiResolvedRelation[];
     normalForm: Readonly<{ status: "stable"; iterations: number; fingerprint: string; trace: readonly string[] }>;
   }>;
+  readonly interpretation: ApiInterpretation;
+  readonly luckDynamics: readonly ApiLuckPhaseAnalysis[];
   readonly certificate: Readonly<Record<string, unknown>>;
 }
