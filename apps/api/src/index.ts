@@ -169,7 +169,7 @@ function numberMap(value:unknown,keys:readonly string[]):Record<string,number>|u
 function parseModelOverrides(value:unknown):ApiModelOverrides|undefined{
   if(!isRecord(value)||!hasOnlyKeys(value,["temporalLayers","pattern","climate","balancing","topics"]))return undefined;
   let temporalLayers:Record<string,number>|undefined;let pattern:Record<string,number>|undefined;let climate:Record<string,number>|undefined;let balancing:Record<string,number>|undefined;let domainWeights:Record<string,number>|undefined;
-  if(value.temporalLayers!==undefined){temporalLayers=numberMap(value.temporalLayers,["natal","luck","annual"]);if(!temporalLayers)return undefined}
+  if(value.temporalLayers!==undefined){temporalLayers=numberMap(value.temporalLayers,["natal","luck","annual","month"]);if(!temporalLayers)return undefined}
   if(value.pattern!==undefined){pattern=numberMap(value.pattern,["monthCommand"]);if(!pattern)return undefined}
   if(value.climate!==undefined){climate=numberMap(value.climate,["temperature","humidity"]);if(!climate)return undefined}
   if(value.balancing!==undefined){balancing=numberMap(value.balancing,["strength","climate"]);if(!balancing)return undefined}
@@ -330,6 +330,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       if(monthlyRange&&(year<monthlyRange.startYear||year>monthlyRange.endYear))continue;
       const context=year===analysisInput!.targetYear?annualContext:resolveAnnualContext(year,boundaryUtcMs,value.calendar.majorLuck);
       if(!context.ok){if(context.code==="target-before-major-luck"||context.code==="target-after-major-luck-range")continue;trajectoryPoints.push({status:"unavailable",year,boundaryUtcMs,failureCode:context.code,reason:context.reason});continue}
+      if(!monthlyRange&&year!==analysisInput!.targetYear){trajectoryPoints.push({status:"unavailable",year,boundaryUtcMs,failureCode:"trajectory-not-loaded",reason:"Annual and flow-month states are loaded through bounded trajectory batches"});continue}
       const calculation=year===analysisInput!.targetYear?annualResult:referenceRuntime.calculateTrajectorySample({natal:value.calendar.pillars,luck:context.value.luckPeriod.pillar,annual:context.value.annualPillar,luckDirection:value.calendar.direction,sex:input.sex});
       if(!calculation.ok){trajectoryPoints.push({status:"unavailable",year,boundaryUtcMs,failureCode:calculation.code,reason:calculation.reason});continue}
       const normalForm=calculation.value.normalForm;const contribution="topicCertificate" in calculation.value?calculation.value.topicCertificate.contribution:calculation.value.contribution;const activated="topicCertificate" in calculation.value?calculation.value.topicCertificate.activated:calculation.value.activated;const scale=contribution.totalVariation;const topicVector=contribution.atoms;const normalized=Object.values(topicVector).map(item=>scale>0?item/scale:0);const pointSpecialStates=year===analysisInput!.targetYear?specialStates:materializeSpecialStateCertificate(normalForm);
@@ -340,7 +341,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       const monthlyCandle:Extract<ApiAnnualTrajectory["points"][number],{status:"stable"}>["monthlyCandle"]=monthlyFailure?{status:"unavailable",samples:monthlyIndexes.length,failureCode:monthlyFailure.code,reason:monthlyFailure.reason}:{status:"stable",samples:12,open:monthlyIndexes[0]!,high:Math.max(...monthlyIndexes),low:Math.min(...monthlyIndexes),close:monthlyIndexes.at(-1)!,sampleFingerprints:monthlyFingerprints};
       trajectoryPoints.push({status:"stable",year,boundaryUtcMs,annualPillar:context.value.annualPillar,luckOrdinal:context.value.luckPeriod.ordinal,luckPillar:context.value.luckPeriod.pillar,strength:normalForm.dynamicState.strength.state,supportRatio:normalForm.dynamicState.strength.supportRatio,normalizedTopicIndex:scale>0?contribution.total/scale:0,domainRange:{lower:Math.min(0,...normalized),upper:Math.max(0,...normalized)},monthlyCandle,topicVector,activated,normalFormFingerprint:normalForm.fingerprint,specialStateCodes:pointSpecialStates.signals.map(signal=>signal.code)});
     }
-    const trajectory:ApiAnnualTrajectory={schema:"senfate-annual-trajectory.v2",startYear:trajectoryPoints[0]?.year??analysisInput!.targetYear,endYear:trajectoryPoints.at(-1)?.year??analysisInput!.targetYear,indexDefinition:"topic-total-divided-by-total-variation",points:trajectoryPoints};
+    const trajectory:ApiAnnualTrajectory={schema:"senfate-annual-trajectory.v3",startYear:trajectoryPoints[0]?.year??analysisInput!.targetYear,endYear:trajectoryPoints.at(-1)?.year??analysisInput!.targetYear,indexDefinition:"topic-total-divided-by-total-variation",points:trajectoryPoints};
     const analysis: ApiAnalysisResponse = {
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,

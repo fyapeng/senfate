@@ -31,7 +31,7 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v8` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v9` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
@@ -48,10 +48,12 @@
 - expandable source records for every published event hypothesis, with an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
 - public 19-parameter model catalog, including the flow-month layer weight, and closed `modelOverrides` request contract;
+- `senfate-analysis-request.v3`, which accepts the published flow-month layer weight and records it in the effective model certificate;
 - locally persisted model controls that drive full server recomputation and a
   fingerprinted model-configuration certificate.
 - browser-session restoration of birth input and the last compatible certified result, with explicit local clearing and no server-side profile storage;
-- element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations; the browser loads these candles automatically in bounded batches and preserves failed batches as gaps.
+- element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations; the browser loads these candles automatically in serial bounded batches, retries transient failures twice and preserves final failures as gaps.
+- a product-language and readability pass for the analysis workbench, including localized location headings, one retry for transient primary-analysis failures and failure messages that do not expose parser or transport details.
 
 ## Recomputed reference disposition
 

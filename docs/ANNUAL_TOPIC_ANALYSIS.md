@@ -2,7 +2,7 @@
 
 ## Public contract
 
-`senfate-analysis-request.v2` adds a required `targetYear` to the certified
+`senfate-analysis-request.v3` adds a required `targetYear` to the certified
 calendar inputs. The annual pillar and enclosing luck period are evaluated at
 the certified Lichun instant for that year. The
 runtime locates the enclosing major-luck period from its certified start time.
