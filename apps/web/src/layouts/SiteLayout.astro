@@ -37,8 +37,8 @@ const nav = [
         <nav class="desktop-nav" aria-label="主导航">
           {nav.map((item) => <a class:list={{ active: active === item.id }} href={item.href} aria-current={active === item.id ? "page" : undefined}>{item.label}</a>)}
         </nav>
-        <div class="header-status" title="认证历法计算已开放，结构推断仍在审计">
-          <span></span>历法公测
+        <div class="header-status" title="采用认证节气表与可追溯计算链">
+          <span></span>认证计算
         </div>
         <details class="mobile-menu">
           <summary aria-label="打开导航"><i></i><i></i><i></i></summary>
@@ -57,7 +57,7 @@ const nav = [
           <a href={`${base}principles/`}>计算方法</a><a href={`${base}perspective/`}>认识论边界</a><a href="https://github.com/fyapeng/senfate">开放源码</a>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 SenFate</span><span>Open rules · Traceable sources · Explicit uncertainty</span></div>
+      <div class="footer-bottom"><span>© 2026 SenFate</span><span>规则开放 · 来源可追溯 · 不确定性明确</span></div>
     </footer>
   </body>
 </html>

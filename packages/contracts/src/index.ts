@@ -6,8 +6,8 @@ export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
 export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
-export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v2" as const;
-export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v8" as const;
+export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v3" as const;
+export const ANALYSIS_RESPONSE_SCHEMA = "senfate-analysis-response.v9" as const;
 
 export interface ApiHealthResponse {
   readonly schemaVersion: typeof API_HEALTH_SCHEMA;
@@ -74,7 +74,7 @@ export type ApiModelId = "transparent-baseline" | "month-command" | "climate-pri
 export type ApiSex = "female" | "male";
 export type ApiTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
 export interface ApiModelOverrides {
-  readonly temporalLayers?:Readonly<Partial<Record<"natal"|"luck"|"annual",number>>>;
+  readonly temporalLayers?:Readonly<Partial<Record<"natal"|"luck"|"annual"|"month",number>>>;
   readonly pattern?:Readonly<{monthCommand?:number}>;
   readonly climate?:Readonly<{temperature?:number;humidity?:number}>;
   readonly balancing?:Readonly<{strength?:number;climate?:number}>;
@@ -244,7 +244,7 @@ export interface ApiKinshipProjection {
 }
 
 export interface ApiAnnualTrajectory {
-  readonly schema:"senfate-annual-trajectory.v2";
+  readonly schema:"senfate-annual-trajectory.v3";
   readonly startYear:number;
   readonly endYear:number;
   readonly indexDefinition:"topic-total-divided-by-total-variation";

@@ -51,7 +51,7 @@ inference are not added to this stable calendar response.
 ## Natal structure analysis
 
 `POST /senfate/api/v1/analysis/calculate` accepts
-`senfate-analysis-request.v2` and returns `senfate-analysis-response.v8`.
+`senfate-analysis-request.v3` and returns `senfate-analysis-response.v9`.
 The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
 
@@ -64,16 +64,17 @@ effective `senfate-model-profile.v3`, computes a deterministic fingerprint and
 recomputes every downstream stage. The response and calculation certificate
 publish the exact override object, count, fingerprint and effective version.
 
-The response includes `senfate-annual-trajectory.v2`. The primary analysis call
-walks every certified Lichun year covered by the requested major-luck sequence
-and recomputes its annual normal form. It returns the complete annual line while
-marking each not-yet-loaded candle with `monthly-candle-not-loaded`.
+The response includes `senfate-annual-trajectory.v3`. The primary analysis call
+returns the selected year's complete normal form and an explicit
+`trajectory-not-loaded` placeholder for every other covered year. This keeps the
+first chart request inside the Worker CPU limit. The browser then replaces those
+placeholders with stable annual and flow-month states from bounded batches.
 
 `POST /senfate/api/v1/analysis/trajectory?startYear=YYYY&endYear=YYYY` accepts
 the same request body and computes one to four consecutive years. Each stable
 batch point adds a monthly open/high/low/close candle derived from twelve
-flow-month normal forms. The web client schedules bounded batches automatically
-and merges them by year; users still make one analysis action. Transport
+flow-month normal forms. The web client schedules bounded batches serially,
+retries a failed range twice and merges them by year; users still make one analysis action. Transport
 batching does not remove functions, weaken conditions or interpolate failures.
 
 ```text
