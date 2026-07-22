@@ -31,7 +31,7 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v5` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v6` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
@@ -39,9 +39,10 @@
 - target-year selection at the certified LiChun instant with the enclosing major-luck period;
 - annual recomputation accumulating natal, luck and annual layers before topic evaluation;
 - six-role kinship projection with explicit sex-dependent ten-god mappings;
-- public `TopicContributionCertificate v3` with activated source books, line ranges and normalized event evidence;
+- public `TopicContributionCertificate v4` with activated source books, line ranges, declared time scopes and normalized event evidence;
 - 50 source-level event predicates defined by phase, topic domain and canonical effect operator;
 - event evidence grades for single-source, same-book, cross-book and mixed-direction support;
+- per-predicate natal, major-luck, annual and unscoped source counts proving annual scope accumulation;
 - expandable source records for every published event hypothesis, with an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
 - public 18-parameter model catalog and closed `modelOverrides` request contract;

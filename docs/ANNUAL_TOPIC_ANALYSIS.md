@@ -18,7 +18,7 @@ natal pillars + enclosing major luck + annual pillar
 → resolved reference features
 → kinship role projection
 → 4,118 executable TopicFunctions
-→ TopicContributionCertificate v3
+→ TopicContributionCertificate v4
 → signed ten-domain topic measure
 → 50-class source-level event predicates
 → source-linked event hypotheses
@@ -58,6 +58,12 @@ coverage; `mixed-evidence` means both supporting and pressuring effects are
 present. Their epistemic status is always `traditional-model-hypothesis`.
 These fields are not event probabilities, causal estimates or factual
 predictions. No keyword scan of the source text participates in execution.
+
+Every hypothesis also publishes declared-scope counts for natal, major-luck,
+annual and unscoped sources. A rule declaring more than one scope appears in
+each corresponding count. This decomposition is provenance, not a second
+weight: each activated effect still contributes exactly once to the signed
+measure.
 
 Public topic-domain weights scale the signed contribution measure only after a
 rule condition has activated. They cannot make a false rule true, query raw
