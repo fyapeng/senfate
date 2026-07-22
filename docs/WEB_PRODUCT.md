@@ -22,17 +22,26 @@ failure. Transient analysis requests are retried once, while domain failures
 remain explicit. Public model settings are stored locally, accepted only through the
 closed 19-parameter API contract and included in the returned certificate.
 Internal contribution measures are never labelled as empirical probability.
-The workbench restores form state and the last compatible result from
-`sessionStorage` while the browser tab remains open. A visible clear action
+The workbench restores form state, the last compatible result and the exact
+successful request snapshot from `sessionStorage` while the browser tab remains
+open. An annual-detail request always reuses that snapshot, so unsubmitted form
+edits cannot be mixed with an existing life trajectory. A visible clear action
 removes this session copy. No account or server-side birth profile is implied
 by the convenience layer.
 
-The first analysis response supplies the complete annual trajectory. The client
-then requests consecutive one-to-four-year flow-month batches serially, retries
+The first analysis response supplies complete annual coverage with one detailed
+year and explicit pending placeholders. The client then requests consecutive
+one-to-four-year annual and flow-month batches serially, retries
 each failed range twice and merges each candle by year. A final batch failure
 remains an explicit gap and is never replaced with an estimated wick. Navigation
 does not require a second user action, and completed batches are included in the
 session copy.
+
+Every selectable K-line point and the accessible year selector open a complete
+annual detail. The client recomputes that year through the same analysis route,
+keeps the accumulated trajectory, updates the certified request snapshot and
+moves directly to the annual topic view. Closed trajectory failures are not
+made selectable.
 
 ## Responsive acceptance
 

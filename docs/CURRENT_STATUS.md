@@ -53,6 +53,8 @@
   fingerprinted model-configuration certificate.
 - browser-session restoration of birth input and the last compatible certified result, with explicit local clearing and no server-side profile storage;
 - element- and ten-god-colored chart notation plus an auditable life-trajectory K-line whose open/high/low/close values come from twelve flow-month recomputations; the browser loads these candles automatically in serial bounded batches, retries transient failures twice and preserves final failures as gaps.
+- direct annual navigation from every selectable K-line point and an accessible year selector; the selected year is fully recomputed for annual dynamics, kinship, topic contribution and source conditions while the accumulated life trajectory remains intact.
+- versioned session restoration that binds a displayed result to its exact successful request snapshot, preventing unsubmitted form or model edits from being mixed into later annual-detail requests.
 - a product-language and readability pass for the analysis workbench, including localized location headings, one retry for transient primary-analysis failures and failure messages that do not expose parser or transport details.
 
 ## Recomputed reference disposition

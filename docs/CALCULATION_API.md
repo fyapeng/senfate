@@ -88,6 +88,9 @@ still receives the complete source and event certificate. An ambiguous luck boun
 annual point remains available but its monthly candle fails closed. Failed
 batches stay visible as gaps in the client. `targetYear` only determines
 which year also receives the full source and contribution certificate.
+Selecting a different K-line year sends the same certified request snapshot
+with only `targetYear` changed, then merges the returned annual detail without
+discarding already loaded trajectory batches.
 
 `GET /senfate/api/v1/models` returns `senfate-model-catalog.v1`, the three
 presets, their effective public parameter values and the authoritative slider
