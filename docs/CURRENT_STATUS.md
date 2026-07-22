@@ -25,6 +25,9 @@
 - concrete weighted resolution for combine, clash, harm, break, punishment, three-harmony and three-meeting candidates;
 - stable-normal-form-only resolved feature projection;
 - unified `ReferenceCalculationRuntime` from dynamic state through topic contribution certificate.
+- pinned NASA/JPL Horizons DE441 solar-term table for 1900–2035 (3,264 terms);
+- digest-verified `jie` window resolver with UT1/UTC and future leap-second uncertainty;
+- certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 
 ## Recomputed reference disposition
 
@@ -41,7 +44,6 @@ These are compiler dispositions produced from structural completeness, source ro
 
 ## Open dependencies
 
-- production ephemeris conforming to the selected apparent-solar-longitude standard;
 - pinned production tzdb distribution and exact-coordinate override contract;
 - root/exposure, strength, pattern, climate and balancing model profiles;
 - structure, pattern, climate and balancing rewrite operators beyond relation resolution;

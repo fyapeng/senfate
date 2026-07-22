@@ -66,6 +66,12 @@ importers:
 
   packages/core: {}
 
+  packages/ephemeris:
+    dependencies:
+      '@senfate/core':
+        specifier: workspace:*
+        version: link:../core
+
   packages/locations: {}
 
   packages/rules:

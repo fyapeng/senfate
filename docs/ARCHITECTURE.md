@@ -7,6 +7,7 @@ apps/web ───────→ packages/contracts
 apps/api ───────→ packages/contracts, packages/core, packages/rules, packages/locations
 packages/rules ─→ packages/core
 packages/locations → no application dependency
+packages/ephemeris → packages/core
 packages/core ──→ no application dependency
 ```
 

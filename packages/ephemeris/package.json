@@ -1,0 +1,14 @@
+{
+  "name": "@senfate/ephemeris",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": { "@senfate/core": "workspace:*" },
+  "scripts": {
+    "generate:solar-terms": "node scripts/generate-solar-terms.mjs",
+    "audit": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  }
+}
