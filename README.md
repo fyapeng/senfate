@@ -27,6 +27,8 @@ apps/api           Cloudflare Worker API only
 packages/core      theory ontology and deterministic calculation kernel
 packages/rules     classical corpus validation and rule compilation
 packages/contracts versioned public API contracts
+packages/locations canonical place contracts and GeoNames importer
+packages/ephemeris pinned solar-term table and certified calendar facade
 data               seven source texts and the 37,231-record canonical corpus
 docs               product, architecture and theory specifications
 ```
@@ -53,12 +55,15 @@ results.
 pnpm install
 pnpm audit:rules
 pnpm audit:reference-compilation
+pnpm audit:ephemeris
 pnpm typecheck
 pnpm test
 pnpm build
 pnpm dev:web
 pnpm dev:api
 ```
+
+Location search uses a public GeoNames index in Cloudflare D1. The repository tracks its schema and provenance contract; raw geographical datasets and generated import SQL remain in `local-data/`.
 
 Large PDFs, databases, exports and generated snapshots belong in `local-data/`
 and are never committed. Their manifests and hashes may be tracked separately.

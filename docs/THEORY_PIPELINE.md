@@ -27,6 +27,22 @@
 20 measurement.vector             透明向量测度
 ```
 
+## 动态状态
+
+原局包含年、月、日、时四个柱。大运状态在四柱上加入当前大运柱；年度状态同时加入当前大运柱和流年柱。每个阶段从全部现存柱重新计算测度、强弱与关系候选，不沿用上一阶段的局部增量。年度缺少所属大运时失败关闭。
+
+关系候选目前覆盖天干五合、六合、冲、害、破、刑、三合与三会。加权裁决结果必须成为 `effective`、`transformed`、`contested` 或 `blocked`；候选状态不能发布到主题层。每个分数都保留基础优先级、完整性、月令支持、透出、根、当前层六项分解。
+
+```text
+DynamicChartState
+→ relation candidates
+→ ReferenceNormalFormPhaseResult (stable only)
+→ resolved reference features
+→ TopicFunction conditions
+→ topic contribution certificate
+→ finite signed topic measure
+```
+
 ## 终止语义
 
 正规形求值必须有确定的状态指纹、迭代上限和循环检测。只有 `stable` 可以进入六亲与主题层。`cycle` 和 `limit-reached` 失败关闭，不选择任意中间轮次充当结果。

@@ -12,7 +12,7 @@ interface CompactCorpus {
   readonly rules:readonly (readonly (readonly unknown[])[])[];
 }
 
-export interface NormalizedReferenceCondition { readonly kind:CanonicalConditionKind; readonly operator:string; readonly value:unknown }
+export interface NormalizedReferenceCondition { readonly kind:CanonicalConditionKind; readonly operator:string; readonly value:unknown; readonly subject?:string }
 export interface ReferenceEffect { readonly operator:string; readonly domains:readonly string[]; readonly polarity:string }
 export interface CompiledReferenceRecord {
   readonly recordId:string; readonly bookId:string; readonly lineStart:number; readonly lineEnd:number;
@@ -45,9 +45,10 @@ export function compileReferenceCorpus(corpusPath:string):ReferenceCompilationAu
     const bookId=corpus.books[bookIndex]; const familyId=corpus.families[familyIndex]; if(!bookId||!familyId||lineStart<1||lineEnd<lineStart||confidenceByte<0||confidenceByte>255)throw new Error(`Invalid provenance ${bookIndex}:${ruleIndex}`);
     const rawConditions=raw[5]; const rawEffects=raw[6]; const rawTerms=raw[7]; if(!Array.isArray(rawConditions)||!Array.isArray(rawEffects)||!Array.isArray(rawTerms))throw new Error(`Invalid payload ${bookIndex}:${ruleIndex}`);
     let unsupported=false;
-    const conditions:NormalizedReferenceCondition[]=rawConditions.map((entry)=>{if(!Array.isArray(entry)||entry.length<2)throw new Error("Invalid condition tuple");const op=enumValue(corpus,"condOp",integer(entry[0],"condition op"));const valueIndex=entry[1];const value=Array.isArray(valueIndex)?valueIndex.map(x=>corpus.values[integer(x,"value index")]):corpus.values[integer(valueIndex,"value index")];const kind=CONDITION_KIND[op];if(!kind||(op.startsWith("symbol.")&&!typedSymbol(value,corpus)))unsupported=true;return{kind:kind??"typed-symbol",operator:op,value}});
+    let conditions:NormalizedReferenceCondition[]=rawConditions.map((entry)=>{if(!Array.isArray(entry)||entry.length<2)throw new Error("Invalid condition tuple");const op=enumValue(corpus,"condOp",integer(entry[0],"condition op"));const valueIndex=entry[1];const value=Array.isArray(valueIndex)?valueIndex.map(x=>corpus.values[integer(x,"value index")]):corpus.values[integer(valueIndex,"value index")];const kind=CONDITION_KIND[op];if(!kind||(op.startsWith("symbol.")&&!typedSymbol(value,corpus)))unsupported=true;return{kind:kind??"typed-symbol",operator:op,value}});
     const effects:ReferenceEffect[]=rawEffects.map((entry)=>{if(!Array.isArray(entry)||entry.length<3)throw new Error("Invalid effect tuple");return{operator:enumValue(corpus,"effOp",integer(entry[0],"effect op")),domains:decodeBits(integer(entry[1],"domain bits"),corpus.enums.domain??[]),polarity:enumValue(corpus,"polarity",integer(entry[2],"polarity"))}});
     const terms=Object.fromEntries(TERM_NAMES.map((name,index)=>[name,decodeBits(integer(rawTerms[index]??0,"term bits"),corpus.terms[index]??[])]));
+    const elementTerms=terms.elements??[];const elementConditionIndexes=conditions.map((condition,index)=>condition.operator==="element.state"?index:-1).filter(index=>index>=0);if(elementConditionIndexes.length>0){if(elementTerms.length!==elementConditionIndexes.length)unsupported=true;else{const subjects=new Map(elementConditionIndexes.map((conditionIndex,index)=>[conditionIndex,elementTerms[index]!]));conditions=conditions.map((condition,index)=>condition.operator==="element.state"?{...condition,subject:subjects.get(index)!}:condition)}}
     const ruleType=enumValue(corpus,"ruleType",ruleTypeId),sourceRole=enumValue(corpus,"sourceRole",sourceRoleId),scopes=decodeBits(scopeBits,corpus.enums.scope??[]);
     let provisional:ReferenceDisposition="executable",provisionalReason="complete-canonical-rule";
     if(sourceRole==="case_observation"){provisional="fixture";provisionalReason="case-observation"}

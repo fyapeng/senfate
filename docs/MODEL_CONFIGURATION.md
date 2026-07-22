@@ -11,6 +11,7 @@ Every calculation consumes one `senfate-model-profile.v1` object. A profile is v
 | Calendar | apparent solar time, day boundary, luck conversion | calendar and every downstream stage |
 | Element measure | pillar positions, hidden-stem ranks, 12×5 seasonal matrix | measure, strength, pattern, climate and downstream stages |
 | Strength | same element, resource, output, wealth, officer, roots and thresholds | strength and downstream stages |
+| Temporal layers | natal, major-luck and annual layer weights | dynamic measure, strength, relations and downstream stages |
 | Relation resolution | relation priorities, completeness, season, exposure, roots, current layer and thresholds | resolution, normal form and downstream stages |
 | Climate | temperature, humidity and seasonal command | climate, balancing and downstream stages |
 | Topics | domain projection weights | contribution measure and visual projection |

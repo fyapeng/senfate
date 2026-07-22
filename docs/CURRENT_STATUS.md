@@ -18,27 +18,36 @@
 - three initial model presets using the same public configuration contract;
 - historical IANA time-zone resolution with repeated/skipped local-time handling;
 - root/exposure materialization and parameterized day-master support-pressure decomposition.
+- canonical GeoNames location schema, streaming importer and D1 migration;
+- reproducible 235,015-record `cities500-2026-07-22` location snapshot with pinned hashes;
+- bounded location search/detail API with coordinates, IANA zones and source attribution;
+- natal/major-luck/annual dynamic state recomputation with explicit layer weights;
+- concrete weighted resolution for combine, clash, harm, break, punishment, three-harmony and three-meeting candidates;
+- stable-normal-form-only resolved feature projection;
+- unified `ReferenceCalculationRuntime` from dynamic state through topic contribution certificate.
+- pinned NASA/JPL Horizons DE441 solar-term table for 1900–2035 (3,264 terms);
+- digest-verified `jie` window resolver with UT1/UTC and future leap-second uncertainty;
+- certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 
 ## Recomputed reference disposition
 
 ```text
-executable   4,235
-deferred     7,540
+executable   4,118
+deferred     7,785
 contested       41
-evidence    22,235
+evidence    22,107
 fixture      3,180
 total       37,231
 ```
 
-These are compiler dispositions produced from structural completeness, source role and canonical condition expressibility. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
+These are compiler dispositions produced from structural completeness, source role and canonical condition expressibility. Element-state conditions are executable only when their element subjects bind one-to-one to the source terms; ambiguous bindings are deferred. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
 
 ## Open dependencies
 
-- production ephemeris conforming to the selected apparent-solar-longitude standard;
-- place-to-coordinate/IANA-zone index and pinned production tzdb distribution;
+- pinned production tzdb distribution and exact-coordinate override contract;
 - root/exposure, strength, pattern, climate and balancing model profiles;
-- concrete structure rewrite and relation-resolution operators;
-- resolved feature materialization for the full executable reference set;
+- structure, pattern, climate and balancing rewrite operators beyond relation resolution;
+- semantic review of feature equivalence for the full executable reference set;
 - event ontology and empirical validation contracts;
 - calculation API endpoint.
 

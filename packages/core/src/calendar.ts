@@ -1,4 +1,4 @@
-import type { ClosedResult } from "./algebra";
+import { interval, type ClosedInterval, type ClosedResult } from "./algebra";
 import { BRANCHES, STEMS, modulo, sexagenary, type GanZhi } from "./ontology";
 import type { SenFateModelProfile } from "./model";
 
@@ -22,6 +22,8 @@ export interface SolarTermWindow {
   readonly ephemerisId: string; readonly ephemerisVersion: string;
   readonly baziYear: number; readonly monthOrdinal: number;
   readonly previousJieUtcMs: number; readonly nextJieUtcMs: number;
+  readonly previousJieUncertaintySeconds?:number;readonly nextJieUncertaintySeconds?:number;
+  readonly ephemerisDigest?:string;
 }
 
 export interface NormalizedBirthTime {
@@ -31,8 +33,8 @@ export interface NormalizedBirthTime {
 }
 
 export interface FourPillars { readonly year: GanZhi; readonly month: GanZhi; readonly day: GanZhi; readonly hour: GanZhi }
-export interface MajorLuckPeriod { readonly ordinal: number; readonly pillar: GanZhi; readonly startAgeYears: number; readonly startUtcMs: number }
-export interface BaziCalendarResult { readonly normalizedTime: NormalizedBirthTime; readonly pillars: FourPillars; readonly direction: "forward"|"reverse"; readonly luckStartAgeYears: number; readonly majorLuck: readonly MajorLuckPeriod[] }
+export interface MajorLuckPeriod { readonly ordinal: number; readonly pillar: GanZhi; readonly startAgeYears: number;readonly startAgeInterval:ClosedInterval; readonly startUtcMs: number;readonly startUtcInterval:ClosedInterval }
+export interface BaziCalendarResult { readonly normalizedTime: NormalizedBirthTime; readonly pillars: FourPillars; readonly direction: "forward"|"reverse"; readonly luckStartAgeYears: number;readonly luckStartAgeInterval:ClosedInterval; readonly majorLuck: readonly MajorLuckPeriod[] }
 
 export type CalendarFailure = "invalid-input"|"ephemeris-window-mismatch"|"boundary-ambiguous";
 
@@ -70,7 +72,8 @@ export function compileBaziCalendar(input:CivilBirthInput,profile:CalendarProfil
   const normalized=normalizeBirthTime(input,profile); if(!normalized.ok)return normalized;
   const n=normalized.value; const birthLower=n.civilUtcMs-n.uncertaintySeconds*1000; const birthUpper=n.civilUtcMs+n.uncertaintySeconds*1000;
   const cert={functional:"calendar.pillars-and-luck",profile:`${profile.id}@${profile.version}`,ephemeris:`${terms.ephemerisId}@${terms.ephemerisVersion}`};
-  if(!(terms.previousJieUtcMs<=birthLower&&birthUpper<terms.nextJieUtcMs)||terms.monthOrdinal<0||terms.monthOrdinal>11) return {ok:false,code:"ephemeris-window-mismatch",reason:"Birth interval is not strictly contained in the supplied solar-term window",certificate:cert};
+  const previousLatest=terms.previousJieUtcMs+(terms.previousJieUncertaintySeconds??0)*1000;const nextEarliest=terms.nextJieUtcMs-(terms.nextJieUncertaintySeconds??0)*1000;
+  if(!(previousLatest<=birthLower&&birthUpper<nextEarliest)||terms.monthOrdinal<0||terms.monthOrdinal>11) return {ok:false,code:"ephemeris-window-mismatch",reason:"Birth interval is not strictly contained in the supplied solar-term uncertainty window",certificate:{...cert,previousLatest,nextEarliest}};
   const calcLower=n.apparentSolarWallTimeMs-n.uncertaintySeconds*1000; const calcUpper=n.apparentSolarWallTimeMs+n.uncertaintySeconds*1000;
   const shiftedLower=profile.dayBoundary==="zi-initial"?calcLower+3_600_000:calcLower; const shiftedUpper=profile.dayBoundary==="zi-initial"?calcUpper+3_600_000:calcUpper;
   if(dateParts(shiftedLower).join("-")!==dateParts(shiftedUpper).join("-")) return {ok:false,code:"boundary-ambiguous",reason:"Input uncertainty crosses the configured day boundary",certificate:cert};
@@ -82,9 +85,9 @@ export function compileBaziCalendar(input:CivilBirthInput,profile:CalendarProfil
   const hbLower=hourBranchAt(calcLower); const hbUpper=hourBranchAt(calcUpper); if(hbLower!==hbUpper)return{ok:false,code:"boundary-ambiguous",reason:"Input uncertainty crosses a two-hour branch boundary",certificate:cert};
   const hourStemIndex=modulo((STEMS.indexOf(dayPillar.stem)%5)*2+hbLower,10); const hourPillarIndex=sexagenaryIndexFromComponents(hourStemIndex,hbLower);
   const yangYear=yearStemIndex%2===0; const direction=(yangYear&&sex==="male")||(!yangYear&&sex==="female")?"forward":"reverse";
-  const intervalMs=direction==="forward"?terms.nextJieUtcMs-n.civilUtcMs:n.civilUtcMs-terms.previousJieUtcMs; const luckStartAgeYears=intervalMs/86_400_000/3;
-  const majorLuck=Array.from({length:periodCount},(_,index)=>{const ordinal=index+1; const pillar=sexagenary(monthPillarIndex+(direction==="forward"?ordinal:-ordinal)); const startAgeYears=luckStartAgeYears+index*10; return{ordinal,pillar,startAgeYears,startUtcMs:n.civilUtcMs+startAgeYears*365.2425*86_400_000};});
-  return{ok:true,value:{normalizedTime:n,pillars:{year:yearPillar,month:sexagenary(monthPillarIndex),day:dayPillar,hour:sexagenary(hourPillarIndex)},direction,luckStartAgeYears,majorLuck},certificate:{...cert,dayCycleAnchor:"JDN+49 mod 60",luckConversion:"3 days = 1 year",termWindow:terms}};
+  const intervalMs=direction==="forward"?terms.nextJieUtcMs-n.civilUtcMs:n.civilUtcMs-terms.previousJieUtcMs; const luckStartAgeYears=intervalMs/86_400_000/3;const termUncertaintySeconds=direction==="forward"?(terms.nextJieUncertaintySeconds??0):(terms.previousJieUncertaintySeconds??0);const luckAgeUncertaintyYears=(termUncertaintySeconds+n.uncertaintySeconds)/86_400/3;const luckStartAgeInterval=interval(Math.max(0,luckStartAgeYears-luckAgeUncertaintyYears),luckStartAgeYears+luckAgeUncertaintyYears,"years");
+  const majorLuck=Array.from({length:periodCount},(_,index)=>{const ordinal=index+1; const pillar=sexagenary(monthPillarIndex+(direction==="forward"?ordinal:-ordinal)); const startAgeYears=luckStartAgeYears+index*10;const startAgeInterval=interval(luckStartAgeInterval.lower+index*10,luckStartAgeInterval.upper+index*10,"years");const startUtcMs=n.civilUtcMs+startAgeYears*365.2425*86_400_000;const startUtcUncertaintyMs=n.uncertaintySeconds*1000+luckAgeUncertaintyYears*365.2425*86_400_000;return{ordinal,pillar,startAgeYears,startAgeInterval,startUtcMs,startUtcInterval:interval(startUtcMs-startUtcUncertaintyMs,startUtcMs+startUtcUncertaintyMs,"unix-ms")};});
+  return{ok:true,value:{normalizedTime:n,pillars:{year:yearPillar,month:sexagenary(monthPillarIndex),day:dayPillar,hour:sexagenary(hourPillarIndex)},direction,luckStartAgeYears,luckStartAgeInterval,majorLuck},certificate:{...cert,dayCycleAnchor:"JDN+49 mod 60",luckConversion:"3 days = 1 year",luckAgeUncertaintyYears,termWindow:terms}};
 }
 
 function sexagenaryIndexFromComponents(stemIndex:number,branchIndex:number):number{for(let index=modulo(stemIndex,10);index<60;index+=10)if(index%12===modulo(branchIndex,12))return index;throw new Error("Stem and branch parity mismatch")}
