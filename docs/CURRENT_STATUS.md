@@ -56,6 +56,11 @@
 - direct annual navigation from every selectable K-line point and an accessible year selector; the selected year is fully recomputed for annual dynamics, kinship, topic contribution and source conditions while the accumulated life trajectory remains intact.
 - versioned session restoration that binds a displayed result to its exact successful request snapshot, preventing unsubmitted form or model edits from being mixed into later annual-detail requests.
 - a product-language and readability pass for the analysis workbench, including localized location headings, one retry for transient primary-analysis failures and failure messages that do not expose parser or transport details.
+- observatory-style product UI with a dark input console, persistent four-pillar/five-element/pattern/current-luck overview, compact trajectory workspace and an annual context inspector;
+- interactive life-trajectory viewport with 12-year, 24-year and full-range modes, pointer drag, wheel zoom, navigator control, selected-year guide and Chinese-market red-up/green-down candle semantics;
+- client request coordination that locks synchronous duplicate submits, cancels superseded work, applies bounded timeouts, retries only transient statuses, caches successful trajectory batches in memory and retries missing ranges without recalculating the base chart;
+- expanded inference guide covering LiChun year boundaries, twelve `jie` month boundaries, five-tiger month stems, continuous sexagenary days, five-rat hour stems, the complete hidden-stem dictionary, ten-god mapping and major-luck direction/start calculation;
+- expanded modern-perspective guide covering panel-feature construction, nested baselines, time leakage, measurement error, negative controls and the separation of seasonal biological exposures from symbolic labels.
 
 ## Recomputed reference disposition
 
@@ -92,5 +97,6 @@ pressuring source effects and remain explicitly mixed.
 - empirical validation contracts and observed-outcome data for event predicates;
 - finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;
 - source-semantic review of the 7,785 deferred and 41 contested records.
+- a privacy decision for asynchronous trajectory jobs: the current browser-led batching keeps birth inputs out of server-side storage, while a future Cloudflare Workflow or Queue design would persist an encrypted, expiring job snapshot and therefore requires an explicit retention contract.
 
 The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles, audited topic certificates and the lightweight annual trajectory. `POST /senfate/api/v1/analysis/trajectory` adds twelve-flow-month candles in bounded year ranges without changing the mathematical chain. Event hypotheses are grouped by annual phase, topic domain and normalized effect operator, and each item links back to activated source records. Empirical event probabilities remain outside the product.

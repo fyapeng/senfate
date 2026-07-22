@@ -18,6 +18,8 @@ import {userFacingRequestError} from "../request-error";
 import {mergeAnnualDetail,mergeTrajectoryBatch,selectableTrajectoryYears} from "../analysis-result";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
+const ANALYSIS_TIMEOUT_MS = 45_000;
+const TRAJECTORY_TIMEOUT_MS = 35_000;
 const tabs = ANALYSIS_TABS;
 const modelLabels: Readonly<Record<ApiModelId, string>> = {
   "transparent-baseline": "透明综合基准",
@@ -39,6 +41,21 @@ function localDate(utcMs: number, timeZone: string): string {
 }
 function utcDateTime(utcMs: number): string { return new Date(utcMs).toISOString().replace("T", " ").slice(0, 16) + " UTC"; }
 function localWallClock(wallTimeMs: number): string { return new Date(wallTimeMs).toISOString().replace("T", " ").slice(0, 16); }
+
+class RequestFailure extends Error {
+  constructor(message: string, readonly retryable: boolean) { super(message); }
+}
+
+function boundedSignal(external: AbortSignal | undefined, timeoutMs: number): Readonly<{ signal: AbortSignal; cleanup: () => void }> {
+  const controller = new AbortController();
+  const abortFromExternal = () => controller.abort(external?.reason);
+  if (external?.aborted) abortFromExternal();
+  else external?.addEventListener("abort", abortFromExternal, { once: true });
+  const timer = window.setTimeout(() => controller.abort(new DOMException("请求超时", "TimeoutError")), timeoutMs);
+  return { signal: controller.signal, cleanup: () => { window.clearTimeout(timer); external?.removeEventListener("abort", abortFromExternal); } };
+}
+
+function requestKey(payload: ApiAnalysisRequest): string { return JSON.stringify(payload); }
 
 export function AnalysisWorkbench() {
   const [active, setActive] = useState<AnalysisTab>("命盘");
@@ -66,15 +83,19 @@ export function AnalysisWorkbench() {
   const [message, setMessage] = useState("");
   const [sessionLoaded,setSessionLoaded]=useState(false);
   const [trajectoryLoading,setTrajectoryLoading]=useState(false);
+  const [trajectoryFailures,setTrajectoryFailures]=useState(0);
   const [annualSelectingYear,setAnnualSelectingYear]=useState<number>();
   const trajectoryAbort=useRef<AbortController | undefined>(undefined);
   const annualDetailAbort=useRef<AbortController | undefined>(undefined);
+  const analysisAbort=useRef<AbortController | undefined>(undefined);
+  const submissionLock=useRef(false);
+  const trajectoryCache=useRef(new Map<string,ApiAnalysisResponse>());
   const analysisGeneration=useRef(0);
 
   useEffect(()=>{const stored=loadModelSettings();if(stored){setModelId(stored.baseModelId);setModelOverrides(stored.overrides)}},[]);
   useEffect(()=>{const stored=loadAnalysisSession(window.sessionStorage);if(stored){setDate(stored.date);setTime(stored.time);setTargetYear(stored.targetYear);setSex(stored.sex);setClockUncertaintySeconds(stored.clockUncertaintySeconds);setUseExactCoordinates(stored.useExactCoordinates);setLatitude(stored.latitude);setLongitude(stored.longitude);setCoordinateUncertaintyMeters(stored.coordinateUncertaintyMeters);setDisambiguation(stored.disambiguation);setQuery(stored.query);setSelectedLocation(stored.selectedLocation);setResultLocationLabel(stored.resultLocationLabel);setAnalysisRequest(stored.request);setResult(stored.result);setActive(stored.activeTab)}setSessionLoaded(true)},[]);
   useEffect(()=>{if(!sessionLoaded)return;saveAnalysisSession(window.sessionStorage,{version:2,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,...(selectedLocation?{selectedLocation}:{}),...(resultLocationLabel?{resultLocationLabel}:{}),...(analysisRequest?{request:analysisRequest}:{}),...(result?{result}:{}),activeTab:active})},[sessionLoaded,date,time,targetYear,sex,clockUncertaintySeconds,useExactCoordinates,latitude,longitude,coordinateUncertaintyMeters,disambiguation,query,selectedLocation,resultLocationLabel,analysisRequest,result,active]);
-  useEffect(()=>()=>{trajectoryAbort.current?.abort();annualDetailAbort.current?.abort()},[]);
+  useEffect(()=>()=>{analysisAbort.current?.abort();trajectoryAbort.current?.abort();annualDetailAbort.current?.abort()},[]);
 
   useEffect(() => {
     if (selectedLocation && query === selectedLocation.displayName) return;
@@ -107,13 +128,15 @@ export function AnalysisWorkbench() {
 
   async function requestFullAnalysis(payload:ApiAnalysisRequest,signal?:AbortSignal):Promise<ApiAnalysisResponse>{
     for(let attempt=0;attempt<2;attempt++){
+      const bounded=boundedSignal(signal,ANALYSIS_TIMEOUT_MS);
       try{
-        const response=await fetch(`${API_BASE}/analysis/calculate`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),...(signal?{signal}:{})});
+        const response=await fetch(`${API_BASE}/analysis/calculate`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),signal:bounded.signal});
         const candidate=await response.json() as ApiAnalysisResponse|ApiErrorResponse;
         if(response.ok&&"structure" in candidate)return candidate;
         const code="error" in candidate?candidate.error.code:"request-failed";
-        throw new Error(errorLabels[code]??"计算服务暂时不可用，请稍后重试。");
-      }catch(cause){if(signal?.aborted||attempt===1)throw cause}
+        throw new RequestFailure(errorLabels[code]??"计算服务暂时不可用，请稍后重试。",[408,425,429,500,502,503,504].includes(response.status));
+      }catch(cause){if(signal?.aborted||attempt===1||cause instanceof RequestFailure&&!cause.retryable)throw cause}
+      finally{bounded.cleanup()}
       await new Promise(resolve=>window.setTimeout(resolve,700));
     }
     throw new Error("计算服务暂时不可用，请稍后重试。");
@@ -121,15 +144,19 @@ export function AnalysisWorkbench() {
 
   async function calculate(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
+    if(submissionLock.current)return;
     if (!selectedLocation) { setMessage("请从搜索结果中选择出生地点。 "); return; }
     if(!exactCoordinate.valid){setMessage(exactCoordinate.reason);return}
     const requestPayload=requestPayloadFor(targetYear);if(!requestPayload){setMessage("请检查出生日期、时间与地点。");return}
-    const generation=++analysisGeneration.current;trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();setAnnualSelectingYear(undefined);setTrajectoryLoading(false);setSubmitting(true); setMessage("");setAnalysisRequest(undefined); setResult(undefined);
+    const key=requestKey(requestPayload);
+    if(result&&analysisRequest&&requestKey(analysisRequest)===key){setMessage("输入与当前命盘一致，无需重复计算。");return}
+    submissionLock.current=true;
+    const generation=++analysisGeneration.current;analysisAbort.current?.abort();trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();const controller=new AbortController();analysisAbort.current=controller;setAnnualSelectingYear(undefined);setTrajectoryLoading(false);setTrajectoryFailures(0);setSubmitting(true); setMessage("");
     try {
-      const body=await requestFullAnalysis(requestPayload);if(analysisGeneration.current!==generation)return;
-      setResultLocationLabel(selectedLocation.displayName);setAnalysisRequest(requestPayload);setResult(body);setActive("命盘");void loadMonthlyCandles(body,requestPayload,generation);
-    } catch (cause) { setMessage(userFacingRequestError(cause,"计算服务暂时不可用，请稍后重试。")); }
-    finally { if(analysisGeneration.current===generation)setSubmitting(false); }
+      const body=await requestFullAnalysis(requestPayload,controller.signal);if(analysisGeneration.current!==generation)return;
+      const local=requestPayload.localDateTime;setDate(`${String(local.year).padStart(4,"0")}-${String(local.month).padStart(2,"0")}-${String(local.day).padStart(2,"0")}`);setTime(`${String(local.hour).padStart(2,"0")}:${String(local.minute).padStart(2,"0")}`);setSex(requestPayload.sex);setResultLocationLabel(selectedLocation.displayName);setAnalysisRequest(requestPayload);setResult(body);setActive("命盘");void loadMonthlyCandles(body,requestPayload,generation);
+    } catch (cause) { if(!controller.signal.aborted)setMessage(userFacingRequestError(cause,"计算服务暂时不可用，请稍后重试。")); }
+    finally { if(analysisAbort.current===controller)analysisAbort.current=undefined;if(analysisGeneration.current===generation)setSubmitting(false);submissionLock.current=false; }
   }
 
   async function loadMonthlyCandles(base:ApiAnalysisResponse,payload:ApiAnalysisRequest,generation:number){
@@ -137,15 +164,20 @@ export function AnalysisWorkbench() {
     if(years.length===0)return;
     const batches:Readonly<{startYear:number;endYear:number}>[]=[];
     for(let index=0;index<years.length;index+=4)batches.push({startYear:years[index]!,endYear:years[Math.min(index+3,years.length-1)]!});
-    const controller=new AbortController();trajectoryAbort.current=controller;setTrajectoryLoading(true);
+    batches.sort((a,b)=>Math.abs(a.startYear-payload.targetYear)-Math.abs(b.startYear-payload.targetYear));
+    const controller=new AbortController();trajectoryAbort.current=controller;setTrajectoryFailures(0);setTrajectoryLoading(true);
     let nextBatch=0;let failed=0;
     async function requestBatch(batch:Readonly<{startYear:number;endYear:number}>):Promise<ApiAnalysisResponse|undefined>{
+      const cacheKey=`${requestKey(payload)}:${batch.startYear}:${batch.endYear}`;const cached=trajectoryCache.current.get(cacheKey);if(cached)return cached;
       for(let attempt=0;attempt<3&&!controller.signal.aborted;attempt++){
+        const bounded=boundedSignal(controller.signal,TRAJECTORY_TIMEOUT_MS);
         try{
-          const response=await fetch(`${API_BASE}/analysis/trajectory?startYear=${batch.startYear}&endYear=${batch.endYear}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),signal:controller.signal});
+          const response=await fetch(`${API_BASE}/analysis/trajectory?startYear=${batch.startYear}&endYear=${batch.endYear}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),signal:bounded.signal});
           const body=await response.json() as ApiAnalysisResponse|ApiErrorResponse;
-          if(response.ok&&"annualTrajectory" in body)return body;
+          if(response.ok&&"annualTrajectory" in body){trajectoryCache.current.set(cacheKey,body);return body}
+          if(![408,425,429,500,502,503,504].includes(response.status))return undefined;
         }catch{if(controller.signal.aborted)return undefined;}
+        finally{bounded.cleanup()}
         if(attempt<2)await new Promise(resolve=>window.setTimeout(resolve,600*(attempt+1)));
       }
       return undefined;
@@ -158,8 +190,10 @@ export function AnalysisWorkbench() {
       }
     }
     await worker();
-    if(trajectoryAbort.current===controller&&analysisGeneration.current===generation){trajectoryAbort.current=undefined;setTrajectoryLoading(false);if(failed>0)setMessage(`${failed} 个流月区间暂未完成，图中已保留缺口，可以重新生成后再试。`);}
+    if(trajectoryAbort.current===controller&&analysisGeneration.current===generation){trajectoryAbort.current=undefined;setTrajectoryLoading(false);setTrajectoryFailures(failed);if(failed>0)setMessage(`${failed} 个流月区间暂未完成，图中已保留缺口。`);}
   }
+
+  function retryTrajectory(){if(!result||!analysisRequest||trajectoryLoading)return;setMessage("");void loadMonthlyCandles(result,analysisRequest,analysisGeneration.current)}
 
   async function selectAnnualYear(year:number){
     if(!result||annualSelectingYear!==undefined)return;if(result.annual.targetYear===year){setActive("年度主题");return}
@@ -170,7 +204,7 @@ export function AnalysisWorkbench() {
     finally{if(annualDetailAbort.current===controller){annualDetailAbort.current=undefined;setAnnualSelectingYear(undefined)}}
   }
 
-  function clearSession(){analysisGeneration.current++;trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();trajectoryAbort.current=undefined;annualDetailAbort.current=undefined;setTrajectoryLoading(false);setAnnualSelectingYear(undefined);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResultLocationLabel(undefined);setAnalysisRequest(undefined);setResult(undefined);setSelectedLocation(undefined);setQuery("");setUseExactCoordinates(false);setLatitude("");setLongitude("");setMessage("本次浏览会话中的出生信息和结果已清除。");setActive("命盘")}
+  function clearSession(){analysisGeneration.current++;analysisAbort.current?.abort();trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();analysisAbort.current=undefined;trajectoryAbort.current=undefined;annualDetailAbort.current=undefined;submissionLock.current=false;trajectoryCache.current.clear();setSubmitting(false);setTrajectoryLoading(false);setTrajectoryFailures(0);setAnnualSelectingYear(undefined);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResultLocationLabel(undefined);setAnalysisRequest(undefined);setResult(undefined);setSelectedLocation(undefined);setQuery("");setUseExactCoordinates(false);setLatitude("");setLongitude("");setMessage("本次浏览会话中的出生信息和结果已清除。");setActive("命盘")}
 
   return (
     <div className="workbench live-workbench">
@@ -200,6 +234,7 @@ export function AnalysisWorkbench() {
           {useExactCoordinates&&!exactCoordinate.valid&&<p className="field-error">{exactCoordinate.reason}</p>}
           <button className="calculate-button" type="submit" disabled={!canSubmit}><span>{submitting ? "正在计算…" : "生成完整分析"}</span><small>排盘 · 格局 · 大运 · 流年 · 人生轨迹</small></button>
           {message && <p className="form-message" role="alert">{message}</p>}
+          {trajectoryFailures>0&&result&&<button className="trajectory-retry" type="button" disabled={trajectoryLoading} onClick={retryTrajectory}>重试 {trajectoryFailures} 个缺失区间</button>}
         </form>
         <p className="privacy-copy">出生信息与结果仅在当前浏览器标签会话中保留，便于页面往返；关闭标签页或点击“清除”即移除。服务端不写入用户数据库。</p>
       </aside>
@@ -207,13 +242,14 @@ export function AnalysisWorkbench() {
       <section className="result-panel" aria-label="排盘计算结果">
         {!result ? <EmptyResult /> : <>
           <div className="result-header"><div><span className="step-label">分析结果</span><h2>{resultLocationLabel??result.calendar.location.displayName}命盘</h2><p>{result.calendar.model.label} · {result.calendar.time.timeZone}{result.modelConfiguration.customized?` · ${result.modelConfiguration.overrideCount} 项自定义设置`:""}</p></div><span className="verified-pill">计算完成</span></div>
+          <ResultOverview result={result} />
           <div className="result-tabs" role="tablist" aria-label="结果层级">{tabs.map((tab) => <button role="tab" type="button" aria-selected={active === tab} className={active === tab ? "active" : ""} onClick={() => setActive(tab)} key={tab}>{tab}</button>)}</div>
           <div className="result-body">
             {active === "命盘" && <ChartResult result={result} date={date} time={time} />}
             {active === "结构" && <StructureResult result={result} />}
             {active === "格局与调候" && <InterpretationResult result={result} />}
             {active === "大运" && <LuckResult result={result} />}
-            {active === "人生轨迹" && <LifeTrajectoryResult result={result} loading={trajectoryLoading} selectingYear={annualSelectingYear} onSelectYear={selectAnnualYear} />}
+            {active === "人生轨迹" && <LifeTrajectoryResult result={result} loading={trajectoryLoading} selectingYear={annualSelectingYear} onSelectYear={selectAnnualYear} onOpenAnnual={()=>setActive("年度主题")} />}
             {active === "年度主题" && <AnnualTopicResult result={result} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
@@ -225,6 +261,12 @@ export function AnalysisWorkbench() {
 
 function EmptyResult() {
   return <div className="empty-result"><span>准备开始</span><h2>从准确的出生时间与地点开始</h2><p>系统会处理当地历史时间、真太阳时、节气边界、四柱十神、格局、大运和逐年轨迹。输入接近换日、换月或时区切换边界时，会请你确认后再继续。</p><div className="empty-flow"><b>出生时空</b><i>→</i><b>四柱十神</b><i>→</i><b>格局强弱</b><i>→</i><b>大运流年</b></div></div>;
+}
+
+function ResultOverview({result}:{result:ApiAnalysisResponse}){
+  const pillars=[["年",result.calendar.pillars.year,result.structure.pillars.year],["月",result.calendar.pillars.month,result.structure.pillars.month],["日",result.calendar.pillars.day,result.structure.pillars.day],["时",result.calendar.pillars.hour,result.structure.pillars.hour]] as const;
+  const leading=result.interpretation.pattern.candidates.filter(candidate=>candidate.status==="qualified"||candidate.status==="contested");const pattern=leading.length?leading.map(candidate=>patternName(candidate.tenGod)).join(" / "):"尚无定格";const total=result.structure.elementMeasure.total||1;const elements=(["木","火","土","金","水"] as const).map(element=>({element,percent:result.structure.elementMeasure.atoms[element]/total*100}));
+  return <div className="result-overview"><div className="overview-pillars">{pillars.map(([label,pillar,detail],index)=><article className={index===2?"day":""} key={label}><span>{label}柱</span><strong><i className={`element-${elementClass[detail.visibleElement]}`}>{pillar.stem}</i><i className={`element-${elementClass[detail.hiddenStems[0]!.element]}`}>{pillar.branch}</i></strong><small>{index===2?"日主":detail.tenGod}</small></article>)}</div><div className="overview-elements"><span>五行分布</span>{elements.map(item=><div key={item.element}><b className={elementClass[item.element]} style={{width:`${Math.max(3,item.percent)}%`}}></b><small>{item.element} {decimal(item.percent,0)}%</small></div>)}</div><div className="overview-judgment"><span>格局结论</span><strong>{pattern}</strong><small>{strengthLabels[result.structure.strength.state]} · {climateLabels[result.interpretation.climate.temperatureState]} / {climateLabels[result.interpretation.climate.humidityState]}</small></div><div className="overview-luck"><span>当前大运</span><strong>{ganZhi(result.annual.luckPillar)}</strong><small>{result.annual.targetYear} {ganZhi(result.annual.annualPillar)}年</small></div></div>
 }
 
 function ChartResult({ result, date, time }: { result: ApiAnalysisResponse; date: string; time: string }) {
@@ -283,20 +325,32 @@ function LuckResult({ result }: { result: ApiAnalysisResponse }) {
   return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{calendar.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(calendar.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(calendar.luckStartAgeInterval.lower, 3)}—{decimal(calendar.luckStartAgeInterval.upper, 3)}</small></div><p>每一步均累计原局与当步大运，重新计算五行测度、强弱、关系正规形和候选向量。</p></div><div className="luck-grid">{result.luckDynamics.map((period) => { const calendarPeriod = calendar.majorLuck.find((item) => item.ordinal === period.ordinal)!; const supportive = period.interpretation.balancing.candidates.filter((item) => item.status === "supportive").slice(0, 2).map((item) => item.element).join("、") || "无显著项"; return <article key={period.ordinal}><span>第 {period.ordinal} 运 · {strengthLabels[period.strength.state]}</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(calendarPeriod.startUtcMs, calendar.time.timeZone)} · 增益候选 {supportive}</small><em>支持比 {decimal(period.strength.supportRatio * 100, 1)}% · {period.relations.length} 条关系</em></article>; })}</div></div>;
 }
 
-function LifeTrajectoryResult({result,loading,selectingYear,onSelectYear}:{result:ApiAnalysisResponse;loading:boolean;selectingYear:number|undefined;onSelectYear:(year:number)=>void}){
-  const trajectory=result.annualTrajectory;const points=trajectory.points;const width=Math.max(760,points.length*24+70);const height=300;const plotTop=28;const plotHeight=210;const x=(index:number)=>50+(points.length<=1?0:index*(width-80)/(points.length-1));const y=(value:number)=>plotTop+(1-Math.max(-1,Math.min(1,value)))/2*plotHeight;
-  const stable=points.filter((point):point is Extract<(typeof points)[number],{status:"stable"}>=>point.status==="stable");const pending=points.filter(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded");const candles=stable.filter(point=>point.monthlyCandle.status==="stable");const special=stable.filter(point=>point.specialStateCodes.length>0);const visibleSpecial=[...special].sort((a,b)=>Number(b.year===result.annual.targetYear)-Number(a.year===result.annual.targetYear)||Number(b.specialStateCodes.includes("luck-annual-repeat"))-Number(a.specialStateCodes.includes("luck-annual-repeat"))||a.year-b.year).slice(0,12);const tickEvery=Math.max(1,Math.ceil(points.length/8));const selectableYears=selectableTrajectoryYears(trajectory);
+function LifeTrajectoryResult({result,loading,selectingYear,onSelectYear,onOpenAnnual}:{result:ApiAnalysisResponse;loading:boolean;selectingYear:number|undefined;onSelectYear:(year:number)=>void;onOpenAnnual:()=>void}){
+  const trajectory=result.annualTrajectory;const points=trajectory.points;const targetIndex=Math.max(0,points.findIndex(point=>point.year===result.annual.targetYear));const initialSize=Math.min(32,Math.max(1,points.length));
+  const [viewSize,setViewSize]=useState(initialSize);const [viewStart,setViewStart]=useState(Math.max(0,Math.min(points.length-initialSize,targetIndex-Math.floor(initialSize/2))));const drag=useRef<Readonly<{clientX:number;start:number}>|undefined>(undefined);
+  useEffect(()=>{setViewSize(current=>Math.min(Math.max(1,current),Math.max(1,points.length)));setViewStart(current=>Math.max(0,Math.min(current,Math.max(0,points.length-viewSize))))},[points.length,viewSize]);
+  const visiblePoints=points.slice(viewStart,viewStart+viewSize);const width=1040;const height=330;const plotTop=38;const plotHeight=220;const x=(index:number)=>58+(visiblePoints.length<=1?0:index*(width-94)/(visiblePoints.length-1));const y=(value:number)=>plotTop+(1-Math.max(-1,Math.min(1,value)))/2*plotHeight;
+  const stable=points.filter((point):point is Extract<(typeof points)[number],{status:"stable"}>=>point.status==="stable");const pending=points.filter(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded");const candles=stable.filter(point=>point.monthlyCandle.status==="stable");const special=stable.filter(point=>point.specialStateCodes.length>0);const visibleSpecial=[...special].sort((a,b)=>Number(b.year===result.annual.targetYear)-Number(a.year===result.annual.targetYear)||Number(b.specialStateCodes.includes("luck-annual-repeat"))-Number(a.specialStateCodes.includes("luck-annual-repeat"))||a.year-b.year).slice(0,12);const selectableYears=selectableTrajectoryYears(trajectory);
+  const visibleTickEvery=Math.max(1,Math.ceil(visiblePoints.length/8));
+  function setRange(size:number){const next=Math.min(points.length,Math.max(8,size));const center=viewStart+viewSize/2;setViewSize(next);setViewStart(Math.max(0,Math.min(points.length-next,Math.round(center-next/2))))}
+  function resetView(){const next=Math.min(32,points.length);setViewSize(next);setViewStart(Math.max(0,Math.min(points.length-next,targetIndex-Math.floor(next/2))))}
+  function zoomAt(direction:"in"|"out",anchor=.5){const next=Math.min(points.length,Math.max(8,Math.round(viewSize*(direction==="in"?.72:1.4))));const anchorIndex=viewStart+anchor*(viewSize-1);setViewSize(next);setViewStart(Math.max(0,Math.min(points.length-next,Math.round(anchorIndex-anchor*(next-1)))))}
+  const annual=result.annual;const leadingTopics=Object.entries(annual.topics.contribution.atoms).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,4);
   return <div className="life-trajectory-result">
     <div className="trajectory-lead"><div><span>人生状态 K 线</span><h3>{trajectory.startYear}—{trajectory.endYear}</h3></div><p>每个年度累计原局、所属大运和流年；蜡烛的开、高、低、收来自立春起连续十二个流月的逐月重算。点击任一 K 线即可继续查看该年的六亲、主题与古籍来源。</p><div><strong>{candles.length}/{points.length}</strong><span>{loading?"正在生成年度与流月轨迹":candles.length===stable.length&&pending.length===0?"流月影线已生成":"部分流月影线暂缺"}</span><small>{loading?`${pending.length} 个年度正在排队`:`${points.length-stable.length} 个明确缺口`}</small></div></div>
+    <div className="trajectory-workspace"><div className="trajectory-main">
     <div className="trajectory-year-control"><label>查看年度<select value={result.annual.targetYear} disabled={selectingYear!==undefined} onChange={event=>onSelectYear(Number(event.target.value))}>{selectableYears.map(year=><option value={year} key={year}>{year} 年</option>)}</select></label><span>{selectingYear===undefined?`${result.annual.targetYear} 年详情已载入`:`正在载入 ${selectingYear} 年的完整分析…`}</span></div>
-    <div className="trajectory-chart" role="img" aria-label={`${trajectory.startYear}年至${trajectory.endYear}人生状态轨迹`}><svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+    <div className="trajectory-toolbar" aria-label="轨迹视图控制"><div><strong>可视区间</strong><button type="button" className={viewSize===12?"active":""} onClick={()=>setRange(12)}>12 年</button><button type="button" className={viewSize===24?"active":""} onClick={()=>setRange(24)}>24 年</button><button type="button" className={viewSize===points.length?"active":""} onClick={()=>setRange(points.length)}>全程</button></div><div><span>{visiblePoints[0]?.year}—{visiblePoints.at(-1)?.year}</span><button type="button" onClick={()=>zoomAt("out")} aria-label="缩小">−</button><button type="button" onClick={()=>zoomAt("in")} aria-label="放大">＋</button><button type="button" onClick={resetView}>复位视图</button></div></div>
+    <div className="trajectory-chart interactive" role="img" aria-label={`${trajectory.startYear}年至${trajectory.endYear}人生状态轨迹，可滚轮缩放并拖动平移`} onWheel={event=>{event.preventDefault();const box=event.currentTarget.getBoundingClientRect();zoomAt(event.deltaY<0?"in":"out",Math.max(0,Math.min(1,(event.clientX-box.left)/box.width)))}} onPointerDown={event=>{drag.current={clientX:event.clientX,start:viewStart};event.currentTarget.setPointerCapture(event.pointerId)}} onPointerMove={event=>{if(!drag.current||viewSize>=points.length)return;const pixelsPerPoint=event.currentTarget.clientWidth/Math.max(1,viewSize-1);const delta=Math.round((drag.current.clientX-event.clientX)/pixelsPerPoint);setViewStart(Math.max(0,Math.min(points.length-viewSize,drag.current.start+delta)))}} onPointerUp={event=>{drag.current=undefined;event.currentTarget.releasePointerCapture(event.pointerId)}} onPointerCancel={()=>{drag.current=undefined}}><svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height}>
       <line className="trajectory-grid zero" x1="45" x2={width-25} y1={y(0)} y2={y(0)}/><line className="trajectory-grid" x1="45" x2={width-25} y1={y(1)} y2={y(1)}/><line className="trajectory-grid" x1="45" x2={width-25} y1={y(-1)} y2={y(-1)}/>
       <text x="8" y={y(1)+4}>+1</text><text x="18" y={y(0)+4}>0</text><text x="8" y={y(-1)+4}>−1</text>
-      {points.slice(1).map((point,index)=>{const previous=points[index];if(point.status!=="stable"||previous?.status!=="stable")return null;return <g key={`segment-${point.year}`}><line className="trajectory-support-segment" x1={x(index)} y1={y(previous.supportRatio*2-1)} x2={x(index+1)} y2={y(point.supportRatio*2-1)}/><line className="trajectory-index-segment" x1={x(index)} y1={y(previous.normalizedTopicIndex)} x2={x(index+1)} y2={y(point.normalizedTopicIndex)}/></g>})}
-      {points.map((point,index)=>{if(point.status!=="stable"){const isPending=point.failureCode==="trajectory-not-loaded";const canOpen=isPending&&selectingYear===undefined;return <g className={`${isPending?"trajectory-pending":"trajectory-gap"} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role={canOpen?"button":undefined} tabIndex={canOpen?0:undefined} aria-label={canOpen?`查看 ${point.year} 年完整分析`:undefined} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}><line x1={x(index)} x2={x(index)} y1={plotTop} y2={plotTop+plotHeight}/><title>{point.year} · {isPending?"年度轨迹正在生成，可先查看完整分析":"年度不可用"}</title></g>}const candle=point.monthlyCandle;const direction=candle.status==="stable"&&candle.close<candle.open?"negative":"positive";const canOpen=selectingYear===undefined;return <g className={`trajectory-candle ${direction} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role="button" tabIndex={canOpen?0:undefined} aria-label={`查看 ${point.year} 年完整分析`} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}>{candle.status==="stable"?<><line x1={x(index)} x2={x(index)} y1={y(candle.high)} y2={y(candle.low)}/><rect x={x(index)-3} y={Math.min(y(candle.open),y(candle.close))} width="6" height={Math.max(3,Math.abs(y(candle.open)-y(candle.close)))}/></>:<line className="monthly-gap" x1={x(index)} x2={x(index)} y1={y(.08)} y2={y(-.08)}/>}<circle cx={x(index)} cy={y(point.normalizedTopicIndex)} r={point.year===result.annual.targetYear?4:2.5}/>{point.specialStateCodes.length>0&&<path d={`M ${x(index)-5} ${plotTop-4} L ${x(index)+5} ${plotTop-4} L ${x(index)} ${plotTop+5} Z`}/>}<title>{point.year} · {ganZhi(point.luckPillar)}运 / {ganZhi(point.annualPillar)}年 · 年度方向 {decimal(point.normalizedTopicIndex,3)} · {candle.status==="stable"?`流月 开 ${decimal(candle.open,3)} / 高 ${decimal(candle.high,3)} / 低 ${decimal(candle.low,3)} / 收 ${decimal(candle.close,3)}`:"流月序列不可用"}{point.specialStateCodes.length?` · ${point.specialStateCodes.map(code=>specialStateLabels[code]??"特殊状态").join("、")}`:""}</title></g>})}
-      {points.map((point,index)=>index%tickEvery===0||index===points.length-1?<text className="trajectory-year" x={x(index)} y="274" textAnchor="middle" key={`year-${point.year}`}>{point.year}</text>:null)}
+      {visiblePoints.slice(1).map((point,index)=>{const previous=visiblePoints[index];if(point.status!=="stable"||previous?.status!=="stable")return null;return <g key={`segment-${point.year}`}><line className="trajectory-support-segment" x1={x(index)} y1={y(previous.supportRatio*2-1)} x2={x(index+1)} y2={y(point.supportRatio*2-1)}/><line className="trajectory-index-segment" x1={x(index)} y1={y(previous.normalizedTopicIndex)} x2={x(index+1)} y2={y(point.normalizedTopicIndex)}/></g>})}
+      {visiblePoints.map((point,index)=>{if(point.status!=="stable"){const isPending=point.failureCode==="trajectory-not-loaded";const canOpen=isPending&&selectingYear===undefined;return <g className={`${isPending?"trajectory-pending":"trajectory-gap"} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role={canOpen?"button":undefined} tabIndex={canOpen?0:undefined} aria-label={canOpen?`查看 ${point.year} 年完整分析`:undefined} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}><line x1={x(index)} x2={x(index)} y1={plotTop} y2={plotTop+plotHeight}/><title>{point.year} · {isPending?"年度轨迹正在生成，可先查看完整分析":"年度不可用"}</title></g>}const candle=point.monthlyCandle;const direction=candle.status==="stable"&&candle.close<candle.open?"negative":"positive";const canOpen=selectingYear===undefined;return <g className={`trajectory-candle ${direction} ${point.year===result.annual.targetYear?"selected":""} ${canOpen?"selectable":""}`} key={point.year} role="button" tabIndex={canOpen?0:undefined} aria-label={`查看 ${point.year} 年完整分析`} onClick={()=>{if(canOpen)onSelectYear(point.year)}} onKeyDown={event=>{if(canOpen&&(event.key==="Enter"||event.key===" ")){event.preventDefault();onSelectYear(point.year)}}}>{point.year===result.annual.targetYear&&<line className="selected-year-guide" x1={x(index)} x2={x(index)} y1={plotTop-12} y2={plotTop+plotHeight+10}/>} {candle.status==="stable"?<><line x1={x(index)} x2={x(index)} y1={y(candle.high)} y2={y(candle.low)}/><rect x={x(index)-5} y={Math.min(y(candle.open),y(candle.close))} width="10" height={Math.max(4,Math.abs(y(candle.open)-y(candle.close)))}/></>:<line className="monthly-gap" x1={x(index)} x2={x(index)} y1={y(.08)} y2={y(-.08)}/>}<circle cx={x(index)} cy={y(point.normalizedTopicIndex)} r={point.year===result.annual.targetYear?4:2.5}/>{point.specialStateCodes.length>0&&<path d={`M ${x(index)-5} ${plotTop-4} L ${x(index)+5} ${plotTop-4} L ${x(index)} ${plotTop+5} Z`}/>}<title>{point.year} · {ganZhi(point.luckPillar)}运 / {ganZhi(point.annualPillar)}年 · 年度方向 {decimal(point.normalizedTopicIndex,3)} · {candle.status==="stable"?`流月 开 ${decimal(candle.open,3)} / 高 ${decimal(candle.high,3)} / 低 ${decimal(candle.low,3)} / 收 ${decimal(candle.close,3)}`:"流月序列不可用"}{point.specialStateCodes.length?` · ${point.specialStateCodes.map(code=>specialStateLabels[code]??"特殊状态").join("、")}`:""}</title></g>})}
+      {visiblePoints.map((point,index)=>index%visibleTickEvery===0||index===visiblePoints.length-1?<text className="trajectory-year" x={x(index)} y="292" textAnchor="middle" key={`year-${point.year}`}>{point.year}</text>:null)}
     </svg></div>
-    <div className="trajectory-legend"><span><i className="index"></i>年度综合方向</span><span><i className="support"></i>命局支持结构</span><span><b></b>十二流月开高低收</span><span><em></em>特殊状态</span></div>
+    <div className="trajectory-navigator"><input type="range" min="0" max={Math.max(0,points.length-viewSize)} value={viewStart} disabled={viewSize>=points.length} onChange={event=>setViewStart(Number(event.target.value))} aria-label="移动人生轨迹可视区间"/><span>滚轮缩放 · 按住拖动平移 · 点击 K 线查看年度</span></div>
+    <div className="trajectory-legend"><span><i className="index"></i>年度综合方向</span><span><i className="support"></i>命局支持结构</span><span><b className="up"></b>红色：流月收高于开</span><span><b className="down"></b>绿色：流月收低于开</span><span><em></em>特殊状态</span></div>
+    </div><aside className="trajectory-inspector" aria-label="当前年度摘要"><span>流年详情</span><h3>{annual.targetYear} · {ganZhi(annual.annualPillar)}</h3><small>{ganZhi(annual.luckPillar)}大运 · {strengthLabels[annual.strength.state]}</small><dl><div><dt>符合规则</dt><dd>{annual.topics.activated} / {annual.topics.evaluated}</dd></div><div><dt>支持占比</dt><dd>{decimal(annual.strength.supportRatio*100,1)}%</dd></div><div><dt>稳定关系</dt><dd>{annual.relations.length} 条</dd></div></dl><strong>主题贡献</strong>{leadingTopics.map(([domain,value])=><div className="inspector-topic" key={domain}><span>{topicLabels[domain as keyof typeof topicLabels]}</span><i><b className={value<0?"negative":""} style={{width:`${Math.min(100,Math.max(4,Math.abs(value)*5))}%`}}></b></i><em>{value>0?"+":""}{decimal(value,1)}</em></div>)}<strong>特殊状态</strong><div className="inspector-signals">{annual.specialStates.signals.length?annual.specialStates.signals.map(signal=><b key={signal.code}>{signal.label}</b>):<small>当前没有特殊状态</small>}</div><button type="button" onClick={onOpenAnnual}>查看年度完整解读</button></aside></div>
     {special.length>0&&<div className="trajectory-events"><div className="relation-heading"><span>特殊状态年度</span><strong>优先显示目标年、岁运并临与极值状态</strong></div>{visibleSpecial.map(point=><article key={point.year}><strong>{point.year}</strong><span>{ganZhi(point.luckPillar)}运 · {ganZhi(point.annualPillar)}年</span><div>{point.specialStateCodes.map(code=><b key={code}>{specialStateLabels[code]??"特殊状态"}</b>)}</div></article>)}{special.length>visibleSpecial.length&&<p className="trajectory-more">另有 {special.length-visibleSpecial.length} 个年度已在图中标记，可移动到相应 K 线查看。</p>}</div>}
     <p className="boundary-note">纵轴表示规则证据的相对方向，不是收益率、事件概率或人生价值评分。某个流月无法稳定求值时，该年影线会留空。</p>
   </div>;
