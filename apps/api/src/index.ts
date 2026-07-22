@@ -2,6 +2,7 @@ import {
   API_HEALTH_SCHEMA,
   API_META_SCHEMA,
   API_PREFIX,
+  ANALYSIS_REQUEST_SCHEMA,
   ANALYSIS_RESPONSE_SCHEMA,
   CALENDAR_REQUEST_SCHEMA,
   CALENDAR_RESPONSE_SCHEMA,
@@ -18,9 +19,11 @@ import {
   type ApiMetaResponse,
   type ApiModelId,
 } from "@senfate/contracts";
-import { analyzeLuckSequence, analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, MONTH_COMMAND_MODEL, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
+import { analyzeLuckSequence, analyzeNatalStructure, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, MONTH_COMMAND_MODEL, resolveAnnualContext, TRANSPARENT_BASELINE_MODEL, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
+import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
+import { bundledReferenceProgram, type ReferenceProgramStore } from "./reference-program";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -179,6 +182,12 @@ function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
   };
 }
 
+function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number}>|undefined{
+  if(!isRecord(value)||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,1900,2035))return undefined;
+  const calendar=parseCalendarRequest({...value,schemaVersion:CALENDAR_REQUEST_SCHEMA});
+  return calendar?{calendar,targetYear:value.targetYear}:undefined;
+}
+
 async function readBoundedJson(request: Request): Promise<unknown> {
   const declared = Number(request.headers.get("content-length") ?? 0);
   if (Number.isFinite(declared) && declared > MAX_JSON_BYTES) throw new Error("body-too-large");
@@ -199,15 +208,16 @@ async function readBoundedJson(request: Request): Promise<unknown> {
   try { return JSON.parse(new TextDecoder().decode(bytes)); } catch { throw new Error("invalid-json"); }
 }
 
-async function calculate(request: Request, requestId: string, locations: LocationStore | undefined, includeStructure: boolean): Promise<Response> {
+async function calculate(request: Request, requestId: string, locations: LocationStore | undefined, includeStructure: boolean,program:ReferenceProgramStore): Promise<Response> {
   if (!locations) return error(requestId, 503, "location-index-unavailable", "The canonical location index is unavailable");
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return error(requestId, 415, "unsupported-media-type", "Use application/json");
   let raw: unknown;
   try { raw = await readBoundedJson(request); } catch (cause) {
     return error(requestId, cause instanceof Error && cause.message === "body-too-large" ? 413 : 400, cause instanceof Error ? cause.message : "invalid-json", "Request body must be valid JSON no larger than 8 KiB");
   }
-  const input = parseCalendarRequest(raw);
-  if (!input) return error(requestId, 400, "invalid-calendar-request", `Request must conform to ${CALENDAR_REQUEST_SCHEMA}`);
+  const analysisInput=includeStructure?parseAnalysisRequest(raw):undefined;
+  const input=includeStructure?analysisInput?.calendar:parseCalendarRequest(raw);
+  if (!input) return error(requestId, 400, includeStructure?"invalid-analysis-request":"invalid-calendar-request", `Request must conform to ${includeStructure?ANALYSIS_REQUEST_SCHEMA:CALENDAR_REQUEST_SCHEMA}`);
   const location = await locations.get(input.locationId);
   if (!location) return error(requestId, 404, "location-not-found", "Canonical location not found");
   const coordinate = input.exactCoordinates
@@ -275,6 +285,17 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     if (!interpretationResult.ok) return error(requestId, 422, interpretationResult.code, interpretationResult.reason);
     const luckResult = analyzeLuckSequence(value.calendar.pillars, value.calendar.majorLuck, model);
     if (!luckResult.ok) return error(requestId, 422, luckResult.code, luckResult.reason);
+    const annualBoundary=SOLAR_TERM_ENTRIES.find(entry=>entry.longitude===315&&new Date(entry.utcMs).getUTCFullYear()===analysisInput!.targetYear);
+    if(!annualBoundary)return error(requestId,500,"annual-boundary-unavailable","Certified Lichun boundary is unavailable");
+    const annualContext=resolveAnnualContext(analysisInput!.targetYear,annualBoundary.utcMs,value.calendar.majorLuck);
+    if(!annualContext.ok)return error(requestId,422,annualContext.code,annualContext.reason);
+    const records=await program.load();
+    const referenceRuntime=new ReferenceCalculationRuntime(records,model);
+    const annualResult=referenceRuntime.calculate({natal:value.calendar.pillars,luck:annualContext.value.luckPeriod.pillar,annual:annualContext.value.annualPillar,luckDirection:value.calendar.direction,sex:input.sex});
+    if(!annualResult.ok)return error(requestId,422,annualResult.code,annualResult.reason);
+    const annualInterpretation=evaluateInterpretiveModel(value.calendar.pillars,annualResult.value.normalForm.dynamicState.strength,annualResult.value.normalForm.dynamicState.elementMeasure,annualResult.value.normalForm,model);
+    if(!annualInterpretation.ok)return error(requestId,422,annualInterpretation.code,annualInterpretation.reason);
+    const kinship=materializeKinshipProjection(annualResult.value.normalForm,input.sex);
     const analysis: ApiAnalysisResponse = {
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,
@@ -312,14 +333,15 @@ async function calculate(request: Request, requestId: string, locations: Locatio
         relations: apiRelations(item.normalForm),
         normalForm: { status: item.normalForm.status, iterations: item.normalForm.iterations, fingerprint: item.normalForm.fingerprint, trace: item.normalForm.trace },
       })),
-      certificate: { functional: "api.interpretive-analysis", calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate },
+      annual:{schema:"senfate-annual-analysis.v1",targetYear:annualContext.value.targetYear,convention:annualContext.value.convention,boundaryUtcMs:annualContext.value.boundaryUtcMs,annualPillar:annualContext.value.annualPillar,luckOrdinal:annualContext.value.luckPeriod.ordinal,luckPillar:annualContext.value.luckPeriod.pillar,elementMeasure:annualResult.value.normalForm.dynamicState.elementMeasure,strength:annualResult.value.normalForm.dynamicState.strength,relations:apiRelations(annualResult.value.normalForm),normalForm:{status:annualResult.value.normalForm.status,iterations:annualResult.value.normalForm.iterations,fingerprint:annualResult.value.normalForm.fingerprint,trace:annualResult.value.normalForm.trace},interpretation:annualInterpretation.value,kinship:{...kinship,phase:"annual"},topics:{...annualResult.value.topicCertificate,phase:"annual"}},
+      certificate: { functional: "api.annual-reference-analysis", calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate },
     };
     return json(analysis);
   }
   return json(body);
 }
 
-export async function handleRequest(request: Request, locations?: LocationStore): Promise<Response> {
+export async function handleRequest(request: Request, locations?: LocationStore,program:ReferenceProgramStore=bundledReferenceProgram): Promise<Response> {
   const requestId = crypto.randomUUID();
   const url = new URL(request.url);
   const { pathname } = url;
@@ -328,11 +350,11 @@ export async function handleRequest(request: Request, locations?: LocationStore)
   const analysisPath = pathname === `${API_PREFIX}/analysis/calculate` || pathname === "/analysis/calculate";
   if (analysisPath) {
     if (request.method !== "POST") return error(requestId, 405, "method-not-allowed", "Use POST for natal structure analysis");
-    return calculate(request, requestId, locations, true);
+    return calculate(request, requestId, locations, true,program);
   }
   if (calendarPath) {
     if (request.method !== "POST") return error(requestId, 405, "method-not-allowed", "Use POST for calendar calculation");
-    return calculate(request, requestId, locations, false);
+    return calculate(request, requestId, locations, false,program);
   }
   if (request.method !== "GET") return error(requestId, 405, "method-not-allowed", "Use GET for this resource");
   if (pathname === `${API_PREFIX}/health` || pathname === "/health") {
@@ -342,7 +364,7 @@ export async function handleRequest(request: Request, locations?: LocationStore)
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "interpretive-public-beta",
+      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "annual-topic-public-beta",
     };
     return json(body);
   }

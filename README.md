@@ -48,10 +48,11 @@ The analysis workbench is connected to the versioned Calendar Engine and natal
 structure runtime. It shows four pillars, hidden stems, ten gods, solar-time
 corrections, solar-term boundaries, major luck, five-element measure, day-master
 support-pressure, stable relation dispositions, pattern candidates, climate
-coordinates, a five-element balancing vector and eight dynamically recomputed
-major-luck periods. Topic and event results remain unavailable until their rule
-semantics complete review. The model page exposes active presets and previews
-future custom-profile controls.
+coordinates, a five-element balancing vector and dynamically recomputed
+major-luck periods, a selected annual state, six kinship roles and an audited
+ten-domain topic contribution vector. Source-linked event hypotheses are shown
+as traditional-model statements rather than empirical probabilities. The model
+page exposes active presets and previews future custom-profile controls.
 
 ## Commands
 
@@ -59,6 +60,7 @@ future custom-profile controls.
 pnpm install
 pnpm audit:rules
 pnpm audit:reference-compilation
+pnpm audit:resolved-topic-features
 pnpm audit:ephemeris
 pnpm typecheck
 pnpm test

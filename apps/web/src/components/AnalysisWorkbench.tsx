@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type SyntheticEvent } from "react";
 import {
-  CALENDAR_REQUEST_SCHEMA,
+  ANALYSIS_REQUEST_SCHEMA,
   type ApiAnalysisResponse,
   type ApiErrorResponse,
   type ApiLocation,
@@ -10,7 +10,7 @@ import {
 } from "@senfate/contracts";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
-const tabs = ["命盘", "结构", "格局与调候", "大运", "计算证书"] as const;
+const tabs = ["命盘", "结构", "格局与调候", "大运", "年度主题", "计算证书"] as const;
 const modelLabels: Readonly<Record<ApiModelId, string>> = {
   "transparent-baseline": "透明综合基准",
   "month-command": "月令结构优先",
@@ -37,6 +37,7 @@ export function AnalysisWorkbench() {
   const [advanced, setAdvanced] = useState(false);
   const [date, setDate] = useState("1993-01-26");
   const [time, setTime] = useState("05:30");
+  const [targetYear,setTargetYear]=useState(2026);
   const [sex, setSex] = useState<ApiSex>("female");
   const [modelId, setModelId] = useState<ApiModelId>("transparent-baseline");
   const [clockUncertaintySeconds, setClockUncertaintySeconds] = useState(60);
@@ -81,10 +82,10 @@ export function AnalysisWorkbench() {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          schemaVersion: CALENDAR_REQUEST_SCHEMA,
+          schemaVersion: ANALYSIS_REQUEST_SCHEMA,targetYear,
           locationId: selectedLocation.id,
           localDateTime: { year, month, day, hour, minute },
-          sex, modelId, disambiguation, clockUncertaintySeconds, periodCount: 8,
+          sex, modelId, disambiguation, clockUncertaintySeconds, periodCount: 12,
         }),
       });
       const body = await response.json() as ApiAnalysisResponse | ApiErrorResponse;
@@ -115,6 +116,7 @@ export function AnalysisWorkbench() {
             {!searching && <small>{inputSummary}</small>}
           </label>
           <label>模型预设<select value={modelId} onChange={(event) => setModelId(event.target.value as ApiModelId)}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select></label>
+          <label>分析流年<input type="number" min={Math.max(1900,Number(date.slice(0,4))||1900)} max="2035" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>按该年立春后的流年干支，自动匹配所属大运。</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
             <label>钟表时间精度<select value={clockUncertaintySeconds} onChange={(event) => setClockUncertaintySeconds(Number(event.target.value))}><option value={1}>精确到秒</option><option value={60}>精确到分钟</option><option value={1800}>约半小时</option><option value={3600}>约一小时</option></select></label>
@@ -135,6 +137,7 @@ export function AnalysisWorkbench() {
             {active === "结构" && <StructureResult result={result} />}
             {active === "格局与调候" && <InterpretationResult result={result} />}
             {active === "大运" && <LuckResult result={result} />}
+            {active === "年度主题" && <AnnualTopicResult result={result} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
         </>}
@@ -198,6 +201,19 @@ function InterpretationResult({ result }: { result: ApiAnalysisResponse }) {
 function LuckResult({ result }: { result: ApiAnalysisResponse }) {
   const calendar = result.calendar;
   return <div className="luck-result"><div className="luck-lead"><div><span>行运方向</span><strong>{calendar.direction === "forward" ? "顺排" : "逆排"}</strong></div><div><span>起运年龄</span><strong>{decimal(calendar.luckStartAgeYears, 3)} 岁</strong><small>区间 {decimal(calendar.luckStartAgeInterval.lower, 3)}—{decimal(calendar.luckStartAgeInterval.upper, 3)}</small></div><p>每一步均累计原局与当步大运，重新计算五行测度、强弱、关系正规形和候选向量。</p></div><div className="luck-grid">{result.luckDynamics.map((period) => { const calendarPeriod = calendar.majorLuck.find((item) => item.ordinal === period.ordinal)!; const supportive = period.interpretation.balancing.candidates.filter((item) => item.status === "supportive").slice(0, 2).map((item) => item.element).join("、") || "无显著项"; return <article key={period.ordinal}><span>第 {period.ordinal} 运 · {strengthLabels[period.strength.state]}</span><strong>{ganZhi(period.pillar)}</strong><p>{decimal(period.startAgeInterval.lower, 2)}—{decimal(period.startAgeInterval.upper, 2)} 岁起</p><small>{localDate(calendarPeriod.startUtcMs, calendar.time.timeZone)} · 增益候选 {supportive}</small><em>支持比 {decimal(period.strength.supportRatio * 100, 1)}% · {period.relations.length} 条关系</em></article>; })}</div></div>;
+}
+
+const topicLabels={career:"事业",family:"家庭",general:"总体",health:"身心",mobility:"迁动",personality:"表达",relationship:"关系",risk:"风险",study:"学习",wealth:"财务"} as const;
+const directionLabels={support:"支持",pressure:"压力",mixed:"并存"} as const;
+function AnnualTopicResult({result}:{result:ApiAnalysisResponse}){
+  const annual=result.annual;const topics=annual.topics;const vectors=Object.entries(topics.contribution.atoms).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
+  return <div className="annual-topic-result">
+    <div className="annual-heading"><div><span>{annual.targetYear} · 认证立春时刻</span><h3>{ganZhi(annual.luckPillar)}大运 × {ganZhi(annual.annualPillar)}流年</h3><p>以认证立春时刻确定所属大运，原局、大运和流年共六柱重新物化，随后完成关系裁决、六亲投影和规则条件求值。</p></div><div><strong>{topics.activated}</strong><span>激活规则家族</span><small>{topics.evaluated} 条进入条件求值</small></div></div>
+    <div className="topic-vector">{vectors.map(([domain,value])=><article key={domain}><div><strong>{topicLabels[domain as keyof typeof topicLabels]}</strong><span>{value>0?"支持贡献":value<0?"压力贡献":"净值中性"}</span></div><i><b className={value<0?"negative":""} style={{width:`${Math.min(100,Math.abs(value)*5)}%`}}></b></i><em>{value>0?"+":""}{decimal(value,2)}</em></article>)}</div>
+    <div className="kinship-grid">{annual.kinship.roles.map(role=><article key={role.id}><span>{role.label}</span><strong>{role.observedCount}</strong><small>{role.primaryTenGods.join(" · ")}</small></article>)}</div>
+    <div className="hypothesis-list"><div className="relation-heading"><span>可审计主题假设</span><strong>传统模型假设，不是现实概率</strong></div>{topics.eventHypotheses.length===0?<p className="empty-relations">该年度没有规则形成非空主题假设。</p>:topics.eventHypotheses.map(item=><article key={item.domain}><div><strong>{topicLabels[item.domain]}</strong><span>{directionLabels[item.direction]} · 强度 {decimal(item.magnitude,2)}</span></div><small>{item.sourceCount} 条来源记录</small></article>)}</div>
+    <p className="boundary-note">程序台账：{topics.program.total} 条来源，其中 executable {topics.program.executable}、deferred {topics.program.deferred}、contested {topics.program.contested}。未解析条件 {topics.unresolved} 条，不以零贡献代替。</p>
+  </div>;
 }
 
 function CertificateResult({ result }: { result: ApiAnalysisResponse }) {

@@ -43,6 +43,11 @@ DynamicChartState
 → finite signed topic measure
 ```
 
+The public annual runtime now implements this chain. Its topic certificate
+includes the compiler disposition ledger and source line references. Event
+hypotheses consume only the signed topic measure and activated sources; they do
+not query raw chart edges or unresolved candidates.
+
 ## 终止语义
 
 正规形求值必须有确定的状态指纹、迭代上限和循环检测。只有 `stable` 可以进入六亲与主题层。`cycle` 和 `limit-reached` 失败关闭，不选择任意中间轮次充当结果。

@@ -1,6 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { describe,expect,it } from "vitest";
-import { compileReferenceCorpus } from "./compiler";
+import { compileReferenceCorpus } from "./node";
 
 const corpusPath=fileURLToPath(new URL("../../../data/classical-rules/classical-source-corpus.v4.0.json.gz",import.meta.url));
 describe("reference corpus compiler",()=>{

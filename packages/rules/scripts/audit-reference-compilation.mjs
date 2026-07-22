@@ -1,5 +1,5 @@
 import { fileURLToPath } from "node:url";
-import { compileReferenceCorpus } from "../src/compiler.ts";
+import { compileReferenceCorpus } from "../src/node.ts";
 
 const corpusPath=fileURLToPath(new URL("../../../data/classical-rules/classical-source-corpus.v4.0.json.gz",import.meta.url));
 const audit=compileReferenceCorpus(corpusPath);
