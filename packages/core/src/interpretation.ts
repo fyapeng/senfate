@@ -1,9 +1,9 @@
 import type { ClosedResult, FiniteSignedMeasure } from "./algebra";
 import type { DynamicStrength } from "./lifecycle";
 import type { SenFateModelProfile, PillarPosition } from "./model";
-import { BRANCH_DEFINITIONS, ELEMENTS, STEM_DEFINITIONS, tenGod, type Element, type TenGod } from "./ontology";
+import { BRANCH_DEFINITIONS, ELEMENTS, STEM_DEFINITIONS, tenGod, type Branch, type Element, type Stem, type TenGod } from "./ontology";
 import type { ReferenceNormalFormPhaseResult } from "./resolution";
-import type { FourPillarState, StrengthEvaluation } from "./structure";
+import { evaluateDayMasterStrength, type FourPillarState, type StrengthEvaluation } from "./structure";
 
 export type PatternCandidateStatus = "qualified" | "contested" | "candidate";
 export interface PatternCandidate {
@@ -17,9 +17,21 @@ export interface PatternCandidate {
 }
 
 export interface PatternProjection {
-  readonly schema: "senfate-pattern-projection.v1";
+  readonly schema: "senfate-pattern-projection.v2";
   readonly status: "qualified" | "contested" | "unqualified";
   readonly candidates: readonly PatternCandidate[];
+  readonly primaryConclusionId?: string;
+  readonly conclusions: readonly PatternConclusion[];
+}
+
+export type PatternConclusionStatus = "qualified" | "contested" | "candidate";
+export interface PatternConclusion {
+  readonly id: string;
+  readonly label: string;
+  readonly family: "regular" | "special" | "follow";
+  readonly status: PatternConclusionStatus;
+  readonly evidence: readonly string[];
+  readonly unmetConditions: readonly string[];
 }
 
 export interface ClimateCoordinate {
@@ -51,19 +63,23 @@ export interface BalancingProjection {
 }
 
 export interface InterpretiveModelResult {
-  readonly schema: "senfate-interpretive-model.v1";
+  readonly schema: "senfate-interpretive-model.v2";
   readonly model: string;
   readonly pattern: PatternProjection;
   readonly climate: ClimateCoordinate;
   readonly balancing: BalancingProjection;
 }
 
-export type InterpretiveModelFailure = "invalid-normal-form" | "zero-measure";
+export type InterpretiveModelFailure = "invalid-normal-form" | "invalid-profile" | "zero-measure";
 const POSITIONS: readonly PillarPosition[] = ["year", "month", "day", "hour"];
 const GENERATES: Readonly<Record<Element, Element>> = { 木: "火", 火: "土", 土: "金", 金: "水", 水: "木" };
 const CONTROLS: Readonly<Record<Element, Element>> = { 木: "土", 火: "金", 土: "水", 金: "木", 水: "火" };
 const TEMPERATURE_BASE = { 子: -1, 丑: -.8, 寅: -.45, 卯: -.15, 辰: .1, 巳: .65, 午: 1, 未: .75, 申: .3, 酉: .05, 戌: -.15, 亥: -.7 } as const;
 const HUMIDITY_BASE = { 子: .75, 丑: .45, 寅: .25, 卯: .35, 辰: .55, 巳: -.15, 午: -.45, 未: -.35, 申: -.2, 酉: -.35, 戌: -.55, 亥: .65 } as const;
+const PROSPERITY_BRANCH: Readonly<Record<Stem, Branch>> = { 甲:"寅",乙:"卯",丙:"巳",丁:"午",戊:"巳",己:"午",庚:"申",辛:"酉",壬:"亥",癸:"子" };
+const BLADE_BRANCH: Readonly<Record<Stem, Branch>> = { 甲:"卯",乙:"辰",丙:"午",丁:"未",戊:"午",己:"未",庚:"酉",辛:"戌",壬:"子",癸:"丑" };
+const REGULAR_PATTERN_LABEL: Readonly<Partial<Record<TenGod,string>>> = { 食神:"食神格",伤官:"伤官格",偏财:"偏财格",正财:"正财格",七杀:"七杀格",正官:"正官格",偏印:"偏印格",正印:"正印格" };
+const SUPPORTING_TEN_GODS: ReadonlySet<TenGod> = new Set(["比肩","劫财","正印","偏印"]);
 
 function inverse(mapping: Readonly<Record<Element, Element>>, target: Element): Element {
   return ELEMENTS.find((element) => mapping[element] === target)!;
@@ -73,7 +89,7 @@ function rounded(value: number): number {
   return Number(value.toFixed(6));
 }
 
-export function evaluatePatternProjection(pillars: FourPillarState, model: SenFateModelProfile): PatternProjection {
+export function evaluatePatternProjection(pillars: FourPillarState, strength: StrengthEvaluation, model: SenFateModelProfile): PatternProjection {
   const dayStem = pillars.day.stem;
   const visibleStems = POSITIONS.filter((position) => position !== "day").map((position) => pillars[position].stem);
   const candidates = BRANCH_DEFINITIONS[pillars.month.branch].hiddenStems.map((hidden) => {
@@ -90,16 +106,82 @@ export function evaluatePatternProjection(pillars: FourPillarState, model: SenFa
   }).sort((a, b) => b.score - a.score || a.stem.localeCompare(b.stem));
   const top = candidates[0]?.score ?? 0;
   const second = candidates[1]?.score ?? Number.NEGATIVE_INFINITY;
-  const projectionStatus: PatternProjection["status"] = top < model.pattern.qualificationThreshold
+  const monthCommandStatus: PatternProjection["status"] = top < model.pattern.qualificationThreshold
     ? "unqualified"
     : top - second <= model.pattern.conflictMargin ? "contested" : "qualified";
+  const rankedCandidates = candidates.map((candidate, index) => ({
+    ...candidate,
+    status: index === 0 && monthCommandStatus === "qualified" ? "qualified" as const : candidate.score >= top - model.pattern.conflictMargin ? "contested" as const : "candidate" as const,
+  }));
+  const conclusions: PatternConclusion[] = [];
+  for (const candidate of rankedCandidates) {
+    const label = REGULAR_PATTERN_LABEL[candidate.tenGod];
+    if (!label) continue;
+    conclusions.push({
+      id: `regular.${candidate.tenGod}`,
+      label,
+      family: "regular",
+      status: candidate.status,
+      evidence: [`month.hidden.${candidate.rank}:${candidate.stem}`, candidate.exposed ? `visible:${candidate.stem}` : "not-exposed", `rootMass=${candidate.rootMass}`, `score=${candidate.score}`],
+      unmetConditions: candidate.status === "candidate" ? ["月令、透干与通根综合分值尚未达到成格阈值"] : [],
+    });
+  }
+  const monthBranch = pillars.month.branch;
+  if (monthBranch === PROSPERITY_BRANCH[dayStem]) conclusions.push({
+    id: "special.established-prosperity",
+    label: "建禄格",
+    family: "special",
+    status: "qualified",
+    evidence: [`dayStem=${dayStem}`, `monthBranch=${monthBranch}`, "monthBranch=dayMaster.prosperity"],
+    unmetConditions: [],
+  });
+  if (monthBranch === BLADE_BRANCH[dayStem]) {
+    const yangDay = STEM_DEFINITIONS[dayStem].polarity === "阳";
+    conclusions.push({
+      id: "special.yang-blade",
+      label: "羊刃格",
+      family: "special",
+      status: yangDay ? "qualified" : "contested",
+      evidence: [`dayStem=${dayStem}`, `monthBranch=${monthBranch}`, "monthBranch=dayMaster.blade"],
+      unmetConditions: yangDay ? [] : ["阴干羊刃的取法存在流派分歧，暂不作单一口径定论"],
+    });
+  }
+  const observedTenGods = [
+    ...POSITIONS.filter((position) => position !== "day").map((position) => tenGod(dayStem, pillars[position].stem)),
+    ...POSITIONS.flatMap((position) => BRANCH_DEFINITIONS[pillars[position].branch].hiddenStems.map((hidden) => tenGod(dayStem, hidden.stem))),
+  ];
+  const allSupport = observedTenGods.every((value) => SUPPORTING_TEN_GODS.has(value));
+  const allPressure = observedTenGods.every((value) => !SUPPORTING_TEN_GODS.has(value));
+  if (strength.state === "very-strong") conclusions.push({
+    id: "follow.follow-strong",
+    label: "从强格",
+    family: "follow",
+    status: allSupport ? "qualified" : "candidate",
+    evidence: [`strength=${strength.state}`, `supportRatio=${rounded(strength.supportRatio)}`, `allObservedSupport=${allSupport}`],
+    unmetConditions: allSupport ? [] : ["原局仍见克、泄、耗成分，暂保留为极强结构候选"],
+  });
+  if (strength.state === "very-weak") {
+    const dayMasterRootMass = strength.rootExposure.dayMasterRootMass;
+    const rootless = dayMasterRootMass === 0;
+    conclusions.push({
+      id: "follow.follow-weak",
+      label: "从弱格",
+      family: "follow",
+      status: allPressure && rootless ? "qualified" : "candidate",
+      evidence: [`strength=${strength.state}`, `supportRatio=${rounded(strength.supportRatio)}`, `allObservedPressure=${allPressure}`, `dayMasterRootMass=${rounded(dayMasterRootMass)}`],
+      unmetConditions: [...(!allPressure ? ["原局仍见比劫或印星生扶"] : []), ...(!rootless ? ["日主仍有通根"] : [])],
+    });
+  }
+  const priority = (item: PatternConclusion): number => item.status === "qualified" ? (item.family === "follow" ? 0 : item.family === "special" ? 1 : 2) : item.status === "contested" ? 3 : 4;
+  conclusions.sort((a,b) => priority(a) - priority(b) || a.id.localeCompare(b.id));
+  const primary = conclusions[0];
+  const projectionStatus: PatternProjection["status"] = primary?.status === "qualified" ? "qualified" : primary?.status === "contested" ? "contested" : "unqualified";
   return {
-    schema: "senfate-pattern-projection.v1",
+    schema: "senfate-pattern-projection.v2",
     status: projectionStatus,
-    candidates: candidates.map((candidate, index) => ({
-      ...candidate,
-      status: index === 0 && projectionStatus === "qualified" ? "qualified" : candidate.score >= top - model.pattern.conflictMargin ? "contested" : "candidate",
-    })),
+    candidates: rankedCandidates,
+    ...(primary ? { primaryConclusionId: primary.id } : {}),
+    conclusions,
   };
 }
 
@@ -149,9 +231,11 @@ export function evaluateBalancingProjection(pillars: FourPillarState, strength: 
 
 export function evaluateInterpretiveModel(pillars: FourPillarState, strength: DynamicStrength | StrengthEvaluation, measure: FiniteSignedMeasure<Element>, normalForm: ReferenceNormalFormPhaseResult, model: SenFateModelProfile): ClosedResult<InterpretiveModelResult, InterpretiveModelFailure> {
   if (normalForm.status !== "stable") return { ok: false, code: "invalid-normal-form", reason: "Interpretive projection only accepts a stable reference normal form", certificate: { functional: "analysis.interpretive-model" } };
+  const natalStrength = evaluateDayMasterStrength(pillars,model);
+  if (!natalStrength.ok) return natalStrength;
   const climate = evaluateClimateCoordinate(pillars, measure, model);
   if (!climate.ok) return climate;
   const balancing = evaluateBalancingProjection(pillars, strength, climate.value, normalForm, model);
   if (!balancing.ok) return balancing;
-  return { ok: true, value: { schema: "senfate-interpretive-model.v1", model: `${model.id}@${model.version}`, pattern: evaluatePatternProjection(pillars, model), climate: climate.value, balancing: balancing.value }, certificate: { functional: "analysis.interpretive-model", model: `${model.id}@${model.version}`, normalFormFingerprint: normalForm.fingerprint, upstream: { climate: climate.certificate, balancing: balancing.certificate } } };
+  return { ok: true, value: { schema: "senfate-interpretive-model.v2", model: `${model.id}@${model.version}`, pattern: evaluatePatternProjection(pillars, natalStrength.value, model), climate: climate.value, balancing: balancing.value }, certificate: { functional: "analysis.interpretive-model", model: `${model.id}@${model.version}`, normalFormFingerprint: normalForm.fingerprint, upstream: { patternStrength:natalStrength.certificate, climate: climate.certificate, balancing: balancing.certificate } } };
 }

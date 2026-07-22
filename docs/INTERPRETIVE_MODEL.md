@@ -9,7 +9,7 @@ or source-record prose.
 
 ```text
 stable reference normal form
-→ month-command pattern projection
+→ regular/special/following pattern projection
 → temperature–humidity coordinate
 → five-element balancing contribution vector
 ```
@@ -20,11 +20,22 @@ projection for every period. Natal state is retained in every period.
 
 ## Pattern projection
 
-Candidates are the hidden stems of the month branch. The score records
-month-command rank, visible exposure and root mass. A candidate may be
-`qualified`, `contested` or `candidate`; the projection as a whole may remain
-`unqualified`. This is a model-level pattern candidate, not a final judgement
-under every classical school.
+`senfate-pattern-projection.v2` separates three pattern families. The eight
+regular structures originate from the hidden stems of the month branch; their
+scores record month-command rank, visible exposure and root mass. `建禄格` is
+identified only when the month branch is the day stem's canonical prosperity
+branch. `羊刃格` uses an explicit blade-branch table, and yin-stem cases remain
+contested because the convention is not shared by all schools.
+
+`从强格` and `从弱格` are evaluated only at the corresponding extreme strength
+state. A qualified following structure additionally requires every non-day
+visible stem and every hidden stem to point in the same support or pressure
+direction; `从弱格` also requires zero day-master root mass. If an extreme
+strength state is present but these stricter conditions fail, the result is a
+named candidate with the unmet conditions attached. Each conclusion records a
+family, status, evidence vector and unmet-condition vector. This classification
+always uses the natal strength result; later luck and annual projections do not
+rewrite the natal pattern name when their dynamic strength changes.
 
 ## Climate coordinate
 
