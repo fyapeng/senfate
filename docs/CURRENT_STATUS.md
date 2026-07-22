@@ -31,7 +31,7 @@
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
 - live analysis workbench for location search, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
-- `senfate-analysis-response.v4` API and live structure-analysis result tabs;
+- `senfate-analysis-response.v5` API and live structure-analysis result tabs;
 - month-command pattern candidate projection with qualified, contested and unqualified outcomes;
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
@@ -39,8 +39,10 @@
 - target-year selection at the certified LiChun instant with the enclosing major-luck period;
 - annual recomputation accumulating natal, luck and annual layers before topic evaluation;
 - six-role kinship projection with explicit sex-dependent ten-god mappings;
-- public `TopicContributionCertificate v2` with activated source books and line ranges;
-- source-linked topic event hypotheses carrying an explicit traditional-model epistemic status;
+- public `TopicContributionCertificate v3` with activated source books, line ranges and normalized event evidence;
+- 50 source-level event predicates defined by phase, topic domain and canonical effect operator;
+- event evidence grades for single-source, same-book, cross-book and mixed-direction support;
+- expandable source records for every published event hypothesis, with an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
 - public 18-parameter model catalog and closed `modelOverrides` request contract;
 - locally persisted model controls that drive full server recomputation and a
@@ -59,17 +61,21 @@ total       37,231
 
 These are compiler dispositions produced from structural completeness, source role and canonical condition expressibility. Element-state conditions are executable only when their element subjects bind one-to-one to the source terms; ambiguous bindings are deferred. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
 
-The resolved-topic audit currently reports 4,118 executable TopicFunctions and
-15,332 domain-level TopicRules. On its fixed annual fixture all 4,118 functions
+The resolved-topic audit currently reports 4,118 executable TopicFunctions,
+15,332 domain-level TopicRules and 50 normalized event predicates. On its fixed annual fixture all 4,118 functions
 are evaluated: 958 activate, 3,160 are false and zero are unresolved. Fixture
 activation counts describe that input only; they are not global coverage rates.
+The fixture activates all 50 predicate classes: 18 have cross-book corroboration
+without opposing signed evidence, while 32 contain both supporting and
+pressuring source effects and remain explicitly mixed.
 
 ## Open dependencies
 
 - pinned production tzdb distribution and exact-coordinate input UI;
 - source-specific pattern, climate and balancing rewrite operators beyond the published parameterized projections;
 - semantic review of feature equivalence for the full executable reference set;
-- finer event predicates and empirical validation contracts beyond domain-level hypotheses;
+- empirical validation contracts and observed-outcome data for event predicates;
+- finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;
 - source-semantic review of the 7,785 deferred and 41 contested records.
 
-The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles and audited topic certificates. Domain-level event hypotheses are published with source records and an explicit traditional-model status; empirical event probabilities remain outside the product.
+The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles and audited topic certificates. Event hypotheses are grouped by annual phase, topic domain and normalized effect operator, and each item links back to activated source records. Empirical event probabilities remain outside the product.

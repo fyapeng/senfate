@@ -209,14 +209,16 @@ function LuckResult({ result }: { result: ApiAnalysisResponse }) {
 }
 
 const topicLabels={career:"事业",family:"家庭",general:"总体",health:"身心",mobility:"迁动",personality:"表达",relationship:"关系",risk:"风险",study:"学习",wealth:"财务"} as const;
-const directionLabels={support:"支持",pressure:"压力",mixed:"并存"} as const;
+const directionLabels={support:"支持",pressure:"压力",mixed:"并存",neutral:"中性"} as const;
+const effectLabels={complete_or_transform:"完成或转化",pressure:"形成压力",reveal:"显露",support:"支持",weaken_or_block:"削弱或阻断"} as const;
+const evidenceLabels={"single-source":"单条来源","same-book-corroborated":"同书复证","cross-book-corroborated":"跨书复证","mixed-evidence":"方向混合"} as const;
 function AnnualTopicResult({result}:{result:ApiAnalysisResponse}){
   const annual=result.annual;const topics=annual.topics;const vectors=Object.entries(topics.contribution.atoms).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
   return <div className="annual-topic-result">
     <div className="annual-heading"><div><span>{annual.targetYear} · 认证立春时刻</span><h3>{ganZhi(annual.luckPillar)}大运 × {ganZhi(annual.annualPillar)}流年</h3><p>以认证立春时刻确定所属大运，原局、大运和流年共六柱重新物化，随后完成关系裁决、六亲投影和规则条件求值。</p></div><div><strong>{topics.activated}</strong><span>激活规则家族</span><small>{topics.evaluated} 条进入条件求值</small></div></div>
     <div className="topic-vector">{vectors.map(([domain,value])=><article key={domain}><div><strong>{topicLabels[domain as keyof typeof topicLabels]}</strong><span>{value>0?"支持贡献":value<0?"压力贡献":"净值中性"}</span></div><i><b className={value<0?"negative":""} style={{width:`${Math.min(100,Math.abs(value)*5)}%`}}></b></i><em>{value>0?"+":""}{decimal(value,2)}</em></article>)}</div>
     <div className="kinship-grid">{annual.kinship.roles.map(role=><article key={role.id}><span>{role.label}</span><strong>{role.observedCount}</strong><small>{role.primaryTenGods.join(" · ")}</small></article>)}</div>
-    <div className="hypothesis-list"><div className="relation-heading"><span>可审计主题假设</span><strong>传统模型假设，不是现实概率</strong></div>{topics.eventHypotheses.length===0?<p className="empty-relations">该年度没有规则形成非空主题假设。</p>:topics.eventHypotheses.map(item=><article key={item.domain}><div><strong>{topicLabels[item.domain]}</strong><span>{directionLabels[item.direction]} · 强度 {decimal(item.magnitude,2)}</span></div><small>{item.sourceCount} 条来源记录</small></article>)}</div>
+    <div className="hypothesis-list"><div className="relation-heading"><span>来源级事件命题</span><strong>时间层 × 主题领域 × 规范效应算子</strong></div>{topics.eventHypotheses.length===0?<p className="empty-relations">该年度没有规则形成非空事件命题。</p>:topics.eventHypotheses.map(item=>{const sources=topics.activatedSources.filter(source=>source.eventEvidence.some(evidence=>evidence.domain===item.domain&&evidence.operator===item.operator));return <details className="event-predicate" key={item.predicateId}><summary><div><strong>{topicLabels[item.domain]} · {effectLabels[item.operator]}</strong><span>{directionLabels[item.direction]} · 净贡献 {item.contribution>0?"+":""}{decimal(item.contribution,2)}</span></div><small>{evidenceLabels[item.evidenceStatus]} · {item.sourceCount} 条 / {item.bookCount} 本</small></summary><div className="event-sources"><p>命题编号 {item.predicateId}。以下书证只在条件通过稳定正规形求值后进入本命题。</p>{sources.slice(0,8).map(source=><div key={source.recordId}><strong>{source.bookId}</strong><span>第 {source.lineStart}—{source.lineEnd} 行</span><code>{source.familyId}</code></div>)}{sources.length>8&&<small>另有 {sources.length-8} 条来源，可在机器可读证书中核验。</small>}</div></details>})}</div>
     <p className="boundary-note">程序台账：{topics.program.total} 条来源，其中 executable {topics.program.executable}、deferred {topics.program.deferred}、contested {topics.program.contested}。未解析条件 {topics.unresolved} 条，不以零贡献代替。</p>
   </div>;
 }
