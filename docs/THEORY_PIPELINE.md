@@ -49,7 +49,9 @@ The public annual runtime now implements this chain. Its topic certificate
 includes the compiler disposition ledger and source line references. Event
 hypotheses consume normalized effect tuples attached to activated sources and
 their signed topic contribution. They do not query raw chart edges, source text
-or unresolved candidates.
+or unresolved candidates. Each source retains its declared temporal scopes, so
+an annual certificate can expose the separate natal, luck and annual evidence
+counts without evaluating any effect more than once.
 
 ## 终止语义
 
