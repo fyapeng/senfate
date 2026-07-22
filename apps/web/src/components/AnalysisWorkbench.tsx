@@ -166,7 +166,7 @@ export function AnalysisWorkbench() {
             {!searching && <small>{inputSummary}</small>}
           </label>
           <label>模型预设<select value={modelId} onChange={(event) => {setModelId(event.target.value as ApiModelId);setModelOverrides({});clearModelSettings()}}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select><small>{modelOverrideCount(modelOverrides)>0?`已应用 ${modelOverrideCount(modelOverrides)} 项自定义权重。`:"使用公开预设参数。"} <a className="inline-link" href="/senfate/models/">调整模型参数</a></small></label>
-          <label>首次展开年度<input type="number" min={Math.max(1850,Number(date.slice(0,4))||1850)} max="2100" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>只决定首次展示的详细结果；系统会一次计算可覆盖的全部大运与流年。</small></label>
+          <label>首次展开年度<input type="number" min={Math.max(1850,Number(date.slice(0,4))||1850)} max="2100" value={targetYear} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>只决定首先查看哪一年；其余大运、流年和流月轨迹会随后自动生成。</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
             <label className="coordinate-toggle"><input type="checkbox" checked={useExactCoordinates} onChange={(event)=>setUseExactCoordinates(event.target.checked)}/><span>使用精确出生坐标<small>时区仍由上方规范地点确定；经纬度用于地方视太阳时和边界误差。</small></span></label>
