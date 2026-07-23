@@ -30,18 +30,19 @@ removes this session copy. No account or server-side birth profile is implied
 by the convenience layer.
 
 The first analysis response supplies complete annual coverage with one detailed
-year and explicit pending placeholders. The client then requests consecutive
-one-to-four-year annual and flow-month batches serially, retries
-each failed range twice and merges each candle by year. A final batch failure
-remains an explicit gap and is never replaced with an estimated wick. Navigation
-does not require a second user action, and completed batches are included in the
-session copy.
+year and explicit pending placeholders. The client then loads the audited,
+versioned corpus as a hashed static asset and computes annual and flow-month
+states in a browser Web Worker. Each completed point is streamed into the chart.
+A closed calculation failure remains an explicit gap and is never replaced with
+an estimated wick. Navigation does not require a second user action, and
+completed points are included in the session copy.
 
 Every selectable K-line point and the accessible year selector open a complete
-annual detail. The client recomputes that year through the same analysis route,
-keeps the accumulated trajectory, updates the certified request snapshot and
-moves directly to the annual topic view. Closed trajectory failures are not
-made selectable.
+annual detail. The browser worker recomputes that year through the same
+`ReferenceCalculationRuntime`, keeps the accumulated trajectory, updates the
+request snapshot and moves directly to the annual topic view. The local
+certificate identifies Web Worker execution and retains the stable normal-form
+fingerprint. Closed trajectory failures are not made selectable.
 
 ## Responsive acceptance
 

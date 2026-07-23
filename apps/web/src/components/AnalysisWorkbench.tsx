@@ -15,11 +15,11 @@ import {clearModelSettings,loadModelSettings,modelOverrideCount} from "../model-
 import {formatCoordinateUncertainty,validateExactCoordinates} from "../coordinates";
 import {ANALYSIS_TABS,clearAnalysisSession,loadAnalysisSession,saveAnalysisSession,type AnalysisTab} from "../analysis-session";
 import {userFacingRequestError} from "../request-error";
-import {mergeAnnualDetail,mergeTrajectoryBatch,selectableTrajectoryYears} from "../analysis-result";
+import {mergeBrowserAnnualDetail,mergeTrajectoryPoint,selectableTrajectoryYears} from "../analysis-result";
+import {calculateAnnualDetailInBrowser,calculateTrajectoryInBrowser} from "../browser-analysis-client";
 
 const API_BASE = import.meta.env.PUBLIC_API_BASE ?? "https://fyapeng.com/senfate/api/v1";
 const ANALYSIS_TIMEOUT_MS = 45_000;
-const TRAJECTORY_TIMEOUT_MS = 35_000;
 const DEFAULT_SHANGHAI_LOCATION:ApiLocation={id:1796236,name:"Shanghai",displayName:"上海",asciiName:"Shanghai",countryCode:"CN",admin1Code:"23",admin2Code:"12324204",featureCode:"PPLA",featureLevel:"city",latitude:31.22222,longitude:121.45806,timeZone:"Asia/Shanghai",population:24874500,coordinateUse:"settlement-centroid",source:"GeoNames",sourceVersion:"cities500-2026-07-22"};
 const tabs = ANALYSIS_TABS;
 const modelLabels: Readonly<Record<ApiModelId, string>> = {
@@ -90,7 +90,6 @@ export function AnalysisWorkbench() {
   const annualDetailAbort=useRef<AbortController | undefined>(undefined);
   const analysisAbort=useRef<AbortController | undefined>(undefined);
   const submissionLock=useRef(false);
-  const trajectoryCache=useRef(new Map<string,ApiAnalysisResponse>());
   const analysisGeneration=useRef(0);
 
   useEffect(()=>{const stored=loadModelSettings();if(stored){setModelId(stored.baseModelId);setModelOverrides(stored.overrides)}},[]);
@@ -163,35 +162,15 @@ export function AnalysisWorkbench() {
   async function loadMonthlyCandles(base:ApiAnalysisResponse,payload:ApiAnalysisRequest,generation:number){
     const years=base.annualTrajectory.points.filter(point=>point.status==="unavailable"?point.failureCode==="trajectory-not-loaded":point.monthlyCandle.status==="unavailable"&&point.monthlyCandle.failureCode==="monthly-candle-not-loaded").map(point=>point.year);
     if(years.length===0)return;
-    const batches:Readonly<{startYear:number;endYear:number}>[]=[];
-    for(let index=0;index<years.length;index+=4)batches.push({startYear:years[index]!,endYear:years[Math.min(index+3,years.length-1)]!});
-    batches.sort((a,b)=>Math.abs(a.startYear-payload.targetYear)-Math.abs(b.startYear-payload.targetYear));
+    const ordered=[...years].sort((a,b)=>Math.abs(a-payload.targetYear)-Math.abs(b-payload.targetYear));
     const controller=new AbortController();trajectoryAbort.current=controller;setTrajectoryFailures(0);setTrajectoryLoading(true);
-    let nextBatch=0;let failed=0;
-    async function requestBatch(batch:Readonly<{startYear:number;endYear:number}>):Promise<ApiAnalysisResponse|undefined>{
-      const cacheKey=`${requestKey(payload)}:${batch.startYear}:${batch.endYear}`;const cached=trajectoryCache.current.get(cacheKey);if(cached)return cached;
-      for(let attempt=0;attempt<3&&!controller.signal.aborted;attempt++){
-        const bounded=boundedSignal(controller.signal,TRAJECTORY_TIMEOUT_MS);
-        try{
-          const response=await fetch(`${API_BASE}/analysis/trajectory?startYear=${batch.startYear}&endYear=${batch.endYear}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),signal:bounded.signal});
-          const body=await response.json() as ApiAnalysisResponse|ApiErrorResponse;
-          if(response.ok&&"annualTrajectory" in body){trajectoryCache.current.set(cacheKey,body);return body}
-          if(![408,425,429,500,502,503,504].includes(response.status))return undefined;
-        }catch{if(controller.signal.aborted)return undefined;}
-        finally{bounded.cleanup()}
-        if(attempt<2)await new Promise(resolve=>window.setTimeout(resolve,600*(attempt+1)));
-      }
-      return undefined;
-    }
-    async function worker(){
-      while(!controller.signal.aborted){
-        const batch=batches[nextBatch++];if(!batch)return;
-        const body=await requestBatch(batch);if(!body){if(!controller.signal.aborted)failed+=1;continue;}
-        setResult(current=>current&&analysisGeneration.current===generation?mergeTrajectoryBatch(current,body):current);
-      }
-    }
-    await worker();
-    if(trajectoryAbort.current===controller&&analysisGeneration.current===generation){trajectoryAbort.current=undefined;setTrajectoryLoading(false);setTrajectoryFailures(failed);if(failed>0)setMessage(`${failed} 个流月区间暂未完成，图中已保留缺口。`);}
+    let failed=0;
+    try{
+      await calculateTrajectoryInBrowser(base,payload,ordered,point=>{
+        setResult(current=>current&&analysisGeneration.current===generation?mergeTrajectoryPoint(current,point):current);
+      },controller.signal);
+    }catch(cause){if(!controller.signal.aborted){failed=ordered.length;console.error("browser-trajectory-failed",cause)}}
+    if(trajectoryAbort.current===controller&&analysisGeneration.current===generation){trajectoryAbort.current=undefined;setTrajectoryLoading(false);setTrajectoryFailures(failed);if(failed>0)setMessage("浏览器后台计算暂未完成，图中已保留缺口，可稍后重试。");}
   }
 
   function retryTrajectory(){if(!result||!analysisRequest||trajectoryLoading)return;setMessage("");void loadMonthlyCandles(result,analysisRequest,analysisGeneration.current)}
@@ -200,12 +179,12 @@ export function AnalysisWorkbench() {
     if(!result||annualSelectingYear!==undefined)return;if(result.annual.targetYear===year){setActive("年度主题");return}
     if(!analysisRequest){setMessage("当前结果缺少完整的计算请求，请重新生成一次分析。");return}const payload:ApiAnalysisRequest={...analysisRequest,targetYear:year};
     annualDetailAbort.current?.abort();const controller=new AbortController();annualDetailAbort.current=controller;const generation=analysisGeneration.current;setAnnualSelectingYear(year);setMessage("");
-    try{const detail=await requestFullAnalysis(payload,controller.signal);if(controller.signal.aborted||analysisGeneration.current!==generation)return;setTargetYear(year);setAnalysisRequest(payload);setResult(current=>current?mergeAnnualDetail(current,detail):detail);setActive("年度主题")}
+    try{const detail=await calculateAnnualDetailInBrowser(result,payload,year,controller.signal);if(controller.signal.aborted||analysisGeneration.current!==generation)return;setTargetYear(year);setAnalysisRequest(payload);setResult(current=>current?mergeBrowserAnnualDetail(current,detail):current);setActive("年度主题")}
     catch(cause){if(!controller.signal.aborted)setMessage(userFacingRequestError(cause,`${year} 年度详情暂时无法载入，请稍后重试。`))}
     finally{if(annualDetailAbort.current===controller){annualDetailAbort.current=undefined;setAnnualSelectingYear(undefined)}}
   }
 
-  function clearSession(){analysisGeneration.current++;analysisAbort.current?.abort();trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();analysisAbort.current=undefined;trajectoryAbort.current=undefined;annualDetailAbort.current=undefined;submissionLock.current=false;trajectoryCache.current.clear();setSubmitting(false);setTrajectoryLoading(false);setTrajectoryFailures(0);setAnnualSelectingYear(undefined);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResultLocationLabel(undefined);setAnalysisRequest(undefined);setResult(undefined);setSelectedLocation(DEFAULT_SHANGHAI_LOCATION);setQuery(DEFAULT_SHANGHAI_LOCATION.displayName);setUseExactCoordinates(false);setLatitude(String(DEFAULT_SHANGHAI_LOCATION.latitude));setLongitude(String(DEFAULT_SHANGHAI_LOCATION.longitude));setMessage("本次浏览会话中的出生信息和结果已清除，地点已恢复为上海（UTC+08:00）。");setActive("命盘")}
+  function clearSession(){analysisGeneration.current++;analysisAbort.current?.abort();trajectoryAbort.current?.abort();annualDetailAbort.current?.abort();analysisAbort.current=undefined;trajectoryAbort.current=undefined;annualDetailAbort.current=undefined;submissionLock.current=false;setSubmitting(false);setTrajectoryLoading(false);setTrajectoryFailures(0);setAnnualSelectingYear(undefined);clearAnalysisSession(window.sessionStorage);setDate("1993-01-26");setTime("05:30");setTargetYear(2026);setSex("female");setClockUncertaintySeconds(60);setDisambiguation("reject");setCoordinateUncertaintyMeters("100");setResultLocationLabel(undefined);setAnalysisRequest(undefined);setResult(undefined);setSelectedLocation(DEFAULT_SHANGHAI_LOCATION);setQuery(DEFAULT_SHANGHAI_LOCATION.displayName);setUseExactCoordinates(false);setLatitude(String(DEFAULT_SHANGHAI_LOCATION.latitude));setLongitude(String(DEFAULT_SHANGHAI_LOCATION.longitude));setMessage("本次浏览会话中的出生信息和结果已清除，地点已恢复为上海（UTC+08:00）。");setActive("命盘")}
 
   return (
     <div className="workbench live-workbench">

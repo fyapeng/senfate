@@ -73,15 +73,17 @@ publish the exact override object, count, fingerprint and effective version.
 The response includes `senfate-annual-trajectory.v3`. The primary analysis call
 returns the selected year's complete normal form and an explicit
 `trajectory-not-loaded` placeholder for every other covered year. This keeps the
-first chart request inside the Worker CPU limit. The browser then replaces those
-placeholders with stable annual and flow-month states from bounded batches.
+first chart request inside the Worker CPU limit.
 
-`POST /senfate/api/v1/analysis/trajectory?startYear=YYYY&endYear=YYYY` accepts
-the same request body and computes one to four consecutive years. Each stable
-batch point adds a monthly open/high/low/close candle derived from twelve
-flow-month normal forms. The web client schedules bounded batches serially,
-retries a failed range twice and merges them by year; users still make one analysis action. Transport
-batching does not remove functions, weaken conditions or interpolate failures.
+The browser then downloads the versioned compressed corpus as a hashed GitHub
+Pages asset, verifies its audited counts, and replaces those placeholders from a
+Web Worker. Annual points and monthly open/high/low/close candles are evaluated
+through the same `ReferenceCalculationRuntime`; transport changes do not remove
+functions, weaken conditions, or interpolate failures.
+
+`POST /senfate/api/v1/analysis/trajectory?startYear=YYYY&endYear=YYYY` remains a
+fail-closed compatibility fallback. It accepts exactly one year
+(`startYear === endYear`). The normal web application does not call this route.
 
 ```text
 normalized topic index = signed topic total / topic total variation ∈ [-1, 1].

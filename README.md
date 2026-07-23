@@ -45,7 +45,11 @@ The public site has four first-level routes:
 ```
 
 The analysis workbench is connected to the versioned Calendar Engine and natal
-structure runtime. It shows four pillars, hidden stems, ten gods, solar-time
+structure runtime. Cloudflare performs canonical location lookup and the first
+certified calculation. A browser Web Worker then loads the hashed compressed
+rule corpus from GitHub Pages and computes the remaining annual, flow-month and
+selected-year states locally through the same formal runtime. It shows four
+pillars, hidden stems, ten gods, solar-time
 corrections, solar-term boundaries, major luck, five-element measure, day-master
 support-pressure, stable relation dispositions, pattern candidates, climate
 coordinates, a five-element balancing vector and dynamically recomputed
@@ -72,6 +76,12 @@ pnpm dev:api
 ```
 
 Location search uses a public GeoNames index in Cloudflare D1. The repository tracks its schema and provenance contract; raw geographical datasets and generated import SQL remain in `local-data/`.
+
+Normal website use requires no Cloudflare account ID or API token in the
+browser. GitHub Pages deployment uses the repository's built-in Pages
+permissions. Automated Cloudflare deployment requires the repository
+environment secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`; an
+interactive local deployment may instead use Wrangler's authenticated login.
 
 Large PDFs, databases, exports and generated snapshots belong in `local-data/`
 and are never committed. Their manifests and hashes may be tracked separately.

@@ -121,12 +121,12 @@ describe("SenFate API", () => {
 
   it("loads twelve flow-month samples in bounded trajectory batches",async()=>{
     const payload={schemaVersion:"senfate-analysis-request.v3",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male"};
-    const response=await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/trajectory?startYear=2024&endYear=2027",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
+    const response=await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/trajectory?startYear=2024&endYear=2024",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
     expect(response.status).toBe(200);const body=await response.json() as ApiAnalysisResponse;
-    expect(body.annualTrajectory).toMatchObject({schema:"senfate-annual-trajectory.v3",startYear:2024,endYear:2027});
-    expect(body.annualTrajectory.points).toHaveLength(4);
+    expect(body.annualTrajectory).toMatchObject({schema:"senfate-annual-trajectory.v3",startYear:2024,endYear:2024});
+    expect(body.annualTrajectory.points).toHaveLength(1);
     for(const point of body.annualTrajectory.points){expect(point.status).toBe("stable");if(point.status==="stable")expect(point.monthlyCandle).toMatchObject({status:"stable",samples:12});}
-    const tooWide=await handleRequest(new Request("https://example.test/analysis/trajectory?startYear=2024&endYear=2028",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
+    const tooWide=await handleRequest(new Request("https://example.test/analysis/trajectory?startYear=2024&endYear=2025",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)}),store,program);
     expect(tooWide.status).toBe(400);
   });
 

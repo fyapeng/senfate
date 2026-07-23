@@ -4,7 +4,17 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./algebra": "./src/algebra.ts",
+    "./calendar": "./src/calendar.ts",
+    "./interpretation": "./src/interpretation.ts",
+    "./lifecycle": "./src/lifecycle.ts",
+    "./model": "./src/model.ts",
+    "./normal-form": "./src/normal-form.ts",
+    "./ontology": "./src/ontology.ts",
+    "./resolution": "./src/resolution.ts",
+    "./semantic": "./src/semantic.ts",
+    "./structure": "./src/structure.ts"
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",

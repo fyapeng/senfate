@@ -1,18 +1,10 @@
 import{calendarProfileFromModel,compileBaziCalendar,resolveZonedCivilBirth,TZDB_VERSION,type BaziCalendarResult,type ClosedResult,type CalendarFailure,type ResolvedZonedBirth,type SenFateModelProfile,type SolarTermWindow,type TimeZoneFailure,type ZonedCivilBirthInput}from"@senfate/core";
-import tableJson from"../data/solar-terms.jpl-de441.v1.json";
-import manifestJson from"../data/manifest.json";
-
-export type SolarTermKind="jie"|"qi";
-export interface SolarTermEntry{readonly utcMs:number;readonly longitude:number;readonly name:string;readonly kind:SolarTermKind;readonly uncertaintySeconds:number}
-export interface EphemerisManifest{readonly schema:"senfate-ephemeris-manifest.v1";readonly sha256:string;readonly terms:number;readonly startYear:number;readonly endYear:number;readonly sourceEphemeris:string;readonly generatedAt:string}
+import{EPHEMERIS_MANIFEST,SOLAR_TERM_ENTRIES}from"./table";
+export*from"./table";
 export type EphemerisFailure="outside-ephemeris-range"|"invalid-ephemeris-table";
 export type CertifiedCalendarFailure=EphemerisFailure|TimeZoneFailure|CalendarFailure;
 export interface CertifiedBaziCalendarResult{readonly schema:"senfate-certified-bazi-calendar.v1";readonly zonedBirth:ResolvedZonedBirth;readonly solarTermWindow:SolarTermWindow;readonly calendar:BaziCalendarResult}
 
-type RawEntry=readonly[number,number,string,SolarTermKind,number];
-const raw=tableJson.entries as unknown as readonly RawEntry[];
-export const SOLAR_TERM_ENTRIES:readonly SolarTermEntry[]=raw.map(([utcMs,longitude,name,kind,uncertaintySeconds])=>({utcMs,longitude,name,kind,uncertaintySeconds}));
-export const EPHEMERIS_MANIFEST=manifestJson as EphemerisManifest;
 const JIE_ORDINAL:Readonly<Record<number,number>>={315:0,345:1,15:2,45:3,75:4,105:5,135:6,165:7,195:8,225:9,255:10,285:11};
 const JIE=SOLAR_TERM_ENTRIES.filter(entry=>entry.kind==="jie");
 

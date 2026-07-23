@@ -1,4 +1,7 @@
-import { BRANCH_DEFINITIONS,ELEMENTS,STEM_DEFINITIONS,finiteSignedMeasure,kleeneAnd,tenGod,type FiniteSignedMeasure,type KleeneTruth,type ReferenceNormalFormPhaseResult,type SenFateModelProfile } from "@senfate/core";
+import { finiteSignedMeasure,kleeneAnd,type FiniteSignedMeasure,type KleeneTruth } from "@senfate/core/algebra";
+import type { SenFateModelProfile } from "@senfate/core/model";
+import { BRANCH_DEFINITIONS,ELEMENTS,STEM_DEFINITIONS,tenGod } from "@senfate/core/ontology";
+import type { ReferenceNormalFormPhaseResult } from "@senfate/core/resolution";
 import type { CompiledReferenceRecord,NormalizedReferenceCondition } from "./compiler";
 
 export type TopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
