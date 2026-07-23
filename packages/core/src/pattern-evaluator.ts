@@ -172,76 +172,116 @@ function evaluateRegularPattern(
   normalForm: ReferenceNormalFormPhaseResult,
   context: PatternEvaluationContext,
 ): void {
-  const label = REGULAR_PATTERN_LABEL[commandTenGod];
-  // 比肩/劫财无常规格标签（走月劫格，见 evaluateSpecialPatterns）
-  if (!label) return;
+  const monthBranch = pillars.month.branch;
+  const monthHidden = BRANCH_DEFINITIONS[monthBranch].hiddenStems;
+  const visible = visibleStems(pillars);
+  const isMiscellaneousQi = monthBranch === "辰" || monthBranch === "戌" || monthBranch === "丑" || monthBranch === "未";
 
-  const evidence: string[] = [
-    `司令之神=${commandStem}（十神 ${commandTenGod}）`,
-    exposed ? `司令之神透于天干` : `司令之神未透`,
-    `距节气 ${context.daysFromJie.toFixed(1)} 日`,
-  ];
-  const unmet: string[] = [];
   const sources: PatternSourceEvidence[] = [
     SOURCE_ZI_PING_ZHEN_QUAN(71, 78, "月令藏干透干者取格"),
-    SOURCE_QIAN_LI(2715, 2719, "月支本气透於天干取格三法"),
+    SOURCE_ZI_PING_ZHEN_QUAN(327, 345, "论杂气透干会支取清"),
+    ...(isMiscellaneousQi ? [SOURCE_QIAN_LI(2715, 2719, "杂气月支透干取格三法")] : []),
   ];
 
-  // 透干定格：司令之神透出为成格的硬条件
-  if (!exposed) {
-    unmet.push("司令之神未透天干，需考察本气或中余气透干");
-    // 未透时退而求其次：检查月支本气是否透干
-    const mainStem = BRANCH_DEFINITIONS[pillars.month.branch].hiddenStems.find((h) => h.rank === "main")?.stem;
-    if (mainStem && mainStem !== commandStem && isExposed(mainStem, pillars)) {
-      const mainTenGod = tenGod(dayStem, mainStem);
-      const mainLabel = REGULAR_PATTERN_LABEL[mainTenGod];
-      if (mainLabel) {
-        conclusions.push({
-          id: `regular.${mainTenGod}`,
-          label: mainLabel,
-          family: "regular",
-          status: "candidate",
-          commandStem: mainStem,
-          tenGod: mainTenGod,
-          exposed: true,
-          evidence: [`退取本气=${mainStem}（十神 ${mainTenGod}）透干`, `司令=${commandStem}未透`],
-          unmetConditions: [`司令之神 ${commandStem} 未透，暂以透干本气 ${mainStem} 为候选`],
-          sourceEvidence: sources,
-        });
-      }
+  // ── 收集月令透干候选（透出的天干按其本身定十神）──
+  // 《子平真诠》第331行：透戊则用偏财、透癸则用正印——按透出天干本身定格。
+  // 第349行明确：己生辰月壬透为财——藏癸透壬，按壬（正财）论。
+  interface ExposedStem {
+    readonly stem: Stem;            // 实际透出的天干
+    readonly viaHidden: Stem;       // 对应的月令藏干
+    readonly rank: "main" | "middle" | "residual";
+    readonly tenGod: TenGod;        // 透出天干对日主的十神
+  }
+  const exposedStems: ExposedStem[] = [];
+  for (const hidden of monthHidden) {
+    const hiddenElement = STEM_DEFINITIONS[hidden.stem].element;
+    // 直接透出或同五行透出（藏乙透甲、藏癸透壬等）
+    const matched = visible.filter((v) => v === hidden.stem || STEM_DEFINITIONS[v].element === hiddenElement);
+    for (const stem of matched) {
+      // 避免重复（同五行多个藏干匹配同一天干）
+      if (exposedStems.some((e) => e.stem === stem)) continue;
+      exposedStems.push({ stem, viaHidden: hidden.stem, rank: hidden.rank, tenGod: tenGod(dayStem, stem) });
+    }
+  }
+
+  // 过滤掉比肩/劫财（走月劫格）和无标签的
+  const patternCandidates = exposedStems.filter((e) => REGULAR_PATTERN_LABEL[e.tenGod]);
+
+  if (patternCandidates.length === 0) {
+    // 无透干可取格：司令之神作隐格候选（低权重）
+    const fallbackTenGod = commandTenGod;
+    const fallbackLabel = REGULAR_PATTERN_LABEL[fallbackTenGod];
+    if (fallbackLabel) {
+      conclusions.push({
+        id: `regular.${fallbackTenGod}`, label: fallbackLabel, family: "regular", status: "candidate",
+        commandStem, tenGod: fallbackTenGod, exposed: false,
+        evidence: [`司令=${commandStem}（${fallbackTenGod}）`, `距节气 ${context.daysFromJie.toFixed(1)} 日`, `月令藏干均未透干，无透干可取格`],
+        unmetConditions: ["月令藏干均未透干，以司令之神作隐格候选"],
+        sourceEvidence: sources,
+      });
     }
     return;
   }
 
-  // 成败救应：检查是否被冲破
-  const breakage = isBrokenByClash(commandStem, normalForm);
+  // ── 多干透出：按《子平真诠》有情无情裁决 ──
+  // 第333行：顺而相成为有情（如官与印相生、财生官）；第335行：逆而相背为无情。
+  // 财官相生（财生官）为有情，以官为主格、财为相神。
+  let primary: ExposedStem;
+  let structureNote: string | undefined;
+  let supportingStem: Stem | undefined;
+
+  if (patternCandidates.length === 1) {
+    primary = patternCandidates[0]!;
+  } else {
+    // 财官相生裁决：若财与官并透，财生官，官为主格、财为相神（有情相成）
+    const officer = patternCandidates.find((c) => c.tenGod === "正官" || c.tenGod === "七杀");
+    const wealth = patternCandidates.find((c) => c.tenGod === "正财" || c.tenGod === "偏财");
+    const resource = patternCandidates.find((c) => c.tenGod === "正印" || c.tenGod === "偏印");
+    if (officer && wealth) {
+      primary = officer;
+      structureNote = "财官相生";
+      supportingStem = wealth.stem;
+    } else if (officer && resource) {
+      primary = officer;
+      structureNote = "官印相生";
+      supportingStem = resource.stem;
+    } else {
+      // 无明确相生关系：取本气优先（杂气）或司令优先（非杂气时司令低权重校验）
+      const rankOrder = (rank: "main" | "middle" | "residual"): number => (rank === "main" ? 0 : rank === "middle" ? 1 : 2);
+      primary = patternCandidates.reduce((best, cur) => rankOrder(cur.rank) < rankOrder(best.rank) ? cur : best);
+    }
+  }
+
+  const primaryLabel = REGULAR_PATTERN_LABEL[primary.tenGod]!;
+  const baseEvidence: string[] = [
+    `司令=${commandStem}（${commandTenGod}，距节气 ${context.daysFromJie.toFixed(1)} 日，低权重校验）`,
+    `藏干 ${primary.viaHidden}（${primary.rank}）透出 ${primary.stem}（${primary.tenGod}）`,
+  ];
+  if (structureNote) {
+    baseEvidence.push(`${structureNote}：${primary.stem}为主格${supportingStem ? `，${supportingStem}为相神` : ""}`);
+  }
+
+  // 成败救应：检查定格之神是否被冲破
+  const breakage = isBrokenByClash(primary.stem, normalForm);
   if (breakage.broken) {
-    const remedied = hasRemedy(commandStem, dayStem, normalForm);
+    const remedied = hasRemedy(primary.stem, dayStem, normalForm);
     conclusions.push({
-      id: `regular.${commandTenGod}`,
-      label,
-      family: "regular",
+      id: `regular.${primary.tenGod}`, label: primaryLabel, family: "regular",
       status: remedied ? "contested" : "broken",
-      commandStem,
-      tenGod: commandTenGod,
-      exposed,
-      evidence: [...evidence, `被冲破：${breakage.clashDescription}`, remedied ? `存在救应（印星或通关）` : `无救应`],
-      unmetConditions: remedied ? [`格局被冲破但有救应，降为争议`] : [`格局被冲破且无救应，作破格论`],
+      commandStem, tenGod: primary.tenGod, exposed: true,
+      evidence: [...baseEvidence, `被冲破：${breakage.clashDescription}`, remedied ? "存在救应" : "无救应"],
+      unmetConditions: remedied ? ["格局被冲破但有救应，降为争议"] : ["格局被冲破且无救应，作破格论"],
       sourceEvidence: [SOURCE_ZI_PING_ZHEN_QUAN(95, 102, "成格之后有冲破，看救应"), ...sources],
     });
     return;
   }
 
   conclusions.push({
-    id: `regular.${commandTenGod}`,
-    label,
-    family: "regular",
+    id: `regular.${primary.tenGod}`, label: primaryLabel, family: "regular",
     status: "qualified",
-    commandStem,
-    tenGod: commandTenGod,
-    exposed,
-    evidence,
-    unmetConditions: unmet,
+    commandStem, tenGod: primary.tenGod, exposed: true,
+    evidence: baseEvidence,
+    unmetConditions: [],
     sourceEvidence: sources,
   });
 }
