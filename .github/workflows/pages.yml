@@ -24,12 +24,12 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @senfate/web build
         env:
           PUBLIC_API_BASE: https://fyapeng.com/senfate/api/v1
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/dist
   deploy:
@@ -41,4 +41,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

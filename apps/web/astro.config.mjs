@@ -5,5 +5,6 @@ export default defineConfig({
   site: "https://fyapeng.github.io",
   base: "/senfate",
   output: "static",
+  trailingSlash: "always",
   integrations: [react()],
 });
