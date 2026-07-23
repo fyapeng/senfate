@@ -9,7 +9,7 @@ The body is limited to 8 KiB and must use `application/json`.
 Required inputs are a canonical `locationId`, local Gregorian date-time and
 sex. Optional inputs select one of the three published model profiles, clock
 uncertainty, repeated-time disambiguation, period count and exact coordinates.
-The endpoint supports 1850–2100, matching the pinned ephemeris range.
+The endpoint supports 1850–2150, matching the pinned ephemeris range.
 The web workbench exposes the exact-coordinate override inside its time-precision
 controls. The selected canonical location continues to supply the IANA time
 zone; the override changes longitude/latitude and their uncertainty only.

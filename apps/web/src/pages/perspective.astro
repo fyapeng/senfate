@@ -2,25 +2,25 @@
 import SiteLayout from "../layouts/SiteLayout.astro";
 import Math from "../components/Math.astro";
 ---
-<SiteLayout active="perspective" title="现代视角指南" description="用现代数学与经验研究语言说明传统八字模型的对象、边界和检验路径。">
-  <section class="guide-hero perspective-guide-hero"><span class="kicker">MATHEMATICAL &amp; EMPIRICAL GUIDE</span><h1>传统推断如何成为现代研究对象</h1><p>形式化给术语确定对象域，给判断确定前提，给分歧确定位置。它能提升内部可审计性；现实预测效度仍需独立数据、识别设计和样本外检验。本页用测度论、泛函与计量经济学的语言，说明 SenFate 的形式模型究竟定义了什么对象、它们之间满足什么数学性质，以及哪些命题只能由经验数据而非符号推导来回答。</p></section>
+<SiteLayout active="perspective" title="现代视角指南" description="用现代数学与经验研究语言解构传统八字模型，并指出它在因果推断与相关分析上的根本不足。">
+  <section class="guide-hero perspective-guide-hero"><span class="kicker">MATHEMATICAL &amp; EMPIRICAL GUIDE</span><h1>形式化既解构八字，也暴露它的能力边界</h1><p>这一页用数学和计量经济学的语言做两件事：第一，把八字理论的对象、算子和推断重新写成有明确定义域的形式系统，让我们能精确地说清"它在算什么"；第二——也是更重要的一一指出这个系统在数学上和经验上<em>不足以</em>支撑因果推断或足够的相关分析，因此<em>不能</em>用来预测事件或指导生活决策。结论不是"八字全无价值"，而是它的价值在别处：文化分类与内部一致性，而非预测。</p></section>
   <div class="guide-shell">
-    <aside class="guide-toc" aria-label="本页目录"><strong>研究目录</strong><a href="#ontology">对象层级</a><a href="#functional">算子与泛函</a><a href="#measure">测度语言</a><a href="#schools">流派与参数</a><a href="#statistics">统计检验</a><a href="#panel">计量研究设计</a><a href="#causality">因果边界</a><a href="#disciplines">跨学科接口</a><a href="#governance">数据治理</a></aside>
+    <aside class="guide-toc" aria-label="本页目录"><strong>研究目录</strong><a href="#ontology">对象层级</a><a href="#functional">算子与泛函</a><a href="#measure">测度语言</a><a href="#schools">流派与参数</a><a href="#deficits">结构性不足</a><a href="#statistics">统计检验</a><a href="#panel">计量研究设计</a><a href="#causality">因果边界</a><a href="#conclusion">为何无法预测</a></aside>
     <article class="guide-article">
       <section id="ontology"><span>01 · 对象层级</span><h2>观测、符号、结构、语义和现实事件分属不同层</h2>
-        <p>八字推断里的概念常被压在同一句话里讨论，但它们分属性质完全不同的六层对象。把不同层混为一层，会得到"出生时刻<em>导致</em>事业成功"这种既无法证明也无法证伪的命题。SenFate 的形式化首先把每一层分开，并要求跨层映射必须是明确的函数。</p>
+        <p>八字推断里的概念常被压在同一句话里讨论，但它们分属性质完全不同的六层对象。形式化的第一个价值，就是把这六层分开，让我们看清"从出生时刻到事业成功"这句话跨越了哪些层——而其中只有前几层是确定性函数。</p>
         <div class="thm-block">
           <div class="block-head"><strong>公理 1.1</strong><em>（六层对象分离）</em></div>
           <div class="block-body">
             <Math tex="X_{\text{obs}} \;\xrightarrow{\;c\;}\; Z_{\text{sym}} \;\xrightarrow{\;R\;}\; N_{\text{res}} \;\xrightarrow{\;\Phi\;}\; \nu_{\text{sem}} \;\xrightarrow{\;?\;}\; Y_{\text{real}}" display />
-            <p>其中 <Math tex="c" /> 是历法算子，<Math tex="R" /> 是结构裁决算子，<Math tex="\Phi" /> 是主题泛函族。前四个箭头是确定性函数；最后一个箭头 <Math tex="\nu_{\text{sem}} \to Y_{\text{real}}" /> <strong>不是定理</strong>，它是需要独立数据检验的经验假设。形式化能保证前三层的内部一致性，但无法凭符号推导出最后一层的关系。</p>
+            <p>其中 <Math tex="c" /> 是历法算子，<Math tex="R" /> 是结构裁决算子，<Math tex="\Phi" /> 是主题泛函族。前四个箭头是确定性函数；<strong>最后一个箭头 <Math tex="\nu_{\text{sem}} \to Y_{\text{real}}" /> 不是定理</strong>，它是需要独立数据检验的经验假设。形式化能保证前三层的内部一致性，但<strong>无法凭符号推导出最后一层的关系</strong>。</p>
           </div>
         </div>
-        <p>这一公理的直接推论是：任意"某干支组合对应某现实事件"的命题，必须同时给出它属于哪一层、跨层映射的函数是什么。无法指明函数的命题不进入主题层，而是进入延期队列。</p>
+        <p>这一公理的直接推论是：任意"某干支组合对应某现实事件"的命题，必须同时给出它属于哪一层、跨层映射的函数是什么。无法指明函数的命题不进入主题层——但即便进入了主题层（得到 <Math tex="\nu" />），离"预测事件"仍有不可跳越的鸿沟，这正是后文要论证的。</p>
       </section>
 
       <section id="functional"><span>02 · 算子与泛函</span><h2>规则是定义域受限的算子</h2>
-        <p>结构裁决 <Math tex="R" /> 和主题泛函 <Math tex="\Phi_k" /> 不是定义在"任意命盘"上的自由函数，而是定义域严格受限的算子。这是 SenFate 区别于字符串匹配式规则引擎的根本数学性质。</p>
+        <p>结构裁决 <Math tex="R" /> 和主题泛函 <Math tex="\Phi_k" /> 不是定义在"任意命盘"上的自由函数，而是定义域严格受限的算子。这一性质让八字在内部成为一个自洽的形式系统——但它同时也限制了系统的表达能力。</p>
         <div class="def-block">
           <div class="block-head"><strong>定义 2.1</strong><em>（结构裁决算子）</em></div>
           <div class="block-body">
@@ -40,17 +40,17 @@ import Math from "../components/Math.astro";
             <span class="code-ref">rules/evaluator.ts:56 · 三值逻辑 kleeneAnd · polaritySign</span>
           </div>
         </div>
-        <p>定义域受限意味着：主题层永远读取已裁决的规范特征快照，而不能回查原始命盘图、未裁决候选或任意字符串路径。这构成一条单向数据流，杜绝了旁路推理。</p>
+        <p>注意 <Math tex="a_j" /> 只取 support/pressure/neutral 三种方向，<strong>它不携带概率信息</strong>。一条规则说"此组合 support 事业"，只表示在传统文本内部这条规则指向事业方向，不表示"事业会变好"的概率。这个区分是后续论证"无法预测"的关键之一。</p>
       </section>
 
       <section id="measure"><span>03 · 测度语言</span><h2>结构量与语义量是不同的数学对象</h2>
-        <p>这是整个形式模型的数学核心。五行强度和主题贡献不是"分数"，而是两种不同的有限测度。用测度论语言能精确定义它们的代数性质。</p>
+        <p>这是整个形式模型的数学核心。五行强度和主题贡献不是"分数"，而是两种不同的有限测度。用测度论语言能精确定义它们的代数性质——也能精确指出它们的局限。</p>
         <div class="def-block">
           <div class="block-head"><strong>定义 3.1</strong><em>（五行测度 μ）</em></div>
           <div class="block-body">
             <p>设 <Math tex="E = \{\text{木}, \text{火}, \text{土}, \text{金}, \text{水}\}" /> 为五行有限空间。<Math tex="\mu" /> 是 <Math tex="E" /> 上的非负有限测度：</p>
             <div class="eq-row"><Math tex="\mu(e) = \sum_{i} w^{\text{layer}}_i \cdot w^{\text{pos}}_i \cdot r^{\text{rank}}_i \cdot \mathbf{1}[\,\text{el}(i) = e\,]" display /><span class="eq-num">(3.1)</span></div>
-            <p>三类权重分别是时间层权重 <Math tex="w^{\text{layer}}" />（natal / luck / annual / month）、柱位权重 <Math tex="w^{\text{pos}}" />、藏干层级权重 <Math tex="r^{\text{rank}}" />（本气 / 中气 / 余气），再乘以月支当令的季节乘数。所有权重 <Math tex="\geq 0" />，故 <Math tex="\mu \geq 0" />。</p>
+            <p>三类权重分别是时间层权重 <Math tex="w^{\text{layer}}" />、柱位权重 <Math tex="w^{\text{pos}}" />、藏干层级权重 <Math tex="r^{\text{rank}}" />，再乘以月支当令的季节乘数。</p>
             <span class="code-ref">core/lifecycle.ts:27-34 · core/model.ts:64 · 季节矩阵 12×5 只取月支行</span>
           </div>
         </div>
@@ -59,9 +59,9 @@ import Math from "../components/Math.astro";
           <div class="block-body">
             <p>设 <Math tex="\Omega = \{k_1, \dots, k_{10}\}" /> 为十个主题域。规则族求值形成 <Math tex="\Omega" /> 上的有符号有限测度：</p>
             <div class="eq-row"><Math tex="\nu(A) = \sum_{j\,:\,\text{domain}(j) \in A} f_j(x), \quad A \subseteq \Omega" display /><span class="eq-num">(3.2)</span></div>
-            <p>由 <strong>Jordan 分解定理</strong>，任意有符号测度唯一分解为两个互相奇异非负测度之差：</p>
+            <p>由 <strong>Jordan 分解定理</strong>，任意有符号测度唯一分解：</p>
             <div class="eq-row"><Math tex="\nu = \nu^+ - \nu^-, \quad |\nu| = \nu^+ + \nu^-" display /><span class="eq-num">(3.3)</span></div>
-            <p>其中 <Math tex="\nu^+" /> 是支持证据测度，<Math tex="\nu^-" /> 是压力证据测度，<Math tex="|\nu|" /> 是总变差（贡献规模）。<strong>实现中不单独存储 <Math tex="\nu^\pm" />，而是由代数和与总变差隐式表达</strong>：</p>
+            <p><Math tex="\nu^+" /> 是支持证据测度，<Math tex="\nu^-" /> 是压力证据测度。<strong>实现中不单独存储 <Math tex="\nu^\pm" />，而是由代数和与总变差隐式表达</strong>：</p>
             <div class="eq-row"><Math tex="\nu^+(\Omega) = \tfrac{1}{2}\bigl(|\nu|(\Omega) + \nu(\Omega)\bigr), \quad \nu^-(\Omega) = \tfrac{1}{2}\bigl(|\nu|(\Omega) - \nu(\Omega)\bigr)" display /><span class="eq-num">(3.4)</span></div>
             <span class="code-ref">rules/evaluator.ts:56 · core/algebra.ts:45-55 · total 与 totalVariation</span>
           </div>
@@ -70,11 +70,11 @@ import Math from "../components/Math.astro";
           <div class="block-head"><strong>定义 3.3</strong><em>（归一化主题指数）</em></div>
           <div class="block-body">
             <div class="eq-row"><Math tex="I_t = \frac{\nu_t(\Omega)}{|\nu_t|(\Omega)} \in [-1, 1], \quad |\nu_t|(\Omega) > 0" display /><span class="eq-num">(3.5)</span></div>
-            <p>当无规则激活（<Math tex="|\nu_t|(\Omega) = 0" />）时约定 <Math tex="I_t = 0" />。<Math tex="I_t" /> 衡量支持与压力的<em>净方向</em>而非规模；来源数量、重复规则与权重都会改变 <Math tex="I_t" />，因此任何指数必须与来源证据一同解释。<strong>它不是事件概率。</strong></p>
+            <p><Math tex="I_t" /> 衡量支持与压力的<em>净方向</em>而非规模。<strong>它不是事件概率。</strong>来源数量、重复规则与权重都会改变 <Math tex="I_t" />。</p>
             <span class="code-ref">apps/web/browser-analysis-engine.ts:150 · indexDefinition: topic-total-divided-by-total-variation</span>
           </div>
         </div>
-        <p>关键性质：μ 是<strong>非负</strong>测度（表示内部作用量），ν 是<strong>有符号</strong>测度（同时承载支持与压力）。把两者混用——例如直接把五行强度当作主题概率——会违反测度的数学定义。</p>
+        <p>关键性质：μ 是<strong>非负</strong>测度，ν 是<strong>有符号</strong>测度。把两者混用——例如直接把五行强度或 <Math tex="I_t" /> 当作事件概率——会违反测度的数学定义。<Math tex="I_t" /> 只告诉你"规则证据的净方向偏支持还是偏压力"，仅此而已。</p>
       </section>
 
       <section id="schools"><span>04 · 流派与参数</span><h2>不同流派表现为规则子集、参数与裁决顺序</h2>
@@ -82,54 +82,95 @@ import Math from "../components/Math.astro";
         <div class="def-block">
           <div class="block-head"><strong>定义 4.1</strong><em>（参数空间与模型族）</em></div>
           <div class="block-body">
-            <p>模型参数 <Math tex="\theta" /> 取自公开的有界参数空间 <Math tex="\Theta" />。每个配置 <Math tex="\theta \in \Theta" /> 确定一个模型实例 <Math tex="M_\theta" />，所有计算写成 <Math tex="F(Z; \theta)" />。</p>
+            <p>模型参数 <Math tex="\theta" /> 取自公开的有界参数空间 <Math tex="\Theta" />。每个配置 <Math tex="\theta \in \Theta" /> 确定一个模型实例 <Math tex="M_\theta" />：</p>
             <Math tex="\{M_\theta\}_{\theta \in \Theta}, \quad \text{fingerprint}(\theta) = \mathrm{hash}(\theta)" display />
-            <p>证书记录配置指纹。改变 <Math tex="\theta" /> 的任意受影响参数，必须使该参数及其全部下游阶段重新求值，形成新版本，而不能覆盖旧结果。</p>
+            <p>权重是表示传统理论的假设，<strong>不是拟合概率、生物系数或因果效应</strong>。改变 <Math tex="\theta" /> 形成新版本，不能覆盖旧结果。</p>
             <span class="code-ref">MODEL_PARAMETER_METADATA · 19 条公开参数 · 范围 0–4 · 确定性指纹</span>
           </div>
         </div>
-        <p>权重是表示传统理论的假设，不是拟合概率、生物系数或因果效应。敏感性分析应检验结论在参数邻域内是否稳定，而不是假定某组常数天然正确。</p>
+        <p>这里已经能看到第一个不足：权重是人为设定的，没有任何数据来校准它们。敏感性分析只能告诉你"结论在参数邻域内是否稳定"，但无法告诉你哪组参数更接近现实。</p>
       </section>
 
-      <section id="statistics"><span>05 · 统计检验</span><h2>经验问题需要事前定义结果与评分规则</h2>
-        <p>若要研究主题贡献能否预测可观察事件，必须把含糊命题改写为带时间窗的结果变量 <Math tex="Y_{i,t}" />，并在查看结果前固定特征、模型、训练区间和评价指标。形式模型只保证对象层可复算；经验效度由这一节的研究设计决定。</p>
-        <div class="research-grid"><article><strong>校准</strong><p>未来若建立概率模型，比较预测概率与实际频率；当前贡献向量不能充当概率。</p></article><article><strong>样本外检验</strong><p>按时间或出生队列分离训练与测试，避免同一资料反复解释。</p></article><article><strong>稳健性</strong><p>改变时间误差、参数、文本子集与流派配置，观察结论是否翻转。</p></article><article><strong>多重检验</strong><p>大量主题、年份与子群会产生偶然结果，需要控制研究者自由度。</p></article></div>
-        <p>四项中任意一项缺失，都会让"显著相关"退化为事后叙事。预注册（pre-registration）是把研究者自由度固化的标准做法。</p>
-      </section>
-
-      <section id="panel"><span>06 · 计量研究设计</span><h2>人生轨迹可形成面板特征，但不能跳过基准模型</h2>
-        <p>对个体 <Math tex="i" /> 和年份 <Math tex="t" />，系统可在不读取现实结果的前提下生成冻结特征 <Math tex="X_{i,t}" />，再与教育、就业、迁移或健康等独立结果表连接。这是从形式模型通往经验检验的标准接口。</p>
+      <section id="deficits"><span>05 · 结构性不足</span><h2>即便完美实现，八字形式系统仍有根本缺口</h2>
+        <p>前三节描述的形式系统是自洽的、可复算的。但即便它被完美实现（无 bug、全古籍规则都接入），它仍然<em>在数学结构上</em>不足以支撑预测。以下四点是结构性的，不是工程上"再完善一下"就能弥补的。</p>
         <div class="thm-block">
-          <div class="block-head"><strong>模型 6.1</strong><em>（描述性面板基线）</em></div>
+          <div class="block-head"><strong>命题 5.1</strong><em>（输出只有方向，没有概率）</em></div>
           <div class="block-body">
-            <div class="eq-row"><Math tex="Y_{i,t} = \alpha_i + \gamma_t + \beta X_{i,t} + \delta\,\text{Age}_{i,t} + u_{i,t}" display /><span class="eq-num">(6.1)</span></div>
-            <p>个体固定效应 <Math tex="\alpha_i" /> 吸收不随时间变化的原局特征；时间固定效应 <Math tex="\gamma_t" /> 吸收宏观周期。<Math tex="\beta" /> 主要利用<strong>岁运特征随年龄的变化</strong>来识别，而非原局的截面差异。标准误、缺失机制、幸存者选择和预注册方案仍需按具体数据设计。</p>
+            <p>主题泛函 <Math tex="\Phi_{k,M}" /> 的输出 <Math tex="f_j(x) = \mathbf{1}[x \in D_j] \cdot a_j" /> 只含方向（support / pressure）和人为权重，<strong>没有任何概率测度</strong>。整个管线里不存在 <Math tex="P(Y \mid X)" /> 这样的条件分布。</p>
+            <p>因此 <Math tex="I_t" /> 只能在 <Math tex="[-1,1]" /> 上表示净方向，<strong>无法回答"某事件发生的可能性有多大"</strong>。要回答概率问题，需要一个完全不同的概率模型——而那个模型所需的训练数据，八字系统本身不提供。</p>
           </div>
         </div>
-        <p>检验对象应是相对于年龄、出生队列、地区和季节基准的<strong>增量预测</strong>，而不是单独报告某主题指数与结果的相关系数。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>命题 5.2</strong><em>（权重非经验校准）</em></div>
+          <div class="block-body">
+            <p>所有权重 <Math tex="w^{\text{layer}}, w^{\text{pos}}, r^{\text{rank}}, \theta" /> 都是人为设定或流派约定，<strong>没有任何一个经过样本拟合或交叉验证</strong>。改变权重会改变 <Math tex="I_t" />，但没有客观标准判断哪组权重"更对"。</p>
+            <p>这意味着即便发现 <Math tex="I_t" /> 与某结果相关，也无法区分这是"真实信号"还是"恰好这组权重产生的噪声"。</p>
+          </div>
+        </div>
+        <div class="thm-block">
+          <div class="block-head"><strong>命题 5.3</strong><em>（主题域粗粒度）</em></div>
+          <div class="block-body">
+            <p>主题空间 <Math tex="\Omega" /> 只有 10 个域（事业、财务、关系……）。现实事件是连续、多维、情境依赖的，而 <Math tex="\nu" /> 把它们压成 10 个有符号标量。<strong>"事业"这个域无法区分升职、跳槽、失业、创业</strong>——它们都贡献到同一个 <Math tex="\nu(\text{career})" />。</p>
+            <p>这种粒度只够做文化层面的分类描述，不足以支撑对具体事件的预测。</p>
+          </div>
+        </div>
+        <div class="thm-block">
+          <div class="block-head"><strong>命题 5.4</strong><em>（无混淆控制）</em></div>
+          <div class="block-body">
+            <p>八字特征（出生时刻）与社会经济变量（地区、季节、出生队列、家庭背景）<strong>高度混淆</strong>。例如出生季节同时影响"八字月支"和"早期营养/感染暴露"，后者才是影响人生结果的已知途径。</p>
+            <p>形式系统内部无法分离这些混淆——它只处理干支符号，看不到季节背后的生物学变量。混淆控制需要外部数据和识别策略（见<a href="#causality">§7 因果边界</a>）。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="statistics"><span>06 · 统计检验</span><h2>即便想做相关分析，门槛也很高</h2>
+        <p>若一定要研究主题贡献与可观察事件的相关性，必须把含糊命题改写为带时间窗的结果变量 <Math tex="Y_{i,t}" />，并在查看结果前固定特征、模型、训练区间和评价指标。四项缺一不可。</p>
+        <div class="research-grid"><article><strong>校准</strong><p>未来若建立概率模型，比较预测概率与实际频率；当前贡献向量不能充当概率。</p></article><article><strong>样本外检验</strong><p>按时间或出生队列分离训练与测试，避免同一资料反复解释。</p></article><article><strong>稳健性</strong><p>改变时间误差、参数、文本子集与流派配置，观察结论是否翻转。</p></article><article><strong>多重检验</strong><p>大量主题、年份与子群会产生偶然结果，需要控制研究者自由度。</p></article></div>
+        <p>需特别强调：<strong>目前没有任何公开的、预注册的、样本外的检验表明 <Math tex="I_t" /> 能稳定预测任何现实结果</strong>。在出现这样的证据之前，"相关分析"也只停留在理论可能性上。</p>
+      </section>
+
+      <section id="panel"><span>07 · 计量研究设计</span><h2>面板特征可用，但不能跳过基准模型</h2>
+        <p>对个体 <Math tex="i" /> 和年份 <Math tex="t" />，系统可在不读取现实结果的前提下生成冻结特征 <Math tex="X_{i,t}" />。这是从形式模型通往经验检验的标准接口，但 <Math tex="\beta" /> 能否显著、是否样本外稳定，完全是开放的实证问题。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>模型 7.1</strong><em>（描述性面板基线）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="Y_{i,t} = \alpha_i + \gamma_t + \beta X_{i,t} + \delta\,\text{Age}_{i,t} + u_{i,t}" display /><span class="eq-num">(7.1)</span></div>
+            <p>个体固定效应 <Math tex="\alpha_i" /> 吸收不随时间变化的原局特征；<Math tex="\beta" /> 主要利用<strong>岁运特征随年龄的变化</strong>来识别。<strong>关键点：即使 <Math tex="\hat\beta" /> 显著，它也只证明了"特征与结果在样本内相关"，不等于因果，更不等于可预测。</strong></p>
+          </div>
+        </div>
         <div class="research-grid"><article><strong>嵌套基准</strong><p>先使用年龄、性别、地区、出生季节和队列，再检验命理特征是否提供稳定的样本外增量。</p></article><article><strong>时间泄漏</strong><p>规则整理、参数选择和结果标注必须分离；不能根据已知事件反向挑选流派或权重。</p></article><article><strong>测量误差</strong><p>出生时间、地点中心点和历史时区的不确定性应传播为特征区间，并报告结论翻转率。</p></article><article><strong>负对照</strong><p>使用理论上无关的结果、错位年份或置换出生时刻，检查模型是否只是吸收季节与队列结构。</p></article></div>
       </section>
 
-      <section id="causality"><span>07 · 因果边界</span><h2>相关、预测和因果是三类不同命题</h2>
-        <p>模型即使拥有样本外预测增量，也不能据此断言出生时刻<em>造成</em>后来事件。地区、季节、出生队列、社会制度和家庭背景可能同时影响出生记录分布与人生结果。</p>
+      <section id="causality"><span>08 · 因果边界</span><h2>相关、预测和因果是三类不同命题</h2>
+        <p>这是最硬的一道边界。即使（假设性地）模型拥有了样本外预测增量，也不能据此断言出生时刻<em>造成</em>后来事件。</p>
         <div class="thm-block">
-          <div class="block-head"><strong>命题 7.1</strong><em>（因果效应 ≠ 观察相关）</em></div>
+          <div class="block-head"><strong>命题 8.1</strong><em>（因果效应 ≠ 观察相关）</em></div>
           <div class="block-body">
-            <div class="eq-row"><Math tex="\mathbb{E}\bigl[Y(1) - Y(0)\bigr] \;\neq\; \mathbb{E}[Y \mid \text{feature}=1] - \mathbb{E}[Y \mid \text{feature}=0]" display /><span class="eq-num">(7.1)</span></div>
-            <p>左式是平均因果效应（ATE），需要可操纵的处理与可忽略性；右式是观察条件期望之差，受混淆偏差影响。传统符号特征通常<strong>不是可操纵处理</strong>，无法随机分配，因此 (7.1) 的等号一般不成立。</p>
+            <div class="eq-row"><Math tex="\mathbb{E}\bigl[Y(1) - Y(0)\bigr] \;\neq\; \mathbb{E}[Y \mid \text{feature}=1] - \mathbb{E}[Y \mid \text{feature}=0]" display /><span class="eq-num">(8.1)</span></div>
+            <p>左式是平均因果效应（ATE），需要可操纵的处理与可忽略性；右式是观察条件期望之差，受混淆偏差影响。<strong>出生时刻不是可操纵处理</strong>——无法随机分配，因此 (8.1) 的等号一般不成立。</p>
           </div>
         </div>
-        <p>可行的研究目标包括：文化分类描述、增量预测检验，或研究人们接触解释后的行为效应。直接宣称"出生时刻导致事件"超出了观察数据能支持的命题类型。</p>
+        <p>可行的研究目标因此收窄为三类：文化分类描述、增量预测检验（仅相关性）、或研究人们接触解释后的行为效应。<strong>"出生时刻导致事件"超出了观察数据能支持的命题类型。</strong></p>
       </section>
 
-      <section id="disciplines"><span>08 · 跨学科接口</span><h2>现代学科提供检验工具，也限定结论范围</h2>
-        <div class="research-grid"><article><strong>地理学</strong><p>经纬度进入地方视太阳时，历史行政区和迁移史用于处理空间暴露。行政区标签不能替代连续坐标，也不能把现代时区倒推到历史时期。</p></article><article><strong>计量经济学</strong><p>队列、选择、固定效应、负对照和样本外评分用于区分增量信息与过拟合；拟合度不能替代识别假设。</p></article><article><strong>生物与健康</strong><p>出生季节可能关联光照、温度、感染与营养暴露，这些机制必须用真实环境和生理变量单独测量。干支标签不能充当生物机制，主题贡献也不是医学诊断。</p></article><article><strong>知识史</strong><p>书籍年代、版本、术语迁移和注家差异构成规则来源图。跨书一致只表示文本复证，不能直接提升现实效度。</p></article></div>
-        <p>这些学科可以分析"传统体系编码了什么"和"输出是否与观察相关"，但不能由形式符号直接推出经验真实性。</p>
-      </section>
-
-      <section id="governance"><span>09 · 数据治理</span><h2>保存与登录必须从权限模型开始</h2>
-        <p>出生日期、精确地点和长期事件记录具有高度敏感性。当前网页只在当前浏览器标签页恢复分析，服务器不保存个人命盘。未来账户功能上线前，需要确定最小收集范围、加密、导出、逐条删除、保留期限与研究同意的分离机制。</p>
-        <ul class="failure-list"><li><strong>匿名计算</strong><span>无需账户，输入不进入研究样本。</span></li><li><strong>账户保存</strong><span>用户主动选择，可导出和彻底删除。</span></li><li><strong>经验研究</strong><span>另行知情同意，身份信息与分析数据隔离。</span></li><li><strong>高风险解释</strong><span>不提供医疗、金融或重大人生决策指令。</span></li></ul>
+      <section id="conclusion"><span>09 · 为何无法预测</span><h2>把上面的缺口合起来看</h2>
+        <p>把 §5 的四条结构性不足、§6 的统计门槛、§8 的因果边界合起来，结论是明确的：</p>
+        <ul class="failure-list">
+          <li><strong>没有概率输出</strong><span>管线只产出方向（support/pressure）和人为权重，不含 <Math tex="P(Y|X)" />，无法回答"可能性有多大"。</span></li>
+          <li><strong>权重无校准</strong><span>所有权重是人为或流派约定，未经样本拟合，无法判断哪组更接近现实。</span></li>
+          <li><strong>粒度过粗</strong><span>10 个主题域无法区分具体事件（升职 vs 失业都进"事业"），只够文化分类。</span></li>
+          <li><strong>混淆不可分</strong><span>出生季节同时关联干支与已知的环境/生物变量，形式系统内部无法分离。</span></li>
+          <li><strong>无样本外证据</strong><span>目前没有任何预注册的、样本外的检验证明 <Math tex="I_t" /> 能稳定预测任何结果。</span></li>
+          <li><strong>因果不可主张</strong><span>出生时刻不可操纵，观察相关不等于因果，预测增量也不等于因果效应。</span></li>
+        </ul>
+        <div class="thm-block">
+          <div class="block-head"><strong>结论 9.1</strong><em>（能力边界）</em></div>
+          <div class="block-body">
+            <p>八字形式系统能做到的：把传统术语重写成有定义域的对象、保证内部可复算与可审计、提供文化层面的结构分类。</p>
+            <p>它<strong>做不到</strong>的：预测具体事件、提供发生概率、建立因果关系、据此指导医疗/财务/人生决策。任何把 <Math tex="I_t" /> 或 <Math tex="\nu" /> 当作"预测值"或"概率"来指导生活的用法，都超出了系统的数学能力——这不是工程完善度的问题，而是数学结构的硬边界。</p>
+          </div>
+        </div>
+        <p>因此 SenFate 的定位是：<strong>把八字当作文化遗产和形式系统来研究与呈现，而不是当作预测工具</strong>。形式化的价值在于让这个边界清晰可见、可验证、不可含糊——这本身就是对"用八字预测/指导生活"这一普遍做法最有力的反驳。</p>
       </section>
     </article>
   </div>
