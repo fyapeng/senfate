@@ -1,0 +1,24 @@
+---
+import katex from "katex";
+
+interface Props {
+  /** LaTeX 源码。 */
+  tex: string;
+  /** 是否独占一行的展示型公式（默认 false，行内公式）。 */
+  display?: boolean;
+}
+
+const { tex, display = false } = Astro.props;
+const html = katex.renderToString(tex, {
+  displayMode: display,
+  throwOnError: false,
+  strict: false,
+  output: "html",
+});
+---
+
+{display ? (
+  <div class="katex-display" set:html={html} />
+) : (
+  <span class="katex-inline" set:html={html} />
+)}

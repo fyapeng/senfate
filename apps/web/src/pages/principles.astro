@@ -1,22 +1,171 @@
 ---
 import { InferenceExplorer } from "../components/InferenceExplorer";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import Math from "../components/Math.astro";
 ---
 <SiteLayout active="principles" title="推断原理指南" description="从出生时空到年度主题贡献：SenFate 计算链的逐步说明。">
-  <section class="guide-hero"><span class="kicker">INFERENCE GUIDE</span><h1>从出生时间到年度推断</h1><p>这是一份计算指南。它说明每一层接收什么、输出什么，以及什么情况下系统必须停止。传统术语被写成有定义域的状态、算子和证据；无法由规范条件表达的古籍规则不会被模糊匹配激活。</p></section>
+  <section class="guide-hero"><span class="kicker">INFERENCE GUIDE</span><h1>从出生时间到年度推断</h1><p>这是一份计算指南，说明每一层接收什么、输出什么、何时必须停止。它从计算机科学的视角描述完整计算链：每一步是一个函数，接受前一层的稳定输出，产出本层的规范对象。无法由规范条件表达的古籍规则不会被模糊匹配激活。形式模型本身的数学定义（测度、泛函、不动点）见<a href="./perspective/">现代视角</a>。</p></section>
   <div class="guide-shell">
     <aside class="guide-toc" aria-label="本页目录"><strong>计算目录</strong><a href="#input">出生时空</a><a href="#calendar">干支记时</a><a href="#chart">藏干与命盘</a><a href="#measure">五行与十神</a><a href="#resolution">关系裁决</a><a href="#pattern">格局与调候</a><a href="#dynamics">大运、流年与流月</a><a href="#topics">古籍函数</a><a href="#trajectory">人生 K 线</a><a href="#failure">失败与证书</a></aside>
     <article class="guide-article">
-      <section id="input"><span>01 · 出生时空</span><h2>出生记录先成为带误差的时空观测</h2><p>输入对象包含民用日期、钟表时刻、地点、性别口径、时间误差和坐标误差。地点解析为经纬度与带版本的 IANA 时区。城市中心点和精确坐标拥有不同的不确定度，系统不使用固定的“城市加减分钟表”。</p><div class="math-block"><code>x=(d,t,φ,λ,z,ε<sub>t</sub>,ε<sub>s</sub>)</code><p>φ、λ 是纬度和经度，z 是历史时区，ε 表示时间与空间误差。夏令时回拨可能产生两个 UTC 候选，跳时可能没有合法候选。</p></div></section>
-      <section id="calendar"><span>02 · 干支记时</span><h2>公历输入不会直接对应四柱</h2><p>用户输入的是民用公历记录。系统先用出生地的历史时区把它还原为 UTC，再由经度差和均时差计算地方视太阳时。四柱随后分别按年界、月界、连续日序和时辰边界求得；它们不是把公历年月日时简单查表替换。</p><div class="math-block"><code>t<sub>apparent</sub>=t<sub>civil</sub>+4(λ−λ<sub>zone</sub>)+E(d)</code><p>经度每差一度约对应四分钟，E(d) 是均时差。认证节气根来自 DE441 交点表。公开输入范围为 1850—2100，边界附近同时传播钟表和坐标误差。</p></div><div class="method-grid"><article><span>年柱</span><h3>以立春划分干支年</h3><p>八字年柱通常不在公历元旦或农历正月初一切换。地方时刻越过立春根后进入下一干支年，再按六十甲子循环确定年干支。</p></article><article><span>月支</span><h3>十二个“节”划分建月</h3><p>立春起寅月，随后以惊蛰、清明、立夏、芒种、小暑、立秋、白露、寒露、立冬、大雪、小寒依次进入卯至丑月。月相和农历朔望不参与月柱边界。</p></article><article><span>日柱</span><h3>连续日序映射六十甲子</h3><p>把认证历元的日序与基准甲子日相减后对 60 取模。子初换日或午夜换日属于模型约定；时间误差跨越所选日界时，系统拒绝给出唯一日柱。</p></article><article><span>时支</span><h3>地方视太阳时划分十二时辰</h3><p>子时覆盖约 23:00—01:00，之后每两小时依次为丑至亥。23:00 附近还会同时受到日界口径影响，因此时柱必须与日柱作为一组计算。</p></article></div><h3 class="guide-subhead">月干用五虎遁，时干用五鼠遁</h3><p>月支由节气确定后，月干从年干推出。甲己年丙寅起，乙庚年戊寅起，丙辛年庚寅起，丁壬年壬寅起，戊癸年甲寅起，再随月份顺推。时干则从日干推出：甲己日甲子起，乙庚日丙子起，丙辛日戊子起，丁壬日庚子起，戊癸日壬子起，再随时支顺推。</p><div class="rule-table" role="table" aria-label="五虎遁与五鼠遁起点"><div role="row"><strong>年干／日干组</strong><strong>甲己</strong><strong>乙庚</strong><strong>丙辛</strong><strong>丁壬</strong><strong>戊癸</strong></div><div role="row"><span>寅月月干</span><b>丙</b><b>戊</b><b>庚</b><b>壬</b><b>甲</b></div><div role="row"><span>子时时干</span><b>甲</b><b>丙</b><b>戊</b><b>庚</b><b>壬</b></div></div></section>
-      <section id="chart"><span>03 · 藏干与命盘状态</span><h2>地支展开为有序藏干，不把权重写死成事实</h2><p>系统采用固定的藏干字典：子癸；丑己癸辛；寅甲丙戊；卯乙；辰戊乙癸；巳丙戊庚；午丁己；未己丁乙；申庚壬戊；酉辛；戌戊辛丁；亥壬甲。顺序表示本气、中气、余气。不同流派对各层权重、月令增益和透干作用存在差异，所以字符映射固定，数值权重保留在可版本化模型中。</p><div class="math-block"><code>G=(V,E<sub>candidate</sub>,A,C),　h:B→S<sup>1..3</sup></code><p>V 包含显干、地支和藏干节点；h 把每个地支映射为一至三个有序天干。候选合、冲、刑、害只在图中登记，尚未成为有效关系。</p></div><p>每个节点继续携带柱位、显隐、藏干层级、阴阳和五行。这样“月支中气透出”“流年支冲日支”能够成为明确谓词，而不会退化成查询任意字符串。</p></section>
-      <section id="measure"><span>04 · 五行与十神</span><h2>五行强度是有限测度，十神是相对映射</h2><p>天干和藏干先映射为木、火、土、金、水及阴阳。显干、藏干层级、月令、通根和时间层共同形成五行集合上的非负有限测度 μ。它表示模型内部的作用量，不等于物理能量或人群概率。</p><div class="math-block"><code>μ(e)=Σ<sub>i</sub>w<sub>layer,i</sub>w<sub>visibility,i</sub>w<sub>season,i</sub>1[element(i)=e]</code><p>权重都位于公开配置中，证书保存最终参数指纹。改动权重会形成不同模型版本，不能覆盖旧结果。</p></div><p>十神以日干为参照。与日主同五行为比肩、劫财；日主所生为食神、伤官；日主所克为偏财、正财；克日主为七杀、正官；生日主为偏印、正印。同类中的正偏或比劫，再由阴阳同异决定。六亲投影继续保留柱位、显干或藏干、时间层和权重，避免把一个十神标签直接等同于现实人物。</p></section>
-      <section id="resolution"><span>05 · 关系裁决</span><h2>候选关系迭代到稳定正规形</h2><p>裁决算子 R 处理完整度、季节支持、透藏、通关、竞争与阻断。稳定状态满足 R(Z*)=Z*。出现循环或达到迭代上限时，后续主题层停止。</p><InferenceExplorer client:load /></section>
-      <section id="pattern"><span>06 · 格局与调候</span><h2>常规格、禄刃格和从格分别执行条件函数</h2><p>正官、七杀、正偏财、食神、伤官和正偏印从月支本气、中气、余气生成，透干、通根、月令权重和竞争状态决定是否达到当前成格阈值。每个结论保留证据向量与未满足条件，后续可以继续叠加各书的破格、救应规则。</p><p>建禄由日干临官位与月支一致确定；羊刃使用显式刃支表，阴干口径标记为流派争议。从强、从弱只在极强或极弱状态下启动，并检查全部非日干显干及所有藏干是否同向；从弱还要求日主无根。条件不足时保留具名候选，不会强制定格。调候另建温度—湿度坐标，与旺衰测度分开记录。</p></section>
-      <section id="dynamics"><span>07 · 大运、流年与流月</span><h2>大运先定方向和起运点，再逐层累计状态</h2><p>公开基准采用常见的年干阴阳与性别口径决定顺逆：阳年男、阴年女顺排，阴年男、阳年女逆排；具体流派可以提供另一套具名配置。顺排从出生时刻量到下一“节”，逆排量到上一“节”，再按三日折一年换算起运年龄。系统在连续时间上计算差值，同时输出误差区间，不把“几岁几个月”当作无误差常数。</p><div class="math-block"><code>a<sub>start</sub>=|t<sub>birth</sub>−t<sub>jie</sub>|/(3 days/year)</code><p>第一步大运从月柱沿顺向或逆向推进一位，此后每十年推进一位。节气、出生时间或坐标误差都会传导到起运区间。</p></div><div class="math-block"><code>Z<sub>N</sub>→Z<sub>N,D(k)</sub>→Z<sub>N,D(k),Y(t)</sub>→Z<sub>N,D(k),Y(t),M(m)</sub></code><p>流年以立春为界加入年柱，流月按十二个节界加入月柱。每一层都重新物化五行、十神、候选关系和稳定正规形，年度状态因此包含原局、大运与流年，而非只运行 annual scope。</p></div><p>大运柱与流年柱相同会生成岁运并临证据；证据本身不预设吉凶。极弱、极强和七字同向也先形成可审计状态，再交给有明确前提的来源规则解释。</p></section>
-      <section id="topics"><span>08 · 古籍函数</span><h2>每条来源成为受限条件函数</h2><p>来源记录绑定书名、行号、规则家族、时间层、规范条件与效应。主题函数只读取稳定正规形的规范特征，不能查询原始图、未裁决边或任意字符串路径。不能等价表达的规则进入延期队列，尚无规范裁决的冲突进入争议队列。</p><div class="chain-block"><span>稳定正规形</span><i>→</i><span>规范特征</span><i>→</i><span>来源条件</span><i>→</i><span>贡献证据</span><i>→</i><strong>主题向量 ν</strong></div><p>ν 是事业、财务、关系、家庭、学习、迁动、身心与风险等主题上的有符号有限测度。正负表示传统规则体系内的支持与压力，不能直接解释为事件概率。</p></section>
-      <section id="trajectory"><span>09 · 人生 K 线</span><h2>影线来自十二流月，不来自主题横截面</h2><p>对每个年度先计算年度指数 I<sub>t</sub>=ν<sub>t</sub>(Ω)/|ν<sub>t</sub>|(Ω)，再从立春起逐月计算十二个 I<sub>t,m</sub>。蜡烛开、高、低、收分别为首月值、十二月最大值、最小值和末月值。</p><div class="math-block"><code>O<sub>t</sub>=I<sub>t,1</sub>, H<sub>t</sub>=max I<sub>t,m</sub>, L<sub>t</sub>=min I<sub>t,m</sub>, C<sub>t</sub>=I<sub>t,12</sub></code><p>这是一种状态轨迹，不是金融收益 K 线。任一流月无法稳定求值时，该年影线留空，系统不会插值补齐。</p></div></section>
-      <section id="failure"><span>10 · 失败与证书</span><h2>没有稳定结果时，系统明确停止</h2><ul class="failure-list"><li><strong>时间歧义</strong><span>重复时刻需要选择，跨越节气或日界需要提高精度。</span></li><li><strong>关系循环</strong><span>裁决状态循环，停止主题求值。</span></li><li><strong>迭代超限</strong><span>在上限内没有稳定，停止主题求值。</span></li><li><strong>模型不一致</strong><span>投影模型与正规形模型不同，拒绝混算。</span></li></ul><p>普通页面展示用户可理解的结论、依据和边界；版本号、指纹、迭代轨迹和完整来源位于“计算证书”中。</p></section>
+      <section id="input"><span>01 · 出生时空</span><h2>出生记录先成为带误差的时空观测</h2>
+        <p>输入对象不是无误差的精确值，而是一组带有不确定度的观测。系统在每一层都把误差显式传播，而不是把它当作可忽略的小数。</p>
+        <div class="def-block">
+          <div class="block-head"><strong>定义 1.1</strong><em>（观测元组）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="x = (d,\, t,\, \varphi,\, \lambda,\, z,\, \varepsilon_t,\, \varepsilon_s)" display /><span class="eq-num">(1.1)</span></div>
+            <table class="symbol-table">
+              <caption>观测元组的符号定义</caption>
+              <thead><tr><th>符号</th><th>类型</th><th>含义</th></tr></thead>
+              <tbody>
+                <tr><td><Math tex="d, t" /></td><td>标量</td><td>民用公历日期与钟表时刻</td></tr>
+                <tr><td><Math tex="\varphi, \lambda" /></td><td>实数</td><td>纬度、经度（城市中心点或精确坐标）</td></tr>
+                <tr><td><Math tex="z" /></td><td>字符串</td><td>带版本的 IANA 历史时区</td></tr>
+                <tr><td><Math tex="\varepsilon_t" /></td><td>区间</td><td>钟表时间不确定度（秒）</td></tr>
+                <tr><td><Math tex="\varepsilon_s" /></td><td>区间</td><td>空间不确定度（质心 200/50/10 km）</td></tr>
+              </tbody>
+            </table>
+            <p>夏令时回拨可能产生两个 UTC 候选，跳时可能没有合法候选。<Math tex="\varepsilon_t, \varepsilon_s" /> 以闭区间形式向下传播，穿过任何边界（日界、时辰界、节气界）时触发歧义裁决。</p>
+            <span class="code-ref">core/calendar.ts:63-64 · centroid 不确定度 200/50/10 km</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="calendar"><span>02 · 干支记时</span><h2>公历输入不会直接对应四柱</h2>
+        <p>用户输入的是民用公历记录。系统先用出生地的历史时区把它还原为 UTC，再由经度差和均时差计算地方视太阳时。四柱随后分别按年界、月界、连续日序和时辰边界求得——它们不是把公历年月日时简单查表替换。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 2.1</strong><em>（地方视太阳时）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="t_{\text{app}} = t_{\text{civil}} + 4(\lambda - \lambda_{\text{zone}}) + E(d)" display /><span class="eq-num">(2.1)</span></div>
+            <p>经度每差一度约对应四分钟（<Math tex="4" /> 分钟/度），<Math tex="E(d)" /> 是当日均时差。认证节气根来自 <strong>DE441 交点表</strong>。公开输入范围为 1850–2100，边界附近同时传播钟表与坐标误差。</p>
+            <span class="code-ref">core/calendar.ts:75-76 · DE441 · pinned IANA 2026c</span>
+          </div>
+        </div>
+        <div class="method-grid"><article><span>年柱</span><h3>以立春划分干支年</h3><p>八字年柱通常不在公历元旦或农历正月初一切换。地方时刻越过立春根后进入下一干支年，再按六十甲子循环确定年干支。</p></article><article><span>月支</span><h3>十二个"节"划分建月</h3><p>立春起寅月，随后以惊蛰、清明、立夏、芒种、小暑、立秋、白露、寒露、立冬、大雪、小寒依次进入卯至丑月。月相和农历朔望不参与月柱边界。</p></article><article><span>日柱</span><h3>连续日序映射六十甲子</h3><p>把认证历元的日序与基准甲子日相减后对 60 取模。子初换日或午夜换日属于模型约定；时间误差跨越所选日界时，系统拒绝给出唯一日柱。</p></article><article><span>时支</span><h3>地方视太阳时划分十二时辰</h3><p>子时覆盖约 23:00—01:00，之后每两小时依次为丑至亥。23:00 附近还会同时受到日界口径影响，因此时柱必须与日柱作为一组计算。</p></article></div>
+        <h3 class="guide-subhead">月干用五虎遁，时干用五鼠遁</h3>
+        <p>月支由节气确定后，月干从年干推出；时干从日干推出。两组起点规则如下表，再随月支/时支顺推。</p>
+        <div class="rule-table" role="table" aria-label="五虎遁与五鼠遁起点"><div role="row"><strong>年干／日干组</strong><strong>甲己</strong><strong>乙庚</strong><strong>丙辛</strong><strong>丁壬</strong><strong>戊癸</strong></div><div role="row"><span>寅月月干</span><b>丙</b><b>戊</b><b>庚</b><b>壬</b><b>甲</b></div><div role="row"><span>子时时干</span><b>甲</b><b>丙</b><b>戊</b><b>庚</b><b>壬</b></div></div>
+      </section>
+
+      <section id="chart"><span>03 · 藏干与命盘状态</span><h2>地支展开为有序藏干，不把权重写死成事实</h2>
+        <p>系统采用固定的藏干字典：子癸；丑己癸辛；寅甲丙戊；卯乙；辰戊乙癸；巳丙戊庚；午丁己；未己丁乙；申庚壬戊；酉辛；戌戊辛丁；亥壬甲。顺序表示本气、中气、余气。字符映射固定，数值权重保留在可版本化模型中。</p>
+        <div class="def-block">
+          <div class="block-head"><strong>定义 3.1</strong><em>（状态图 G）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="G = (V,\, E_{\text{cand}},\, A,\, C), \quad h : B \to S^{1..3}" display /><span class="eq-num">(3.1)</span></div>
+            <p><Math tex="V" /> 包含显干、地支与藏干节点；<Math tex="h" /> 把每个地支映射为一至三个有序天干；<Math tex="E_{\text{cand}}" /> 是候选合、冲、刑、害边的集合。候选关系只在图中登记，尚未成为有效关系。</p>
+            <span class="code-ref">core/ontology.ts:83-93 · detectRelationCandidates</span>
+          </div>
+        </div>
+        <p>每个节点携带柱位、显隐、藏干层级、阴阳和五行。这样"月支中气透出""流年支冲日支"能成为明确谓词，而不会退化成查询任意字符串。</p>
+      </section>
+
+      <section id="measure"><span>04 · 五行与十神</span><h2>五行强度是有限测度，十神是相对映射</h2>
+        <p>天干和藏干先映射为木、火、土、金、水及阴阳。显干、藏干层级、月令、通根和时间层共同形成五行集合上的测度 <Math tex="\mu" />。它表示模型内部的作用量，不等于物理能量或人群概率。<Math tex="\mu" /> 的形式定义见<a href="./perspective/#measure">现代视角 §3</a>，这里给出其计算构成。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 4.1</strong><em>（五行测度的计算构成）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="\mu(e) = \sum_{i} w^{\text{layer}}_i \cdot w^{\text{pos}}_i \cdot r^{\text{rank}}_i \cdot \mathbf{1}[\text{el}(i)=e]" display /><span class="eq-num">(4.1)</span></div>
+            <table class="symbol-table">
+              <caption>三类权重（基准 transparent-baseline 预设）</caption>
+              <thead><tr><th>权重</th><th>取值</th><th>含义</th></tr></thead>
+              <tbody>
+                <tr><td><Math tex="w^{\text{layer}}" /></td><td>natal/luck/annual/month = 1</td><td>时间层权重</td></tr>
+                <tr><td><Math tex="w^{\text{pos}}" /></td><td>year .8 / month 1.15 / day 1 / hour .85</td><td>柱位权重</td></tr>
+                <tr><td><Math tex="r^{\text{rank}}" /></td><td>main 1 / middle .55 / residual .3</td><td>藏干层级权重</td></tr>
+              </tbody>
+            </table>
+            <p>累加后再乘月支当令的季节乘数行（当令元素 ×1.35，其余 ×1.0）。权重全部位于公开配置中，证书保存最终参数指纹。改动权重形成不同模型版本，不能覆盖旧结果。</p>
+            <span class="code-ref">core/lifecycle.ts:27-34 · core/model.ts:64 · seasonalTable(1.35)</span>
+          </div>
+        </div>
+        <p>十神以日干为参照。与日主同五行为比肩、劫财；日主所生为食神、伤官；日主所克为偏财、正财；克日主为七杀、正官；生日主为偏印、正印。同类中的正偏或比劫，再由阴阳同异决定。六亲投影继续保留柱位、显干或藏干、时间层和权重，避免把一个十神标签直接等同于现实人物。</p>
+      </section>
+
+      <section id="resolution"><span>05 · 关系裁决</span><h2>候选关系迭代到稳定正规形</h2>
+        <p>裁决算子 <Math tex="R" /> 处理完整度、季节支持、透藏、通关、竞争与阻断。这是一个在有限状态指纹上的不动点迭代。</p>
+        <div class="def-block">
+          <div class="block-head"><strong>定义 5.1</strong><em>（正规形不动点）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="R(Z^*) = Z^*, \quad Z^* \in \mathcal{S}_{\text{stable}}" display /><span class="eq-num">(5.1)</span></div>
+            <p>迭代至满足以下终止条件之一：<strong>stable</strong>（一轮内无算子改变状态，发布稳定正规形）；<strong>cycle</strong>（状态指纹重复，失败关闭）；<strong>limit-reached</strong>（达到迭代上限仍未稳定，失败关闭）。主题层的定义域只包含 stable。</p>
+            <span class="code-ref">core/normal-form.ts:9-22 · maxIterations=64 · resolution.ts:25 指纹</span>
+          </div>
+        </div>
+        <p>每条候选关系经裁决后必须落到 <Math tex="\{\text{effective},\,\text{transformed},\,\text{contested},\,\text{blocked}\}" /> 之一，不能停留在 candidate 进入主题层。下面交互展示这六种状态及其判定要点。</p>
+        <InferenceExplorer client:load />
+      </section>
+
+      <section id="pattern"><span>06 · 格局与调候</span><h2>常规格、禄刃格与从格分别执行条件函数</h2>
+        <p>格局判定不是单一规则，而是三个独立家族的条件函数。每个结论保留证据向量与未满足条件，后续可继续叠加各书的破格、救应规则。</p>
+        <div class="method-grid">
+          <article><span>常规八格</span><h3>从月支藏干透出</h3><p>正官、七杀、正偏财、食神、伤官和正偏印从月支本气、中气、余气生成。透干、通根、月令权重和竞争状态决定是否达到当前成格阈值。</p></article>
+          <article><span>建禄 / 羊刃</span><h3>由日干临官位与刃支表确定</h3><p>建禄由日干临官位与月支一致确定；羊刃使用显式刃支表，阴干口径标记为流派争议（contested）。</p></article>
+          <article><span>从强 / 从弱</span><h3>仅在极强或极弱状态启动</h3><p>从强、从弱只在极强或极弱状态下启动，并检查全部非日干显干及所有藏干是否同向；从弱还要求日主无根。条件不足时保留具名候选，不强制定格。</p></article>
+          <article><span>调候</span><h3>独立的温度—湿度坐标</h3><p>调候另建温度—湿度坐标，与旺衰测度分开记录。它是无量纲模型坐标，不是气象观测或生物测量。</p></article>
+        </div>
+        <span class="code-ref">core/interpretation.ts · senfate-pattern-projection.v2</span>
+      </section>
+
+      <section id="dynamics"><span>07 · 大运、流年与流月</span><h2>大运先定方向与起运点，再逐层累计状态</h2>
+        <p>公开基准采用常见的年干阴阳与性别口径决定顺逆：阳年男、阴年女顺排，阴年男、阳年女逆排。顺排从出生时刻量到下一"节"，逆排量到上一"节"，再按三日折一年换算起运年龄。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 7.1</strong><em>（起运年龄）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="a_{\text{start}} = \frac{|t_{\text{birth}} - t_{\text{jie}}|}{3\;\text{days/year}}" display /><span class="eq-num">(7.1)</span></div>
+            <p>误差区间把节气时刻不确定度与出生时刻不确定度相加后传播：</p>
+            <div class="eq-row"><Math tex="\Delta a = \frac{\varepsilon_{\text{jie}} + \varepsilon_t}{3 \times 86400\;\text{s}}" display /><span class="eq-num">(7.2)</span></div>
+            <p>第一步大运从月柱沿顺/逆向推进一位，此后每十年推进一位。大运起始 UTC 用回归年 <strong>365.2425 天</strong>换算。</p>
+            <span class="code-ref">core/calendar.ts:86-88 · daysPerLuckYear=3 · 365.2425 回归年</span>
+          </div>
+        </div>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 7.2</strong><em>（非自治演化链）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="Z_N \to Z_{N,D(k)} \to Z_{N,D(k),Y(t)} \to Z_{N,D(k),Y(t),M(m)}" display /><span class="eq-num">(7.3)</span></div>
+            <p>流年以立春为界加入年柱，流月按十二个节界加入月柱。每一层都重新物化五行、十神、候选关系和稳定正规形。<strong>年度状态因此包含原局、大运与流年，而非只运行 annual scope。</strong></p>
+            <span class="code-ref">core/semantic.ts:18-29 · resolveAnnualContext · 立春 315° 黄经</span>
+          </div>
+        </div>
+        <p>大运柱与流年柱相同会生成岁运并临证据；证据本身不预设吉凶。极弱、极强和七字同向也先形成可审计状态，再交给有明确前提的来源规则解释。</p>
+      </section>
+
+      <section id="topics"><span>08 · 古籍函数</span><h2>每条来源成为受限条件函数</h2>
+        <p>来源记录绑定书名、行号、规则家族、时间层、规范条件与效应。主题函数只读取稳定正规形的规范特征，不能查询原始图、未裁决边或任意字符串路径。不能等价表达的规则进入延期队列（deferred），尚无规范裁决的冲突进入争议队列（contested）。</p>
+        <div class="chain-block"><span>稳定正规形</span><i>→</i><span>规范特征</span><i>→</i><span>来源条件</span><i>→</i><span>贡献证据</span><i>→</i><strong>主题向量 ν</strong></div>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 8.1</strong><em>（主题贡献测度）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="\nu(A) = \sum_{j\,:\,\text{domain}(j) \in A} \text{polaritySign}(p_j) \cdot w_j" display /><span class="eq-num">(8.1)</span></div>
+            <p><Math tex="\nu" /> 是事业、财务、关系、家庭、学习、迁动、身心与风险等主题上的有符号有限测度。<Math tex="\text{polaritySign}(\text{support})=+1" />，<Math tex="\text{polaritySign}(\text{pressure})=-1" />。正负表示传统规则体系内的支持与压力，<strong>不能直接解释为事件概率</strong>。多本书对同一家族的重复表述增加来源覆盖，不重复增加 <Math tex="\nu" />。</p>
+            <span class="code-ref">rules/evaluator.ts:56 · kleeneAnd 三值逻辑 · 37,231 条来源 / 4,118 函数</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="trajectory"><span>09 · 人生 K 线</span><h2>影线来自十二流月，不来自主题横截面</h2>
+        <p>对每个年度先计算年度指数 <Math tex="I_t" />，再从立春起逐月计算十二个月度指数 <Math tex="I_{t,m}" />。蜡烛开、高、低、收分别取首月值、十二月极值和末月值。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>公式 9.1</strong><em>（年度指数与 OHLC 蜡烛）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="I_t = \frac{\nu_t(\Omega)}{|\nu_t|(\Omega)} \in [-1,1]" display /><span class="eq-num">(9.1)</span></div>
+            <div class="eq-row"><Math tex="O_t = I_{t,1},\quad H_t = \max_m I_{t,m},\quad L_t = \min_m I_{t,m},\quad C_t = I_{t,12}" display /><span class="eq-num">(9.2)</span></div>
+            <p>每个 <Math tex="I_{t,m}" /> 由"流月柱 + 年柱 + 大运柱"重新求一遍动态状态、正规形与 <Math tex="\nu" /> 得到——它不是由年度主题横截面构造的区间。这是一种状态轨迹，不是金融收益 K 线。任一流月无法稳定求值时，该年影线留空，系统不会插值补齐。</p>
+            <span class="code-ref">apps/web/browser-analysis-engine.ts:121-160 · 浏览器 Web Worker · 12 节月序</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="failure"><span>10 · 失败与证书</span><h2>没有稳定结果时，系统明确停止</h2>
+        <p>正规形求值有确定的状态指纹、迭代上限和循环检测。只有 stable 可以进入六亲与主题层；其它三种失败码触发失败关闭，不选择任意中间轮次充当结果。</p>
+        <ul class="failure-list">
+          <li><strong>时间歧义</strong><span>重复时刻需要选择（<Math tex="\text{boundary-ambiguous}" />），跨越节气或日界需要提高精度。</span></li>
+          <li><strong>关系循环</strong><span>裁决状态指纹重复（<Math tex="\text{cycle}" />），停止主题求值。</span></li>
+          <li><strong>迭代超限</strong><span>在上限 64 内没有稳定（<Math tex="\text{limit-reached}" />），停止主题求值。</span></li>
+          <li><strong>模型不一致</strong><span>投影模型与正规形模型不同（<Math tex="\text{model-mismatch}" />），拒绝混算。</span></li>
+        </ul>
+        <p>普通页面展示用户可理解的结论、依据和边界；版本号、指纹、迭代轨迹和完整来源位于"计算证书"中。</p>
+      </section>
     </article>
   </div>
 </SiteLayout>
