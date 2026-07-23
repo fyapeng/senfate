@@ -282,7 +282,7 @@ function StructureResult({ result }: { result: ApiAnalysisResponse }) {
   </div>;
 }
 
-const patternStatusLabels = { qualified: "条件通过", contested: "并列待裁", candidate: "待判定", unqualified: "未达阈值" } as const;
+const patternStatusLabels = { qualified: "条件通过", contested: "并列待裁", candidate: "待判定", broken: "破格", unqualified: "未达阈值" } as const;
 const climateLabels = { cold: "偏寒", hot: "偏热", dry: "偏燥", humid: "偏湿", balanced: "中和" } as const;
 const balancingLabels = { supportive: "增益候选", neutral: "中性", avoid: "减益候选" } as const;
 function InterpretationResult({ result }: { result: ApiAnalysisResponse }) {
@@ -292,7 +292,7 @@ function InterpretationResult({ result }: { result: ApiAnalysisResponse }) {
       <article className="insight-card"><span>原局格局判定</span><h3>{patternTitle}</h3><p>{primary?`${patternStatusLabels[primary.status]}。${primary.unmetConditions.join("；")}`:"当前没有结构达到成格条件。"} 常规格取月令藏干并计入透干、通根；建禄、羊刃与从格使用各自的显式条件。</p></article>
       <article className="insight-card"><span>调候坐标</span><h3>{climateLabels[projection.climate.temperatureState]} · {climateLabels[projection.climate.humidityState]}</h3><p>温度 {decimal(projection.climate.temperature, 3)}，湿度 {decimal(projection.climate.humidity, 3)}。坐标由月令基线与五行测度共同生成。</p></article>
     </div>
-    <div className="pattern-list"><div className="relation-heading"><span>格局条件结论</span><strong>常规格、禄刃与从格分别求值</strong></div>{projection.pattern.conclusions.map((conclusion) => <article key={conclusion.id}><div><strong>{conclusion.label}</strong><span>{conclusion.family==="regular"?"月令常规格":conclusion.family==="special"?"禄刃特殊格":"顺从结构"} · {conclusion.evidence.join(" · ")}</span>{conclusion.unmetConditions.map(item=><small key={item}>{item}</small>)}</div><div><b className={`state ${conclusion.status}`}>{patternStatusLabels[conclusion.status]}</b></div></article>)}</div>
+    <div className="pattern-list"><div className="relation-heading"><span>格局条件结论</span><strong>司令取格、透干定格、成败救应与从格细分分别求值</strong></div>{projection.pattern.conclusions.map((conclusion) => <article key={conclusion.id}><div><strong>{conclusion.label}</strong><span>{conclusion.family==="regular"?"月令司令常规格":conclusion.family==="special"?"禄刃月劫特殊格":conclusion.family==="follow"?"顺从结构":"合局化气变格"} · {conclusion.evidence.join(" · ")}</span>{conclusion.unmetConditions.map(item=><small key={item}>{item}</small>)}{conclusion.sourceEvidence&&conclusion.sourceEvidence.length>0&&<small className="pattern-source">来源：{conclusion.sourceEvidence.map(ev=>`${ev.bookLabel} ${ev.lineStart}—${ev.lineEnd} 行`).join("；")}</small>}</div><div><b className={`state ${conclusion.status}`}>{patternStatusLabels[conclusion.status]}</b></div></article>)}</div>
     <div className="balancing-vector"><div className="relation-heading"><span>五行平衡方向</span><strong>综合强弱与寒热燥湿</strong></div>{projection.balancing.candidates.map((candidate) => <article key={candidate.element}><strong className={elementClass[candidate.element]}>{candidate.element}</strong><div><i><b style={{ width: `${Math.min(100, Math.abs(candidate.score) * 70 + 3)}%` }}></b></i><small>强弱 {decimal(candidate.strengthContribution, 3)} · 调候 {decimal(candidate.climateContribution, 3)}</small></div><span>{balancingLabels[candidate.status]} {candidate.score >= 0 ? "+" : ""}{decimal(candidate.score, 3)}</span></article>)}</div>
     <p className="boundary-note">这里给出可比较的五行方向；“用神”等最终命名仍需满足对应流派的完整条件，也不能直接推出具体事件。</p>
   </div>;

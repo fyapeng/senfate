@@ -192,11 +192,20 @@ export interface ApiInterpretation {
   readonly schema: "senfate-interpretive-model.v2";
   readonly model: string;
   readonly pattern: Readonly<{
-    schema: "senfate-pattern-projection.v2";
+    schema: "senfate-pattern-projection.v3";
     status: "qualified" | "contested" | "unqualified";
+    commandStem?: string;
     candidates: readonly Readonly<{ stem: string; tenGod: ApiTenGod; rank: "main" | "middle" | "residual"; exposed: boolean; rootMass: number; score: number; status: "qualified" | "contested" | "candidate" }>[];
     primaryConclusionId?:string;
-    conclusions:readonly Readonly<{id:string;label:string;family:"regular"|"special"|"follow";status:"qualified"|"contested"|"candidate";evidence:readonly string[];unmetConditions:readonly string[]}>[];
+    conclusions: readonly Readonly<{
+      id: string;
+      label: string;
+      family: "regular" | "special" | "follow" | "transform";
+      status: "qualified" | "contested" | "candidate" | "broken";
+      evidence: readonly string[];
+      unmetConditions: readonly string[];
+      sourceEvidence?: readonly Readonly<{ bookId: string; bookLabel: string; lineStart: number; lineEnd: number; rule: string }>[];
+    }>[];
   }>;
   readonly climate: Readonly<{
     schema: "senfate-climate-coordinate.v1";

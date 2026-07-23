@@ -95,7 +95,7 @@ describe("SenFate API", () => {
         pillars: { day: { tenGod: "比肩" } },
         normalForm: { status: "stable" },
       },
-      interpretation: { schema: "senfate-interpretive-model.v2", pattern:{schema:"senfate-pattern-projection.v2"}, climate: { schema: "senfate-climate-coordinate.v1" } },
+      interpretation: { schema: "senfate-interpretive-model.v2", pattern:{schema:"senfate-pattern-projection.v3"}, climate: { schema: "senfate-climate-coordinate.v1" } },
       annualTrajectory:{schema:"senfate-annual-trajectory.v3",indexDefinition:"topic-total-divided-by-total-variation",points:expect.any(Array)},
       annual:{schema:"senfate-annual-analysis.v1",targetYear:2026,normalForm:{status:"stable"},specialStates:{schema:"senfate-special-state-certificate.v1",phase:"annual",natalSevenSymbolConsensus:{total:7}},kinship:{schema:"senfate-kinship-projection.v2",phase:"annual",roles:expect.any(Array)},topics:{schema:"senfate-topic-contribution-certificate.v5",evaluated:3,activated:3,contribution:{atoms:{career:3}},eventHypotheses:[{schema:"senfate-topic-event-hypothesis.v3",predicateId:"annual:career:support",scopeEvidence:{natalSources:1,luckSources:1,annualSources:1,unscopedSources:0}}]}},
     });

@@ -96,15 +96,24 @@ import Math from "../components/Math.astro";
         <InferenceExplorer client:load />
       </section>
 
-      <section id="pattern"><span>06 · 格局与调候</span><h2>常规格、禄刃格与从格分别执行条件函数</h2>
-        <p>格局判定不是单一规则，而是三个独立家族的条件函数。每个结论保留证据向量与未满足条件，后续可继续叠加各书的破格、救应规则。</p>
+      <section id="pattern"><span>06 · 格局与调候</span><h2>规则驱动的子平法格局判定</h2>
+        <p>格局判定遵循子平法的标准流程：先按月令司令分日确定当令用事之神，再按透干定格锁定格局，随后检查成败救应。每个格局结论都携带古籍书证来源（书名 + 行号 + 规则），保证可追溯。</p>
+        <div class="thm-block">
+          <div class="block-head"><strong>定义 6.1</strong><em>（司令取格流程）</em></div>
+          <div class="block-body">
+            <div class="eq-row"><Math tex="\text{commandStem} = \text{lookup}(\text{monthBranch},\,\text{daysFromJie})" display /><span class="eq-num">(6.1)</span></div>
+            <p>系统依距该月"节"的天数，从月令司令分日表（源自《子平真诠》《渊海子平》《千里命稿》共识）查出当前当令司令之神，再以其十神定候选格局。</p>
+            <span class="code-ref">core/command-days.ts · core/pattern-evaluator.ts</span>
+          </div>
+        </div>
         <div class="method-grid">
-          <article><span>常规八格</span><h3>从月支藏干透出</h3><p>正官、七杀、正偏财、食神、伤官和正偏印从月支本气、中气、余气生成。透干、通根、月令权重和竞争状态决定是否达到当前成格阈值。</p></article>
-          <article><span>建禄 / 羊刃</span><h3>由日干临官位与刃支表确定</h3><p>建禄由日干临官位与月支一致确定；羊刃使用显式刃支表，阴干口径标记为流派争议（contested）。</p></article>
-          <article><span>从强 / 从弱</span><h3>仅在极强或极弱状态启动</h3><p>从强、从弱只在极强或极弱状态下启动，并检查全部非日干显干及所有藏干是否同向；从弱还要求日主无根。条件不足时保留具名候选，不强制定格。</p></article>
+          <article><span>常规八格</span><h3>司令之神透干定格</h3><p>司令之神透于天干时取格（透干定格为硬规则）；未透则退取本气透干。成格后检查是否被冲破，有救应则降为争议，无救应则破格。</p></article>
+          <article><span>建禄 / 羊刃 / 月劫</span><h3>特殊格与月劫格</h3><p>建禄由日干临官位确定；羊刃使用刃支表，阴干存流派争议；月劫格在月令透出比劫且非禄非刃时启动。</p></article>
+          <article><span>从强 / 从弱细分</span><h3>极强极弱下的顺从结构</h3><p>从弱格在日主无根时细分为从财、从杀、从儿三子类；从强格要求全局一致生扶。条件不足时保留具名候选。</p></article>
+          <article><span>合局变格</span><h3>三合三会化气</h3><p>当三合或三会关系在正规形中达到成化状态时，生成候选变格（如三合水局变格），列为待进一步裁定的候选。</p></article>
           <article><span>调候</span><h3>独立的温度—湿度坐标</h3><p>调候另建温度—湿度坐标，与旺衰测度分开记录。它是无量纲模型坐标，不是气象观测或生物测量。</p></article>
         </div>
-        <span class="code-ref">core/interpretation.ts · senfate-pattern-projection.v2</span>
+        <span class="code-ref">core/pattern-evaluator.ts · senfate-pattern-projection.v3 · 每条结论带 bookId/lineRange 来源</span>
       </section>
 
       <section id="dynamics"><span>07 · 大运、流年与流月</span><h2>大运先定方向与起运点，再逐层累计状态</h2>

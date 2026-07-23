@@ -1,0 +1,65 @@
+{
+  "schema": "senfate-command-days.v1",
+  "description": "月令司令分日表：每个'节'（立春、惊蛰…小寒）之后，月支藏干按天数轮流司令用事。daysFromJie 为闭区间，0 = 该节交节当日。数据依《子平真诠·论用神成败》及《渊海子平》月令分日司FLAGS共识整理，阳干司令日数取通行口径。",
+  "source": "子平真诠 / 渊海子平 / 千里命稿 月令分日司令共识",
+  "entries": {
+    "寅": [
+      { "daysFromJie": [0, 7], "stem": "戊", "note": "立春后七日戊土余气司令" },
+      { "daysFromJie": [7, 15], "stem": "丙", "note": "八日至十四日丙火长生司令" },
+      { "daysFromJie": [15, 30], "stem": "甲", "note": "十五日后甲木本气司令" }
+    ],
+    "卯": [
+      { "daysFromJie": [0, 10], "stem": "甲", "note": "惊蛰后十日甲木余气司令" },
+      { "daysFromJie": [10, 30], "stem": "乙", "note": "十一日后乙木本气司令" }
+    ],
+    "辰": [
+      { "daysFromJie": [0, 9], "stem": "乙", "note": "清明后九日乙木余气司令" },
+      { "daysFromJie": [9, 17], "stem": "癸", "note": "十日至十六日癸水墓库司令" },
+      { "daysFromJie": [17, 30], "stem": "戊", "note": "十七日后戊土本气司令" }
+    ],
+    "巳": [
+      { "daysFromJie": [0, 5], "stem": "戊", "note": "立夏后五日戊土余气司令" },
+      { "daysFromJie": [5, 17], "stem": "庚", "note": "六日至十六日庚金长生司令" },
+      { "daysFromJie": [17, 30], "stem": "丙", "note": "十七日后丙火本气司令" }
+    ],
+    "午": [
+      { "daysFromJie": [0, 9], "stem": "丙", "note": "芒种后九日丙火余气司令" },
+      { "daysFromJie": [9, 16], "stem": "己", "note": "十日至十五日己土司令" },
+      { "daysFromJie": [16, 30], "stem": "丁", "note": "十六日后丁火本气司令" }
+    ],
+    "未": [
+      { "daysFromJie": [0, 9], "stem": "丁", "note": "小暑后九日丁火余气司令" },
+      { "daysFromJie": [9, 15], "stem": "乙", "note": "十日至十四日乙木墓库司令" },
+      { "daysFromJie": [15, 30], "stem": "己", "note": "十五日后己土本气司令" }
+    ],
+    "申": [
+      { "daysFromJie": [0, 9], "stem": "己", "note": "立秋后九日己土余气司令" },
+      { "daysFromJie": [9, 16], "stem": "戊", "note": "十日至十五日戊土长生司令" },
+      { "daysFromJie": [16, 23], "stem": "壬", "note": "十六日至二十二日壬水长生司令" },
+      { "daysFromJie": [23, 30], "stem": "庚", "note": "二十三日后庚金本气司令" }
+    ],
+    "酉": [
+      { "daysFromJie": [0, 10], "stem": "庚", "note": "白露后十日庚金余气司令" },
+      { "daysFromJie": [10, 30], "stem": "辛", "note": "十一日后辛金本气司令" }
+    ],
+    "戌": [
+      { "daysFromJie": [0, 9], "stem": "辛", "note": "寒露后九日辛金余气司令" },
+      { "daysFromJie": [9, 15], "stem": "丁", "note": "十日至十四日丁火墓库司令" },
+      { "daysFromJie": [15, 30], "stem": "戊", "note": "十五日后戊土本气司令" }
+    ],
+    "亥": [
+      { "daysFromJie": [0, 9], "stem": "戊", "note": "立冬后九日戊土余气司令" },
+      { "daysFromJie": [9, 16], "stem": "甲", "note": "十日至十五日甲木长生司令" },
+      { "daysFromJie": [16, 30], "stem": "壬", "note": "十六日后壬水本气司令" }
+    ],
+    "子": [
+      { "daysFromJie": [0, 10], "stem": "壬", "note": "大雪后十日壬水余气司令" },
+      { "daysFromJie": [10, 30], "stem": "癸", "note": "十一日后癸水本气司令" }
+    ],
+    "丑": [
+      { "daysFromJie": [0, 9], "stem": "癸", "note": "小寒后九日癸水余气司令" },
+      { "daysFromJie": [9, 15], "stem": "辛", "note": "十日至十四日辛金墓库司令" },
+      { "daysFromJie": [15, 30], "stem": "己", "note": "十五日后己土本气司令" }
+    ]
+  }
+}

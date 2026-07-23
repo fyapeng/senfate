@@ -32,7 +32,7 @@
 - live analysis workbench for location search, optional exact coordinates, four pillars, solar-time correction, solar-term boundaries, major luck and calculation certificates.
 - certified natal structure facade covering ten gods, hidden stems, five-element measure, root/exposure, day-master support-pressure and relation normal form;
 - `senfate-analysis-response.v11` API and live structure-analysis result tabs;
-- `senfate-pattern-projection.v2`, covering the eight month-command regular patterns, explicit 建禄 and 羊刃 branch conditions, and strict 从强/从弱 qualification with named unmet conditions;
+- `senfate-pattern-projection.v3`, a rule-driven pattern engine that follows the canonical 子平 sequence: month-command day segmentation (sourced from 《子平真诠》/《渊海子平》/《千里命稿》), exposure-based pattern locking, formation/break/remedy checks, 建禄/羊刃/月劫 special patterns, 从强/从弱/从财/从杀/从儿 following subtypes, and three-harmony/three-meeting transform candidates. Every conclusion carries classical source evidence (book, line range, rule);
 - temperature–humidity climate coordinates with explicit seasonal and element components;
 - signed five-element balancing contribution vector with configurable strength, climate and relation-confidence weights;
 - requested major-luck sequence recomputation accumulating natal and current luck layers through a stable normal form;
@@ -94,7 +94,7 @@ pressuring source effects and remain explicitly mixed.
 
 ## Open dependencies
 
-- source-specific pattern, climate and balancing rewrite operators beyond the published parameterized projections;
+- source-specific climate and balancing rewrite operators beyond the published parameterized projections (pattern rewrite operators are now shipped — see `senfate-pattern-projection.v3`);
 - semantic review of feature equivalence for the full executable reference set;
 - empirical validation contracts and observed-outcome data for event predicates;
 - finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;

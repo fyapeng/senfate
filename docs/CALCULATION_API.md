@@ -56,7 +56,7 @@ The request contains the calendar fields plus a required `targetYear`. The
 calendar endpoint and its v1 contract remain unchanged.
 
 Version 11 upgrades the interpretive payload to
-`senfate-interpretive-model.v2` / `senfate-pattern-projection.v2`. The pattern
+`senfate-interpretive-model.v2` / `senfate-pattern-projection.v3`. The pattern
 projection now publishes normalized conclusions for regular patterns, 建禄,
 羊刃 and strict following-pattern checks, including evidence and unmet
 conditions. Existing climate and balancing payloads are unchanged.

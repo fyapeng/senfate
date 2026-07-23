@@ -306,7 +306,8 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     const structureResult = analyzeNatalStructure(value.calendar.pillars, model);
     if (!structureResult.ok) return error(requestId, 422, structureResult.code, structureResult.reason);
     const structure = structureResult.value;
-    const interpretationResult = evaluateInterpretiveModel(value.calendar.pillars, structure.strength, structure.strength.elementMeasure.measure, structure.normalForm, model);
+    const patternContext={daysFromJie:(value.calendar.normalizedTime.civilUtcMs-value.solarTermWindow.previousJieUtcMs)/86_400_000};
+    const interpretationResult = evaluateInterpretiveModel(value.calendar.pillars, structure.strength, structure.strength.elementMeasure.measure, structure.normalForm, model, patternContext);
     if (!interpretationResult.ok) return error(requestId, 422, interpretationResult.code, interpretationResult.reason);
     const luckResult = analyzeLuckSequence(value.calendar.pillars, value.calendar.majorLuck, model);
     if (!luckResult.ok) return error(requestId, 422, luckResult.code, luckResult.reason);
@@ -318,7 +319,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     const referenceRuntime=new ReferenceCalculationRuntime(records,model);
     const annualResult=referenceRuntime.calculate({natal:value.calendar.pillars,luck:annualContext.value.luckPeriod.pillar,annual:annualContext.value.annualPillar,luckDirection:value.calendar.direction,sex:input.sex});
     if(!annualResult.ok)return error(requestId,422,annualResult.code,annualResult.reason);
-    const annualInterpretation=evaluateInterpretiveModel(value.calendar.pillars,annualResult.value.normalForm.dynamicState.strength,annualResult.value.normalForm.dynamicState.elementMeasure,annualResult.value.normalForm,model);
+    const annualInterpretation=evaluateInterpretiveModel(value.calendar.pillars,annualResult.value.normalForm.dynamicState.strength,annualResult.value.normalForm.dynamicState.elementMeasure,annualResult.value.normalForm,model,patternContext);
     if(!annualInterpretation.ok)return error(requestId,422,annualInterpretation.code,annualInterpretation.reason);
     const kinshipResult=materializeKinshipProjection(annualResult.value.normalForm,input.sex,model);
     if(!kinshipResult.ok)return error(requestId,422,kinshipResult.code,kinshipResult.reason);

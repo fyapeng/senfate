@@ -20,22 +20,50 @@ projection for every period. Natal state is retained in every period.
 
 ## Pattern projection
 
-`senfate-pattern-projection.v2` separates three pattern families. The eight
-regular structures originate from the hidden stems of the month branch; their
-scores record month-command rank, visible exposure and root mass. `建禄格` is
-identified only when the month branch is the day stem's canonical prosperity
-branch. `羊刃格` uses an explicit blade-branch table, and yin-stem cases remain
-contested because the convention is not shared by all schools.
+`senfate-pattern-projection.v3` evaluates patterns through a rule-driven
+engine that follows the canonical 子平 sequence: month-command day
+segmentation, exposure-based pattern locking, formation/break/remedy checks,
+and following-pattern subtyping. Each conclusion carries classical source
+evidence (`bookId`, `lineStart`, `lineEnd`, `rule`) so that every pattern
+decision is traceable to a specific passage.
 
-`从强格` and `从弱格` are evaluated only at the corresponding extreme strength
-state. A qualified following structure additionally requires every non-day
-visible stem and every hidden stem to point in the same support or pressure
-direction; `从弱格` also requires zero day-master root mass. If an extreme
-strength state is present but these stricter conditions fail, the result is a
-named candidate with the unmet conditions attached. Each conclusion records a
-family, status, evidence vector and unmet-condition vector. This classification
-always uses the natal strength result; later luck and annual projections do not
-rewrite the natal pattern name when their dynamic strength changes.
+**Month-command segmentation.** The runtime resolves the command stem
+(司令之神) from a pinned day-segmentation table
+(`command-days.json`, sourced from 《子平真诠》/《渊海子平》/《千里命稿》)
+using the number of days elapsed since the enclosing "节" boundary. This
+replaces the earlier model that scored all three month-branch hidden stems
+simultaneously without distinguishing which is in season.
+
+**Regular patterns (八格).** The command stem's ten-god determines the
+candidate pattern label. The hard rule is: a pattern is locked only when the
+command stem is exposed in a heavenly stem (透干定格). If the command stem is
+not exposed, the runtime falls back to the month-branch main qi if it is
+exposed. Formation is then checked against resolved relations: a clash
+(冲) against the pattern stem breaks the pattern (破格); if a remedy (印星
+or 通关 bridge) exists, the conclusion is downgraded to `contested` rather
+than fully broken.
+
+**Special patterns.** `建禄格` fires when the month branch is the day stem's
+prosperity branch. `羊刃格` uses an explicit blade-branch table; yin-stem
+cases stay `contested` (school disagreement). `月劫格` / `月刃格` fires when
+a month-branch hidden stem of peer/robbery ten-god is exposed and the month
+is neither prosperity nor blade.
+
+**Following patterns (从格).** `从强格` and `从弱格` require extreme strength
+plus unanimous direction. `从弱格` additionally requires zero day-master
+root mass and is subtyped into `从财格` (wealth dominant), `从杀格` (officer
+dominant), and `从儿格` (output dominant) based on which non-supporting
+element dominates the visible stems.
+
+**Transform patterns (变格).** When a three-harmony or three-meeting relation
+reaches `transformed` status in the normal form, a candidate transform
+pattern is recorded (e.g. 三合水局变格).
+
+When the normal form or command context is unavailable, the runtime falls
+back to the earlier parameterized projection so existing results remain
+available. This classification always uses the natal strength result; later
+luck and annual projections do not rewrite the natal pattern name when their
+dynamic strength changes.
 
 ## Climate coordinate
 
