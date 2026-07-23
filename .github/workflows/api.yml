@@ -1,6 +1,12 @@
 name: Deploy API Worker
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/api/**'
+      - 'packages/**'
+      - '.github/workflows/api.yml'
   workflow_dispatch:
 
 permissions:
