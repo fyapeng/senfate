@@ -1,14 +1,10 @@
-import {
-  materializeDynamicChartState,
-  resolveReferenceNormalForm,
-  type ClosedResult,
-  type DynamicStateFailure,
-  type FourPillarState,
-  type GanZhi,
-  type NormalFormFailure,
-  type ReferenceNormalFormPhaseResult,
-  type SenFateModelProfile,
-} from "@senfate/core";
+import type { ClosedResult } from "@senfate/core/algebra";
+import { materializeDynamicChartState, type DynamicStateFailure } from "@senfate/core/lifecycle";
+import type { NormalFormFailure } from "@senfate/core/normal-form";
+import type { GanZhi } from "@senfate/core/ontology";
+import { resolveReferenceNormalForm, type ReferenceNormalFormPhaseResult } from "@senfate/core/resolution";
+import type { SenFateModelProfile } from "@senfate/core/model";
+import type { FourPillarState } from "@senfate/core/structure";
 import type { CompiledReferenceRecord } from "./compiler";
 import { evaluateReferenceContributionSummary, evaluateReferenceContributions, materializeResolvedReferenceFeatures, type ContributionCertificate, type ReferenceFeatureSnapshot } from "./evaluator";
 
