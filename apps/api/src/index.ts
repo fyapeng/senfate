@@ -51,7 +51,7 @@ const MODELS: Readonly<Record<ApiModelId, SenFateModelProfile>> = {
 };
 const SOLAR_TERM_BY_UTC = new Map(SOLAR_TERM_ENTRIES.map((term) => [term.utcMs, term]));
 const LICHUN_BY_YEAR = new Map(SOLAR_TERM_ENTRIES.filter(term=>term.longitude===315).map(term=>[new Date(term.utcMs).getUTCFullYear(),term.utcMs]));
-const PUBLIC_START_YEAR=1850;const PUBLIC_END_YEAR=2150;
+const PUBLIC_START_YEAR=1850;const PUBLIC_END_YEAR=2200;
 const JIE_MONTH_ORDINAL:Readonly<Record<number,number>>={315:0,345:1,15:2,45:3,75:4,105:5,135:6,165:7,195:8,225:9,255:10,285:11};
 function monthBoundaries(year:number):readonly Readonly<{boundaryUtcMs:number;monthOrdinal:number}>[]{const start=LICHUN_BY_YEAR.get(year),end=LICHUN_BY_YEAR.get(year+1);if(start===undefined||end===undefined)return[];return SOLAR_TERM_ENTRIES.filter(term=>term.kind==="jie"&&term.utcMs>=start&&term.utcMs<end).map(term=>({boundaryUtcMs:term.utcMs,monthOrdinal:JIE_MONTH_ORDINAL[term.longitude]!})).filter(item=>item.monthOrdinal!==undefined)}
 

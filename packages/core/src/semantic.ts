@@ -17,7 +17,7 @@ export type AnnualContextFailure = "invalid-target-year" | "target-before-major-
 
 export function resolveAnnualContext(targetYear: number, boundaryUtcMs:number,periods: readonly MajorLuckPeriod[]): ClosedResult<AnnualContext, AnnualContextFailure> {
   const certificate = { functional: "calendar.annual-context", convention: "certified-lichun-instant", targetYear,boundaryUtcMs } as const;
-  if (!Number.isInteger(targetYear) || targetYear < 1850 || targetYear > 2150||!Number.isFinite(boundaryUtcMs)) return { ok: false, code: "invalid-target-year", reason: "Target year and certified Lichun instant must be in the 1850–2150 range", certificate };
+  if (!Number.isInteger(targetYear) || targetYear < 1850 || targetYear > 2200||!Number.isFinite(boundaryUtcMs)) return { ok: false, code: "invalid-target-year", reason: "Target year and certified Lichun instant must be in the 1850–2200 range", certificate };
   if(periods.some(period=>period.startUtcInterval.lower<=boundaryUtcMs&&boundaryUtcMs<=period.startUtcInterval.upper))return{ok:false,code:"luck-boundary-ambiguous",reason:"Major-luck start uncertainty overlaps the certified Lichun instant",certificate};
   const index = periods.findLastIndex((period) => period.startUtcMs <= boundaryUtcMs);
   if (index < 0) return { ok: false, code: "target-before-major-luck", reason: "Target year precedes the first requested major-luck period", certificate };
