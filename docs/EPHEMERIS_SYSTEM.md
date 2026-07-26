@@ -4,7 +4,7 @@
 
 The pinned table uses NASA/JPL Horizons DE441 output for the Sun observed from the Earth geocenter. The requested quantity is observer-centered IAU76/80 ecliptic-of-date apparent longitude (`ObsEcLon`, quantity 31), with light-time, gravitational deflection and stellar aberration included and atmospheric refraction disabled.
 
-This matches the Horizons convention for determining Earth seasonal boundaries. The public calculation domain is 1850–2200. The pinned table retains 1849 and 2201 as boundary buffers and contains all crossings at multiples of 15 degrees. (The currently shipped table still covers 1849–2101; regenerate to 2201 to enable the full domain — see Generation below.)
+This matches the Horizons convention for determining Earth seasonal boundaries. The public calculation domain is 1850–2200. The pinned table retains 1849 and 2201 as boundary buffers and contains all crossings at multiples of 15 degrees.
 
 ## Generation
 

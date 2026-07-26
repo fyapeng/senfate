@@ -25,7 +25,7 @@
 - concrete weighted resolution for combine, clash, harm, break, punishment, three-harmony and three-meeting candidates;
 - stable-normal-form-only resolved feature projection;
 - unified `ReferenceCalculationRuntime` from dynamic state through topic contribution certificate.
-- pinned NASA/JPL Horizons DE441 solar-term table with 1849/2101 boundary buffers for the public 1850–2100 domain (6,072 terms);
+- pinned NASA/JPL Horizons DE441 solar-term table with 1849/2201 boundary buffers for the public 1850–2200 domain (8,472 terms);
 - digest-verified `jie` window resolver with UT1/UTC and future leap-second uncertainty;
 - certified time-zone → solar-term → four-pillar → major-luck calculation facade.
 - versioned public calendar API with bounded input, canonical-location lookup and failure-closed errors;
