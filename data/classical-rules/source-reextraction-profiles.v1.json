@@ -1,0 +1,13 @@
+{
+  "schema": "senfate-source-reextraction-profiles.v1",
+  "purpose": "Define book-specific, source-first passage filtering. These profiles never read the historical compact rule corpus.",
+  "profiles": [
+    {"bookId":"qiong-tong-bao-jian","sourceFile":"qiong-tong-bao-jian.txt","mode":"seasonal-day-master","description":"以日主和月令为主轴；保留调候、取用、透藏与明确吉凶结论。","caseSensitivity":"standard"},
+    {"bookId":"zi-ping-zhen-quan","sourceFile":"zi-ping-zhen-quan.txt","mode":"structure-and-useful-god","description":"以月令、格局、用神、相神和成败救应为主轴；序言和评注例证不进入候选。","caseSensitivity":"standard"},
+    {"bookId":"di-tian-sui","sourceFile":"di-tian-sui.txt","mode":"aphorism-and-commentary","description":"区分原文格言与注文；只将带有可解析条件和结论的格言段落送入候选。","caseSensitivity":"strict"},
+    {"bookId":"san-ming-tong-hui","sourceFile":"san-ming-tong-hui.txt","mode":"encyclopedic-pattern","description":"按格局、月令、干支关系及神煞分段；实例与歌诀注解分流。","caseSensitivity":"strict"},
+    {"bookId":"yuan-hai-zi-ping","sourceFile":"yuan-hai-zi-ping.txt","mode":"formula-and-pattern","description":"优先格局、月令、十神和组合条目；歌诀保留为待解析语料。","caseSensitivity":"strict"},
+    {"bookId":"shen-feng-tong-kao","sourceFile":"shen-feng-tong-kao.txt","mode":"doctrine-with-cases","description":"保留一般论命命题，严格剔除命造叙述、个案结果与作者按语。","caseSensitivity":"very-strict"},
+    {"bookId":"qian-li-ming-gao","sourceFile":"qian-li-ming-gao.txt","mode":"case-heavy","description":"该书以命例分析为主；首轮仅保留明确的一般定义或分类规则，默认排除命造分析。","caseSensitivity":"very-strict"}
+  ]
+}
