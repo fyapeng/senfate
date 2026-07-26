@@ -1,0 +1,24 @@
+{
+  "schema": "senfate-semantic-curations.v1",
+  "version": "1.0",
+  "rules": [
+    {
+      "id": "shen-feng-tong-kao:1301:build-lu-ancestry",
+      "source": {
+        "bookId": "shen-feng-tong-kao",
+        "lineStart": 1301,
+        "lineEnd": 1301,
+        "sourceRecordIds": ["shen-feng-tong-kao:1301-1301:1695", "shen-feng-tong-kao:1301-1301:1696"],
+        "excerpt": "建禄格者……假如甲日生寅月……此格多无祖业者甚验矣。"
+      },
+      "classification": "public-machine-rule",
+      "scope": ["natal"],
+      "conditions": [
+        { "kind": "day-stem", "operator": "dayStem.equals", "value": "甲" },
+        { "kind": "month-branch", "operator": "monthBranch.equals", "value": "寅" }
+      ],
+      "effects": [{ "operator": "pressure", "domains": ["family"], "polarity": "pressure" }],
+      "rationale": "原句直接给出甲日、寅月与祖业不稳的条件—结论；不把同段关于财官、刑妻的附加条件一并泛化。"
+    }
+  ]
+}

@@ -20,7 +20,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "curated-traditional-rule-runtime", corpus: { version:"runtime.v1",records: 4_329, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "curated-traditional-rule-runtime", corpus: { version:"runtime.v1",records: 4_330, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
