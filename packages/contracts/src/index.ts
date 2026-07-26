@@ -24,7 +24,7 @@ export interface ApiMetaResponse {
   readonly architecture: "formal-bazi-pipeline";
   readonly corpus: Readonly<{
     version: "runtime.v1";
-    records: 4_330;
+    records: 4_332;
     books: 7;
   }>;
   readonly calculationStatus: "curated-traditional-rule-runtime";
