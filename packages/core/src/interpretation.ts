@@ -66,12 +66,28 @@ export interface BalancingProjection {
   readonly candidates: readonly BalancingCandidate[];
 }
 
+export type UsefulGodBasis = "pattern" | "climate" | "strength" | "bridge";
+export interface UsefulGodCandidate {
+  readonly element: Element;
+  readonly status: "primary" | "secondary" | "contested";
+  readonly score: number;
+  readonly bases: readonly UsefulGodBasis[];
+  readonly evidence: readonly string[];
+  readonly conflicts: readonly string[];
+}
+export interface UsefulGodProjection {
+  readonly schema: "senfate-useful-god-projection.v1";
+  readonly method: "transparent-priority.v1";
+  readonly candidates: readonly UsefulGodCandidate[];
+}
+
 export interface InterpretiveModelResult {
   readonly schema: "senfate-interpretive-model.v2";
   readonly model: string;
   readonly pattern: PatternProjection;
   readonly climate: ClimateCoordinate;
   readonly balancing: BalancingProjection;
+  readonly usefulGod: UsefulGodProjection;
 }
 
 export type InterpretiveModelFailure = "invalid-normal-form" | "invalid-profile" | "zero-measure";
@@ -232,6 +248,45 @@ export function evaluateBalancingProjection(pillars: FourPillarState, strength: 
   return { ok: true, value: { schema: "senfate-balancing-projection.v1", candidates }, certificate: { functional: "structure.balancing", model: `${model.id}@${model.version}`, normalFormFingerprint: normalForm.fingerprint, inputs: ["strength", "climate", "stable-normal-form"] } };
 }
 
+/**
+ * 公开的取用候选协议：格局、调候、扶抑与已成化关系分别提出元素候选，
+ * 再保留冲突，而不把任何候选伪装成唯一的传统结论。
+ */
+export function evaluateUsefulGodProjection(pillars: FourPillarState, strength: DynamicStrength | StrengthEvaluation, pattern: PatternProjection, climate: ClimateCoordinate, balancing: BalancingProjection, normalForm: ReferenceNormalFormPhaseResult): UsefulGodProjection {
+  const dayElement = STEM_DEFINITIONS[pillars.day.stem].element;
+  const resource = inverse(GENERATES, dayElement);
+  const output = GENERATES[dayElement];
+  const wealth = CONTROLS[dayElement];
+  const officer = inverse(CONTROLS, dayElement);
+  const proposals = new Map<Element, { score: number; bases: Set<UsefulGodBasis>; evidence: string[] }>();
+  const add = (element: Element, score: number, basis: UsefulGodBasis, evidence: string): void => {
+    const current = proposals.get(element) ?? { score: 0, bases: new Set<UsefulGodBasis>(), evidence: [] };
+    current.score += score; current.bases.add(basis); current.evidence.push(evidence); proposals.set(element, current);
+  };
+  const primaryPattern = pattern.conclusions.find((item) => item.status === "qualified");
+  if (primaryPattern?.family === "regular") {
+    if (primaryPattern.label === "食神格" || primaryPattern.label === "伤官格") add(wealth, .75, "pattern", `${primaryPattern.label}：以财星承接食伤`);
+    else if (primaryPattern.label === "偏财格" || primaryPattern.label === "正财格") add(output, .75, "pattern", `${primaryPattern.label}：以食伤生财`);
+    else if (primaryPattern.label === "七杀格" || primaryPattern.label === "正官格") add(resource, .75, "pattern", `${primaryPattern.label}：以印星护官杀`);
+    else if (primaryPattern.label === "偏印格" || primaryPattern.label === "正印格") add(dayElement, .65, "pattern", `${primaryPattern.label}：以比劫分担印势`);
+  }
+  if (climate.temperatureState === "cold") add("火", .9, "climate", "调候：寒象优先取火");
+  if (climate.temperatureState === "hot") add("水", .9, "climate", "调候：热象优先取水");
+  if (climate.humidityState === "dry") add("水", .65, "climate", "调候：燥象取水润泽");
+  if (climate.humidityState === "humid") add("火", .55, "climate", "调候：湿象取火温化");
+  if (strength.state === "very-weak" || strength.state === "weak") { add(dayElement, .65, "strength", "扶抑：日主偏弱，取同类"); add(resource, .65, "strength", "扶抑：日主偏弱，取印星"); }
+  if (strength.state === "very-strong" || strength.state === "strong") { add(output, .45, "strength", "扶抑：日主偏强，取食伤疏泄"); add(wealth, .4, "strength", "扶抑：日主偏强，取财星耗身"); add(officer, .35, "strength", "扶抑：日主偏强，取官杀制身"); }
+  for (const relation of normalForm.relations) if (relation.status === "transformed" && relation.candidate.targetElement) add(relation.candidate.targetElement, .35, "bridge", `${relation.candidate.kind}成化：${relation.candidate.targetElement}局作为通关候选`);
+  for (const candidate of balancing.candidates) if (candidate.status === "supportive") add(candidate.element, Math.min(.5, Math.abs(candidate.score)), "strength", `平衡向量：${candidate.element}为支持方向`);
+  const candidates = [...proposals.entries()].map(([element, proposal]) => {
+    const balancingCandidate = balancing.candidates.find((item) => item.element === element);
+    const conflicts = balancingCandidate?.status === "avoid" ? [`平衡向量将${element}列为回避方向`] : [];
+    return { element, score: rounded(proposal.score), bases: [...proposal.bases].sort(), evidence: proposal.evidence, conflicts };
+  }).sort((a, b) => b.score - a.score || a.element.localeCompare(b.element));
+  const top = candidates[0]?.score ?? 0;
+  return { schema: "senfate-useful-god-projection.v1", method: "transparent-priority.v1", candidates: candidates.map((candidate, index) => ({ ...candidate, status: candidate.conflicts.length > 0 || (index > 0 && top - candidate.score < .15) ? "contested" : index === 0 ? "primary" : "secondary" })) };
+}
+
 export function evaluateInterpretiveModel(pillars: FourPillarState, strength: DynamicStrength | StrengthEvaluation, measure: FiniteSignedMeasure<Element>, normalForm: ReferenceNormalFormPhaseResult, model: SenFateModelProfile, patternContext?: PatternEvaluationContext): ClosedResult<InterpretiveModelResult, InterpretiveModelFailure> {
   if (normalForm.status !== "stable") return { ok: false, code: "invalid-normal-form", reason: "Interpretive projection only accepts a stable reference normal form", certificate: { functional: "analysis.interpretive-model" } };
   const natalStrength = evaluateDayMasterStrength(pillars,model);
@@ -240,5 +295,7 @@ export function evaluateInterpretiveModel(pillars: FourPillarState, strength: Dy
   if (!climate.ok) return climate;
   const balancing = evaluateBalancingProjection(pillars, strength, climate.value, normalForm, model);
   if (!balancing.ok) return balancing;
-  return { ok: true, value: { schema: "senfate-interpretive-model.v2", model: `${model.id}@${model.version}`, pattern: evaluatePatternProjection(pillars, natalStrength.value, model, normalForm, patternContext), climate: climate.value, balancing: balancing.value }, certificate: { functional: "analysis.interpretive-model", model: `${model.id}@${model.version}`, normalFormFingerprint: normalForm.fingerprint, upstream: { patternStrength:natalStrength.certificate, climate: climate.certificate, balancing: balancing.certificate } } };
+  const pattern = evaluatePatternProjection(pillars, natalStrength.value, model, normalForm, patternContext);
+  const usefulGod = evaluateUsefulGodProjection(pillars, strength, pattern, climate.value, balancing.value, normalForm);
+  return { ok: true, value: { schema: "senfate-interpretive-model.v2", model: `${model.id}@${model.version}`, pattern, climate: climate.value, balancing: balancing.value, usefulGod }, certificate: { functional: "analysis.interpretive-model", model: `${model.id}@${model.version}`, normalFormFingerprint: normalForm.fingerprint, upstream: { patternStrength:natalStrength.certificate, climate: climate.certificate, balancing: balancing.certificate, usefulGod: usefulGod.schema } } };
 }

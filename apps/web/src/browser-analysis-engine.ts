@@ -13,7 +13,7 @@ import { materializeKinshipProjection,materializeSpecialStateCertificate,resolve
 import type { FourPillarState } from "@senfate/core/structure";
 import { SOLAR_TERM_ENTRIES } from "@senfate/ephemeris/table";
 import type { CompiledReferenceRecord } from "@senfate/rules/compiler";
-import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
+import { ReferenceCalculationRuntime, SCHOOL_PROFILES } from "@senfate/rules";
 
 const MODELS: Readonly<Record<ApiModelId, SenFateModelProfile>> = {
   "transparent-baseline": TRANSPARENT_BASELINE_MODEL,
@@ -90,7 +90,7 @@ function runtimeFor(context: BrowserAnalysisContext) {
   const model = modelFor(context.request);
   return {
     model,
-    runtime: new ReferenceCalculationRuntime(context.records, model),
+    runtime: new ReferenceCalculationRuntime(context.records, model, SCHOOL_PROFILES[context.request.schoolId ?? "integrated-classical"]),
   };
 }
 

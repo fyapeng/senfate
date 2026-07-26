@@ -22,11 +22,12 @@ import {
   type ApiModelCatalogResponse,
   type ApiModelId,
   type ApiModelOverrides,
+  type ApiSchoolId,
 } from "@senfate/contracts";
 import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, baziMonthPillar, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, materializeSpecialStateCertificate, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TIME_ZONE_PROVIDER, TRANSPARENT_BASELINE_MODEL, TZDB_VERSION, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
-import { ReferenceCalculationRuntime } from "@senfate/rules/runtime";
+import { ReferenceCalculationRuntime, SCHOOL_IDS, SCHOOL_PROFILES } from "@senfate/rules";
 import { bundledReferenceProgram, type ReferenceProgramStore } from "./reference-program";
 
 const JSON_HEADERS = {
@@ -205,11 +206,11 @@ function parseCalendarRequest(value: unknown): ApiCalendarRequest | undefined {
   };
 }
 
-function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number;modelOverrides:ApiModelOverrides}>|undefined{
-  if(!isRecord(value)||!hasOnlyKeys(value,["schemaVersion","targetYear","locationId","localDateTime","sex","modelId","modelOverrides","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,PUBLIC_START_YEAR,PUBLIC_END_YEAR))return undefined;
+function parseAnalysisRequest(value:unknown):Readonly<{calendar:ApiCalendarRequest;targetYear:number;modelOverrides:ApiModelOverrides;schoolId:ApiSchoolId}>|undefined{
+  if(!isRecord(value)||!hasOnlyKeys(value,["schemaVersion","targetYear","locationId","localDateTime","sex","modelId","modelOverrides","schoolId","disambiguation","clockUncertaintySeconds","periodCount","exactCoordinates"])||value.schemaVersion!==ANALYSIS_REQUEST_SCHEMA||!integerIn(value.targetYear,PUBLIC_START_YEAR,PUBLIC_END_YEAR)||(value.schoolId!==undefined&&!(SCHOOL_IDS as readonly string[]).includes(value.schoolId as string)))return undefined;
   const modelOverrides=value.modelOverrides===undefined?{}:parseModelOverrides(value.modelOverrides);if(!modelOverrides)return undefined;
   const calendar=parseCalendarRequest({schemaVersion:CALENDAR_REQUEST_SCHEMA,locationId:value.locationId,localDateTime:value.localDateTime,sex:value.sex,modelId:value.modelId,disambiguation:value.disambiguation,clockUncertaintySeconds:value.clockUncertaintySeconds,periodCount:value.periodCount,exactCoordinates:value.exactCoordinates});
-  return calendar?{calendar,targetYear:value.targetYear,modelOverrides}:undefined;
+  return calendar?{calendar,targetYear:value.targetYear,modelOverrides,schoolId:(value.schoolId??"integrated-classical") as ApiSchoolId}:undefined;
 }
 
 async function readBoundedJson(request: Request): Promise<unknown> {
@@ -316,7 +317,8 @@ async function calculate(request: Request, requestId: string, locations: Locatio
     const annualContext=resolveAnnualContext(analysisInput!.targetYear,annualBoundary.utcMs,value.calendar.majorLuck);
     if(!annualContext.ok)return error(requestId,422,annualContext.code,annualContext.reason);
     const records=await program.load();
-    const referenceRuntime=new ReferenceCalculationRuntime(records,model);
+    const school=SCHOOL_PROFILES[analysisInput!.schoolId];
+    const referenceRuntime=new ReferenceCalculationRuntime(records,model,school);
     const annualResult=referenceRuntime.calculate({natal:value.calendar.pillars,luck:annualContext.value.luckPeriod.pillar,annual:annualContext.value.annualPillar,luckDirection:value.calendar.direction,sex:input.sex});
     if(!annualResult.ok)return error(requestId,422,annualResult.code,annualResult.reason);
     const annualInterpretation=evaluateInterpretiveModel(value.calendar.pillars,annualResult.value.normalForm.dynamicState.strength,annualResult.value.normalForm.dynamicState.elementMeasure,annualResult.value.normalForm,model,patternContext);
@@ -347,7 +349,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       schemaVersion: ANALYSIS_RESPONSE_SCHEMA,
       requestId,
       calendar: body,
-      modelConfiguration:{schema:"senfate-public-model-configuration.v1",baseModelId:modelId,effectiveVersion:model.version,customized:appliedModel.count>0,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},
+      modelConfiguration:{schema:"senfate-public-model-configuration.v1",baseModelId:modelId,effectiveVersion:model.version,customized:appliedModel.count>0,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides,school:{id:school.id,label:school.label}},
       structure: {
         schema: structure.schema,
         dayMaster: structure.dayMaster,
@@ -383,7 +385,7 @@ async function calculate(request: Request, requestId: string, locations: Locatio
       })),
       annualTrajectory:trajectory,
       annual:{schema:"senfate-annual-analysis.v1",targetYear:annualContext.value.targetYear,convention:annualContext.value.convention,boundaryUtcMs:annualContext.value.boundaryUtcMs,annualPillar:annualContext.value.annualPillar,luckOrdinal:annualContext.value.luckPeriod.ordinal,luckPillar:annualContext.value.luckPeriod.pillar,elementMeasure:annualResult.value.normalForm.dynamicState.elementMeasure,strength:annualResult.value.normalForm.dynamicState.strength,relations:apiRelations(annualResult.value.normalForm),normalForm:{status:annualResult.value.normalForm.status,iterations:annualResult.value.normalForm.iterations,fingerprint:annualResult.value.normalForm.fingerprint,trace:annualResult.value.normalForm.trace},interpretation:annualInterpretation.value,specialStates:{...specialStates,phase:"annual"},kinship:{...kinship,phase:"annual"},topics:{...annualResult.value.topicCertificate,phase:"annual"}},
-      certificate: { functional: "api.annual-reference-analysis", modelConfiguration:{baseModelId:modelId,effectiveVersion:model.version,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides},calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate,kinship:kinshipResult.certificate,specialStates:{schema:specialStates.schema,normalFormFingerprint:specialStates.normalFormFingerprint,signalCount:specialStates.signals.length},annualTrajectory:{schema:trajectory.schema,startYear:trajectory.startYear,endYear:trajectory.endYear,stable:trajectory.points.filter(point=>point.status==="stable").length,unavailable:trajectory.points.filter(point=>point.status==="unavailable").length,indexDefinition:trajectory.indexDefinition} },
+      certificate: { functional: "api.annual-reference-analysis", modelConfiguration:{baseModelId:modelId,effectiveVersion:model.version,overrideFingerprint:appliedModel.fingerprint,overrideCount:appliedModel.count,overrides:analysisInput!.modelOverrides,school:school.id},calendar: result.certificate, structure: structureResult.certificate, interpretation: interpretationResult.certificate, luckSequence: luckResult.certificate,annualContext:annualContext.certificate,annualReference:annualResult.certificate,annualInterpretation:annualInterpretation.certificate,kinship:kinshipResult.certificate,specialStates:{schema:specialStates.schema,normalFormFingerprint:specialStates.normalFormFingerprint,signalCount:specialStates.signals.length},annualTrajectory:{schema:trajectory.schema,startYear:trajectory.startYear,endYear:trajectory.endYear,stable:trajectory.points.filter(point=>point.status==="stable").length,unavailable:trajectory.points.filter(point=>point.status==="unavailable").length,indexDefinition:trajectory.indexDefinition} },
     };
     return json(analysis);
   }

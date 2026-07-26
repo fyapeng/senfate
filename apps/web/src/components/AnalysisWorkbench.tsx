@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type SyntheticEvent } from "react
 import {
   ANALYSIS_REQUEST_SCHEMA,
   type ApiAnalysisRequest,
+  type ApiSchoolId,
   type ApiAnalysisResponse,
   type ApiErrorResponse,
   type ApiLocation,
@@ -73,6 +74,7 @@ export function AnalysisWorkbench() {
   const [longitude,setLongitude]=useState(String(DEFAULT_SHANGHAI_LOCATION.longitude));
   const [coordinateUncertaintyMeters,setCoordinateUncertaintyMeters]=useState("100");
   const [disambiguation, setDisambiguation] = useState<"earlier" | "later" | "reject">("reject");
+  const [schoolId,setSchoolId]=useState<ApiSchoolId>("integrated-classical");
   const [query, setQuery] = useState(DEFAULT_SHANGHAI_LOCATION.displayName);
   const [locations, setLocations] = useState<readonly ApiLocation[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<ApiLocation|undefined>(DEFAULT_SHANGHAI_LOCATION);
@@ -123,7 +125,7 @@ export function AnalysisWorkbench() {
     if(!selectedLocation||!exactCoordinate.valid)return undefined;
     const [year,month,day]=date.split("-").map(Number);const [hour,minute]=time.split(":").map(Number);
     if(!year||!month||!day||hour===undefined||minute===undefined)return undefined;
-    return{schemaVersion:ANALYSIS_REQUEST_SCHEMA,targetYear:yearToOpen,locationId:selectedLocation.id,localDateTime:{year,month,day,hour,minute},sex,modelId,...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),...(exactCoordinate.value?{exactCoordinates:exactCoordinate.value}:{}),disambiguation,clockUncertaintySeconds,periodCount:12};
+    return{schemaVersion:ANALYSIS_REQUEST_SCHEMA,targetYear:yearToOpen,locationId:selectedLocation.id,localDateTime:{year,month,day,hour,minute},sex,modelId,schoolId,...(modelOverrideCount(modelOverrides)?{modelOverrides}:{}),...(exactCoordinate.value?{exactCoordinates:exactCoordinate.value}:{}),disambiguation,clockUncertaintySeconds,periodCount:12};
   }
 
   async function requestFullAnalysis(payload:ApiAnalysisRequest,signal?:AbortSignal):Promise<ApiAnalysisResponse>{
@@ -203,6 +205,7 @@ export function AnalysisWorkbench() {
             {!searching && <small>{inputSummary}</small>}
           </label>
           <label>模型预设<select value={modelId} onChange={(event) => {setModelId(event.target.value as ApiModelId);setModelOverrides({});clearModelSettings()}}>{Object.entries(modelLabels).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select><small>{modelOverrideCount(modelOverrides)>0?`已应用 ${modelOverrideCount(modelOverrides)} 项自定义权重。`:"使用公开预设参数。"} <a className="inline-link" href="/senfate/models/">调整模型参数</a></small></label>
+          <label>推演口径<select value={schoolId} onChange={(event)=>setSchoolId(event.target.value as ApiSchoolId)}><option value="integrated-classical">综合古法</option><option value="ziping-pattern">子平格局</option><option value="climate-priority">调候优先</option></select><small>决定哪些书籍的可执行规则进入主题推演，以及它们的相对采用权重。</small></label>
           <label>首次展开年度<input type="number" min={Math.max(1850,Number(date.slice(0,4))||1850)} max="2200" value={targetYear} disabled={Boolean(result)} onChange={(event)=>setTargetYear(Number(event.target.value))} required/><small>{result?"请在人生轨迹中直接选择其他年份。":"只决定首先查看哪一年；其余大运、流年和流月轨迹会随后自动生成。"}</small></label>
           <button className="advanced-toggle" type="button" aria-expanded={advanced} onClick={() => setAdvanced((value) => !value)}><span>时间精度与歧义处理</span><i>{advanced ? "−" : "+"}</i></button>
           {advanced && <div className="advanced-fields">
@@ -246,7 +249,7 @@ function EmptyResult() {
 function ResultOverview({result}:{result:ApiAnalysisResponse}){
   const calendar=result.calendar;
   const pillars=[["年",result.calendar.pillars.year,result.structure.pillars.year],["月",result.calendar.pillars.month,result.structure.pillars.month],["日",result.calendar.pillars.day,result.structure.pillars.day],["时",result.calendar.pillars.hour,result.structure.pillars.hour]] as const;
-  const projection=result.interpretation;const primary=projection.pattern.conclusions.find(item=>item.id===projection.pattern.primaryConclusionId)??projection.pattern.conclusions[0];const supportive=projection.balancing.candidates.filter(item=>item.status==="supportive").slice(0,2).map(item=>item.element).join("、")||"暂无显著项";const total=result.structure.elementMeasure.total||1;const elements=(["木","火","土","金","水"] as const).map(element=>({element,percent:result.structure.elementMeasure.atoms[element]/total*100}));
+  const projection=result.interpretation;const primary=projection.pattern.conclusions.find(item=>item.id===projection.pattern.primaryConclusionId)??projection.pattern.conclusions[0];const supportive=projection.usefulGod.candidates.filter(item=>item.status==="primary"||item.status==="secondary").slice(0,2).map(item=>item.element).join("、")||"暂无候选";const total=result.structure.elementMeasure.total||1;const elements=(["木","火","土","金","水"] as const).map(element=>({element,percent:result.structure.elementMeasure.atoms[element]/total*100}));
   return <div className="result-overview"><div className="overview-pillars">{pillars.map(([label,pillar,detail],index)=><article className={index===2?"day":""} key={label}><span>{label}柱 · {index===2?"日主":detail.tenGod}</span><strong><i className={`element-${elementClass[detail.visibleElement]}`}>{pillar.stem}</i><i className={`element-${elementClass[detail.hiddenStems[0]!.element]}`}>{pillar.branch}</i></strong><div className="overview-hidden">{detail.hiddenStems.map(item=><small key={`${item.stem}-${item.rank}`}><i className={`element-${elementClass[item.element]}`}>{item.stem}</i><b className={`ten-god ${tenGodTone(item.tenGod)}`}>{item.tenGod}</b></small>)}</div></article>)}</div><div className="overview-elements"><span>五行分布</span>{elements.map(item=><div key={item.element}><b className={elementClass[item.element]} style={{width:`${Math.max(3,item.percent)}%`}}></b><small>{item.element} {decimal(item.percent,0)}%</small></div>)}</div><div className="overview-judgment"><span>原局概览</span><strong>{primary?.label??"尚无定格"}<em>{primary?patternStatusLabels[primary.status]:""}</em></strong><small>日主 {result.structure.dayMaster.stem}{result.structure.dayMaster.element} · {strengthLabels[result.structure.strength.state]} · 支持比 {decimal(result.structure.strength.supportRatio*100,1)}%</small><small>调候 {climateLabels[projection.climate.temperatureState]} · {climateLabels[projection.climate.humidityState]}</small><small>用神候选 {supportive}</small></div><div className="overview-luck"><span>大运 · 起运</span><strong>{ganZhi(result.annual.luckPillar)}</strong><small>{calendar.direction==="forward"?"顺排":"逆排"} · 起运 {decimal(calendar.luckStartAgeYears,1)} 岁（±{decimal((calendar.luckStartAgeInterval.upper-calendar.luckStartAgeInterval.lower)/2,1)}）</small><small>{result.annual.targetYear} {ganZhi(result.annual.annualPillar)}年 · 共 {calendar.majorLuck.length} 步大运</small></div></div>
 }
 
@@ -294,8 +297,9 @@ function InterpretationResult({ result }: { result: ApiAnalysisResponse }) {
       <article className="insight-card"><span>调候坐标</span><h3>{climateLabels[projection.climate.temperatureState]} · {climateLabels[projection.climate.humidityState]}</h3><p>温度 {decimal(projection.climate.temperature, 3)}，湿度 {decimal(projection.climate.humidity, 3)}。坐标由月令基线与五行测度共同生成。</p></article>
     </div>
     <div className="pattern-list"><div className="relation-heading"><span>格局条件结论</span><strong>司令取格、透干定格、成败救应与从格细分分别求值</strong></div>{projection.pattern.conclusions.map((conclusion) => <article key={conclusion.id}><div><strong>{conclusion.label}</strong><span>{conclusion.family==="regular"?"月令司令常规格":conclusion.family==="special"?"禄刃月劫特殊格":conclusion.family==="follow"?"顺从结构":"合局化气变格"} · {conclusion.evidence.join(" · ")}</span>{conclusion.unmetConditions.map(item=><small key={item}>{item}</small>)}{conclusion.sourceEvidence&&conclusion.sourceEvidence.length>0&&<small className="pattern-source">来源：{conclusion.sourceEvidence.map(ev=>`${ev.bookLabel} ${ev.lineStart}—${ev.lineEnd} 行`).join("；")}</small>}</div><div><b className={`state ${conclusion.status}`}>{patternStatusLabels[conclusion.status]}</b></div></article>)}</div>
+    <div className="balancing-vector"><div className="relation-heading"><span>用神推演候选</span><strong>格局、调候、扶抑与通关按公开优先序合并</strong></div>{projection.usefulGod.candidates.map((candidate) => <article key={candidate.element}><strong className={elementClass[candidate.element]}>{candidate.element}</strong><div><small>{candidate.bases.join(" · ")} · {candidate.evidence.join("；")}</small>{candidate.conflicts.map(conflict=><small key={conflict}>{conflict}</small>)}</div><span>{candidate.status === "primary" ? "优先候选" : candidate.status === "secondary" ? "次级候选" : "存在冲突"} {decimal(candidate.score, 3)}</span></article>)}</div>
     <div className="balancing-vector"><div className="relation-heading"><span>五行平衡方向</span><strong>综合强弱与寒热燥湿</strong></div>{projection.balancing.candidates.map((candidate) => <article key={candidate.element}><strong className={elementClass[candidate.element]}>{candidate.element}</strong><div><i><b style={{ width: `${Math.min(100, Math.abs(candidate.score) * 70 + 3)}%` }}></b></i><small>强弱 {decimal(candidate.strengthContribution, 3)} · 调候 {decimal(candidate.climateContribution, 3)}</small></div><span>{balancingLabels[candidate.status]} {candidate.score >= 0 ? "+" : ""}{decimal(candidate.score, 3)}</span></article>)}</div>
-    <p className="boundary-note">这里给出可比较的五行方向；“用神”等最终命名仍需满足对应流派的完整条件，也不能直接推出具体事件。</p>
+    <p className="boundary-note">用神候选来自公开推演协议；它表示所选流派口径内的结构优先级，不代表现实事件概率。</p>
   </div>;
 }
 

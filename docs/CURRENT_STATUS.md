@@ -48,6 +48,8 @@
 - expandable source records for every published event hypothesis, including user-readable trigger conditions and an explicit traditional-model epistemic status;
 - independent `pnpm audit:resolved-topic-features` command.
 - public 19-parameter model catalog, including the flow-month layer weight, and closed `modelOverrides` request contract;
+- three public school profiles with source-specific rule adoption and weights, shared by server and browser trajectory evaluation;
+- auditable useful-god candidate projection that preserves pattern, climate, strength and bridge conflicts instead of forcing a single conclusion;
 - `senfate-analysis-request.v3`, which accepts the published flow-month layer weight and records it in the effective model certificate;
 - locally persisted model controls that drive full server recomputation and a
   fingerprinted model-configuration certificate.

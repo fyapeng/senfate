@@ -71,6 +71,7 @@ export interface ApiLocationDetailResponse {
 }
 
 export type ApiModelId = "transparent-baseline" | "month-command" | "climate-priority";
+export type ApiSchoolId = "integrated-classical" | "ziping-pattern" | "climate-priority";
 export type ApiSex = "female" | "male";
 export type ApiTopicDomain="career"|"family"|"general"|"health"|"mobility"|"personality"|"relationship"|"risk"|"study"|"wealth";
 export interface ApiModelOverrides {
@@ -102,6 +103,7 @@ export interface ApiAnalysisRequest extends Omit<ApiCalendarRequest,"schemaVersi
   readonly schemaVersion:typeof ANALYSIS_REQUEST_SCHEMA;
   readonly targetYear:number;
   readonly modelOverrides?:ApiModelOverrides;
+  readonly schoolId?:ApiSchoolId;
 }
 
 export interface ApiGanZhi { readonly stem: string; readonly branch: string; readonly index: number }
@@ -219,6 +221,11 @@ export interface ApiInterpretation {
     schema: "senfate-balancing-projection.v1";
     candidates: readonly Readonly<{ element: ApiElement; score: number; status: "supportive" | "neutral" | "avoid"; strengthContribution: number; climateContribution: number; confidence: number }>[];
   }>;
+  readonly usefulGod: Readonly<{
+    schema:"senfate-useful-god-projection.v1";
+    method:"transparent-priority.v1";
+    candidates:readonly Readonly<{element:ApiElement;status:"primary"|"secondary"|"contested";score:number;bases:readonly ("pattern"|"climate"|"strength"|"bridge")[];evidence:readonly string[];conflicts:readonly string[]}>[];
+  }>;
 }
 
 export interface ApiLuckPhaseAnalysis {
@@ -288,6 +295,7 @@ export interface ApiAnalysisResponse {
     overrideFingerprint:string;
     overrideCount:number;
     overrides:ApiModelOverrides;
+    school:Readonly<{id:ApiSchoolId;label:string}>;
   }>;
   readonly structure: Readonly<{
     schema: "senfate-natal-structure-analysis.v1";

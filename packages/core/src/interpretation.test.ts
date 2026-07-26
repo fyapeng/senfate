@@ -18,6 +18,8 @@ describe("interpretive model", () => {
     expect(Number.isFinite(result.value.climate.temperature)).toBe(true);
     expect(result.value.balancing.candidates.map((item) => item.element).sort()).toEqual(["土", "木", "水", "火", "金"].sort());
     expect(result.value.balancing.candidates.every((item) => Number.isFinite(item.score))).toBe(true);
+    expect(result.value.usefulGod.schema).toBe("senfate-useful-god-projection.v1");
+    expect(result.value.usefulGod.candidates.every((item) => Number.isFinite(item.score) && item.evidence.length > 0)).toBe(true);
   });
 
   it("makes the climate preset observable without changing the ontology", () => {
