@@ -17,7 +17,7 @@ export async function loadBrowserReferenceProgram(): Promise<readonly CompiledRe
     const response = await fetch(programUrl, { cache: "force-cache" });
     if (!response.ok) throw new Error("reference-program-download-failed");
     const payload = await decodeCorpus(response) as Readonly<{schema?:string;records?:unknown}>;
-    if (payload.schema !== "senfate-curated-runtime-program.v1" || !Array.isArray(payload.records) || payload.records.length !== 4_158 || payload.records.some(record => !record || typeof record !== "object" || (record as {disposition?:unknown}).disposition !== "executable")) {
+    if (payload.schema !== "senfate-curated-runtime-program.v1" || !Array.isArray(payload.records) || payload.records.length !== 4_329 || payload.records.some(record => !record || typeof record !== "object" || (record as {disposition?:unknown}).disposition !== "executable")) {
       throw new Error("reference-program-integrity-error");
     }
     return payload.records as readonly CompiledReferenceRecord[];

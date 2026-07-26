@@ -20,7 +20,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "curated-traditional-rule-runtime", corpus: { version:"runtime.v1",records: 4_158, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "curated-traditional-rule-runtime", corpus: { version:"runtime.v1",records: 4_329, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -140,7 +140,7 @@ describe("SenFate API", () => {
   it("computes the selected year and publishes bounded trajectory placeholders against the bundled 37,231-record program",async()=>{
     const response=await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/calculate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({schemaVersion:"senfate-analysis-request.v3",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male",periodCount:12})}),store,fullProgram);
     expect(response.status).toBe(200);const body=await response.json() as ApiAnalysisResponse;
-    expect(body.annual.topics.program.total).toBe(4_158);
+    expect(body.annual.topics.program.total).toBe(4_329);
     expect(body.annualTrajectory.points.length).toBeGreaterThan(20);
     expect(body.annualTrajectory.points.filter(point=>point.year!==2026).every(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded")).toBe(true);
     expect(body.annualTrajectory.points.find(point=>point.year===2026)).toMatchObject({status:"stable",normalFormFingerprint:body.annual.normalForm.fingerprint});

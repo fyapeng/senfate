@@ -419,7 +419,7 @@ export async function handleRequest(request: Request, locations?: LocationStore,
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "runtime.v1", records: 4_158, books: 7 }, calculationStatus: "curated-traditional-rule-runtime",
+      corpus: { version: "runtime.v1", records: 4_329, books: 7 }, calculationStatus: "curated-traditional-rule-runtime",
     };
     return json(body);
   }
