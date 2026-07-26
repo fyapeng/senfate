@@ -15,11 +15,15 @@ const source=JSON.parse(gunzipSync(await readFile(sourcePath)).toString("utf8"))
 const audit=compileReferenceCorpusData(source);
 const curation=JSON.parse(await readFile(curationPath,"utf8"));
 if(curation.schema!=="senfate-semantic-curations.v1"||!Array.isArray(curation.rules))throw new Error("Invalid semantic curation file");
+const conditionOperators=new Set(["branchFormation.equals","dayMasterState.equals","dayStem.equals","element.state","ganZhi.in","ganZhi.present","luckDirection.equals","monthBranch.equals","monthBranch.in","relation.exists","seasonalCommand","sex.equals","symbol.absent","symbol.present"]);
+const effectOperators=new Set(["complete_or_transform","pressure","reveal","support","weaken_or_block"]);
+const scopes=new Set(["natal","luck","annual"]);
 const curated=curation.rules.map(rule=>{
-  if(!rule||typeof rule!=="object"||typeof rule.id!=="string"||!rule.source||!Array.isArray(rule.scope)||!Array.isArray(rule.conditions)||!Array.isArray(rule.effects)||rule.conditions.length===0||rule.effects.length===0)throw new Error("Invalid semantic curation rule");
+  if(!rule||typeof rule!=="object"||typeof rule.id!=="string"||rule.classification!=="public-machine-rule"||!rule.source||!Array.isArray(rule.scope)||!Array.isArray(rule.conditions)||!Array.isArray(rule.effects)||rule.conditions.length===0||rule.effects.length===0)throw new Error("Invalid semantic curation rule");
   const {source:provenance,...body}=rule;
   if(typeof provenance.bookId!=="string"||!Number.isInteger(provenance.lineStart)||!Number.isInteger(provenance.lineEnd)||!Array.isArray(provenance.sourceRecordIds)||typeof provenance.excerpt!=="string")throw new Error(`Invalid provenance for ${rule.id}`);
   if(provenance.sourceRecordIds.length===0||provenance.sourceRecordIds.some(id=>typeof id!=="string"||!audit.records.some(record=>record.recordId===id&&record.bookId===provenance.bookId&&record.lineStart===provenance.lineStart&&record.lineEnd===provenance.lineEnd)))throw new Error(`Unverified provenance for ${rule.id}`);
+  if(body.scope.some(scope=>!scopes.has(scope))||body.conditions.some(condition=>!condition||typeof condition!=="object"||!conditionOperators.has(condition.operator)||!(typeof condition.value==="string"||Array.isArray(condition.value)))||body.effects.some(effect=>!effect||typeof effect!=="object"||!effectOperators.has(effect.operator)||!Array.isArray(effect.domains)||typeof effect.polarity!=="string"))throw new Error(`Non-executable semantic curation ${rule.id}`);
   return {recordId:`curated:${rule.id}`,bookId:provenance.bookId,lineStart:provenance.lineStart,lineEnd:provenance.lineEnd,familyId:`curated:${rule.id}`,ruleType:"semantic-curation",sourceRole:"curated-rule",scopes:body.scope,conditions:body.conditions,effects:body.effects,terms:{},extractionConfidence:1,disposition:"executable",reason:"semantic-curation"};
 });
 const records=[...audit.records.filter(record=>record.disposition==="executable"),...curated];
