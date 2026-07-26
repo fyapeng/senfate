@@ -10,6 +10,7 @@
     "generate:runtime-program": "node --experimental-strip-types scripts/generate-runtime-program.mjs",
     "audit:compilation": "node --experimental-strip-types scripts/audit-reference-compilation.mjs",
     "audit:semantic-review": "node --experimental-strip-types scripts/audit-semantic-review.mjs",
+    "extract:semantic-candidates": "node --experimental-strip-types scripts/extract-semantic-candidates.mjs",
     "audit:resolved-topic-features": "vitest run src/resolved-topic-audit.test.ts --disableConsoleIntercept",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"
