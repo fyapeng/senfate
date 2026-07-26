@@ -66,41 +66,24 @@
 - homepage natal overview with visible stems, branches, every hidden stem and hidden-stem ten god, strength/support ratio, primary pattern conclusion, climate coordinate and balancing-element candidates;
 - Shanghai (`Asia/Shanghai`, UTC+08:00) as the default location while retaining canonical place search, historical time-zone resolution and optional exact-coordinate solar-time correction.
 
-## Recomputed reference disposition
+## Source archive and runtime program
 
 ```text
-executable   4,118
-deferred     7,785
-contested       41
-evidence    22,107
-fixture      3,180
-total       37,231
+runtime rules  4,158
+source books       7
 ```
 
-These are compiler dispositions produced from structural completeness, source role and canonical condition expressibility. Element-state conditions are executable only when their element subjects bind one-to-one to the source terms; ambiguous bindings are deferred. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
+The public runtime contains only rules with complete machine conditions and effects. The seven-book source archive remains outside the runtime as provenance and curation material. Extraction confidence is retained as provenance and is not used as a theory weight or coverage tier.
 
-The resolved-topic audit now identifies 475 deferred records containing
-`symbol.abundant`. Their compact condition does not distinguish repeated
-appearance, seasonal vigor or element-level abundance. All extracted values
-are stems or branches, while the stable abundance feature is element-valued.
-The compiler therefore keeps every such record deferred; mapping the operator
-directly would turn an extraction ambiguity into executable theory.
-
-The resolved-topic audit currently reports 4,118 executable TopicFunctions,
-15,332 domain-level TopicRules and 50 normalized event predicates. On its fixed annual fixture all 4,118 functions
-are evaluated: 958 activate, 3,160 are false and zero are unresolved. Fixture
-activation counts describe that input only; they are not global coverage rates.
-The fixture activates all 50 predicate classes: 18 have cross-book corroboration
-without opposing signed evidence, while 32 contain both supporting and
-pressuring source effects and remain explicitly mixed.
+The runtime build maps a stem or branch `symbol.abundant` condition to its
+explicit five-element abundance state before admission. The remaining source
+passages are not shipped to clients or mixed into calculation results.
 
 ## Open dependencies
 
 - source-specific climate and balancing rewrite operators beyond the published parameterized projections (pattern rewrite operators are now shipped — see `senfate-pattern-projection.v3`);
-- semantic review of feature equivalence for the full executable reference set;
-- empirical validation contracts and observed-outcome data for event predicates;
+- semantic review and curation of additional source passages before they enter the runtime program;
 - finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;
-- source-semantic review of the 7,785 deferred and 41 contested records.
 - a privacy decision for asynchronous trajectory jobs: the current browser-led batching keeps birth inputs out of server-side storage, while a future Cloudflare Workflow or Queue design would persist an encrypted, expiring job snapshot and therefore requires an explicit retention contract.
 
 The Calendar Engine remains available at `POST /senfate/api/v1/calendar/calculate`. `POST /senfate/api/v1/analysis/calculate` returns the certified calendar, structure and interpretive projections, per-period major-luck recomputation, selected annual state, kinship roles, audited topic certificates and the lightweight annual trajectory. The website then downloads the versioned compressed corpus once and computes the remaining annual and twelve-flow-month states in a browser Web Worker through the same `ReferenceCalculationRuntime`. Selecting another year is also evaluated locally. Cloudflare therefore handles location lookup and one initial certified analysis instead of the complete life trajectory. The server trajectory route is retained only as a single-year fail-closed fallback. Event hypotheses are grouped by annual phase, topic domain and normalized effect operator, and each item links back to activated source records. Empirical event probabilities remain outside the product.

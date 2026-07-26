@@ -1,0 +1,8 @@
+{
+  "schema": "senfate-runtime-program-manifest.v1",
+  "file": "classical-runtime-program.v1.json.gz",
+  "sourceCorpus": "4.0",
+  "records": 4158,
+  "sha256": "32578b01174e76ea947823917fdced5dde8d54106c67f75f65cf701d20c8a06b",
+  "bytes": 265894
+}

@@ -1,3 +1,5 @@
+import { BRANCH_DEFINITIONS, STEM_DEFINITIONS, type Branch, type Stem } from "@senfate/core/ontology";
+
 export type ReferenceDisposition = "executable" | "deferred" | "contested" | "evidence" | "fixture";
 export type CanonicalConditionKind = "branch-formation"|"day-master-state"|"day-stem"|"element-state"|"ganzhi"|"luck-direction"|"month-branch"|"resolved-relation"|"seasonal-command"|"sex"|"typed-symbol";
 
@@ -29,6 +31,7 @@ function enumValue(corpus:CompactCorpus,name:string,index:number):string { const
 function integer(value:unknown,label:string):number { if(!Number.isInteger(value))throw new Error(`Invalid ${label}`);return value as number }
 function decodeBits(bits:number,values:readonly string[]):readonly string[]{if(!Number.isSafeInteger(bits)||bits<0)throw new Error("Invalid bitset");return values.filter((_,index)=>Math.floor(bits/2**index)%2===1)}
 function typedSymbol(value:unknown,corpus:CompactCorpus):boolean { if(typeof value!=="string")return false;return corpus.terms.some(dictionary=>dictionary.includes(value)) }
+function symbolElement(value:unknown):string|undefined {if(typeof value!=="string")return undefined;return STEM_DEFINITIONS[value as Stem]?.element??BRANCH_DEFINITIONS[value as Branch]?.element}
 
 interface Candidate extends Omit<CompiledReferenceRecord,"disposition"|"reason"> { readonly provisional:ReferenceDisposition; readonly provisionalReason:string; readonly order:number }
 
@@ -42,7 +45,7 @@ export function compileReferenceCorpusData(input:unknown):ReferenceCompilationAu
     const bookId=corpus.books[bookIndex]; const familyId=corpus.families[familyIndex]; if(!bookId||!familyId||lineStart<1||lineEnd<lineStart||confidenceByte<0||confidenceByte>255)throw new Error(`Invalid provenance ${bookIndex}:${ruleIndex}`);
     const rawConditions=raw[5]; const rawEffects=raw[6]; const rawTerms=raw[7]; if(!Array.isArray(rawConditions)||!Array.isArray(rawEffects)||!Array.isArray(rawTerms))throw new Error(`Invalid payload ${bookIndex}:${ruleIndex}`);
     let unsupported=false;
-    let conditions:NormalizedReferenceCondition[]=rawConditions.map((entry)=>{if(!Array.isArray(entry)||entry.length<2)throw new Error("Invalid condition tuple");const op=enumValue(corpus,"condOp",integer(entry[0],"condition op"));const valueIndex=entry[1];const value=Array.isArray(valueIndex)?valueIndex.map(x=>corpus.values[integer(x,"value index")]):corpus.values[integer(valueIndex,"value index")];const kind=CONDITION_KIND[op];if(!kind||(op.startsWith("symbol.")&&!typedSymbol(value,corpus)))unsupported=true;return{kind:kind??"typed-symbol",operator:op,value}});
+    let conditions:NormalizedReferenceCondition[]=rawConditions.map((entry)=>{if(!Array.isArray(entry)||entry.length<2)throw new Error("Invalid condition tuple");const op=enumValue(corpus,"condOp",integer(entry[0],"condition op"));const valueIndex=entry[1];const value=Array.isArray(valueIndex)?valueIndex.map(x=>corpus.values[integer(x,"value index")]):corpus.values[integer(valueIndex,"value index")];if(op==="symbol.abundant"){const subject=symbolElement(value);if(!subject){unsupported=true;return{kind:"typed-symbol",operator:op,value}}return{kind:"element-state",operator:"element.state",value:"abundant",subject}}const kind=CONDITION_KIND[op];if(!kind||(op.startsWith("symbol.")&&!typedSymbol(value,corpus)))unsupported=true;return{kind:kind??"typed-symbol",operator:op,value}});
     const effects:ReferenceEffect[]=rawEffects.map((entry)=>{if(!Array.isArray(entry)||entry.length<3)throw new Error("Invalid effect tuple");return{operator:enumValue(corpus,"effOp",integer(entry[0],"effect op")),domains:decodeBits(integer(entry[1],"domain bits"),corpus.enums.domain??[]),polarity:enumValue(corpus,"polarity",integer(entry[2],"polarity"))}});
     const terms=Object.fromEntries(TERM_NAMES.map((name,index)=>[name,decodeBits(integer(rawTerms[index]??0,"term bits"),corpus.terms[index]??[])]));
     const elementTerms=terms.elements??[];const elementConditionIndexes=conditions.map((condition,index)=>condition.operator==="element.state"?index:-1).filter(index=>index>=0);if(elementConditionIndexes.length>0){if(elementTerms.length!==elementConditionIndexes.length)unsupported=true;else{const subjects=new Map(elementConditionIndexes.map((conditionIndex,index)=>[conditionIndex,elementTerms[index]!]));conditions=conditions.map((condition,index)=>condition.operator==="element.state"?{...condition,subject:subjects.get(index)!}:condition)}}

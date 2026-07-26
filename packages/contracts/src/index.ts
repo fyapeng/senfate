@@ -4,6 +4,7 @@ export const API_META_SCHEMA = "senfate-api-meta.v8" as const;
 export const LOCATION_SEARCH_SCHEMA = "senfate-location-search.v1" as const;
 export const LOCATION_DETAIL_SCHEMA = "senfate-location-detail.v1" as const;
 export const MODEL_CATALOG_SCHEMA = "senfate-model-catalog.v1" as const;
+export const RULE_CATALOG_SCHEMA = "senfate-curated-rule-catalog.v1" as const;
 export const CALENDAR_REQUEST_SCHEMA = "senfate-calendar-request.v1" as const;
 export const CALENDAR_RESPONSE_SCHEMA = "senfate-calendar-response.v1" as const;
 export const ANALYSIS_REQUEST_SCHEMA = "senfate-analysis-request.v3" as const;
@@ -22,12 +23,11 @@ export interface ApiMetaResponse {
   readonly product: "SenFate";
   readonly architecture: "formal-bazi-pipeline";
   readonly corpus: Readonly<{
-    version: "4.0";
-    records: 37_231;
-    families: 11_306;
+    version: "runtime.v1";
+    records: 4_158;
     books: 7;
   }>;
-  readonly calculationStatus: "temporal-source-evidence-public-beta";
+  readonly calculationStatus: "curated-traditional-rule-runtime";
 }
 
 export interface ApiErrorResponse {
@@ -86,6 +86,16 @@ export interface ApiModelCatalogResponse {
   readonly requestId:string;
   readonly parameters:readonly Readonly<{path:string;label:string;group:"dynamic"|"pattern"|"climate"|"balancing"|"topics";minimum:number;maximum:number;step:number}>[];
   readonly presets:readonly Readonly<{id:ApiModelId;label:string;version:string;values:Readonly<Record<string,number>>}>[];
+}
+
+export interface ApiRuleCatalogResponse {
+  readonly schemaVersion:typeof RULE_CATALOG_SCHEMA;
+  readonly requestId:string;
+  readonly school:Readonly<{id:ApiSchoolId;label:string}>;
+  readonly total:number;
+  readonly offset:number;
+  readonly limit:number;
+  readonly records:readonly Readonly<{recordId:string;bookId:string;lineStart:number;lineEnd:number;familyId:string;scopes:readonly string[];conditions:readonly Readonly<{operator:string;value:unknown;subject?:string}>[];effects:readonly Readonly<{operator:string;domains:readonly string[];polarity:string}>[];weight:number}>[];
 }
 
 export interface ApiCalendarRequest {

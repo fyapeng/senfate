@@ -1,0 +1,21 @@
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { gunzipSync, gzipSync } from "node:zlib";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { compileReferenceCorpusData } from "../src/compiler.ts";
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
+const dataRoot=resolve(root,"../../data/classical-rules");
+const sourcePath=resolve(dataRoot,"classical-source-corpus.v4.0.json.gz");
+const programPath=resolve(dataRoot,"classical-runtime-program.v1.json.gz");
+const manifestPath=resolve(dataRoot,"runtime-program.manifest.json");
+const source=JSON.parse(gunzipSync(await readFile(sourcePath)).toString("utf8"));
+const audit=compileReferenceCorpusData(source);
+const records=audit.records.filter(record=>record.disposition==="executable");
+if(records.some(record=>record.conditions.length===0||record.effects.length===0))throw new Error("Runtime program contains an incomplete rule");
+const program={schema:"senfate-curated-runtime-program.v1",sourceCorpus:audit.corpusVersion,records};
+const bytes=gzipSync(Buffer.from(JSON.stringify(program)),{level:9});
+const manifest={schema:"senfate-runtime-program-manifest.v1",file:"classical-runtime-program.v1.json.gz",sourceCorpus:audit.corpusVersion,records:records.length,sha256:createHash("sha256").update(bytes).digest("hex"),bytes:bytes.length};
+await mkdir(dataRoot,{recursive:true});await writeFile(programPath,bytes);await writeFile(manifestPath,JSON.stringify(manifest,null,2)+"\n");
+process.stdout.write(`${JSON.stringify(manifest)}\n`);

@@ -20,7 +20,7 @@ describe("SenFate API", () => {
   it("reports the canonical corpus baseline", async () => {
     const response = await handleRequest(new Request("https://example.test/senfate/api/v1/meta"));
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "temporal-source-evidence-public-beta", corpus: { records: 37_231, families: 11_306, books: 7 } });
+    await expect(response.json()).resolves.toMatchObject({ schemaVersion: "senfate-api-meta.v8", calculationStatus: "curated-traditional-rule-runtime", corpus: { version:"runtime.v1",records: 4_158, books: 7 } });
   });
 
   it("returns selected canonical locations with time zone and coordinates", async () => {
@@ -118,6 +118,7 @@ describe("SenFate API", () => {
   });
 
   it("publishes the bounded public model catalog",async()=>{const response=await handleRequest(new Request("https://example.test/senfate/api/v1/models"));expect(response.status).toBe(200);const body=await response.json() as {schemaVersion:string;parameters:readonly {path:string;minimum:number;maximum:number}[];presets:readonly {id:string;values:Record<string,number>}[]};expect(body.schemaVersion).toBe("senfate-model-catalog.v1");expect(body.parameters).toHaveLength(19);expect(body.parameters[0]).toMatchObject({path:"temporalLayers.natal",minimum:0,maximum:4});expect(body.presets).toHaveLength(3);expect(body.presets[0]).toMatchObject({id:"transparent-baseline",values:{"temporalLayers.natal":1}})});
+  it("publishes only adopted executable rules in the catalog",async()=>{const response=await handleRequest(new Request("https://example.test/senfate/api/v1/rules?school=integrated-classical&offset=0&limit=2"),store,program);expect(response.status).toBe(200);const body=await response.json() as {schemaVersion:string;total:number;records:readonly {recordId:string;weight:number}[]};expect(body).toMatchObject({schemaVersion:"senfate-curated-rule-catalog.v1",total:3});expect(body.records).toMatchObject([{recordId:"n",weight:1},{recordId:"l",weight:1}]);});
 
   it("loads twelve flow-month samples in bounded trajectory batches",async()=>{
     const payload={schemaVersion:"senfate-analysis-request.v3",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male"};
@@ -139,7 +140,7 @@ describe("SenFate API", () => {
   it("computes the selected year and publishes bounded trajectory placeholders against the bundled 37,231-record program",async()=>{
     const response=await handleRequest(new Request("https://example.test/senfate/api/v1/analysis/calculate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({schemaVersion:"senfate-analysis-request.v3",targetYear:2026,locationId:beijing.id,localDateTime:{year:2000,month:2,day:10,hour:12,minute:0},sex:"male",periodCount:12})}),store,fullProgram);
     expect(response.status).toBe(200);const body=await response.json() as ApiAnalysisResponse;
-    expect(body.annual.topics.program.total).toBe(37_231);
+    expect(body.annual.topics.program.total).toBe(4_158);
     expect(body.annualTrajectory.points.length).toBeGreaterThan(20);
     expect(body.annualTrajectory.points.filter(point=>point.year!==2026).every(point=>point.status==="unavailable"&&point.failureCode==="trajectory-not-loaded")).toBe(true);
     expect(body.annualTrajectory.points.find(point=>point.year===2026)).toMatchObject({status:"stable",normalFormFingerprint:body.annual.normalForm.fingerprint});

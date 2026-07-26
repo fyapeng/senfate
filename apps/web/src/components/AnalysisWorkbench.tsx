@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
 import {
   ANALYSIS_REQUEST_SCHEMA,
+  RULE_CATALOG_SCHEMA,
   type ApiAnalysisRequest,
   type ApiSchoolId,
   type ApiAnalysisResponse,
@@ -11,6 +12,7 @@ import {
   type ApiModelOverrides,
   type ApiSex,
   type ApiTopicContributionCertificate,
+  type ApiRuleCatalogResponse,
 } from "@senfate/contracts";
 import {clearModelSettings,loadModelSettings,modelOverrideCount} from "../model-settings";
 import {formatCoordinateUncertainty,validateExactCoordinates} from "../coordinates";
@@ -88,6 +90,7 @@ export function AnalysisWorkbench() {
   const [trajectoryLoading,setTrajectoryLoading]=useState(false);
   const [trajectoryFailures,setTrajectoryFailures]=useState(0);
   const [annualSelectingYear,setAnnualSelectingYear]=useState<number>();
+  const [rulePage,setRulePage]=useState(0);
   const trajectoryAbort=useRef<AbortController | undefined>(undefined);
   const annualDetailAbort=useRef<AbortController | undefined>(undefined);
   const analysisAbort=useRef<AbortController | undefined>(undefined);
@@ -234,6 +237,7 @@ export function AnalysisWorkbench() {
             {active === "大运" && <LuckResult result={result} />}
             {active === "人生轨迹" && <LifeTrajectoryResult result={result} loading={trajectoryLoading} selectingYear={annualSelectingYear} onSelectYear={selectAnnualYear} onOpenAnnual={()=>setActive("年度主题")} />}
             {active === "年度主题" && <AnnualTopicResult result={result} />}
+            {active === "规则库" && <RuleCatalog schoolId={result.modelConfiguration.school.id} page={rulePage} onPageChange={setRulePage} />}
             {active === "计算证书" && <CertificateResult result={result} />}
           </div>
         </>}
@@ -357,6 +361,7 @@ const conditionStateLabels:Readonly<Record<string,string>>={"very-weak":"极弱"
 type ApiActivatedCondition=ApiTopicContributionCertificate["activatedSources"][number]["conditions"][number];
 function readableConditionValue(value:string|readonly string[]):string{const values:readonly string[]=typeof value==="string"?[value]:value;return values.map(item=>conditionStateLabels[item]??item).join("、")}
 function referenceConditionLabel(condition:ApiActivatedCondition):string{const value=readableConditionValue(condition.value);switch(condition.operator){case"dayStem.equals":return`日主为${value}`;case"monthBranch.equals":case"monthBranch.in":return`月支为${value}`;case"dayMasterState.equals":return`日主强弱为${value}`;case"element.state":return`${condition.subject??"指定五行"}处于${value}状态`;case"ganZhi.present":case"ganZhi.in":return`命局或岁运出现${value}`;case"relation.exists":return`稳定关系中形成${value}`;case"seasonalCommand":return`月令条件为${value}`;case"branchFormation.equals":return`地支结构形成${value}`;case"luckDirection.equals":return`大运采用${value}`;case"sex.equals":return`性别条件为${value}`;case"symbol.absent":return`不见${value}`;case"symbol.present":return`出现${value}`}}
+function RuleCatalog({schoolId,page,onPageChange}:{schoolId:ApiSchoolId;page:number;onPageChange:(page:number)=>void}){const[content,setContent]=useState<ApiRuleCatalogResponse>();const[message,setMessage]=useState("正在读取已采用规则…");const limit=50;useEffect(()=>{const controller=new AbortController();setMessage("正在读取已采用规则…");void(async()=>{try{const response=await fetch(`${API_BASE}/rules?school=${encodeURIComponent(schoolId)}&offset=${page*limit}&limit=${limit}`,{signal:controller.signal});const body=await response.json() as ApiRuleCatalogResponse|ApiErrorResponse;if(!response.ok||body.schemaVersion!==RULE_CATALOG_SCHEMA||!("records" in body))throw new Error("规则库暂时不可用");setContent(body);setMessage("")}catch(cause){if(!controller.signal.aborted)setMessage(cause instanceof Error?cause.message:"规则库暂时不可用")}})();return()=>controller.abort()},[schoolId,page]);const format=(condition:ApiRuleCatalogResponse["records"][number]["conditions"][number])=>referenceConditionLabel(condition as ApiActivatedCondition);return <div className="rule-catalog"><div className="annual-heading"><div><span>已采用规则库</span><h3>{content?.school.label??"当前推演口径"}</h3><p>目录只包含条件、时间层与效应都已明确编码的规则；每一条都可直接进入计算。</p></div><div><strong>{content?.total??"—"}</strong><span>条已采用规则</span><small>第 {page*limit+1}—{Math.min((page+1)*limit,content?.total??0)} 条</small></div></div>{message?<p className="empty-relations">{message}</p>:<><div className="rule-catalog-list">{content?.records.map(record=><details key={record.recordId}><summary><div><strong>{sourceBookLabels[record.bookId]??record.bookId}</strong><span>第 {record.lineStart}—{record.lineEnd} 行 · 权重 {decimal(record.weight,2)}</span></div><small>{record.scopes.length?record.scopes.join(" + "):"通用"}</small></summary><div><p><b>条件：</b>{record.conditions.map(format).join("；")}</p><p><b>效应：</b>{record.effects.map(effect=>`${effect.domains.join("、")} · ${effect.operator}`).join("；")}</p><small>规则标识：{record.recordId}</small></div></details>)}</div><div className="rule-catalog-pagination"><button type="button" disabled={page===0} onClick={()=>onPageChange(page-1)}>上一页</button><span>第 {page+1} 页</span><button type="button" disabled={!content||((page+1)*limit>=content.total)} onClick={()=>onPageChange(page+1)}>下一页</button></div></>}</div>}
 function AnnualTopicResult({result}:{result:ApiAnalysisResponse}){
   const annual=result.annual;const topics=annual.topics;const vectors=Object.entries(topics.contribution.atoms).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
   return <div className="annual-topic-result">

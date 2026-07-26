@@ -21,8 +21,8 @@ export class ReferenceCalculationRuntime {
   private readonly program:ContributionCertificate["program"];
   private readonly applicable:Readonly<Record<ReferenceFeatureSnapshot["phase"],readonly CompiledReferenceRecord[]>>;
   constructor(private readonly records:readonly CompiledReferenceRecord[],private readonly model:SenFateModelProfile,readonly school:SchoolProfile=SCHOOL_PROFILES["integrated-classical"]){
-    const counts={executable:0,deferred:0,contested:0,evidence:0,fixture:0};for(const record of records)counts[record.disposition]++;
-    this.program={total:records.length,...counts};const executable=records.filter(record=>record.disposition==="executable");const applies=(record:CompiledReferenceRecord,phase:ReferenceFeatureSnapshot["phase"])=>record.scopes.length===0||record.scopes.includes("natal")||(phase==="luck"&&record.scopes.includes("luck"))||(phase==="annual"&&(record.scopes.includes("luck")||record.scopes.includes("annual")));
+    const executable=records.filter(record=>record.disposition==="executable");
+    this.program={total:executable.length,executable:executable.length,deferred:0,contested:0,evidence:0,fixture:0};const applies=(record:CompiledReferenceRecord,phase:ReferenceFeatureSnapshot["phase"])=>record.scopes.length===0||record.scopes.includes("natal")||(phase==="luck"&&record.scopes.includes("luck"))||(phase==="annual"&&(record.scopes.includes("luck")||record.scopes.includes("annual")));
     const adopted=executable.filter(record=>ruleWeight(record,this.school)>0);
     this.applicable={natal:adopted.filter(record=>applies(record,"natal")),luck:adopted.filter(record=>applies(record,"luck")),annual:adopted.filter(record=>applies(record,"annual"))};
   }

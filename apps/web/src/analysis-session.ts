@@ -1,7 +1,7 @@
 import { ANALYSIS_REQUEST_SCHEMA,ANALYSIS_RESPONSE_SCHEMA,type ApiAnalysisRequest, type ApiAnalysisResponse, type ApiLocation, type ApiSex } from "@senfate/contracts";
 
 export const ANALYSIS_SESSION_KEY="senfate.analysis-workbench.v2";
-export const ANALYSIS_TABS=["命盘","结构","格局与调候","大运","人生轨迹","年度主题","计算证书"] as const;
+export const ANALYSIS_TABS=["命盘","结构","格局与调候","大运","人生轨迹","年度主题","规则库","计算证书"] as const;
 export type AnalysisTab=(typeof ANALYSIS_TABS)[number];
 
 export interface AnalysisSessionSnapshot {

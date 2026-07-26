@@ -2,7 +2,7 @@ import type { CompiledReferenceRecord } from "./compiler";
 
 export const SCHOOL_IDS = ["integrated-classical", "ziping-pattern", "climate-priority"] as const;
 export type SchoolId = (typeof SCHOOL_IDS)[number];
-export type RuleReviewStatus = "adopted" | "provisional" | "disabled";
+export type RuleReviewStatus = "adopted" | "disabled";
 
 export interface SourcePolicy {
   readonly bookId: string;
@@ -18,7 +18,6 @@ export interface SchoolProfile {
   readonly description: string;
   readonly sourcePolicies: readonly SourcePolicy[];
   readonly review: Readonly<{
-    provisionalAllowed: boolean;
     disabledRecordIds: readonly string[];
     disabledFamilyIds: readonly string[];
   }>;
@@ -36,13 +35,13 @@ function sources(values: Readonly<Record<string, readonly [boolean, number, stri
   });
 }
 
-const review = { provisionalAllowed: true, disabledRecordIds: [], disabledFamilyIds: [] } as const;
+const review = { disabledRecordIds: [], disabledFamilyIds: [] } as const;
 
 export const SCHOOL_PROFILES: Readonly<Record<SchoolId, SchoolProfile>> = {
   "integrated-classical": {
     schema: "senfate-school-profile.v1", id: "integrated-classical", label: "综合古法",
     description: "保留七书中已结构化且可判定的规则；同类来源不因重复而累加。",
-    sourcePolicies: sources(Object.fromEntries(ALL_BOOKS.map((id) => [id, [true, 1, "Included as a provisional classical source"]]))), review,
+    sourcePolicies: sources(Object.fromEntries(ALL_BOOKS.map((id) => [id, [true, 1, "Included in the curated runtime"]]))), review,
   },
   "ziping-pattern": {
     schema: "senfate-school-profile.v1", id: "ziping-pattern", label: "子平格局",
@@ -68,7 +67,7 @@ export const SCHOOL_PROFILES: Readonly<Record<SchoolId, SchoolProfile>> = {
 
 export function ruleReviewStatus(record: CompiledReferenceRecord, profile: SchoolProfile): RuleReviewStatus {
   if (profile.review.disabledRecordIds.includes(record.recordId) || profile.review.disabledFamilyIds.includes(record.familyId)) return "disabled";
-  return "provisional";
+  return "adopted";
 }
 
 export function ruleWeight(record: CompiledReferenceRecord, profile: SchoolProfile): number {

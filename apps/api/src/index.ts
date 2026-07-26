@@ -9,6 +9,7 @@ import {
   LOCATION_DETAIL_SCHEMA,
   LOCATION_SEARCH_SCHEMA,
   MODEL_CATALOG_SCHEMA,
+  RULE_CATALOG_SCHEMA,
   type ApiAnalysisResponse,
   type ApiAnnualTrajectory,
   type ApiCalendarRequest,
@@ -22,12 +23,13 @@ import {
   type ApiModelCatalogResponse,
   type ApiModelId,
   type ApiModelOverrides,
+  type ApiRuleCatalogResponse,
   type ApiSchoolId,
 } from "@senfate/contracts";
 import { analyzeLuckSequence, analyzeNatalStructure, applyPublicModelOverrides, baziMonthPillar, CLIMATE_PRIORITY_MODEL, evaluateInterpretiveModel, materializeKinshipProjection, materializeSpecialStateCertificate, MONTH_COMMAND_MODEL, PUBLIC_MODEL_PARAMETER_METADATA, publicModelParameterValues, resolveAnnualContext, TIME_ZONE_PROVIDER, TRANSPARENT_BASELINE_MODEL, TZDB_VERSION, type ReferenceNormalFormPhaseResult, type SenFateModelProfile } from "@senfate/core";
 import { compileCertifiedBaziCalendar, EPHEMERIS_MANIFEST, SOLAR_TERM_ENTRIES } from "@senfate/ephemeris";
 import { locationFtsQuery, normalizeLocationQuery } from "@senfate/locations";
-import { ReferenceCalculationRuntime, SCHOOL_IDS, SCHOOL_PROFILES } from "@senfate/rules";
+import { ReferenceCalculationRuntime, SCHOOL_IDS, SCHOOL_PROFILES, ruleWeight } from "@senfate/rules";
 import { bundledReferenceProgram, type ReferenceProgramStore } from "./reference-program";
 
 const JSON_HEADERS = {
@@ -417,12 +419,19 @@ export async function handleRequest(request: Request, locations?: LocationStore,
   if (pathname === `${API_PREFIX}/meta` || pathname === "/meta") {
     const body: ApiMetaResponse = {
       schemaVersion: API_META_SCHEMA, requestId, product: "SenFate", architecture: "formal-bazi-pipeline",
-      corpus: { version: "4.0", records: 37_231, families: 11_306, books: 7 }, calculationStatus: "temporal-source-evidence-public-beta",
+      corpus: { version: "runtime.v1", records: 4_158, books: 7 }, calculationStatus: "curated-traditional-rule-runtime",
     };
     return json(body);
   }
   if(pathname===`${API_PREFIX}/models`||pathname==="/models"){
     const body:ApiModelCatalogResponse={schemaVersion:MODEL_CATALOG_SCHEMA,requestId,parameters:PUBLIC_MODEL_PARAMETER_METADATA,presets:Object.entries(MODELS).map(([id,profile])=>({id:id as ApiModelId,label:profile.label,version:profile.version,values:publicModelParameterValues(profile)}))};return json(body);
+  }
+  if(pathname===`${API_PREFIX}/rules`||pathname==="/rules"){
+    const schoolId=url.searchParams.get("school")??"integrated-classical";
+    const offset=Number(url.searchParams.get("offset")??0),limit=Number(url.searchParams.get("limit")??50);
+    if(!(SCHOOL_IDS as readonly string[]).includes(schoolId)||!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1)return error(requestId,400,"invalid-rule-catalog-query","Use a known school and non-negative integer offset with positive limit");
+    const school=SCHOOL_PROFILES[schoolId as ApiSchoolId];const records=(await program.load()).map(record=>({record,weight:ruleWeight(record,school)})).filter(item=>item.weight>0);const boundedLimit=Math.min(100,limit);
+    const body:ApiRuleCatalogResponse={schemaVersion:RULE_CATALOG_SCHEMA,requestId,school:{id:school.id,label:school.label},total:records.length,offset,limit:boundedLimit,records:records.slice(offset,offset+boundedLimit).map(({record,weight})=>({recordId:record.recordId,bookId:record.bookId,lineStart:record.lineStart,lineEnd:record.lineEnd,familyId:record.familyId,scopes:record.scopes,conditions:record.conditions.map(({operator,value,subject})=>({operator,value,...(subject?{subject}:{})})),effects:record.effects.map(({operator,domains,polarity})=>({operator,domains,polarity})),weight}))};return json(body);
   }
   if (pathname === `${API_PREFIX}/locations/search` || pathname === "/locations/search") {
     if (!locations) return error(requestId, 503, "location-index-unavailable", "The canonical location index is unavailable");
