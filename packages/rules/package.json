@@ -9,6 +9,7 @@
     "audit": "vitest run src/audit.test.ts",
     "generate:runtime-program": "node --experimental-strip-types scripts/generate-runtime-program.mjs",
     "audit:compilation": "node --experimental-strip-types scripts/audit-reference-compilation.mjs",
+    "audit:semantic-review": "node --experimental-strip-types scripts/audit-semantic-review.mjs",
     "audit:resolved-topic-features": "vitest run src/resolved-topic-audit.test.ts --disableConsoleIntercept",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"

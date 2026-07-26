@@ -81,6 +81,7 @@ passages are not shipped to clients or mixed into calculation results.
 
 ## Open dependencies
 
+- full semantic rewrite of the 7,065 source records that have effects but no extracted condition; `pnpm --filter @senfate/rules audit:semantic-review` groups this queue by source text signal and retains line-level samples for review;
 - source-specific climate and balancing rewrite operators beyond the published parameterized projections (pattern rewrite operators are now shipped — see `senfate-pattern-projection.v3`);
 - semantic review and curation of additional source passages before they enter the runtime program;
 - finer event subtypes when a future corpus version supplies structured semantics beyond the five canonical effect operators;
