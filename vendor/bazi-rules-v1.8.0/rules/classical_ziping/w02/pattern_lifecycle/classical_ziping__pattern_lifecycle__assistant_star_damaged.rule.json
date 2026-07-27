@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_lifecycle.assistant_star_damaged@1.0.0",
+  "title": "相神受伤导致格局失效",
+  "description": "相神被合去或被制而不能执行成格作用时，登记格局败坏。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 530,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.assistant_star_damaged",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.assistant",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.lifecycle_status",
+          "value": "failure_by_assistant_damage"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.assistant_damaged.08173f6b84",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000162",
+      "source_lines": {
+        "start": 323,
+        "end": 323
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000323-L000323",
+      "quote": "相神相伤，立败其格",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "十五、论相神紧要"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

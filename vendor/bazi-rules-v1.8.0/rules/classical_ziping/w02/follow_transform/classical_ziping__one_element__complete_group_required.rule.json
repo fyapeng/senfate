@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.one_element.complete_group_required@1.0.0",
+  "title": "木火金水方局须三支齐全",
+  "description": "木火金水的一行专旺，方或局必须三支齐全；缺一只保留不完整候选。",
+  "namespace": "classical_ziping.one_element",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.one_element",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 260,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.element",
+        "operator": "in",
+        "value": [
+          "wood",
+          "fire",
+          "metal",
+          "water"
+        ]
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.complete_group",
+        "operator": "equals",
+        "value": false
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.one_element.validity",
+        "proposition": {
+          "predicate": "classical_ziping.one_element.status",
+          "value": "incomplete"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.one_complete.882b8f2299",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000157",
+      "source_lines": {
+        "start": 313,
+        "end": 313
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000313-L000313",
+      "quote": "成方成局，必三方具全方取",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

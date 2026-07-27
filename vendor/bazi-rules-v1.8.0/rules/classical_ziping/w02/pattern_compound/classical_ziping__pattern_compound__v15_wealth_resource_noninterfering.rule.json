@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_compound.v15_wealth_resource_noninterfering@1.0.0",
+  "title": "财印两不相碍",
+  "description": "财印并透且有隔位或不发生直接破坏时，登记两不相碍。",
+  "namespace": "classical_ziping.pattern_compound",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 831,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.special.wealth_resource_noninterfering",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern_compound",
+        "proposition": {
+          "predicate": "classical_ziping.pattern_compound.v15_wealth_resource_noninterfering",
+          "value": "财印两不相碍"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.01eb257a8a",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000265",
+      "source_lines": {
+        "start": 529,
+        "end": 529
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000529-L000529",
+      "quote": "以刑冲破害为忌，则以生之护之为喜矣。存其喜而去其忌则贵，而贵之中又有高低者，何也？以财印并透者论之，两不相碍，其贵也大。如薛相公命，甲申、壬申、乙巳，戊寅，壬印戊财，以乙隔之，水与土不相碍，故为大贵。若壬戌、丁未、戊甲、乙卯，杂气正官，透干会支，最为贵格，而壬财丁印，二者相合，仍以孤官无辅论，所以不上七品。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "三十一、论正官"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

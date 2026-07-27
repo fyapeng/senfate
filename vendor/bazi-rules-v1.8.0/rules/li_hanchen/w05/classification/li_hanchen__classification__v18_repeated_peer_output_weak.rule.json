@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v18_repeated_peer_output_weak@1.0.0",
+  "title": "重复比劫食伤边界仍判身弱",
+  "description": "可见比劫重复且地支食伤重复的作者命例边界中，按公开案例先判身弱，不把数量共现机械升级为身旺。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.classification",
+  "priority": 7103,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.classification.multiple_visible_peers_repeated_output_weak",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.repeat_boundary",
+          "value": "weak_not_strong"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.fb6acf2098",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000117",
+      "source_lines": {
+        "start": 2264,
+        "end": 2287
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002264-L002287",
+      "quote": "身弱用庚金，局中两辛金，两子水",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

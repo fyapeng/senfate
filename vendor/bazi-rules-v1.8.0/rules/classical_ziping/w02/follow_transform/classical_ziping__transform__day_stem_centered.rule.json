@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.day_stem_centered@1.0.0",
+  "title": "化气只以日干合月时为中心",
+  "description": "只有日干与月干或时干的合才进入默认化气流程；其他天干相合不改变日主分类。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.special_route_detection",
+  "priority": 250,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.transform.day_stem_combine_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.transform.routing",
+        "proposition": {
+          "predicate": "classical_ziping.transform.center",
+          "value": "day_stem"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.transform_day_center.647fab67b7",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000155",
+      "source_lines": {
+        "start": 309,
+        "end": 309
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000309-L000309",
+      "quote": "凡看命先看有无合化，若日干或与月干相合，或与时干相合",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    },
+    {
+      "source_ref_id": "src.w02.transform_day_center_sm.40079f151d",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c000334",
+      "source_lines": {
+        "start": 667,
+        "end": 667
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L000667-L000667",
+      "quote": "大凡化气，只取日干而言配合之神",
+      "section_path": [
+        "三命通会"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/runtime-analysis.schema.json",
+  "title": "W08 Runtime Analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "runtime_envelope",
+    "analysis_id",
+    "chart_id",
+    "stage",
+    "active_context",
+    "profile_runs",
+    "finding_count",
+    "findings",
+    "comparisons",
+    "neutral_output",
+    "global_disclaimer",
+    "public_output"
+  ],
+  "properties": {
+    "runtime_envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "project_version",
+        "runtime_version",
+        "execution_mode",
+        "rule_ir_semantics",
+        "traditional_rule_maturity"
+      ],
+      "properties": {
+        "schema_version": {
+          "$ref": "common.schema.json#/$defs/SemVer"
+        },
+        "project_version": {
+          "$ref": "common.schema.json#/$defs/SemVer"
+        },
+        "runtime_version": {
+          "$ref": "common.schema.json#/$defs/SemVer"
+        },
+        "execution_mode": {
+          "const": "typescript_orchestrated_python_compatibility_layer"
+        },
+        "rule_ir_semantics": {
+          "const": "1.0"
+        },
+        "traditional_rule_maturity": {
+          "const": "production"
+        }
+      }
+    },
+    "analysis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chart_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "$ref": "common.schema.json#/$defs/Stage"
+    },
+    "active_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "luck_cycle_id",
+        "annual_id"
+      ],
+      "properties": {
+        "luck_cycle_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "annual_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "profile_runs": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "profile_id",
+          "school_id",
+          "profile_status",
+          "rule_count",
+          "case_summary",
+          "themes",
+          "verdict",
+          "evaluation_counts",
+          "finding_count",
+          "findings",
+          "trace",
+          "state_chain_summary",
+          "warnings"
+        ],
+        "properties": {
+          "profile_id": {
+            "$ref": "common.schema.json#/$defs/VersionedId"
+          },
+          "school_id": {
+            "type": "string"
+          },
+          "profile_status": {
+            "type": "string"
+          },
+          "rule_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evaluation_counts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "finding_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "finding-ir.schema.json"
+            }
+          },
+          "trace": {
+            "$ref": "trace-ir.schema.json"
+          },
+          "state_chain_summary": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state_id",
+                "stage",
+                "relation_count",
+                "finding_count"
+              ],
+              "properties": {
+                "state_id": {
+                  "type": "string"
+                },
+                "stage": {
+                  "$ref": "common.schema.json#/$defs/Stage"
+                },
+                "parent_state_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "relation_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "finding_count": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "case_summary": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verdict": {
+            "$ref": "school-verdict-ir.schema.json"
+          },
+          "themes": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "items": {
+              "$ref": "school-theme-ir.schema.json"
+            }
+          }
+        }
+      }
+    },
+    "finding_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "finding-ir.schema.json"
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "$ref": "comparison-ir.schema.json"
+      }
+    },
+    "neutral_output": {
+      "$ref": "neutral-output-ir.schema.json"
+    },
+    "global_disclaimer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "public_output": {
+      "$ref": "public-analysis.schema.json"
+    }
+  }
+}

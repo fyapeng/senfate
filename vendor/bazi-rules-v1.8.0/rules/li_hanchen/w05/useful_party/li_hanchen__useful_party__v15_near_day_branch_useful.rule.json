@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.useful_party.v15_near_day_branch_useful@1.0.0",
+  "title": "近身用神",
+  "description": "身弱扶抑中日支与月令冲且日支承担近身帮扶时，日支优先列为用神。",
+  "namespace": "li_hanchen.useful_party",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.useful_party",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_party_resolution",
+  "priority": 2403,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.useful_party.primary_useful_near_day_master",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.useful_party",
+        "proposition": {
+          "predicate": "li_hanchen.useful_party.v15_near_day_branch_useful",
+          "value": "近身用神"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.4beb76354e",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000099",
+      "source_lines": {
+        "start": 1935,
+        "end": 2099
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L001935-L002099",
+      "quote": "印比日元食\n庚戌癸未癸丑乙卯\n伤食才财官\n甲申乙酉丙戌丁亥戊子\n身弱用丑。癸水比肩为妻，癸水用神靠近日干吉，为其断到，戌运成婚，妻高。答曰：1米74。\n局中癸水在东北，丙运中癸旺，妻美。答曰：很美。\n头发长，感情好，姐妹中排行在单数。答曰：老五。\n丙戌运中，甲戌年，戌旺结婚。\n测出国到加拿大，何时能成，断：丁亥运，癸未年，丁火减力，庚金旺时可成。\n山东省临沂市宁先生\n劫官日元官\n戊申甲子己未甲戌\n杀印枭劫比\n乙丑丙寅丁卯戊辰己巳\n身弱用未，己土日干两侧两甲木，两甲均反断，月干甲木为妻，用神靠近日干吉。\n感情深厚，妻娘家人多(兄弟五人)。\n姓氏大姓刘。\n妻个头看子水，临月令空，所以断妻高。\n丁卯大运，丁火生戊力小，妻肤色好。\n第二节女命婚姻\n所有我看过的命理预测著作中，关于女性婚姻之论，几乎众口一辞地说，女命以查夫星子星为准，女命富贵贫贱全凭夫子。这与旧社会封建礼教对妇女的特殊要求有关，丈夫升官发财时，妻子跟着借了光，子女有出息了，做母亲的便也跟着享子福，这是妇女经济不能独立的具体表现，在过去那些时代，查夫子之星论女命福禄状况倒也说得过去，但论女命之婚姻，未免失之准确。我认为，不论男女，也不论是何年代的男女，其婚姻状况，应该是指以下内容：配偶的才干，配偶的前程，配偶的长相，成婚时间，配偶的居住方位，配偶的寿命，以及日后夫妻关系(包括配偶寿命，身体状况，性情等)，无论是过去现在，还是将来，只要是测婚姻，都应是指这些内容。在过去论女性有福无福，全在看夫星子星，现代妇女地位提高了，社会为妇女提供了与男性相同的就业机会，可以充分发挥自己的才干，妇女经济独立，不一定依靠丈夫，子女来供养了，即查一个女性一生能享多大福，主要看自己的命局。在古人所写书中，大多都有专论女命的内容，把论女命之法，与论女命婚姻之法混为一谈，不为严格意义上的论婚姻。把过去论妇女福禄的一套内容，与现代妇女的婚姻混为一谈，岂不成了十分可笑的荒诞怪论了吗?涵辰在着手起草本书目录部分时，就关于论女命有无写的必要，作过一番斟酌，思之再三，认为不用写，没必要写。论现代妇女有福无福，主要看其事业是否有成，财运官运是否亨通，家庭生活是否美满，身体是否健康等内容，这与看男性是完全相同的，在书中写上这一内容，也只能是说明一个问题，今天看一个女命吉凶如何，不能象过去那样单看夫星子星了，除此外，无太多意义，所以实在没有单列一章的必要。虽然现代女强人有些婚姻不吉，那是其特殊命局构成的，并非女强人就不会有美满之婚姻，女强人与美满婚姻二者并不矛盾。作为男性，事业成就非凡，怕老婆，或妻子长年卧病，或妻子不贤者也多的是。有相当多的女强人婚姻十分吉利，也从反面证明了，女性成为强人，与婚姻不吉毫无关系。那种女强人婚姻不吉，或者论女性只看夫星子星之论，是不负责任的信口开河，或者说没有真正弄懂八字的奥秘。大富大贵之命婚姻为忌的情况有些会有，但行运好，一样能富能贵，但婚姻不吉，却将伴随人的终身，在这种情况下，女强人可能贵，但婚姻不吉。身旺、财官两旺，行运又好的女性，还会事业有成，爱情尽失的苦叹吗?温柔贤淑是女性魅力之所在，女强人没有哪个是不知廉耻的泼妇而作贱自己，不知自尊自爱的女性，多是那些少教养，无上进心，事业少成，或无事业可谈的女人。撒切尔夫人素有“铁娘子”之称，但她对其夫之爱与体贴入微，举世公认。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "comparison.w07.topic_ontology@1.0.0",
+  "status": "production",
+  "topics": [
+    {"topic_id":"comparison.resources.value_flow","label":"资源与价值流","comparison_basis":"directional_theme","risk_class":"financial","default_output_mode":"neutralized","description":"只比较资源、交换、保有与流动的传统结构方向，不比较现实收入或投资回报。"},
+    {"topic_id":"comparison.authority.responsibility","label":"规则、权责与组织约束","comparison_basis":"directional_theme","risk_class":"status","default_output_mode":"neutralized","description":"只比较权责、规范、组织压力或支持的传统结构方向。"},
+    {"topic_id":"comparison.learning.support","label":"学习、知识与支持","comparison_basis":"directional_theme","risk_class":"low","default_output_mode":"neutralized","description":"比较学习、支持、保护和凭证类主题。"},
+    {"topic_id":"comparison.output.expression","label":"表达、技能与产出","comparison_basis":"directional_theme","risk_class":"low","default_output_mode":"neutralized","description":"比较表达、技能、作品、服务与释放类主题。"},
+    {"topic_id":"comparison.peers.cooperation_competition","label":"协作、竞争与同伴互动","comparison_basis":"directional_theme","risk_class":"relationship","default_output_mode":"neutralized","description":"比较同伴支持、协作、竞争和资源争用的传统主题。"},
+    {"topic_id":"comparison.relationships.support_pressure","label":"关系支持与互动压力","comparison_basis":"directional_theme","risk_class":"relationship","default_output_mode":"neutralized","description":"比较关系支持、距离与压力，不输出婚姻或亲属关系结局。"},
+    {"topic_id":"comparison.temporal.activation","label":"阶段激活与结构变化","comparison_basis":"common_fact","risk_class":"none","default_output_mode":"structural_only","description":"比较各体系是否在大运流年层重新计算或激活结构。"},
+    {"topic_id":"comparison.structure.support_restraint","label":"支持与约束方向","comparison_basis":"directional_theme","risk_class":"none","default_output_mode":"structural_only","description":"仅比较支持或约束的方向，不把旺衰、用神、用忌党或做功视为同一概念。"},
+    {"topic_id":"comparison.structure.flow_blockage","label":"流通、阻滞与连接","comparison_basis":"directional_theme","risk_class":"none","default_output_mode":"structural_only","description":"比较流通、连接、阻滞和解除阻滞的方向性描述。"},
+    {"topic_id":"comparison.health.symbolism","label":"健康相关传统象征","comparison_basis":"directional_theme","risk_class":"health","default_output_mode":"blocked","description":"只允许登记传统象征及来源，不生成疾病诊断、风险概率或治疗建议。"},
+    {"topic_id":"comparison.reputation.status","label":"声誉、地位与社会评价","comparison_basis":"directional_theme","risk_class":"status","default_output_mode":"neutralized","description":"转换为责任、可见性和评价压力，不输出确定地位或名望。"},
+    {"topic_id":"comparison.structural.framework","label":"流派结构框架","comparison_basis":"not_comparable","risk_class":"none","default_output_mode":"structural_only","description":"用于保存格局、用神、用忌党、宾主、体用、做功等不可直接换算的结构对象。"}
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.v18_guest_source_arch_chain@1.0.0",
+  "title": "宾位来源与坐支成拱链",
+  "description": "宾位来源支生七杀财象且与其坐支成拱时，合成为来源—财象—坐支有向链。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.findings",
+  "priority": 8104,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.guest_source_arch_chain",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.compound_image_chain",
+          "value": "guest_source_arch"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_theme_not_outcome_prediction"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.17dbde1ad0",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000315",
+      "source_lines": {
+        "start": 629,
+        "end": 629
+      },
+      "anchor": "src:modern.duan_li_xiang:L000629-L000629",
+      "quote": "月令寅长生丙又与戌拱，寅为别人的财",
+      "section_path": [
+        "段氏理象学",
+        "二、十干之克"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

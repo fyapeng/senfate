@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.control_matrix.connected_body_protected@1.0.0",
+  "title": "连体节点不可机械制去",
+  "description": "通过透干、根或互通与日主形成连体者进入保护状态。",
+  "namespace": "duan_li_xiang.control_matrix",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.control_matrix",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3969,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.control_matrix.connected_body_protected",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.control_matrix",
+        "proposition": {
+          "predicate": "duan_li_xiang.control_matrix.connected_body_protected",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "structural_only",
+          "reason_codes": [
+            "health_or_lifespan_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.control_matrix_connected_body_protected.eee0d3247e",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001626",
+      "source_lines": {
+        "start": 3249,
+        "end": 3249
+      },
+      "anchor": "src:modern.duan_li_xiang:L003249-L003249",
+      "quote": "连体之字不可制服",
+      "section_path": [
+        "段氏理象学",
+        "B. 印星制财局"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.useful_party.primary_useful_available_v13@1.0.0",
+  "title": "主要用神具体落点",
+  "description": "按从格细分和位置关系，将首要用神落到原局具体干支。",
+  "namespace": "li_hanchen.useful_party",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.useful_party",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_party_resolution",
+  "priority": 2627,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.useful_party.primary_useful_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.useful_party",
+        "proposition": {
+          "predicate": "li_hanchen.useful_party.primary_useful_available_v13",
+          "value": "主要用神可定位"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v13.2b09d69cc4",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000070",
+      "source_lines": {
+        "start": 1301,
+        "end": 1490
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L001301-L001490",
+      "quote": "身弱用戌。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

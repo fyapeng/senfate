@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v16_chen_chou_no_support@1.0.0",
+  "title": "辰丑不帮戊己",
+  "description": "辰丑不帮戊己；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 5005,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.strength.chen_chou_support_removed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v16_chen_chou_no_support",
+          "value": "辰丑不帮戊己"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.8456056b65",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000160",
+      "source_lines": {
+        "start": 2686,
+        "end": 2744
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002686-L002744",
+      "quote": "从以后的几期看，李洪成的理论水平倒也有所提高，但那些基础性又是关键性的东西，仍是没有丝毫的突破，但这段时间里，公司的“实力”确有所壮大，在第五期64页中有：“李先生在一次公司职工会上说：……凭我们目前的客户面和实力，反驳一下……。”从中看出李洪成是认定自己有实力的。我认为研易之人所说的“实力”应该是指精湛的技艺，和对周易理论出神入化地娴熟运用，而不是现代化的办公设备及豪华的办公场所。\n一年过去了，桥路公司在迅速壮大，李洪成本人的功夫有哪些变化呢?99年第一期中实例仍未测准一个，仅举一例说明。\n第22页例\n食食日元财\n辛丑辛丑己酉癸酉\n伤比劫枭印\n庚子己亥戊戌丁酉丙申\n本书中已若干次重复说过丑辰土不帮扶戊己土，此八字从财格十分显然，所以李洪成说此命作身旺用财论，错误是十分显见的。\n在我所接触到的八字类书中，还有一本郭耀宗写的书。\n96年底，我在准备写《四柱预测真踪》时，打算把古人的八字分类重新划分，为博采众家之长，总想多参阅一些书。某日，听到泰安大众桥摆卦摊的一朋友有一本郭耀宗的书，想借阅一下，可怎么商量也借不来，我曾愿借书一天，付租金二百元，人家也不同意。待97年春书出版后，有一朋友买了这本书送给了我，粗看后很失望，庆幸当时那朋友没借给我。今天更无时间读这种书了，所以不能评论了。\n洪丕谟、姜玉珍两位老师合著《中国古代算命术》第三版我有一本，从中知道了古人一些命例，尤有一点颇受感动，洪丕谟老师在三版自序中说“……本人不是预测学家，缺少实践……”看到了洪老师的诚实可敬，洪老师不吹不擂的良好风格对涵辰教益非浅。\n此外，台湾的一些命理学家的作品涵辰也读过一些，颇受启发，这些书在一些具体事情的预测与个人经验方面阐述较细，作为一套传授预测术的技术书，是不够完善的。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

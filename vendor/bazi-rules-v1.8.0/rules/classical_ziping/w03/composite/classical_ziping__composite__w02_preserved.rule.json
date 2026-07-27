@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.composite.w02_preserved@1.0.0",
+  "title": "W03 不覆盖 W02 原局结论",
+  "description": "格局、旺衰、从化原局结论作为父状态保留；W03 只增加新维度并在子状态登记变化。",
+  "namespace": "classical_ziping.composite",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.composite",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.composite_resolution",
+  "priority": 990,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.composite.w02_baseline_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.composite.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.composite.baseline_policy",
+          "value": "preserve_parent_findings"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.composite_w02_preserved.bbeb0d0e7c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000233",
+      "source_lines": {
+        "start": 465,
+        "end": 465
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000465-L000465",
+      "quote": "命之格局，成于八字，然配之以运，亦有成格变格之要权。其成格变格，较之喜忌祸福尤重。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十六、论行运成格变格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

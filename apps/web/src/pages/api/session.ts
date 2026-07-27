@@ -1,0 +1,4 @@
+import type { APIRoute } from "astro";
+import { readSession, saveSession } from "../../lib/analysis-session";
+export const POST: APIRoute = async ({ request }) => { const body = await request.json() as { compiled?:unknown; analysis?:unknown }; if(!body.compiled||!body.analysis)return new Response(JSON.stringify({error:"认证命盘与分析结果均为必填。"}),{status:400}); const id=saveSession(body.compiled,body.analysis); return new Response(JSON.stringify({id}),{headers:{"content-type":"application/json"}}) };
+export const GET: APIRoute = async ({ url }) => { const id=url.searchParams.get("id")??""; const session=readSession(id); return session?new Response(JSON.stringify(session),{headers:{"content-type":"application/json"}}):new Response(JSON.stringify({error:"分析会话不存在或已过期。"}),{status:404,headers:{"content-type":"application/json"}}) };

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.compound.v16_strong_weak_wealth@1.0.0",
+  "title": "身旺财弱",
+  "description": "身旺财弱；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "shao_weihua.compound",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.relations",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 5003,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.compound.strong_weak_wealth",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.compound",
+        "proposition": {
+          "predicate": "shao_weihua.compound.v16_strong_weak_wealth",
+          "value": "身旺财弱"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.1282013f92",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000228",
+      "source_lines": {
+        "start": 455,
+        "end": 455
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L000455-L000455",
+      "quote": "生于 1951 年。柱中月上丙火为父处病地不吉而受日上旺水之克, “身旺财弱克父”, “月干支被 克损父母”, 克父信息明确。其子 24 至 33 岁行劫财之运克父，壬戌流年既是比劫之地, 又父星入墓, 故父死壬戌。",
+      "section_path": [
+        "四柱预测学",
+        "二、其妻的四柱是",
+        "三、长女的四柱是:",
+        "五、长子的四柱是:"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

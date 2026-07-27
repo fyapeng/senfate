@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.host_body.body_use_by_ten_god@1.0.0",
+  "title": "体用从十神角度划分",
+  "description": "体用是十神角色，不等同宫位宾主。",
+  "namespace": "duan_li_xiang.host_body",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.host_body",
+  "status": [
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.host_body_resolution",
+  "priority": 4992,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.host_body.body_use_by_ten_god",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.host_body",
+        "proposition": {
+          "predicate": "duan_li_xiang.host_body.body_use_by_ten_god",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.host_body_body_use_by_ten_god.9d46ca25a4",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001105",
+      "source_lines": {
+        "start": 2207,
+        "end": 2207
+      },
+      "anchor": "src:modern.duan_li_xiang:L002207-L002207",
+      "quote": "体用概念是从十神角度分 “自我主体” 与 “外物客体”",
+      "section_path": [
+        "段氏理象学",
+        "二、体用的概念"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

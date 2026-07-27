@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.state_recompiled@1.0.0",
+  "title": "StateIR 重编译完成后才允许岁运结论",
+  "description": "只有父状态、活动上下文、事实和关系均成功编译后，岁运规则才可继续。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1210,
+  "when": {
+    "op": "resolver",
+    "resolver": "classical_ziping.temporal.state_recompiled",
+    "args": {}
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.state_status",
+          "value": "recompiled"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.state_recompiled.861fe5f273",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000246",
+      "source_lines": {
+        "start": 491,
+        "end": 491
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000491-L000491",
+      "quote": "故凡一八字到手，必须逐干逐支，上下统看。支为干之生地，干为支之发用。如命中有一甲字，则统观四支，有寅亥卯未等字否，有一字，皆甲木之根也。有一亥字，则统观四支，有壬甲二字否。有壬，则亥为壬禄，以壬水用；用甲，则亥为甲长生，以甲木用；用壬甲俱全，则一以禄为根，一以长生为根，二者并用。取运亦用此术，将本命八字，逐干支配之而已。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十八、论支中喜忌逢运透清"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

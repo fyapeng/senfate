@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.true_follow_may_activate@1.0.0",
+  "title": "假从可在岁运中转为有效候选",
+  "description": "活动层补足顺势条件并解除根气或反向妨碍时，重新运行 W02 从格 resolver。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1230,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.follow_candidate_changed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.special_route_transition",
+          "value": "follow_recomputed"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.follow_temporal.125d6f1333",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000456",
+      "source_lines": {
+        "start": 911,
+        "end": 911
+      },
+      "anchor": "src:classic.di_tian_sui:L000911-L000911",
+      "quote": "原注：日主弱矣，财官强矣，不能不从；中有比劫暗生，从之不真。至于岁运财官得地，虽是假从，亦可取富贵，但其人不能免祸，或心术不端耳。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十四、假从"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

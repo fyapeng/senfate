@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.compound.tomb_control_semantics@1.0.0",
+  "title": "墓用表示聚合和管理",
+  "description": "墓只输出聚合、存储、控制、管理等中性结构语义。",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.compound",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3990,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.compound.tomb_control_semantics",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.compound",
+        "proposition": {
+          "predicate": "duan_li_xiang.compound.tomb_control_semantics",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.compound_tomb_control_semantics.6fb1556425",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001466",
+      "source_lines": {
+        "start": 2929,
+        "end": 2929
+      },
+      "anchor": "src:modern.duan_li_xiang:L002929-L002929",
+      "quote": "墓这里可以理解成得到、控制、管理、拥有、 占据等含义",
+      "section_path": [
+        "段氏理象学",
+        "五、墓用结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

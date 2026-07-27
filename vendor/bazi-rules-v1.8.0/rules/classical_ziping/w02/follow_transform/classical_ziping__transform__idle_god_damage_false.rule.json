@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.idle_god_damage_false@1.0.0",
+  "title": "闲神伤化判为假化",
+  "description": "化气形式成立但存在有效破化之神时，降为假化。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 205,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.damaging_idle_god",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.validity",
+        "proposition": {
+          "predicate": "classical_ziping.transform.status",
+          "value": "false_transform_by_damage"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.idle_damage.3642662970",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000098",
+      "source_lines": {
+        "start": 195,
+        "end": 195
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000195-L000195",
+      "quote": "合化虽真，而闲神来伤化气者，皆为假化",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "五、论十干合而不合"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

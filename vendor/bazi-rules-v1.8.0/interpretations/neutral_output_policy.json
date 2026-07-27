@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0.0",
+  "policy_id": "safety.neutral_output.w07@2.0.0",
+  "status": "production",
+  "default_context_prefix": "按照所选传统文本或流派的内部解释，",
+  "comparison_policy": {
+    "allowed_bases": ["common_fact","directional_theme","structural_analogy","not_comparable"],
+    "no_majority_vote": true,
+    "preserve_unknown": true,
+    "preserve_conflict": true,
+    "preserve_incommensurable": true,
+    "raw_source_quote_in_default_output": false
+  },
+  "blocked_as_facts": [
+    "medical_diagnosis","death_time","lifespan","crime_certainty","marriage_failure_certainty",
+    "investment_return_certainty","moral_character_label","gendered_derogatory_label","scientific_accuracy_claim"
+  ],
+  "required_transforms": {
+    "gendered_moralizing":"historical_only_or_neutralize",
+    "health":"block_diagnosis_allow_traditional_symbolism_with_disclaimer",
+    "fatalistic":"structural_candidate_or_block",
+    "financial":"resource_and_value_flow_only",
+    "status":"responsibility_visibility_and_constraint_only",
+    "relationships":"support_pressure_and_distance_only",
+    "personality":"contextual_tendency_not_trait_diagnosis"
+  },
+  "output_precedence": ["blocked","historical_only","neutralized","structural_only"],
+  "required_provenance": ["school_profile_id","finding_ids","source_rule_ids"],
+  "global_disclaimer": "以下内容是传统文化规则的形式化比较，不代表科学预测，也不构成医学、法律、投资或其他专业建议。",
+  "artifacts": {
+    "topic_ontology":"ontology/comparison/W07_TOPIC_ONTOLOGY.json",
+    "concept_crosswalk":"ontology/comparison/W07_CONCEPT_CROSSWALK.json",
+    "comparability_matrix":"ontology/comparison/W07_COMPARABILITY_MATRIX.json",
+    "language_transforms":"interpretations/W07_LANGUAGE_TRANSFORMS.json",
+    "output_templates":"interpretations/W07_OUTPUT_TEMPLATES.json"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.one_element.season_and_no_break_required@1.0.0",
+  "title": "一行专旺须通月气且无克破",
+  "description": "候选还需得月气、时上引旺，并检查全局克破；不以支齐即直接成立。",
+  "namespace": "classical_ziping.one_element",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.one_element",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 255,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.month_qi_connected",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.no_effective_break",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.one_element.validity",
+        "proposition": {
+          "predicate": "classical_ziping.one_element.status",
+          "value": "supported"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.one_validity.bff83a3718",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000157",
+      "source_lines": {
+        "start": 313,
+        "end": 313
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000313-L000313",
+      "quote": "一则须通月气，得时令；二则须时上引之生旺，勿引至死绝；三则须柱中无克无破",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

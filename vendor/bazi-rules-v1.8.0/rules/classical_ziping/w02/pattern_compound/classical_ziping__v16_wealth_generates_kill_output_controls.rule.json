@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_compound.v16_wealth_generates_kill_output_controls@1.0.0",
+  "title": "财生煞而食伤制煞",
+  "description": "财生煞而食伤制煞；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "classical_ziping.pattern_compound",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 5009,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.special.wealth_generates_kill_output_controls_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern_compound",
+        "proposition": {
+          "predicate": "classical_ziping.pattern_compound.v16_wealth_generates_kill_output_controls",
+          "value": "财生煞而食伤制煞"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.8310a436f4",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000343",
+      "source_lines": {
+        "start": 685,
+        "end": 685
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000685-L000685",
+      "quote": "有煞而用财者，财以党煞，本非所喜，而或食被制，不能伏煞，而财以去印存食，便为贵格。如周丞相命，戊戌、甲子，丁未、庚戌，戊被制不能伏煞，时透庚财，即以清食者，生不足之煞。生煞即以制煞，两得其用，尤为大贵。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "三十九、论偏官"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

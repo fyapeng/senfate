@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0.0",
+  "crosswalk_id": "comparison.w07.concept_crosswalk@1.0.0",
+  "status": "production",
+  "policy": {
+    "matching": "longest_predicate_prefix_then_explicit_finding_attributes",
+    "attribute_override": true,
+    "unmapped_structural_default": "comparison.structural.framework",
+    "unmapped_semantic_default": "unknown",
+    "no_majority_vote": true,
+    "validation_use": "descriptive_only_not_cross_school_corroboration"
+  },
+  "mappings": [
+    {
+      "school_id": "classical_ziping",
+      "predicate_prefix": "classical_ziping.temporal.",
+      "canonical_topic": "comparison.temporal.activation",
+      "concept_family": "classical_temporal_recompute",
+      "reason_family": "full_state_recompute",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "classical_ziping",
+      "predicate_prefix": "classical_ziping.strength.preferred_operation",
+      "canonical_topic": "comparison.structure.support_restraint",
+      "concept_family": "classical_strength_operation",
+      "reason_family": "strength_and_pattern",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "classical_ziping",
+      "predicate_prefix": "classical_ziping.qi_flow.",
+      "canonical_topic": "comparison.structure.flow_blockage",
+      "concept_family": "classical_qi_flow",
+      "reason_family": "qi_flow",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "classical_ziping",
+      "predicate_prefix": "classical_ziping.remedy.",
+      "canonical_topic": "comparison.structure.flow_blockage",
+      "concept_family": "classical_remedy",
+      "reason_family": "disease_medicine",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.themes.resource_",
+      "canonical_topic": "comparison.resources.value_flow",
+      "concept_family": "shao_theme_resource",
+      "reason_family": "wealth_theme",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.themes.career_",
+      "canonical_topic": "comparison.authority.responsibility",
+      "concept_family": "shao_theme_career",
+      "reason_family": "official_kill_theme",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.themes.learning_",
+      "canonical_topic": "comparison.learning.support",
+      "concept_family": "shao_theme_learning",
+      "reason_family": "resource_output_theme",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.themes.reputation_",
+      "canonical_topic": "comparison.reputation.status",
+      "concept_family": "shao_theme_reputation",
+      "reason_family": "reputation_configuration",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.themes.health_",
+      "canonical_topic": "comparison.health.symbolism",
+      "concept_family": "shao_health_symbolism",
+      "reason_family": "historical_element_mapping",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.kinship.",
+      "canonical_topic": "comparison.relationships.support_pressure",
+      "concept_family": "shao_kinship",
+      "reason_family": "palace_and_role_star",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.temporal.",
+      "canonical_topic": "comparison.temporal.activation",
+      "concept_family": "shao_temporal_recompute",
+      "reason_family": "annual_primary_luck_secondary",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "shao_weihua",
+      "predicate_prefix": "shao_weihua.useful_god.",
+      "canonical_topic": "comparison.structure.support_restraint",
+      "concept_family": "shao_useful_god",
+      "reason_family": "pattern_bound_useful_god",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "li_hanchen",
+      "predicate_prefix": "li_hanchen.temporal.",
+      "canonical_topic": "comparison.temporal.activation",
+      "concept_family": "li_temporal_inheritance",
+      "reason_family": "inherit_classification_recompute_interaction",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "li_hanchen",
+      "predicate_prefix": "li_hanchen.kinship.",
+      "canonical_topic": "comparison.relationships.support_pressure",
+      "concept_family": "li_kinship",
+      "reason_family": "useful_unfavorable_party",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "li_hanchen",
+      "predicate_prefix": "li_hanchen.useful_party.",
+      "canonical_topic": "comparison.structure.support_restraint",
+      "concept_family": "li_useful_party",
+      "reason_family": "classification_useful_party",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "li_hanchen",
+      "predicate_prefix": "li_hanchen.virtual_real.",
+      "canonical_topic": "comparison.structural.framework",
+      "concept_family": "li_virtual_real",
+      "reason_family": "virtual_real_partition",
+      "role_mode": "structural"
+    },
+    {
+      "school_id": "li_hanchen",
+      "predicate_prefix": "li_hanchen.classification.",
+      "canonical_topic": "comparison.structural.framework",
+      "concept_family": "li_classification",
+      "reason_family": "two_party_classification",
+      "role_mode": "structural"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.wealth_",
+      "canonical_topic": "comparison.resources.value_flow",
+      "concept_family": "duan_wealth_semantics",
+      "reason_family": "ten_god_and_work_semantics",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.official_",
+      "canonical_topic": "comparison.authority.responsibility",
+      "concept_family": "duan_official_semantics",
+      "reason_family": "ten_god_and_work_semantics",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.resource_",
+      "canonical_topic": "comparison.learning.support",
+      "concept_family": "duan_resource_semantics",
+      "reason_family": "ten_god_and_work_semantics",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.output_",
+      "canonical_topic": "comparison.output.expression",
+      "concept_family": "duan_output_semantics",
+      "reason_family": "ten_god_and_work_semantics",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.peer_",
+      "canonical_topic": "comparison.peers.cooperation_competition",
+      "concept_family": "duan_peer_semantics",
+      "reason_family": "ten_god_and_work_semantics",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.temporal.",
+      "canonical_topic": "comparison.temporal.activation",
+      "concept_family": "duan_temporal_recompile",
+      "reason_family": "host_work_recompile",
+      "role_mode": "presence"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.control_",
+      "canonical_topic": "comparison.structure.support_restraint",
+      "concept_family": "duan_control_semantics",
+      "reason_family": "work_graph",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.combine_",
+      "canonical_topic": "comparison.structure.flow_blockage",
+      "concept_family": "duan_combine_semantics",
+      "reason_family": "work_graph",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.semantics.generate_",
+      "canonical_topic": "comparison.structure.flow_blockage",
+      "concept_family": "duan_generate_semantics",
+      "reason_family": "work_graph",
+      "role_mode": "direction"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.host_body.",
+      "canonical_topic": "comparison.structural.framework",
+      "concept_family": "duan_host_body",
+      "reason_family": "host_body",
+      "role_mode": "structural"
+    },
+    {
+      "school_id": "duan_li_xiang",
+      "predicate_prefix": "duan_li_xiang.work.",
+      "canonical_topic": "comparison.structural.framework",
+      "concept_family": "duan_work",
+      "reason_family": "work_graph",
+      "role_mode": "structural"
+    }
+  ],
+  "formal_profiles": [
+    "classical_ziping.composite@1.1.0",
+    "shao_weihua.w04@1.0.0",
+    "li_hanchen.w05@1.0.0",
+    "duan_li_xiang.w06@1.1.0"
+  ],
+  "supported_profiles": [
+    "classical_ziping.composite@1.1.0",
+    "shao_weihua.w04@1.0.0",
+    "li_hanchen.w05@1.0.0",
+    "duan_li_xiang.w06@1.1.0",
+    "classical_ziping.composite@1.1.0"
+  ]
+}

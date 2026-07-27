@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "classical_ziping.w03_qi_flow@1.0.0",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "label": "传统子平 W03 qi_flow",
+  "status": "production",
+  "rule_files": [
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__body_use_plural.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__source_from_dominant.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__flow_destination.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__blocked_flow.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__bridge_candidate.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__bridge_not_presence_only.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__bridge_effective.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__bridge_from_temporal.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__clear_ordered_roles.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__turbid_conflicting_roles.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__clear_requires_spirit.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__clarify_by_one_force.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__true_god_month_assembly.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__false_god_disturbance.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__true_false_unknown.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__follow_formed_momentum.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__do_not_reverse_by_single_token.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__visible_favored_contested.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__hidden_inhibitor_activated.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__visible_inhibitor_controllable.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__majority_minority.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__idle_god.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__idle_activated.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__war_candidate.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__war_can_be_resolved.rule.json",
+    "rules/classical_ziping/w03/qi_flow/classical_ziping__qi_flow__combination_not_always_beneficial.rule.json"
+  ],
+  "notes": [
+    "W03 formal rules; W01 samples and W02 rules are not counted here.",
+    "All rules remain reviewed, not production."
+  ]
+}

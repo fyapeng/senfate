@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.temporal.advanced_tips_withheld@1.0.0",
+  "title": "高级班技巧不形式化",
+  "description": "时间层继承原局格局与用忌分党，先计算大运—流年作用，再把结果映射回原局字。",
+  "namespace": "li_hanchen.temporal",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.temporal",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_resolution",
+  "priority": 1460,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.temporal.advanced_tips_withheld",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.temporal",
+        "proposition": {
+          "predicate": "li_hanchen.temporal.advanced_tips_withheld",
+          "value": "unknown"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "incomplete",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w05.temporal_advanced_tips_withheld.9a7f2e32a2",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000035",
+      "source_lines": {
+        "start": 547,
+        "end": 752
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000547-L000752",
+      "quote": "其他内容为一些实用性极强的技巧，高级班上讲授",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "仅登记十神五行关系候选，不宣称作者未公开的精确裁决。"
+    ]
+  }
+}

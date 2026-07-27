@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.medicine_excess@1.0.0",
+  "title": "药过量可转为新的结构问题",
+  "description": "药的数量或势超过当前病的需要时，降级原药结论并登记新偏颇候选。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1950,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.medicine_excess",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.medicine_status",
+          "value": "excess_creates_new_imbalance"
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.medicine_excess.73ec5e7d91",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000012",
+      "source_lines": {
+        "start": 23,
+        "end": 23
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L000023-L000023",
+      "quote": "以义推之，夫万物负阴而抱阳，冲气以和。过与不及，皆为乖道。故高者抑之使平，下者举之使崇，或益其不及，或损其太过。所以贵在折衷，归於中道，使无有余不足之累，即才官印食贵人驿马之微意也。行运亦如之，识其微意，则於命理之说，思过半矣。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

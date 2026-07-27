@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.jealous_competing_combine_invalid@1.0.0",
+  "title": "妒合争合妨碍化气",
+  "description": "同类竞争合或指定干介入时，登记妒合并否决真化候选。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 220,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.competing_combine",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.validity",
+        "proposition": {
+          "predicate": "classical_ziping.transform.status",
+          "value": "invalid_by_competing_combine"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.jealous_combine.a73c2b14da",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c000335",
+      "source_lines": {
+        "start": 669,
+        "end": 669
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L000669-L000669",
+      "quote": "有戊字间之则不化，名曰妒合",
+      "section_path": [
+        "三命通会"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

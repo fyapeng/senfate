@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.five_elements@1.0.0",
+  "elements": [
+    "wood",
+    "fire",
+    "earth",
+    "metal",
+    "water"
+  ],
+  "labels": {
+    "wood": "木",
+    "fire": "火",
+    "earth": "土",
+    "metal": "金",
+    "water": "水"
+  },
+  "generates": {
+    "wood": "fire",
+    "fire": "earth",
+    "earth": "metal",
+    "metal": "water",
+    "water": "wood"
+  },
+  "controls": {
+    "wood": "earth",
+    "earth": "water",
+    "water": "fire",
+    "fire": "metal",
+    "metal": "wood"
+  },
+  "note": "仅定义五行关系的公共符号结构；旺衰、有效性和吉凶由流派解释器处理。"
+}

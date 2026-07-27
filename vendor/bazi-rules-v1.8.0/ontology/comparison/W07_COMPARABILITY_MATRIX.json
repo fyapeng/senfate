@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "matrix_id": "comparison.w07.comparability_matrix@1.0.0",
+  "status": "production",
+  "levels": ["exact_common_fact","directional_theme","structural_analogy","not_comparable","unknown"],
+  "default_level": "not_comparable",
+  "rules": [
+    {"left":"common.symbol_fact","right":"common.symbol_fact","level":"exact_common_fact"},
+    {"left":"classical_temporal_recompute","right":"shao_temporal_recompute","level":"directional_theme"},
+    {"left":"classical_temporal_recompute","right":"li_temporal_inheritance","level":"directional_theme"},
+    {"left":"classical_temporal_recompute","right":"duan_temporal_recompile","level":"directional_theme"},
+    {"left":"shao_useful_god","right":"li_useful_party","level":"structural_analogy"},
+    {"left":"classical_strength_operation","right":"shao_useful_god","level":"structural_analogy"},
+    {"left":"classical_strength_operation","right":"li_useful_party","level":"structural_analogy"},
+    {"left":"classical_pattern","right":"li_classification","level":"not_comparable"},
+    {"left":"classical_pattern","right":"duan_host_body","level":"not_comparable"},
+    {"left":"shao_useful_god","right":"duan_work","level":"not_comparable"},
+    {"left":"li_useful_party","right":"duan_work","level":"not_comparable"},
+    {"left":"li_virtual_real","right":"duan_host_body","level":"not_comparable"}
+  ],
+  "policy_notes": [
+    "structural_analogy 只允许说明功能方向近似，不允许合并概念、标签或阈值。",
+    "未登记的结构概念对默认 not_comparable。",
+    "比较状态不由多数投票决定。"
+  ]
+}

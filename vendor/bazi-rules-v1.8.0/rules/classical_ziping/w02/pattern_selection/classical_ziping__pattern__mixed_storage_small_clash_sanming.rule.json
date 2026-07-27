@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.mixed_storage_small_clash_sanming@1.0.0",
+  "title": "《三命通会》杂气少许冲刑口径",
+  "description": "《三命通会》在杂气无透出时允许身旺配少许冲刑；与《子平真诠》《命理约言》的反对普遍冲库说并列保存。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "contested",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 100,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.mixed_storage_month",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.no_hidden_qi_visible",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.limited_clash_punishment",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.day_master_strong",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.mixed_storage",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.clash_effect",
+          "value": "conditionally_supportive"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.mixed_clash_sanming.e907dd819f",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c000916",
+      "source_lines": {
+        "start": 1825,
+        "end": 1825
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L001825-L001825",
+      "quote": "如无透出，冲刑少许兼身旺为妙",
+      "section_path": [
+        "三命通会",
+        "五、六月之木，喜雨水、夜生九奇，值此者富贵而寿。火盛无水者贫夭。夏令炎威火盛，烁石流金，木有枯槁之患，徐、扬人干火多者，有疯痨荧燎之凶，或水制，或夜生，或阴雨天，化凶为吉矣。得土以培其根，得水以达其枝，若水土同行，非惟富贵，且寿考康宁矣。见金不能克木，火旺金柔，有子复仇故也。若小暑以后土多，亦忌，盖衰木不能克旺土也。兖、青生者，为财。大抵夏木喜水，与他时不类。",
+        "八、九月之木，正凋零之时，昼火同躔者，贫夭，盖秋阳燥烈，木皆枯落故也。或夜生，或阴雨，或水解之，方吉。兖、青人文章富贵，见水有漂流之患，盖秋水非滋木之时也，冀、雍人尤忌。得土栽培，根基稳厚。见金反吉，盖金司令，则万物摧落，既无长养以遂其生，又未归根以复其命，所可借者，在一金耳，苟无金制以成其器，则为天地间一朽木，此所以仗斧斤之力斫削成器而为栋梁之用，正所谓斧斤以时入山林，木不可胜用也。气运宜往东方、南方。",
+        "八、九月之水，遇令星则福寿难量。金火同，则功名炬赫。见木终被疏泄，不免先成后败。火若同垣，恩金失力，虽有治民服众之德，未免痰疾刑伤。见土虽凶不凶，盖秋令金最能化难为福，徐、扬、豫人干支土多者，亦困滞终身。运利西北，东南失宜。"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.pattern.mixed_storage_clash",
+    "policy": "preserve_all",
+    "note": "《子平真诠》反对把刑冲作为开库通则。"
+  }
+}

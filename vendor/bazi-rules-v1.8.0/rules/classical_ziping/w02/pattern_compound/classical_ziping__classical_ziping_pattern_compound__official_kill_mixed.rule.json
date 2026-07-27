@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_compound.official_kill_mixed@1.0.0",
+  "title": "官煞并透",
+  "description": "官星与七煞同时透出时先登记并透事实，再按制化合清裁决。",
+  "namespace": "classical_ziping.pattern_compound",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 737,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.compiled.official_kill_mixed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern_compound",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.compound_structure",
+          "value": "官煞并透"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v12.4953e66f8d",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000367",
+      "source_lines": {
+        "start": 733,
+        "end": 733
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000733-L000733",
+      "quote": "至于伤官而官煞并透，只要干头取清，金水得之亦清，不然则空结构而已。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "四十一、论伤官"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_efficiency@1.0.0",
+  "namespace": "duan_li_xiang.efficiency",
+  "school_id": "duan_li_xiang",
+  "label": "能量与定性效率",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__energy_each_token.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__branch_above_stem.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__useful_work_requires_output.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__waste_two_forms.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__no_hidden_total_score.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__party_supports_efficiency.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__primary_auxiliary.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__source_and_target_controlled.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__tomb_control_bonus.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__enclosure_bonus.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__layer_money_rank_blocked.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__layer_office_rank_blocked.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__combine_si_shen_high.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__combine_second_tier.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__combine_medium.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__combine_low.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__wu_wei_no_control.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__tomb_clash_high.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__yin_shen_si_hai_high.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__zi_wu_mao_you_lower.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__plain_control_low.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__surround_control_high.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__harm_control_subset.rule.json",
+    "rules/duan_li_xiang/w06/efficiency/duan_li_xiang__efficiency__harm_requires_force.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

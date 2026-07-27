@@ -1,90 +1,22 @@
-# SenFate
+# SenFate 四派命理工作台
 
-SenFate is a clean-room implementation of an auditable modern Bazi reasoning
-system. Classical sources are preserved as evidence; executable behavior is
-defined by explicit, versioned functions and a closed inference pipeline.
+SenFate 2.0 是一个以四套独立传统规则为核心的八字分析工作台：传统子平、邵伟华、李涵辰、段氏理象。它不合并流派结论、不进行加权投票；用户可单独查看任一体系，或在同一命盘、大运和流年下并列切换。
 
-```text
-calendar input
-→ stems and branches
-→ elements, yin-yang and hidden stems
-→ ten gods and generation/control
-→ relation candidates and root/exposure
-→ element measure, strength, pattern, climate and balancing
-→ structure rewrites and relation resolution
-→ stable normal form
-→ kinship roles
-→ topic contributions
-→ event hypotheses
-→ transparent measurements
-```
+## 产品边界
 
-## Workspace
+- 输入为出生日期时间、IANA 时区、经纬度与传统顺逆行参数；认证排盘公开真太阳时、节气窗口、四柱、起运与计算证书；
+- 每一流派独立重算原局、大运和流年；
+- K 线呈现该流派每年的主题倾向指数，来源于当年各主题的规则结论，不是现实概率、投资信号或人生预测；
+- 高风险主题继续只输出规则结构与中性说明。
 
-```text
-apps/web           Astro + React product site, deployed by GitHub Pages
-apps/api           Cloudflare Worker API only
-packages/core      theory ontology and deterministic calculation kernel
-packages/rules     classical corpus validation and rule compilation
-packages/contracts versioned public API contracts
-packages/locations canonical place contracts and GeoNames importer
-packages/ephemeris pinned solar-term table and certified calendar facade
-data               seven source texts and the 37,231-record canonical corpus
-docs               product, architecture and theory specifications
-```
+## 运行
 
-## Product pages
+在 Windows 上执行 `pnpm dev`，然后打开终端显示的本地地址。先在“排盘计算”输入资料，生成认证命盘后运行四派分析；总览会读取当前浏览器会话中的结果。
 
-The public site has four first-level routes:
+## 验证
 
-```text
-/senfate/              analysis workbench
-/senfate/principles/   inference principles and formal pipeline
-/senfate/perspective/  historical context and epistemic boundaries
-/senfate/models/       visible model presets and parameter controls
-```
+`pnpm --filter @senfate/web build` 验证网页构建。`C:\\Users\\ENAN\\miniforge3\\envs\\codex\\python.exe -m unittest discover -s apps/engine/tests -v` 验证 ChartIR 适配与年度指数边界。公开接口为 `/api/chart/compile`、`/api/analysis/run`、`/api/rules` 与 `/api/rules/:id`。
 
-The analysis workbench is connected to the versioned Calendar Engine and natal
-structure runtime. Cloudflare performs canonical location lookup and the first
-certified calculation. A browser Web Worker then loads the hashed compressed
-rule corpus from GitHub Pages and computes the remaining annual, flow-month and
-selected-year states locally through the same formal runtime. It shows four
-pillars, hidden stems, ten gods, solar-time
-corrections, solar-term boundaries, major luck, five-element measure, day-master
-support-pressure, stable relation dispositions, pattern candidates, climate
-coordinates, a five-element balancing vector and dynamically recomputed
-major-luck periods, a selected annual state, six kinship roles and an audited
-ten-domain topic contribution vector. Source-linked event hypotheses are shown
-as traditional-model statements rather than empirical probabilities. The model
-page reads the public model catalog and applies bounded user weights to real
-calculations. Saved changes remain in the browser; the API validates them,
-recomputes the full chain and returns a fingerprinted configuration certificate.
+地点目前支持精确经纬度与明确时区；城市检索会作为独立地点索引接入。
 
-## Commands
-
-```bash
-pnpm install
-pnpm audit:rules
-pnpm audit:reference-compilation
-pnpm audit:resolved-topic-features
-pnpm audit:ephemeris
-pnpm typecheck
-pnpm test
-pnpm build
-pnpm dev:web
-pnpm dev:api
-```
-
-Location search uses a public GeoNames index in Cloudflare D1. The repository tracks its schema and provenance contract; raw geographical datasets and generated import SQL remain in `local-data/`.
-
-Normal website use requires no Cloudflare account ID or API token in the
-browser. GitHub Pages deployment uses the repository's built-in Pages
-permissions. Automated Cloudflare deployment requires the repository
-environment secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`; an
-interactive local deployment may instead use Wrangler's authenticated login.
-
-Large PDFs, databases, exports and generated snapshots belong in `local-data/`
-and are never committed. Their manifests and hashes may be tracked separately.
-
-The model represents a historical knowledge system. Its outputs are not medical,
-legal or financial advice and are not empirical probabilities.
+规则源文件位于 `vendor/bazi-rules-v1.8.0/`，版本、来源说明和未公开模块均随包保留。

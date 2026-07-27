@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "classical_ziping.w02_ontology_manifest@1.0.0",
+  "artifacts": [
+    "ontology/classical_ziping/W02_TERM_REGISTRY.json",
+    "ontology/classical_ziping/W02_EVIDENCE_CATALOG.json"
+  ],
+  "owner": "W02",
+  "compatibility": "Extensions remain inside classical_ziping.*; W01 common ontology is unchanged."
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/common.schema.json",
+  "title": "Bazi Rules Common Types",
+  "type": "object",
+  "$defs": {
+    "SemVer": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "VersionedId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]+@[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "Namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*$"
+    },
+    "WorkId": {
+      "type": "string",
+      "pattern": "^(?:classic|modern|aux)\\.[a-z0-9_]+$"
+    },
+    "TruthValue": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false",
+        "unknown"
+      ]
+    },
+    "Element": {
+      "type": "string",
+      "enum": [
+        "wood",
+        "fire",
+        "earth",
+        "metal",
+        "water"
+      ]
+    },
+    "YinYang": {
+      "type": "string",
+      "enum": [
+        "yang",
+        "yin"
+      ]
+    },
+    "Stem": {
+      "type": "string",
+      "enum": [
+        "甲",
+        "乙",
+        "丙",
+        "丁",
+        "戊",
+        "己",
+        "庚",
+        "辛",
+        "壬",
+        "癸"
+      ]
+    },
+    "Branch": {
+      "type": "string",
+      "enum": [
+        "子",
+        "丑",
+        "寅",
+        "卯",
+        "辰",
+        "巳",
+        "午",
+        "未",
+        "申",
+        "酉",
+        "戌",
+        "亥"
+      ]
+    },
+    "TenGod": {
+      "type": "string",
+      "enum": [
+        "比肩",
+        "劫财",
+        "食神",
+        "伤官",
+        "偏财",
+        "正财",
+        "七杀",
+        "正官",
+        "偏印",
+        "正印"
+      ]
+    },
+    "Stage": {
+      "type": "string",
+      "enum": [
+        "natal",
+        "luck",
+        "annual"
+      ]
+    },
+    "RuleStatus": {
+      "type": "string",
+      "enum": [
+        "executable",
+        "parameterized",
+        "procedural",
+        "semantic",
+        "example_only",
+        "historical_only",
+        "contested",
+        "incomplete",
+        "excluded"
+      ]
+    },
+    "EntityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref_id",
+        "entity_type"
+      ],
+      "properties": {
+        "ref_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "chart",
+            "pillar",
+            "stem",
+            "branch",
+            "hidden_stem",
+            "luck_cycle",
+            "annual",
+            "fact",
+            "relation",
+            "state",
+            "finding",
+            "concept"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "natal",
+            "luck",
+            "annual",
+            "derived"
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "TemporalScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage"
+      ],
+      "properties": {
+        "stage": {
+          "$ref": "#/$defs/Stage"
+        },
+        "state_id": {
+          "type": "string"
+        },
+        "luck_cycle_id": {
+          "type": "string"
+        },
+        "annual_id": {
+          "type": "string"
+        }
+      }
+    },
+    "JsonValue": {}
+  }
+}

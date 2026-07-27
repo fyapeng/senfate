@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "shao_weihua.w04@1.0.0",
+  "school_id": "shao_weihua",
+  "label": "邵伟华《四柱预测学》W04 综合体系",
+  "namespace": "shao_weihua",
+  "status": "production",
+  "allowed_namespaces": [
+    "common",
+    "shao_weihua",
+    "safety"
+  ],
+  "phase_order": [
+    "common.input_validation",
+    "common.fact_compilation",
+    "common.relation_candidates",
+    "school.procedure_resolution",
+    "school.pattern_resolution",
+    "school.useful_god_resolution",
+    "school.shensha_resolution",
+    "school.temporal_recompute",
+    "school.kinship_resolution",
+    "school.theme_mapping",
+    "school.findings",
+    "safety.output"
+  ],
+  "modules": [
+    {
+      "module_id": "shao_weihua.procedure",
+      "phase": "school.procedure_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.relations",
+      "phase": "school.procedure_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "RelationIR",
+        "FindingIR",
+        "TraceIR"
+      ],
+      "notes": [
+        "六害为结构关系；须另看有制无制。"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.pattern",
+      "phase": "school.pattern_resolution",
+      "enabled": true,
+      "depends_on": [
+        "shao_weihua.procedure"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ],
+      "notes": [
+        "120 日干—月令单元；丁辰待扫描核验。"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.useful_god",
+      "phase": "school.useful_god_resolution",
+      "enabled": true,
+      "depends_on": [
+        "shao_weihua.pattern",
+        "shao_weihua.procedure"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.shensha",
+      "phase": "school.shensha_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ],
+      "notes": [
+        "附加标志，不得替代主程序。"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.temporal",
+      "phase": "school.temporal_recompute",
+      "enabled": true,
+      "depends_on": [
+        "shao_weihua.useful_god",
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "StateIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.kinship",
+      "phase": "school.kinship_resolution",
+      "enabled": true,
+      "depends_on": [
+        "shao_weihua.temporal"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "shao_weihua.themes",
+      "phase": "school.theme_mapping",
+      "enabled": true,
+      "depends_on": [
+        "shao_weihua.pattern",
+        "shao_weihua.useful_god",
+        "shao_weihua.temporal"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    }
+  ],
+  "rule_packs": [
+    "rules/shao_weihua/w04/shao_weihua.w04_procedure.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_relations.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_pattern.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_useful_god.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_shensha.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_temporal.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_kinship.pack.json",
+    "rules/shao_weihua/w04/shao_weihua.w04_themes.pack.json"
+  ],
+  "parameters": {
+    "month_command_policy": "primary_but_not_single_evidence",
+    "pattern_policy": "month_lookup_candidates",
+    "useful_god_policy": "structure_bound_case_selection",
+    "shensha_policy": "supplementary_only",
+    "temporal_policy": "annual_primary_luck_secondary_full_recompute",
+    "kinship_policy": "palace_and_role_star_parallel",
+    "high_risk_output": "neutralize_or_block"
+  },
+  "thresholds": {
+    "support_many_min": 4,
+    "restraint_many_min": 4,
+    "root_many_min": 2
+  },
+  "unknown_policy": "propagate",
+  "conflict_policy": "preserve_all",
+  "relation_resolution": {
+    "candidate_source": "common.relation_candidates",
+    "resolvers": [
+      "shao_weihua.w04.pattern_cell_matches",
+      "shao_weihua.w04.useful_god_case_matches",
+      "shao_weihua.w04.shensha_present",
+      "shao_weihua.w04.temporal_state_recompiled"
+    ],
+    "default_unresolved_status": "unknown"
+  },
+  "output_policy_id": "safety.neutral_output.w07@2.0.0",
+  "notes": [
+    "Main source: modern.shao_si_zhu_yu_ce_xue.",
+    "The unverified lecture notes are not a sole source for any formal rule.",
+    "All 300 W04 rules are active in this release.",
+    "v1.8: 345 formal rules; adds visible compound gates, directed control and learning veto precedence."
+  ]
+}

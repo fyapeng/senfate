@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.themes.wealth_weak_day@1.0.0",
+  "title": "身弱财多登记支持需要",
+  "description": "主题规则只输出传统体系中的资源、责任、学习、关系或风险象征；不得替代专业判断或事实预测。",
+  "namespace": "shao_weihua.themes",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.themes",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.theme_mapping",
+  "priority": 1296,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.themes.wealth_weak_day",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "theme",
+        "topic": "shao_weihua.themes.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.themes.resource_capacity",
+          "value": "support_required"
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_theme_not_outcome_prediction"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.themes_wealth_weak_day.45d2dd7345",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c002664",
+      "source_lines": {
+        "start": 5317,
+        "end": 5317
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L005317-L005317",
+      "quote": "身弱财多，喜印护身。",
+      "section_path": [
+        "四柱预测学",
+        "第一节 预测财运之一"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "template_id": "safety.w07.output_templates@1.0.0",
+  "status": "production",
+  "status_templates": {
+    "agreement":"各体系在“{topic_label}”上的可比较结论一致。",
+    "same_direction_different_reason":"各体系在“{topic_label}”上的方向相同，但使用了不同的内部推断路径。",
+    "mixed":"至少一个体系在“{topic_label}”内部同时保留支持与抑制因素。",
+    "contested":"各体系在“{topic_label}”上给出相反方向，分歧被保留。",
+    "incommensurable":"“{topic_label}”涉及不同流派的异质结构对象，不能直接换算为同一结论。",
+    "not_applicable":"至少一个所选体系没有“{topic_label}”对应模块。",
+    "unknown":"“{topic_label}”的现有证据不足，结论保持未知。"
+  },
+  "context_prefix":"按照所选传统文本或流派的内部解释，",
+  "global_disclaimer":"以下内容是传统文化规则的形式化比较，不代表科学预测，也不构成医学、法律、投资或其他专业建议。"
+}

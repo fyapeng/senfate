@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "chart_id": "synthetic.chart.001",
+  "pillars": {
+    "year": {
+      "stem": "甲",
+      "branch": "子",
+      "stem_ten_god": "七杀",
+      "hidden_stems": [
+        {
+          "stem": "癸",
+          "role": "main",
+          "order": 1,
+          "ten_god": "正财"
+        }
+      ]
+    },
+    "month": {
+      "stem": "丙",
+      "branch": "寅",
+      "stem_ten_god": "偏印",
+      "hidden_stems": [
+        {
+          "stem": "甲",
+          "role": "main",
+          "order": 1,
+          "ten_god": "七杀"
+        },
+        {
+          "stem": "丙",
+          "role": "middle",
+          "order": 2,
+          "ten_god": "偏印"
+        },
+        {
+          "stem": "戊",
+          "role": "residual",
+          "order": 3,
+          "ten_god": "比肩"
+        }
+      ]
+    },
+    "day": {
+      "stem": "戊",
+      "branch": "辰",
+      "stem_ten_god": "比肩",
+      "hidden_stems": [
+        {
+          "stem": "戊",
+          "role": "main",
+          "order": 1,
+          "ten_god": "比肩"
+        },
+        {
+          "stem": "乙",
+          "role": "middle",
+          "order": 2,
+          "ten_god": "正官"
+        },
+        {
+          "stem": "癸",
+          "role": "residual",
+          "order": 3,
+          "ten_god": "正财"
+        }
+      ]
+    },
+    "hour": {
+      "stem": "庚",
+      "branch": "申",
+      "stem_ten_god": "食神",
+      "hidden_stems": [
+        {
+          "stem": "庚",
+          "role": "main",
+          "order": 1,
+          "ten_god": "食神"
+        },
+        {
+          "stem": "壬",
+          "role": "middle",
+          "order": 2,
+          "ten_god": "偏财"
+        },
+        {
+          "stem": "戊",
+          "role": "residual",
+          "order": 3,
+          "ten_god": "比肩"
+        }
+      ]
+    }
+  },
+  "day_master": "戊",
+  "ten_god_map": {
+    "甲": "七杀",
+    "乙": "正官",
+    "丙": "偏印",
+    "丁": "正印",
+    "戊": "比肩",
+    "己": "劫财",
+    "庚": "食神",
+    "辛": "伤官",
+    "壬": "偏财",
+    "癸": "正财"
+  },
+  "luck_cycles": [
+    {
+      "luck_cycle_id": "luck.01",
+      "order": 1,
+      "stem": "辛",
+      "branch": "酉",
+      "start_year": 2020,
+      "end_year": 2029,
+      "stem_ten_god": "伤官",
+      "hidden_stems": [
+        {
+          "stem": "辛",
+          "role": "main",
+          "order": 1,
+          "ten_god": "伤官"
+        }
+      ]
+    }
+  ],
+  "annual_contexts": [
+    {
+      "annual_id": "annual.2026",
+      "year": 2026,
+      "stem": "丙",
+      "branch": "午",
+      "stem_ten_god": "偏印"
+    }
+  ],
+  "traditional_context": {
+    "sex_parameter": "unspecified",
+    "direction_parameter": "not_supplied",
+    "note": "合成命盘，仅用于 Schema 和 DSL 测试。"
+  },
+  "provenance": {
+    "input_boundary": "post_charting",
+    "provider": "synthetic_fixture",
+    "generated_at": "2026-07-26",
+    "notes": [
+      "No calendar conversion is performed by this project."
+    ]
+  }
+}

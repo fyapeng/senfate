@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.recipe_xin_chou@1.0.0",
+  "title": "辛日主生丑月的调候候选",
+  "description": "按《穷通宝鉴》对应月段登记有序候选。候选次序保留文本程序，不等于普适终局用神，也不越过格局、旺衰、气势和破坏条件。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 2905,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_available",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_key",
+        "operator": "equals",
+        "value": "辛.丑"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.recipe_selected",
+        "value": [
+          "丙",
+          "壬",
+          "戊",
+          "己"
+        ],
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.recipe",
+        "proposition": {
+          "predicate": "classical_ziping.climate.ordered_candidates",
+          "value": [
+            "丙",
+            "壬",
+            "戊",
+            "己"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "day_stem": "辛",
+          "month_branch": "丑",
+          "recipe_key": "辛.丑",
+          "interpretation": "ordered_candidates_not_final_selection",
+          "condition_note": "季冬辛金",
+          "source_chunk_ids": [
+            "classic.qiong_tong_bao_jian#c000899",
+            "classic.qiong_tong_bao_jian#c000900"
+          ],
+          "derived_candidates": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_____primary.2c42efba81",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000899",
+      "source_lines": {
+        "start": 1897,
+        "end": 1897
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L001897-L001897",
+      "quote": "十二月辛金，寒冻之极，先丙後壬，炳不能解冻，无壬不能洗淘，丙壬两透，金马玉堂之客，壬丙俱藏，游庠食　之人，有丙无壬，富真贵假，有壬乏丙，贱而且贫，或丙多，无壬，有癸，市中贸易之流。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "季冬辛金"
+    },
+    {
+      "source_ref_id": "src.w03.climate_____supplement_900.a2d1a9bddd",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000900",
+      "source_lines": {
+        "start": 1899,
+        "end": 1899
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L001899-L001899",
+      "quote": "或水多，有戊己出干，又有丙丁，必主衣食充盈，一生安乐，十二月辛金，丙先壬後，戊己次之。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "同一月段的相邻条件补充。"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

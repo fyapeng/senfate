@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.jia_ji_season@1.0.0",
+  "title": "《三命通会》甲己化气月令条件",
+  "description": "保存《三命通会》的月份表作为书内参数，不覆盖《命理约言》对固定月份表的质疑。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "contested",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 235,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.day_stem_pair",
+        "operator": "equals",
+        "value": "甲己"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.month_branch",
+        "operator": "in",
+        "value": [
+          "辰",
+          "戌",
+          "丑",
+          "未",
+          "午"
+        ]
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.book_specific",
+        "proposition": {
+          "predicate": "classical_ziping.transform.season_support",
+          "value": {
+            "work": "三命通会",
+            "supported": true
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.jia_ji_season.dc493caa2a",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c000335",
+      "source_lines": {
+        "start": 669,
+        "end": 669
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L000669-L000669",
+      "quote": "甲己化土，非辰戌丑未月不化，其次午月亦化",
+      "section_path": [
+        "三命通会"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.transform.fixed_month_table",
+    "policy": "preserve_all",
+    "note": "《命理约言》认为固定某月必化/不化并不尽然。"
+  }
+}

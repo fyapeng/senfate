@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.composite.qi_flow_not_override@1.0.0",
+  "title": "气势源流不静默覆盖月令格局",
+  "description": "气势路线可影响综合判断，但必须保留月令格局来源和差异，不能改写成公共真值。",
+  "namespace": "classical_ziping.composite",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.composite",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.composite_resolution",
+  "priority": 970,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.composite.qi_flow_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.composite.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.composite.qi_flow_policy",
+          "value": "parallel_with_trace"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.composite_qi_flow.d6d3d1e103",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000319",
+      "source_lines": {
+        "start": 637,
+        "end": 637
+      },
+      "anchor": "src:classic.di_tian_sui:L000637-L000637",
+      "quote": "道有体用，不可以一端论也，要在扶之抑之得其宜。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十三、体用"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

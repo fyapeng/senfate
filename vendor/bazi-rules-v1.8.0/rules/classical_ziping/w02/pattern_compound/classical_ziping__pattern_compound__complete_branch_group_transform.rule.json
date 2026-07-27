@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_compound.complete_branch_group_transform@1.0.0",
+  "title": "化气支局完整",
+  "description": "化气候选得到对应三合或三会支局完整支持时，登记支局完整。",
+  "namespace": "classical_ziping.pattern_compound",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 715,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.transformation_group_complete",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.pattern.compound_structure",
+        "value": "化气支局完整",
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.compound",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.compound_structure",
+          "value": "化气支局完整"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v11.complete_branch_group_transform.04dcdd473e",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000411",
+      "source_lines": {
+        "start": 821,
+        "end": 821
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000821-L000821",
+      "quote": "要化出之物，得时乘令，四支局全。如丁壬化木，地支全亥卯未、寅卯辰",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "四十七、论杂格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

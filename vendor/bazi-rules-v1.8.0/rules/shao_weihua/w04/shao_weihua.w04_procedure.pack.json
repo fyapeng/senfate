@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "shao_weihua.w04_procedure@1.0.0",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "label": "分析程序与旺衰入口",
+  "status": "production",
+  "rule_files": [
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__whole_chart_balance.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__year_root.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__year_strength_by_month.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__month_command_unique_standard.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__month_before_day_master.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__hidden_stem_exposure.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__month_luck_origin.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__day_master_center.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__balance_preferred.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__strong_definition.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__weak_definition.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__hour_support.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__illness_definition.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__medicine_definition.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__useful_god_as_balance.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__missing_element_allowed.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__temporal_supplement.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__climate_fallback.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__shensha_not_determinative.rule.json",
+    "rules/shao_weihua/w04/procedure/shao_weihua__procedure__shensha_selective_use.rule.json"
+  ],
+  "notes": [
+    "W04 reviewed rules; normalized OCR context checked, scan collation pending."
+  ]
+}

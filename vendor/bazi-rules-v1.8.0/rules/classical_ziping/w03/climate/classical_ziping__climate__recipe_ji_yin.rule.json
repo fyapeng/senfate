@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.recipe_ji_yin@1.0.0",
+  "title": "己日主生寅月的调候候选",
+  "description": "按《穷通宝鉴》对应月段登记有序候选。候选次序保留文本程序，不等于普适终局用神，也不越过格局、旺衰、气势和破坏条件。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 2940,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_available",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_key",
+        "operator": "equals",
+        "value": "己.寅"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.recipe_selected",
+        "value": [
+          "丙",
+          "戊"
+        ],
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.recipe",
+        "proposition": {
+          "predicate": "classical_ziping.climate.ordered_candidates",
+          "value": [
+            "丙",
+            "戊"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "day_stem": "己",
+          "month_branch": "寅",
+          "recipe_key": "己.寅",
+          "interpretation": "ordered_candidates_not_final_selection",
+          "condition_note": "初春己土",
+          "source_chunk_ids": [
+            "classic.qiong_tong_bao_jian#c000578"
+          ],
+          "derived_candidates": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_____primary.0858603ddb",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000578",
+      "source_lines": {
+        "start": 1211,
+        "end": 1211
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L001211-L001211",
+      "quote": "正月己土，田园犹冻，盖因腊气未除，余寒未退，故丙为尊，得丙照暖，万物自生，忌见壬水，反为己病，何也，壬乃江湖之水，湖水一发，则田园洗荡，变为沙土，而根苗尽没矣，须戊作堤，以保园圃，壬多要见戊制，有戊出干者，定主玉堂金马，若乏制戊，必属平常。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "初春己土"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.hidden_qi_visible@1.0.0",
+  "title": "本气不透而余藏透干时取余藏候选",
+  "description": "月支本气未透时，月支其他藏干若透出，可作为普通格局候选。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 950,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.main_qi_visible",
+        "operator": "equals",
+        "value": false
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.secondary_hidden_visible",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.secondary_hidden_usable",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.pattern.candidate_source",
+        "value": "month_secondary_hidden_visible",
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.candidate",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.candidate_source",
+          "value": "month_secondary_hidden_visible"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.hidden_qi_visible.90978c646c",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c001359",
+      "source_lines": {
+        "start": 2717,
+        "end": 2717
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L002717-L002717",
+      "quote": "干上未透月支本气，而透月支所藏之神， 即以该神取为格",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.useful_god.climate_when_pattern_unclear@1.0.0",
+  "title": "取用案例：unclear_or_special／seasonal_need",
+  "description": "依据作者成格取用段落登记条件化候选；候选不等同现实吉凶或固定终局用神。",
+  "namespace": "shao_weihua.useful_god",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.useful_god",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_god_resolution",
+  "priority": 2464,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.useful_god_case_matches",
+    "args": {
+      "case_id": "climate_when_pattern_unclear"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.useful_god.selection",
+        "proposition": {
+          "predicate": "shao_weihua.useful_god.candidate",
+          "value": "climate_candidate"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "case_id": "climate_when_pattern_unclear",
+          "pattern": "unclear_or_special",
+          "strength": "any",
+          "trigger": "seasonal_need",
+          "candidate": "climate_candidate",
+          "fallback": true,
+          "note": "调候只作为候选分支。"
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.useful_god_climate_when_pattern_unclear.f03d58112b",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001237",
+      "source_lines": {
+        "start": 2467,
+        "end": 2467
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002467-L002467",
+      "quote": "四柱有格者，取用神时较为好取。但有的四柱不成格或格局特殊、或格局不明显, 或不以格局取用神则较为复杂。而且用神的取法，也不都是多者制之、少者益之、旺者削之、弱者补之。而是根据日元所处季节的需要来取用神。如丙申、庚子、癸丑、乙卯时, 此四柱为建禄格, 柱中金木水火土五行俱全、但是水冷、木寒、土冻、火囚，取什么为用神呢？冬天的特点是寒冷，寒冷不利于万物的生长，必须用火来解寒， 而柱中丙火又处囚地而无力，但幸时上有乙木生，在立冬后， 木有气而生丙火，丙火得生燃烧而驱寒冷，温万物，使万物有生发之机，故取丙火为用神，此为食神生财，富贵自然来。",
+      "section_path": [
+        "四柱预测学",
+        "二, 附: 调候用神注释"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

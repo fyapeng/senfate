@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.safety.neutralize_moral_labels@1.0.0",
+  "title": "道德化标签不得输出",
+  "description": "命例中的贬损性人物标签不进入 FindingIR。",
+  "namespace": "duan_li_xiang.safety",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.safety",
+  "status": [
+    "semantic"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "safety.output",
+  "priority": 4993,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.safety.neutralize_moral_labels",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.safety",
+        "proposition": {
+          "predicate": "duan_li_xiang.safety.neutralize_moral_labels",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "moralizing_label"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.safety_neutralize_moral_labels.f846dd4145",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001735",
+      "source_lines": {
+        "start": 3467,
+        "end": 3467
+      },
+      "anchor": "src:modern.duan_li_xiang:L003467-L003467",
+      "quote": "命理的本质在于表述人生",
+      "section_path": [
+        "段氏理象学",
+        "1. 目前看命的方法有传统派，有新派，盲派命理比较前两者有什么特 点? 老师如何看待前两种看命方法?"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

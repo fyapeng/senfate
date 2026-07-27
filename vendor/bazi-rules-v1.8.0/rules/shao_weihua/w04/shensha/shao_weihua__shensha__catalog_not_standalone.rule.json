@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.catalog_not_standalone@1.0.0",
+  "title": "神煞不得脱离主程序单断",
+  "description": "即使检测到多个神煞，也必须回到格局、旺衰、用神和岁运关系。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2050,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.shensha.any_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.shensha.policy",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.determinative",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "prevent_single_marker_determinism"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_not_standalone.94ba89b025",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000755",
+      "source_lines": {
+        "start": 1503,
+        "end": 1503
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001503-L001503",
+      "quote": "神煞之说，从汉朝至今已有三千多年的历史，其数量达一百二十多种，故我国有关命学之书对神煞的论述，各家各派之言很不一致。有的弃四柱流年大运阴阳五行生克制化之原理不讲, 专以神煞来定人命之贵贱; 有的则完全否定神煞在预测中的作用, 说讲神煞是江湖骗子骗人。我认为, 上述两种认识都有片面性, 以神煞定命之贵贱不对, 否定神煞在预测中的作用更不对。",
+      "section_path": [
+        "四柱预测学",
+        "第九章 论吉神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

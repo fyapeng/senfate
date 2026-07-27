@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.heavenly_stems@1.0.0",
+  "items": [
+    {
+      "stem": "甲",
+      "element": "wood",
+      "yin_yang": "yang",
+      "ordinal": 1
+    },
+    {
+      "stem": "乙",
+      "element": "wood",
+      "yin_yang": "yin",
+      "ordinal": 2
+    },
+    {
+      "stem": "丙",
+      "element": "fire",
+      "yin_yang": "yang",
+      "ordinal": 3
+    },
+    {
+      "stem": "丁",
+      "element": "fire",
+      "yin_yang": "yin",
+      "ordinal": 4
+    },
+    {
+      "stem": "戊",
+      "element": "earth",
+      "yin_yang": "yang",
+      "ordinal": 5
+    },
+    {
+      "stem": "己",
+      "element": "earth",
+      "yin_yang": "yin",
+      "ordinal": 6
+    },
+    {
+      "stem": "庚",
+      "element": "metal",
+      "yin_yang": "yang",
+      "ordinal": 7
+    },
+    {
+      "stem": "辛",
+      "element": "metal",
+      "yin_yang": "yin",
+      "ordinal": 8
+    },
+    {
+      "stem": "壬",
+      "element": "water",
+      "yin_yang": "yang",
+      "ordinal": 9
+    },
+    {
+      "stem": "癸",
+      "element": "water",
+      "yin_yang": "yin",
+      "ordinal": 10
+    }
+  ]
+}

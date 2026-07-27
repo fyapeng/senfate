@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.root_supports_capacity@1.0.0",
+  "title": "通根使日主具有承受作用的基础",
+  "description": "四柱通根时，日主具备承受财官食伤等作用的传统结构基础；根仍需分轻重。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 480,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.strength.root_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.strength.root",
+        "proposition": {
+          "predicate": "classical_ziping.strength.root_effect",
+          "value": "supports_capacity"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.root_capacity.7aad2d866c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000102",
+      "source_lines": {
+        "start": 203,
+        "end": 203
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000203-L000203",
+      "quote": "只要四柱有根，便能受财官食神而当伤官七煞",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "六、论十干得时不旺失时不弱"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

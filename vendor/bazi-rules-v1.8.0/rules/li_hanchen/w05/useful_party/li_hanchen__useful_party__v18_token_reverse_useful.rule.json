@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.useful_party.v18_token_reverse_useful@1.0.0",
+  "title": "字级反断为用覆盖组级默认",
+  "description": "原书明确反断的具体字先改写为用神，再生成组级与主题结论；反断不得把整个十神组一并翻转。",
+  "namespace": "li_hanchen.useful_party",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.useful_party",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.useful_party_resolution",
+  "priority": 7201,
+  "when": {
+    "op": "count",
+    "path": "facts.li_hanchen.w05.useful_party.reverse_useful_tokens",
+    "operator": "gte",
+    "value": 1
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.useful_party",
+        "proposition": {
+          "predicate": "li_hanchen.useful_party.token_override",
+          "value": "reverse_useful"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.c3427fde79",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000028",
+      "source_lines": {
+        "start": 449,
+        "end": 544
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000449-L000544",
+      "quote": "丁火反断为用，丁火为官，官用神靠近日干",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

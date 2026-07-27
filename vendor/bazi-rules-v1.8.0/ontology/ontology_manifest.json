@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_manifest_id": "common.ontology_manifest@1.0.0",
+  "artifacts": [
+    "ontology/common/five_elements.json",
+    "ontology/common/heavenly_stems.json",
+    "ontology/common/earthly_branches.json",
+    "ontology/common/ten_gods.json",
+    "ontology/common/relation_catalog.json",
+    "ontology/common/time_layers.json",
+    "ontology/namespace_registry.json"
+  ],
+  "frozen_in": "W01",
+  "compatibility": "Changes to identifiers or semantics require MAJOR version and ADR."
+}

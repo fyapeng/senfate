@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_safety@1.0.0",
+  "namespace": "duan_li_xiang.safety",
+  "school_id": "duan_li_xiang",
+  "label": "中性化与高风险边界",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__example_not_general_rule.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__neutralize_wealth.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__neutralize_status.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__block_death.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__block_disease.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__block_crime.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__neutralize_marriage.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__neutralize_moral_labels.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__no_scientific_claim.rule.json",
+    "rules/duan_li_xiang/w06/safety/duan_li_xiang__safety__ocr_scan_required.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

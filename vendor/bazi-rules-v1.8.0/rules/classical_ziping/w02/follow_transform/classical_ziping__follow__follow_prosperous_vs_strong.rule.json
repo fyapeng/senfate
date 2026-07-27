@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.follow_prosperous_vs_strong@1.0.0",
+  "title": "区分从旺与从强",
+  "description": "从旺以日主比劫一气为主；从强以身印两类同旺为主。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 280,
+  "when": {
+    "op": "any",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_type",
+        "operator": "equals",
+        "value": "从旺"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_type",
+        "operator": "equals",
+        "value": "从强"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.follow.catalog",
+        "proposition": {
+          "predicate": "classical_ziping.follow.distinction",
+          "value": {
+            "从旺": "peer_dominant",
+            "从强": "day_and_resource_joint_dominance"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.follow_distinction.cce35f979f",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c001810",
+      "source_lines": {
+        "start": 3619,
+        "end": 3619
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L003619-L003619",
+      "quote": "从旺者，本身之旺也。印绶不过为其宾耳。从强者，身与印平均，而神皆旺也",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

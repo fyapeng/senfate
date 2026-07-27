@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "host_levels": [
+    {
+      "level": "day_master",
+      "host": [
+        "day.stem"
+      ],
+      "guest": [
+        "all_other_tokens"
+      ]
+    },
+    {
+      "level": "day_pillar",
+      "host": [
+        "day.stem",
+        "day.branch"
+      ],
+      "guest": [
+        "year.*",
+        "month.*",
+        "hour.*"
+      ]
+    },
+    {
+      "level": "day_hour",
+      "host": [
+        "day.*",
+        "hour.*"
+      ],
+      "guest": [
+        "year.*",
+        "month.*"
+      ]
+    },
+    {
+      "level": "natal_time",
+      "host": [
+        "natal.*"
+      ],
+      "guest": [
+        "luck.*",
+        "annual.*"
+      ]
+    }
+  ],
+  "body_default": [
+    "day_master",
+    "resource",
+    "lu",
+    "peer"
+  ],
+  "use_default": [
+    "wealth",
+    "official"
+  ],
+  "contextual": [
+    "food_god",
+    "hurting_officer"
+  ]
+}

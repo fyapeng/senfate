@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.eight_pattern_catalog@1.0.0",
+  "title": "普通八格目录",
+  "description": "将财、官、印、食、杀、伤分化为正偏后登记为八个普通格名；禄刃另行处理。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 990,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.pattern.ordinary_pattern_route",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.catalog",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.allowed_ordinary_patterns",
+          "value": [
+            "正财",
+            "偏财",
+            "正官",
+            "七杀",
+            "正印",
+            "偏印",
+            "食神",
+            "伤官"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.eight_pattern_catalog.cc5b3f881e",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c001356",
+      "source_lines": {
+        "start": 2711,
+        "end": 2711
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L002711-L002711",
+      "quote": "八格者。正财格、偏财格、正官格、七杀格、正印格、偏印格、食神格、伤官格是也",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

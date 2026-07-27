@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.pattern_completion@1.0.0",
+  "title": "活动层可补全原局未全之格",
+  "description": "原局已有候选但关键透干、会局或作用未全时，活动层可能完成结构。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1380,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.pattern_completed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.pattern_transition",
+          "value": "completed"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.pattern_completion.bbeb0d0e7c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000233",
+      "source_lines": {
+        "start": 465,
+        "end": 465
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000465-L000465",
+      "quote": "命之格局，成于八字，然配之以运，亦有成格变格之要权。其成格变格，较之喜忌祸福尤重。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十六、论行运成格变格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    },
+    {
+      "source_ref_id": "src.w03.pattern_completion_examples.a75ed37bbe",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000234",
+      "source_lines": {
+        "start": 467,
+        "end": 467
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000467-L000467",
+      "quote": "何为成格？本命用神，成而未全，从而就之者是也。如丁生辰月，透壬为宫，而运逢申子以会之；乙生辰月，或申或子会印成局，而运逢壬癸以透之。如此之类，皆成格也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十六、论行运成格变格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

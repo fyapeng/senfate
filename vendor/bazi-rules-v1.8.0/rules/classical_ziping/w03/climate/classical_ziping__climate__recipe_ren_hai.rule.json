@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.recipe_ren_hai@1.0.0",
+  "title": "壬日主生亥月的调候候选",
+  "description": "按《穷通宝鉴》对应月段登记有序候选。候选次序保留文本程序，不等于普适终局用神，也不越过格局、旺衰、气势和破坏条件。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 2895,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_available",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_key",
+        "operator": "equals",
+        "value": "壬.亥"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.recipe_selected",
+        "value": [
+          "戊",
+          "丙",
+          "庚"
+        ],
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.recipe",
+        "proposition": {
+          "predicate": "classical_ziping.climate.ordered_candidates",
+          "value": [
+            "戊",
+            "丙",
+            "庚"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "day_stem": "壬",
+          "month_branch": "亥",
+          "recipe_key": "壬.亥",
+          "interpretation": "ordered_candidates_not_final_selection",
+          "condition_note": "初冬壬水",
+          "source_chunk_ids": [
+            "classic.qiong_tong_bao_jian#c001015",
+            "classic.qiong_tong_bao_jian#c001018"
+          ],
+          "derived_candidates": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_____primary.dbbcd0c655",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c001015",
+      "source_lines": {
+        "start": 2144,
+        "end": 2144
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L002144-L002144",
+      "quote": "十月壬水司权，至旺之极，取戊为用，若生辰日干，又见辰时，必须戊透，又须庚制甲，不伤戊土，戊庚两全，定主登科及第，，位显权高，或甲出制戊，不见庚救者，断之困穷，戊藏无制，可许生员，或戊庚两透无甲者，亦主荣显。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "初冬壬水"
+    },
+    {
+      "source_ref_id": "src.w03.climate_____supplement_1018.63c22423f1",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c001018",
+      "source_lines": {
+        "start": 2150,
+        "end": 2150
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L002150-L002150",
+      "quote": "或丙戊两透，行火土运，名利双全，或有丙无戊，可云衣禄，有戊无丙，难许推盈，十月壬水，专用戊丙，次取庚金。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "同一月段的相邻条件补充。"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

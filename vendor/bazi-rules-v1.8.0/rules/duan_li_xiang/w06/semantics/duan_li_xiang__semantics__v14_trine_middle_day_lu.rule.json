@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.v14_trine_middle_day_lu@1.0.0",
+  "title": "三合中神为日主禄",
+  "description": "完整三合局中神与日主禄位相同时，登记禄中神。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.findings",
+  "priority": 4111,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.trine_middle_day_lu_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.v14_trine_middle_day_lu",
+          "value": "禄中神"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v14.48bdeb3768",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000519",
+      "source_lines": {
+        "start": 1037,
+        "end": 1037
+      },
+      "anchor": "src:modern.duan_li_xiang:L001037-L001037",
+      "quote": "时支卯中神，正是她的禄神",
+      "section_path": [
+        "段氏理象学",
+        "2. 十二支三合局"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

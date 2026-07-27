@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.jia_ji_earth@1.0.0",
+  "title": "甲己合化earth候选",
+  "description": "登记五合对应的化神元素；是否真化仍须通过月气、根、妒合与破化条件。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.special_route_detection",
+  "priority": 245,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.transform.day_stem_pair",
+    "operator": "equals",
+    "value": "甲己"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.transform.element",
+        "value": "earth",
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.candidate",
+        "proposition": {
+          "predicate": "classical_ziping.transform.element",
+          "value": "earth"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.jia_ji_earth.e26e2a16ed",
+      "work_id": "classic.yuan_hai_zi_ping",
+      "normalized_path": "corpus/normalized/classic__yuan_hai_zi_ping.md",
+      "chunk_id": "classic.yuan_hai_zi_ping#c002414",
+      "source_lines": {
+        "start": 4827,
+        "end": 4827
+      },
+      "anchor": "src:classic.yuan_hai_zi_ping:L004827-L004827",
+      "quote": "甲己化土",
+      "section_path": [
+        "渊海子平"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "ce66fedb2402012a936248a336cc3cd276f7ac6c38e3739ed93a1bca659c296f"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

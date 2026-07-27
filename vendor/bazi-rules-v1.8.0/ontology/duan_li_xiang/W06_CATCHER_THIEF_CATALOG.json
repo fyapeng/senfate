@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "requirements": [
+    "control_configuration",
+    "catcher_party_strong",
+    "target_isolated",
+    "no_protected_target",
+    "active_control_edge"
+  ],
+  "activation_matches": [
+    "same_token",
+    "same_element",
+    "same_ten_god_group"
+  ],
+  "event_mapping": "unknown"
+}

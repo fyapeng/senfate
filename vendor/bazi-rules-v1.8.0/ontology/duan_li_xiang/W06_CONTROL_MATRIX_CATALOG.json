@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "single_party_targets": {
+    "wood": [
+      "earth",
+      "metal"
+    ],
+    "fire": [
+      "metal",
+      "water"
+    ],
+    "metal": [
+      "wood",
+      "fire"
+    ],
+    "water": [
+      "fire",
+      "dry_earth"
+    ],
+    "dry_earth": [
+      "water",
+      "metal",
+      "wet_earth"
+    ],
+    "wet_earth": [
+      "fire",
+      "dry_earth"
+    ]
+  },
+  "compound_party_targets": {
+    "wood_fire": [
+      "metal",
+      "metal_contained_water"
+    ],
+    "fire_dry_earth": [
+      "water",
+      "water_contained_wood",
+      "metal_water",
+      "wet_earth"
+    ],
+    "metal_water": [
+      "fire",
+      "fire_contained_earth",
+      "dry_earth"
+    ],
+    "metal_wet_earth": [
+      "wood",
+      "fire"
+    ],
+    "water_wet_earth": [
+      "dry_earth",
+      "fire"
+    ],
+    "water_wood": [
+      "earth",
+      "earth_contained_contents"
+    ]
+  },
+  "ten_god_control_directions": [
+    "peer_to_wealth",
+    "wealth_to_peer",
+    "peer_to_official",
+    "official_to_peer",
+    "output_to_official",
+    "official_to_output",
+    "output_to_resource",
+    "resource_to_output",
+    "wealth_to_resource",
+    "resource_to_wealth"
+  ],
+  "protected_targets": [
+    "day_root",
+    "connected_body"
+  ],
+  "unknown_policy": "propagate"
+}

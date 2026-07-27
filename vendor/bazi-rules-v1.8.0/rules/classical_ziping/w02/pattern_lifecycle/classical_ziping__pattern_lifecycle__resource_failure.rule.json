@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_lifecycle.resource_failure@1.0.0",
+  "title": "印格败",
+  "description": "按《子平真诠》登记该格的破格条件；随后仍须检查救应。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 648,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.lifecycle.confirmed_pattern",
+        "operator": "equals",
+        "value": "印"
+      },
+      {
+        "op": "any",
+        "args": [
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.light_with_wealth",
+            "operator": "equals",
+            "value": true
+          },
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.day_strong_resource_heavy_kill_visible",
+            "operator": "equals",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.pattern.resource_failure",
+        "value": {
+          "pattern": "印",
+          "status": "failure_pending_rescue"
+        },
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.lifecycle",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.lifecycle_status",
+          "value": {
+            "pattern": "印",
+            "status": "failure_pending_rescue"
+          }
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.resource_failure.cb7c4f2cae",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000119",
+      "source_lines": {
+        "start": 237,
+        "end": 237
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000237-L000237",
+      "quote": "印轻逢财，或身强印重而透煞，印格败也",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "九、论用神成败救应"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

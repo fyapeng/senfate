@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.false_god_disturbance@1.0.0",
+  "title": "失令而党多者不得自动压倒真神",
+  "description": "假神得党或得局时仍须比较令、局与作用，不按数量多数直接替代。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2370,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.false_party_many",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.true_false_policy",
+          "value": "compare_season_party_and_effect"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.false_disturbance.8202a33be7",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000367",
+      "source_lines": {
+        "start": 733,
+        "end": 733
+      },
+      "anchor": "src:classic.di_tian_sui:L000733-L000733",
+      "quote": "原注：如木火透音，生寅月，聚得真，不要金水乱之。真神得用，不为忌神所害财贵。如参以金水猖狂，而用金水，是金水又不得令，徒与木火不和，乃为碌碌庸人矣。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十五、真神"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

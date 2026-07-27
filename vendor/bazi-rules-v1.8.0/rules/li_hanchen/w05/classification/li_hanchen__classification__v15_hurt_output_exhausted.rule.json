@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v15_hurt_output_exhausted@1.0.0",
+  "title": "伤官伤尽",
+  "description": "从弱且食伤为主、原局不见正官时登记伤官伤尽。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 2402,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.classification.hurt_output_exhausted",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v15_hurt_output_exhausted",
+          "value": "伤官伤尽"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.93f62f23ad",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000119",
+      "source_lines": {
+        "start": 2291,
+        "end": 2304
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002291-L002304",
+      "quote": "大运流年相同便为岁运并临。许多书中论述岁运并临，说成是人生一大灾，并有一句：“岁运并临，不死自己也死他人”令人毛骨悚然的断语。涵辰经过实践后认为，此论有失偏颇，在本书前面章节中已多次讲过，预测术测定人之吉凶，以查用神忌神，看用神忌神之吉凶定人之吉凶祸福。那么岁运并临，同样是大运与流年，能有什么不同吗?我在实践中发现岁运并临的情况太多了，可以这么说，六十岁以上的人，都至少会有一次岁运并临，有的则会两次或更多。六十岁以下的人，有半数的人会遇到岁运并临，无论年老或年少。社会上六十岁以上的人多了，岁运并临时发大财也不鲜见，所以不应轻易说，岁运并临为灾年。岁运并临不是人生之大灾，那当然不用解什么灾，更不用吃什么斋，信什么佛了。还是让事实来说话吧!\n天津市温先生\n杀伤日元食\n丁亥壬子辛巳癸巳\n比劫枭印杀\n辛亥庚戌己酉戊申丁未\n从弱格，伤食为用，局中不见官星，为伤官伤尽，伤官伤尽为官命。庚戌运庚戌年，两庚生壬水旺，为官。在部队工作突出，提升为代理排长。\n山东省临沂市彭先生\n印才日元劫\n戊申甲子辛酉庚寅\n财官杀印枭\n乙丑丙寅丁卯戊辰己巳\n从强格，甲木为忌神，为工作，年干戊土耗甲木吉，戊为工作环境好坏，戊旺时工作环境发生变化。\n丙寅运，丙寅年，两丙生戊土，戊旺耗甲，在校由一普通班到重点班，教室在二楼，本教室正对大门口，丙火旺制甲，丙力大，故南方宽阔。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

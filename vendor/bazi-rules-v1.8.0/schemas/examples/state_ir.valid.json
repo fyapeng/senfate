@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.classical.natal",
+  "chart_id": "synthetic.chart.001",
+  "stage": "natal",
+  "school_profile_id": "classical_ziping.composite.profile@1.8.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.synthetic.month_main_qi_visible",
+      "subject": {
+        "ref_id": "synthetic.chart.001.pillar.month",
+        "entity_type": "pillar",
+        "path": "pillars.month",
+        "layer": "natal"
+      },
+      "predicate": "common.month_branch.main_hidden_stem_visible",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "natal",
+        "state_id": "state.synthetic.classical.natal"
+      },
+      "source_type": "computed",
+      "algorithm_id": "common.compiler.visible_stem@1.0.0",
+      "attributes": {
+        "visible_stem": "甲",
+        "main_hidden_stem": "甲"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.synthetic.寅申",
+      "relation_type": "common.relation.branch.clash",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.pillar.month.branch",
+          "entity_type": "branch",
+          "path": "pillars.month.branch",
+          "layer": "natal",
+          "label": "寅"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.hour.branch",
+          "entity_type": "branch",
+          "path": "pillars.hour.branch",
+          "layer": "natal",
+          "label": "申"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "natal",
+        "state_id": "state.synthetic.common.natal"
+      },
+      "reason_codes": [
+        "catalog_pair_match"
+      ],
+      "attributes": {
+        "pair": [
+          "寅",
+          "申"
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "schema_version": "1.0.0",
+      "finding_id": "finding.synthetic.pattern_candidate",
+      "finding_type": "structural",
+      "namespace": "classical_ziping.pattern",
+      "topic": "classical_ziping.pattern.month_command",
+      "subjects": [
+        {
+          "ref_id": "synthetic.chart.001",
+          "entity_type": "chart",
+          "layer": "natal"
+        }
+      ],
+      "proposition": {
+        "predicate": "classical_ziping.pattern.candidate_ten_god",
+        "value": "七杀"
+      },
+      "truth": "true",
+      "direction": "neutral",
+      "scope": {
+        "stage": "natal",
+        "state_id": "state.synthetic.classical.natal"
+      },
+      "evidence_status": "derived",
+      "source_rule_ids": [
+        "classical_ziping.pattern.month_main_qi_visible@1.0.0"
+      ],
+      "safety": {
+        "risk_level": "none",
+        "output_mode": "structural_only",
+        "reason_codes": []
+      }
+    }
+  ],
+  "school_state": {
+    "classical_ziping": {
+      "pattern_candidates": [
+        "七杀"
+      ]
+    }
+  },
+  "trace_id": "trace.synthetic.classical.natal"
+}

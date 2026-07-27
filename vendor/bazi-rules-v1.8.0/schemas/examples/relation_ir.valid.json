@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "relation_id": "relation.synthetic.寅申",
+  "relation_type": "common.relation.branch.clash",
+  "participants": [
+    {
+      "ref_id": "synthetic.chart.001.pillar.month.branch",
+      "entity_type": "branch",
+      "path": "pillars.month.branch",
+      "layer": "natal",
+      "label": "寅"
+    },
+    {
+      "ref_id": "synthetic.chart.001.pillar.hour.branch",
+      "entity_type": "branch",
+      "path": "pillars.hour.branch",
+      "layer": "natal",
+      "label": "申"
+    }
+  ],
+  "truth": "true",
+  "resolution_status": "candidate",
+  "scope": {
+    "stage": "natal",
+    "state_id": "state.synthetic.common.natal"
+  },
+  "reason_codes": [
+    "catalog_pair_match"
+  ],
+  "attributes": {
+    "pair": [
+      "寅",
+      "申"
+    ]
+  }
+}

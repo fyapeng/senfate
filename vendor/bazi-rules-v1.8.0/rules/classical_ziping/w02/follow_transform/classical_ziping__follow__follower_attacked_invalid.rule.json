@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.follower_attacked_invalid@1.0.0",
+  "title": "从神受克时从局受损",
+  "description": "从神受到有效克制时登记从局破损，不把时间结果在 W02 中展开。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 320,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.follower_attacked",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow.validity",
+        "proposition": {
+          "predicate": "classical_ziping.follow.status",
+          "value": "damaged"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.follower_attacked.f5f428b04c",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000153",
+      "source_lines": {
+        "start": 305,
+        "end": 305
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000305-L000305",
+      "quote": "若从神受克",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.resource_theme@1.0.0",
+  "title": "印星中性主题",
+  "description": "映射支持、学习、知识、凭证、组织与保护。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.findings",
+  "priority": 3994,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.resource_theme",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.resource_theme",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "deterministic_status_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.semantics_resource_theme.257dd2b950",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000954",
+      "source_lines": {
+        "start": 1905,
+        "end": 1905
+      },
+      "anchor": "src:modern.duan_li_xiang:L001905-L001905",
+      "quote": "正印、偏印共俱类象:职业、职务、职称、权力、印章、证件、契约、 智力、智慧、知识",
+      "section_path": [
+        "段氏理象学",
+        "一、正、偏印之类象"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

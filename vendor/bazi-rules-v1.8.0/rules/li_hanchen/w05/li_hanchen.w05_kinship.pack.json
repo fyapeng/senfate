@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "li_hanchen.w05_kinship@1.0.0",
+  "namespace": "li_hanchen.kinship",
+  "school_id": "li_hanchen",
+  "label": "六亲统一公式与中性输出",
+  "status": "production",
+  "rule_files": [
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_strong_support.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_weak_support.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_generated_capacity.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_restrained_capacity.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_near_closeness.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__useful_far_distance.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_strong_pressure.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_weak_pressure.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_generated_pressure.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_restrained_relief.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_near_pressure.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__unfavorable_far_relief.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__appearance_language_blocked.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__status_language_neutralized.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__relationship_not_deterministic.rule.json",
+    "rules/li_hanchen/w05/kinship/li_hanchen__kinship__baishen_missing_roles_unknown.rule.json"
+  ],
+  "notes": [
+    "Only 《八字预测真踪》 author text is used as formal evidence.",
+    "Incomplete algorithms remain unknown; all rules are reviewed, not production."
+  ]
+}

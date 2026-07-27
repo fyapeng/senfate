@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.temporal.hurt_official_vs_official@1.0.0",
+  "title": "伤官用神与七杀、正官用神与伤官的冲突",
+  "description": "按作者岁运程序登记状态转换或关系候选；任何灾病、死亡、牢狱和亲属事件均不得作为确定事实输出。",
+  "namespace": "shao_weihua.temporal",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1881,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.temporal.hurt_official_vs_official",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.temporal.state",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.useful_god_conflict",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.temporal_hurt_official_vs_official.f266e9541d",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000680",
+      "source_lines": {
+        "start": 1353,
+        "end": 1353
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001353-L001353",
+      "quote": "(十一)命局中以伤官为用神，大运流年最忌七杀。命局以正官为用神，大运流年最忌伤官，犯之主破缘、吵架、打官司、破财。",
+      "section_path": [
+        "四柱预测学",
+        "二、看大运流年。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

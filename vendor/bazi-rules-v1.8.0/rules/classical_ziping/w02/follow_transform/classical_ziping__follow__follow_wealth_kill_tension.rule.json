@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.follow_wealth_kill_tension@1.0.0",
+  "title": "《渊海子平》从财忌杀规则",
+  "description": "保留《渊海子平》对从财见杀的特定口径，不提升为传统子平统一真值。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "contested",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 300,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_type",
+        "operator": "equals",
+        "value": "财"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.kill_present",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow.validity",
+        "proposition": {
+          "predicate": "classical_ziping.follow.status",
+          "value": "contested_damage_by_kill"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.follow_wealth_kill.75163e30f7",
+      "work_id": "classic.yuan_hai_zi_ping",
+      "normalized_path": "corpus/normalized/classic__yuan_hai_zi_ping.md",
+      "chunk_id": "classic.yuan_hai_zi_ping#c001904",
+      "source_lines": {
+        "start": 3807,
+        "end": 3807
+      },
+      "anchor": "src:classic.yuan_hai_zi_ping:L003807-L003807",
+      "quote": "从财忌杀",
+      "section_path": [
+        "渊海子平"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "ce66fedb2402012a936248a336cc3cd276f7ac6c38e3739ed93a1bca659c296f"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.follow.wealth_with_kill",
+    "policy": "preserve_all",
+    "note": "其他著作可能允许财再生官杀；该规则仅代表《渊海子平》口径。"
+  }
+}

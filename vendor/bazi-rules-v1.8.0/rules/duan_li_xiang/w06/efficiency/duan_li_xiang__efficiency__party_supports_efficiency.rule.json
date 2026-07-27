@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.efficiency.party_supports_efficiency@1.0.0",
+  "title": "党势支持效率",
+  "description": "主要功神可由辅助功神生助。",
+  "namespace": "duan_li_xiang.efficiency",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.efficiency",
+  "status": [
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.efficiency_resolution",
+  "priority": 4995,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.efficiency.party_supports_efficiency",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.efficiency",
+        "proposition": {
+          "predicate": "duan_li_xiang.efficiency.party_supports_efficiency",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.efficiency_party_supports_efficiency.04e0f03890",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001264",
+      "source_lines": {
+        "start": 2525,
+        "end": 2525
+      },
+      "anchor": "src:modern.duan_li_xiang:L002525-L002525",
+      "quote": "参与做功的字也分主要功神和辅助功神",
+      "section_path": [
+        "段氏理象学",
+        "1. 做功等级大的四柱"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

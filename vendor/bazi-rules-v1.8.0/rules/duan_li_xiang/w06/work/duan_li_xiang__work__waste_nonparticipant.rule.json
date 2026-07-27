@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.work.waste_nonparticipant@1.0.0",
+  "title": "不参与做功者为废神候选",
+  "description": "未进入已解析做功图的节点仅标为废神候选，未知边存在时不得确认。",
+  "namespace": "duan_li_xiang.work",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.work",
+  "status": [
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 4998,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.work.waste_nonparticipant",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.work",
+        "proposition": {
+          "predicate": "duan_li_xiang.work.waste_nonparticipant",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.work_waste_nonparticipant.2f0de3ff97",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001110",
+      "source_lines": {
+        "start": 2217,
+        "end": 2217
+      },
+      "anchor": "src:modern.duan_li_xiang:L002217-L002217",
+      "quote": "将四柱中不参与做功的神称为“废神”",
+      "section_path": [
+        "段氏理象学",
+        "三、功神、废神概念"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

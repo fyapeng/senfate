@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.kongwang@1.0.0",
+  "title": "神煞检测：空亡",
+  "description": "按作者给出的查法登记空亡；只输出结构或文化语义，不单独决定事件。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2169,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.shensha_present",
+    "args": {
+      "shensha_id": "kongwang"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.shensha.marker",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.present",
+          "value": "kongwang"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_symbol_not_event_prediction"
+          ]
+        },
+        "attributes": {
+          "label": "空亡",
+          "semantic": "availability_modifier",
+          "detection_method": "day_xun_void",
+          "supplementary_only": true
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_kongwang.2243ba814b",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001018",
+      "source_lines": {
+        "start": 2029,
+        "end": 2029
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002029-L002029",
+      "quote": "<table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>空亡</td></tr><tr><td>甲子</td><td>乙丑</td><td>丙寅</td><td>丁卯</td><td>戊辰</td><td>己巳</td><td>庚午</td><td>辛宋</td><td>壬申</td><td>癸酉</td><td>戌、亥</td></tr><tr><td>甲戌</td><td>亥之</td><td>子丙</td><td>丁丑</td><td>戊寅</td><td>己卯</td><td>庚辰</td><td>辛巳</td><td>午壬</td><td>癸未</td><td>申、酉</td></tr><tr><td>甲申</td><td>酉</td><td>丙戌</td><td>亥丁</td><td>戊子</td><td>己丑</td><td>寅寅</td><td>辛卯</td><td>壬辰</td><td>癸巳</td><td>午、未</td></tr><tr><td>甲午</td><td>乙未</td><td>丙申</td><td>酉丁</td><td>戊戌</td><td>己亥</td><td>庚子</td><td>辛丑</td><td>壬寅</td><td>癸卯</td><td>辰、巳</td></tr><tr><td>甲辰</td><td>乙巳</td><td>丙午</td><td>丁未</td><td>戊申</td><td>己酉</td><td>庚戌</td><td>亥辛</td><td>壬子</td><td>癸丑</td><td>寅、卯</td></tr><tr><td>寅甲</td><td>乙卯</td><td>丙辰</td><td>丁巳</td><td>戊午</td><td>己未</td><td>庚申</td><td>辛酉</td><td>壬戌</td><td>亥癸</td><td>子、丑</td></tr></table>",
+      "section_path": [
+        "四柱预测学",
+        "第八节 论元辰",
+        "第九节 论空亡"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "scan_required",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8",
+      "review_note": "规范化文本存在明显 OCR 字形或表格错位，需扫描核验。"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,28 +1,21 @@
 {
-  "name": "senfate",
+  "name": "senfate-four-schools",
+  "version": "2.0.0",
   "private": true,
-  "version": "0.1.0",
   "type": "module",
-  "packageManager": "pnpm@11.9.0",
-  "engines": {
-    "node": ">=24.0.0",
-    "pnpm": ">=11.0.0"
-  },
   "scripts": {
-    "dev:web": "pnpm --filter @senfate/web dev",
-    "dev:api": "pnpm --filter @senfate/api dev",
-    "audit:rules": "pnpm --filter @senfate/rules run audit",
-    "audit:reference-compilation": "pnpm --filter @senfate/rules run audit:compilation",
-    "audit:resolved-topic-features": "pnpm --filter @senfate/rules run audit:resolved-topic-features",
-    "audit:ephemeris": "pnpm --filter @senfate/ephemeris run audit",
-    "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test",
-    "build": "pnpm --filter @senfate/web build && pnpm --filter @senfate/api build",
-    "verify": "pnpm audit:rules && pnpm audit:reference-compilation && pnpm audit:resolved-topic-features && pnpm audit:ephemeris && pnpm typecheck && pnpm test && pnpm build"
+    "dev": "pnpm --filter @senfate/web dev",
+    "build": "pnpm --filter @senfate/web build",
+    "test": "C:\\Users\\ENAN\\miniforge3\\envs\\codex\\python.exe -m unittest discover -s apps/engine/tests -v && pnpm --filter @senfate/web test",
+    "typecheck": "pnpm --filter @senfate/web typecheck"
+  },
+  "engines": {
+    "node": ">=22",
+    "python": ">=3.11"
   },
   "devDependencies": {
-    "@types/node": "24.10.10",
-    "typescript": "6.0.3",
-    "vitest": "4.1.10"
+    "@types/node": "24.0.0",
+    "typescript": "7.0.2",
+    "vitest": "3.0.0"
   }
 }

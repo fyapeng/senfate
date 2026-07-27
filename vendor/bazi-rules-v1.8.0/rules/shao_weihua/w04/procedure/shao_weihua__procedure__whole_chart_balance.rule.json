@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.whole_chart_balance@1.0.0",
+  "title": "四柱整体排列组合先于单柱断语",
+  "description": "年柱等局部信息必须放回四柱整体的生旺衰弱与排列组合中解释。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 3000,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.whole_chart_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.procedure.whole_chart_required",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_whole_chart_balance.55a7074a62",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001061",
+      "source_lines": {
+        "start": 2115,
+        "end": 2115
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002115-L002115",
+      "quote": "人命的好坏. 必须从四柱整体的生旺衰弱及排列组合来平衡的. 而年是四柱中的首柱, 当然不能忽视它的重要性, 所以第二种看法是片面的。",
+      "section_path": [
+        "四柱预测学",
+        "一、年。年在四柱中好比树之根。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

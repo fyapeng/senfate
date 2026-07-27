@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.strongest_candidate@1.0.0",
+  "title": "最强候选",
+  "description": "按《千里命稿》的教学分类登记旺衰候选；候选可能重叠，须由相对证据解析器裁决。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 450,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.strength.month_supportive",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.strength.support_level",
+        "operator": "equals",
+        "value": "many"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.strength.category",
+        "proposition": {
+          "predicate": "classical_ziping.strength.category_candidate",
+          "value": "最强"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.strongest_candidate.35d873133a",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c000955",
+      "source_lines": {
+        "start": 1909,
+        "end": 1909
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L001909-L001909",
+      "quote": "既当令，又多帮扶",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.strength.qianli_category",
+    "policy": "preserve_all",
+    "note": "原书的强弱分项在边界命盘可能同时满足；W02 不用隐藏分数强制消歧。"
+  }
+}

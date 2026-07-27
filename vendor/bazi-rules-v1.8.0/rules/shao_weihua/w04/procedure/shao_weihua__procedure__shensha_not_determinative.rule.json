@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.shensha_not_determinative@1.0.0",
+  "title": "神煞不能决定或代替命局",
+  "description": "神煞只能作为条件化附加信息，禁止脱离主程序输出确定结论。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2982,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.shensha_module_enabled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.role",
+          "value": "supplementary_only"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_shensha_not_determinative.43693941b9",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000758",
+      "source_lines": {
+        "start": 1509,
+        "end": 1509
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001509-L001509",
+      "quote": "“神煞”二字是预测吉凶的标志之一。神, 并不是神鬼之神; 煞, 也非杀人之杀。神是四柱中的吉星标志, 煞是凶星的标志, 但这些神煞又是体现人体信息中某个方面事情的标志, 根据其标示, 就能断出问题的实质, 但它不能决定命运或代替命运。",
+      "section_path": [
+        "四柱预测学",
+        "第九章 论吉神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

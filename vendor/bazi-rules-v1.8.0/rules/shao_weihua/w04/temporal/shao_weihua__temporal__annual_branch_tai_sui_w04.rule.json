@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.temporal.annual_branch_tai_sui_w04@1.0.0",
+  "title": "流年地支登记为太岁层",
+  "description": "按作者岁运程序登记状态转换或关系候选；任何灾病、死亡、牢狱和亲属事件均不得作为确定事实输出。",
+  "namespace": "shao_weihua.temporal",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1875,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.temporal.annual_branch_tai_sui_w04",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.temporal.state",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.annual_branch_role",
+          "value": "tai_sui"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.temporal_annual_branch_tai_sui_w04.f64d2b3258",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000699",
+      "source_lines": {
+        "start": 1391,
+        "end": 1391
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001391-L001391",
+      "quote": "我在应用中是以地支为太岁的。第一,地支是纪年标志, 第二, 天干为苗, 地支为根, 地支行年, 是一年的众杀之主, 司四时之令。值月，主一月的生杀之权。天干的旺衰是以地支为标准的。第三，在四柱中，有地支临太岁冲支，支必动， 就是说, 太岁叫你动, 你就必动, 而流年之干只有生克之职, 无调动之能。因此, 说流年地支为太岁是有道理的。",
+      "section_path": [
+        "四柱预测学",
+        "三、大运干支及太岁。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

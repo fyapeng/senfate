@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.host_body.level_natal_time@1.0.0",
+  "title": "原局与岁运层级",
+  "description": "四柱为主，大运流年为宾。",
+  "namespace": "duan_li_xiang.host_body",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.host_body",
+  "status": [
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.host_body_resolution",
+  "priority": 4995,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.host_body.level_natal_time",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.host_body",
+        "proposition": {
+          "predicate": "duan_li_xiang.host_body.level_natal_time",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.host_body_level_natal_time.230b25bbdd",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001097",
+      "source_lines": {
+        "start": 2191,
+        "end": 2191
+      },
+      "anchor": "src:modern.duan_li_xiang:L002191-L002191",
+      "quote": "四柱为主, 大运流年就是宾",
+      "section_path": [
+        "段氏理象学",
+        "一、宾主的概念"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

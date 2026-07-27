@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.time_layers@1.0.0",
+  "stages": [
+    {
+      "stage": "natal",
+      "parent": null,
+      "required_context": [
+        "chart"
+      ]
+    },
+    {
+      "stage": "luck",
+      "parent": "natal",
+      "required_context": [
+        "chart",
+        "luck_cycle"
+      ]
+    },
+    {
+      "stage": "annual",
+      "parent": "luck",
+      "required_context": [
+        "chart",
+        "luck_cycle",
+        "annual"
+      ]
+    }
+  ],
+  "transition_rule": "Each child state recomputes facts and candidate/effective relations from all active layers; no additive-score shortcut."
+}

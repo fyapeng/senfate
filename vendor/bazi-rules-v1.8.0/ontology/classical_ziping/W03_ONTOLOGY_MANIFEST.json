@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "classical_ziping.w03_ontology@1.0.0",
+  "namespace": "classical_ziping",
+  "artifacts": [
+    "ontology/classical_ziping/W03_TERM_REGISTRY.json",
+    "ontology/classical_ziping/W03_EVIDENCE_CATALOG.json",
+    "ontology/classical_ziping/W03_CLIMATE_MATRIX.json"
+  ],
+  "public_ontology_change": false,
+  "notes": ["All W03 concepts remain under classical_ziping.*; common ontology stays sealed."]
+}

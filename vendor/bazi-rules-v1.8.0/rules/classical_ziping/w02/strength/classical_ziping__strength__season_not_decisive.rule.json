@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.season_not_decisive@1.0.0",
+  "title": "得时不必然旺失时不必然弱",
+  "description": "当令与失令仅是证据；重克或深根、多党可逆转单一月令判断。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 490,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.strength.season_and_whole_chart_conflict",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.strength.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.strength.month_command_decisive",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.season_not_decisive.2a0f4a9fe3",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000101",
+      "source_lines": {
+        "start": 201,
+        "end": 201
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000201-L000201",
+      "quote": "是以得时而不旺也。秋木虽弱，木根深而木亦强",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "六、论十干得时不旺失时不弱"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

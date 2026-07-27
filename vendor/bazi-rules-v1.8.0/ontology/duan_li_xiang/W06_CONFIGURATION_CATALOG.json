@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "lu_map": {
+    "甲": "寅",
+    "乙": "卯",
+    "丙": "巳",
+    "丁": "午",
+    "戊": "巳",
+    "己": "午",
+    "庚": "申",
+    "辛": "酉",
+    "壬": "亥",
+    "癸": "子"
+  },
+  "half_lu": [
+    {
+      "stems": [
+        "丙",
+        "戊"
+      ],
+      "branch": "巳"
+    },
+    {
+      "stems": [
+        "丁",
+        "己"
+      ],
+      "branch": "午"
+    },
+    {
+      "stem": "丁",
+      "branch": "未"
+    },
+    {
+      "stem": "癸",
+      "branch": "丑"
+    }
+  ],
+  "self_combine_pillars": [
+    "丁亥",
+    "己亥",
+    "辛巳",
+    "癸巳",
+    "壬午",
+    "甲午",
+    "戊子",
+    {
+      "pillar": "丙戌",
+      "condition": "未刑戌"
+    },
+    {
+      "pillar": "壬戌",
+      "condition": "未刑戌"
+    }
+  ],
+  "four_tombs_have_no_fixed_original_stem": [
+    "辰",
+    "戌",
+    "丑",
+    "未"
+  ],
+  "virtual_real_policy": "same_pillar_root_or_generation_only"
+}

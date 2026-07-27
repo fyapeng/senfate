@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.complete_trine_required@1.0.0",
+  "title": "三合缺一不按化局",
+  "description": "以三合局支持化气或格局变化时，三字缺一只保留候选，不确认化局。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 200,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.trine_candidate",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.transform.trine_complete",
+        "operator": "equals",
+        "value": false
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.validity",
+        "proposition": {
+          "predicate": "classical_ziping.transform.trine_status",
+          "value": "incomplete"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.trine_incomplete.6633b3a087",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c000353",
+      "source_lines": {
+        "start": 705,
+        "end": 705
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L000705-L000705",
+      "quote": "若三字缺一则化不成局，不可以三合化局论",
+      "section_path": [
+        "三命通会"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

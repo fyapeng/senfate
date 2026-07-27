@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.hidden_inhibitor_activated@1.0.0",
+  "title": "隐伏抑制项可被岁运激活",
+  "description": "原局伏藏的抑制项在活动层扶、冲或透出时重新登记为活跃候选。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2320,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.hidden_inhibitor_activated",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.visibility_status",
+          "value": "hidden_inhibitor_activated"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.hidden_inhibitor.e87092c5c3",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000385",
+      "source_lines": {
+        "start": 769,
+        "end": 769
+      },
+      "anchor": "src:classic.di_tian_sui:L000769-L000769",
+      "quote": "原注：局中所喜这神，透于天干，岁运不能不遇忌神，必至争夺，所以有暗用吉神为妙。局所忌之神，伏藏于地支者，岁运扶之冲之，则其为患不小，所以忌神明透，制化得宜者吉，",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "三十一、隐显"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

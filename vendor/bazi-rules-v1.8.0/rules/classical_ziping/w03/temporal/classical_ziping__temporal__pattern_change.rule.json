@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.pattern_change@1.0.0",
+  "title": "活动层可改变原局格局路线",
+  "description": "活动层透出藏干、形成新会局或引入关键关系时，保留原局结论并在子状态登记变格。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1370,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.pattern_changed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.pattern_transition",
+          "value": "changed"
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.pattern_change.bbeb0d0e7c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000233",
+      "source_lines": {
+        "start": 465,
+        "end": 465
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000465-L000465",
+      "quote": "命之格局，成于八字，然配之以运，亦有成格变格之要权。其成格变格，较之喜忌祸福尤重。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十六、论行运成格变格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    },
+    {
+      "source_ref_id": "src.w03.pattern_change_examples.1b220f1956",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000235",
+      "source_lines": {
+        "start": 469,
+        "end": 469
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000469-L000469",
+      "quote": "何为变格？如丁生辰月，透壬为官，而运逢戌，透出辰中伤官；壬生戌月，丁己并透，而支又会寅会午，作财旺生官矣，而运逢戊土，透出戌中七煞；壬生亥月，透己为用，作建禄用官矣，而运逢卯未，会亥成本，又化建禄为伤。如此之类，皆变格也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十六、论行运成格变格"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

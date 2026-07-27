@@ -1,0 +1,2086 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 120,
+  "entries": [
+    {
+      "cell_key": "jia_zi",
+      "day_stem": "甲",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "甲生子月, 干透癸水为正印格, 喜见官露印, 忌坐天财伤印, 岁运喜忌同。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "jia_chou",
+      "day_stem": "甲",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "甲生丑月，为杂气，干透己土为正财格，透辛金为正官格, 透癸水为正印格。若全不透者, 酌情取之。喜印忌财, 喜官忌官杀杂混杂及伤官，喜财忌比劫，岁运喜忌同此。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_yin",
+      "day_stem": "甲",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "甲生寅月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "jia_mao",
+      "day_stem": "甲",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "甲生卵月, 为羊刃格 (卯为劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "jia_chen",
+      "day_stem": "甲",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "甲生辰月, 为杂气, 干透戊土为偏财格, 透癸水为正印格。若戊癸不透者，酌情取之。喜财忌劫，喜印忌财，岁运喜忌同此。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_si",
+      "day_stem": "甲",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丙",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "庚",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "甲生巳月，干透丙火为食格。透戊土，为偏财格。透庚金为七煞格。若全不透者，酌情取之。甲生巳月，月为财之原神, 食之临官, 杀之长生。柱中喜财, 戊土是财星愈吉。忌坐刃比, 柱中喜杀, 杀露则愈威。忌食神制杀。柱中喜食, 食露则财源丰厚，忌枭夺食。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_wu",
+      "day_stem": "甲",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "甲生午月，干透丁火，为伤官格。透己土为正财格。若不全透，酌情取之。月为财之源神，柱中喜财，忌土透，财源丰厚。柱中喜伤，丁火露，伤益壮，身旺喜财，身弱忌伤官泄气。岁运喜忌同此。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_wei",
+      "day_stem": "甲",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "甲生未月, 未为木库, 为杂气。干透己土为正财格。透丁火为伤官格。若不透，酌取之。月为财之旺地。柱中喜财， 己土透为财旺，忌比劫。柱中喜伤，丁火露，愈显精透，忌印制伤。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_shen",
+      "day_stem": "甲",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "甲生申月, 为七杀旺地。干透庚金为七杀格, 透戊土为偏财格。透壬水为偏印格 (柱中有食为枭神)。若全不透，酌情取之。七杀喜身旺，忌身弱，忌官星，忌财旺，尤忌再见七杀, 岁运亦然。申为壬之长生, 柱中喜水, 壬水露, 更水旺清秀, 忌财伤印, 岁运喜忌亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_you",
+      "day_stem": "甲",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "甲生酉日，为正官格。喜身旺露官见财，忌七杀伤官。身弱喜生扶，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "jia_xu",
+      "day_stem": "甲",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "甲生戌月，为杂气。干透戊土，为偏财格。透辛金，为正官格。透丁火为伤官格。若全不透者，酌情取之。柱中喜财，戊土露，财临建而旺。柱中喜官，辛金露，金月生而官威。柱中喜伤，丁火露，伤官通根，其势仍烈而秀。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "jia_hai",
+      "day_stem": "甲",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "壬",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "甲生亥月，为遇长生，干透壬水，为偏印格。不透，酌情取之。柱喜露官透印为福，忌财伤印，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_zi",
+      "day_stem": "乙",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "乙生子月, 干透癸水, 为偏印格。不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_chou",
+      "day_stem": "乙",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "乙生丑月, 为杂气。干透己土为偏财格。透癸水, 为偏印格。透辛金, 为七煞格。若全不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_yin",
+      "day_stem": "乙",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "乙生寅月，为羊刃格(劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "yi_mao",
+      "day_stem": "乙",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "乙生卯月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "yi_chen",
+      "day_stem": "乙",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "乙生辰月，为杂气。干透戊土，为正财格，透癸水，为偏印格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_si",
+      "day_stem": "乙",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丙",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "庚",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "乙生巳月，为伤官生财之地。干透丙火，为伤官格。透戊土, 为正财格。透庚金, 为正官格。若全不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_wu",
+      "day_stem": "乙",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "乙生午月，为遇长生。食财旺地。干透丁火，为食神格。 透己土，为偏财格。若不透酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_wei",
+      "day_stem": "乙",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "乙生未月，为杂气。干透己土，为偏财格。透丁火，为食神格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_shen",
+      "day_stem": "乙",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "乙生申月，正官旺地。干透庚金，为正官格。透戊土，为正财格。透壬水，为正印格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_you",
+      "day_stem": "乙",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "乙生酉月，煞之旺地。干透辛金，为七煞格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_xu",
+      "day_stem": "乙",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "乙生戌月，为杂气，遇墓地。干透戊土，为正财格。透辛金, 为七煞格。透丁火, 为食神格。若全不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "yi_hai",
+      "day_stem": "乙",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "壬",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "乙生亥月, 干透壬水, 为正印格。不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_zi",
+      "day_stem": "丙",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "丙生子月，为官贵。干透癸水，为正官。不透，酌取之。 身旺喜财官，身弱喜印旺。忌七煞、伤官，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_chou",
+      "day_stem": "丙",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "丙生丑月，为杂气。干透己土，为伤官格。透癸水，为正官格。透辛金，为正财格。若全不透，酌情取之。杂气喜财透干。忌羊刃比肩。身旺喜财，身弱喜旺。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_yin",
+      "day_stem": "丙",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "丙生寅月，为遇长生。干透甲木，为偏印格。透戊土，为食神格。若不透，酌取之。喜坐官露官，忌财伤印，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_mao",
+      "day_stem": "丙",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "丙生卯月，干透乙木，为正印格。不透，酌取之。喜露官印二星。忌伤印，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_chen",
+      "day_stem": "丙",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "丙生辰月，为杂气。干透乙木，为正印格。透戊土，为食神格。透癸水为正官格。若全不透，酌取之。喜官露，不露要冲。见财身旺发福。忌官伏无冲，七煞伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_si",
+      "day_stem": "丙",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "丙生巳月，为建禄格，巳为长生财地，要财露，如不露， 只是伤官背月令。喜行财运带偏官，忌劫财、正官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "bing_wu",
+      "day_stem": "丙",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "丙生午月, 为羊刃格, 主身旺年长。喜财露带偏官。忌比劫, 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "bing_wei",
+      "day_stem": "丙",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "丙生未月，为杂气。干透己土，为伤官格。透乙未，为正印格。若不透，酌取之。喜印露，不露要冲。忌印伏无冲。 忌伤官，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_shen",
+      "day_stem": "丙",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "丙生申月，干透庚金，为偏财格。透戊土，为食神格。透壬水，为七煞格。若全不透，酌取之。喜身旺露财透官。忌伤官七煞。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_you",
+      "day_stem": "丙",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "丙生酉月, 干透辛金, 为正财格。不透, 酌取之。喜身旺露财透官。忌刑冲破害，比肩劫财。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_xu",
+      "day_stem": "丙",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "丙生戌月，为杂气。干透戊土，为食神格。透辛金，为正财格。若不透，酌取之。丙自身遇库，戌中无物可取为福， 宜时带诸贵格为妙，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "bing_hai",
+      "day_stem": "丙",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "壬",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "甲",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "丙生亥月，干透壬水，为七煞格。透甲木，为偏印格。不透，酌取之。日遇偏官，有合忌制，有制忌合。喜身旺，忌身弱和正官，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_zi",
+      "day_stem": "丁",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "丁生子月，于透癸水，为七煞格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_chou",
+      "day_stem": "丁",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "丁生丑月，为杂气。干透己土，为食神格。透癸水，为七煞格。透辛金，为偏财格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_yin",
+      "day_stem": "丁",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "丁生寅月，干透甲木，为正印格。透戊土，为伤官格。若不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_mao",
+      "day_stem": "丁",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "丁生卯月, 干透乙木, 为偏印格。不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_chen",
+      "day_stem": "丁",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "丁生辰月条在规范化 OCR 中缺失；依据‘丁日喜忌同丙火’与丙辰条，仅登记待扫描核验的候选。",
+      "source_mode": "derived_scan_required",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ding_si",
+      "day_stem": "丁",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "丁生巳月，羊刃格(劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ding_wu",
+      "day_stem": "丁",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "丁生午月, 为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ding_wei",
+      "day_stem": "丁",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "丁生未月, 为杂气, 干透己土, 为食神格。透乙木, 为偏印格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_shen",
+      "day_stem": "丁",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "丁生申月，干透庚金，为正财格。透壬水，为正官格。透戊土，为伤官格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_you",
+      "day_stem": "丁",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "丁生酉月，为遇长生，干透辛金，为偏财格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_xu",
+      "day_stem": "丁",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "丁生戌月，干透戊土，为伤官格。透辛金，为偏财格。不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ding_hai",
+      "day_stem": "丁",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "壬",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "甲",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "丁生亥月，干透壬水，为正官格。透甲木，为偏印格。不透, 酌取之。身旺喜财官双透。忌七煞伤官多合。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_zi",
+      "day_stem": "戊",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "戊生子月，干透癸水，为正财。不透，酌取之。身旺喜露财。生子日有财。忌坐刃，逢比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_chou",
+      "day_stem": "戊",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "戊生丑月，为杂气，干透癸水，为正财格。透辛金，为伤官格。不透，酌取之。身旺喜财露，忌比劫羊刃，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_yin",
+      "day_stem": "戊",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "戊生寅月，干透甲木，为七煞格。透丙火，为偏印。不透, 酌取之。喜身旺, 忌身弱。七煞有合莫制, 无合要制, 忌官星，忌再行七煞之乡。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_mao",
+      "day_stem": "戊",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "戊生卯月，干透乙木，为正官格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_chen",
+      "day_stem": "戊",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "戊生辰月，为杂气，干透乙水，为正官格。透癸水，为正财格。若不透，酌取之。喜财旺露，生子日利财，忌财伏无冲, 忌比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_si",
+      "day_stem": "戊",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "戊生巳月，为建禄格。喜露官，行官印地。忌财星伤官。 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "wu_wu",
+      "day_stem": "戊",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "戊生午月，为羊刃格，喜透官印。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "wu_wei",
+      "day_stem": "戊",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "戊生未月，为杂气。干透丁火为正印格，透乙木，为正官格。若不透，酌取之。喜财透官。不透宜冲，忌官伏无冲， 七煞伤官。喜身旺，岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_shen",
+      "day_stem": "戊",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "戊生申月，干透庚金，为食神格。透癸水，为偏财格。若不透, 酌取之。月令长生水为财, 故喜财透, 无财不宜。柱再逢戊为劫。运喜行财地，忌身弱和官星。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_you",
+      "day_stem": "戊",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "戊生酉月，干透辛金，为伤官格。不透，酌取之。柱中有财则好，无财不利。喜身旺，忌比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_xu",
+      "day_stem": "戊",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "戊生戌月，为杂气。干透辛金，为伤官格。透丁火，为正印格。若不透，酌取之。喜正官透印，不透要神。忌伏印无冲, 忌财伤印, 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "wu_hai",
+      "day_stem": "戊",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "壬",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "甲",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "戊生亥月，干透壬水，为偏财。透甲木，为七煞。若不透, 酌取之。要身旺透财。忌羊刃比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_zi",
+      "day_stem": "己",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "已生子月，干透癸水，为偏财格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_chou",
+      "day_stem": "己",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "已生丑月，为杂气。干透辛金，为食神格。透癸水，为偏财格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_yin",
+      "day_stem": "己",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "己生寅月，干透甲木，为正官格。透丙火，为正印格。若不透, 酌取之。喜坐财透官, 喜行财官身旺为佳。忌七煞伤官, 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_mao",
+      "day_stem": "己",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "已生卯月，干透乙木，为七煞格。不透，酌取之。喜身旺有合, 无则要制。忌无合及透官, 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_chen",
+      "day_stem": "己",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "己生辰月，为杂气。干透乙木，为七煞格。透癸水，为偏财格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_si",
+      "day_stem": "己",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "己生巳月，为羊刃格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ji_wu",
+      "day_stem": "己",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "己生午月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ji_wei",
+      "day_stem": "己",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "己生未月，为杂气。干透乙木，为七煞格。透丁火，为偏印格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_shen",
+      "day_stem": "己",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "已生申月，干透庚金，为伤官格。透壬水，为正财格，若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_you",
+      "day_stem": "己",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "己生酉月，干透辛金，为食神格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_xu",
+      "day_stem": "己",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "己生戌月；为杂气。干透辛金，为食神格。透丁火，为偏印格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ji_hai",
+      "day_stem": "己",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "己生亥月，干透甲木，为正官格。透壬水，为正财格。若不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_zi",
+      "day_stem": "庚",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "庚生子月，干透癸水，为伤官格。不透，酌取之。喜身旺坐财透官, 忌身弱无财和伤。如四柱全无财星, 只为伤官背禄。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_chou",
+      "day_stem": "庚",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "庚生丑月，为自库，干透己土，为正印格。透癸水，为伤官格。若不透，酌取之。身强少病，多安有寿，喜时上偏官。忌正官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_yin",
+      "day_stem": "庚",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "庚生寅月，干透甲木，为偏财格。透丙火，为七煞格。透戊土，为偏印格。若不透，酌取之。喜身旺财多透。忌坐羊刃、比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_mao",
+      "day_stem": "庚",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "庚生卯月，干透乙木，为正财格。不透，酌取之。喜财透身旺，不坐寅卯日，难有财。忌坐劫露比。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_chen",
+      "day_stem": "庚",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "庚生辰月，为杂气。干透乙木，为正财格。透戊土，为偏印格。透癸水，为伤官格。若不透，酌取之。生清明后七日半，乙木有余气方可发，但要比肩羊刃。喜身旺，喜财地， 总比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_si",
+      "day_stem": "庚",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丙",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "庚生巳月，为遇长生。干透丙火，为七煞格。透戊土，为偏印格。若不透，酌取之。喜身旺有合，有合莫制。喜露偏官, 忌身弱无合和再见偏官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_wu",
+      "day_stem": "庚",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "庚生午月，干透丁火，为正官格。透已土，为正印格。若下透，酌取之。身遇正官，喜身旺、忌身弱、七煞、伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_wei",
+      "day_stem": "庚",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "庚生未月，为杂气。干透己土，为正印格。透乙木，为正财格。透丁火，为正官格。若全不透，酌取之。喜身旺，财露财旺。不透要冲。忌财伏无冲，羊刃比肩。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_shen",
+      "day_stem": "庚",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "庚生申月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "geng_you",
+      "day_stem": "庚",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "庚生酉月，为羊刃格(劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "geng_xu",
+      "day_stem": "庚",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "庚生戌月，为杂气，干透戊土，为偏印格。透丁火，为正官格。若不透，酌取之，要身旺，喜财官，忌身弱、七煞、 伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "geng_hai",
+      "day_stem": "庚",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "庚生亥月，干透甲木，为正财格。透壬水，为食神格。若不透，酌取之。喜身旺财露。忌身弱无财。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_zi",
+      "day_stem": "辛",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": "癸",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "辛生子月，为遇长生。干透癸水，为食神格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_chou",
+      "day_stem": "辛",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "辛生丑月, 为杂气, 干透己土, 为偏印格。透癸水, 为食神格, 若不透, 酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_yin",
+      "day_stem": "辛",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "辛生寅月，干透甲木，为正财格。透丙火，为正官格。透戊土，为正印格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_mao",
+      "day_stem": "辛",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "辛生卯月，干透乙木，为偏财格。不透酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_chen",
+      "day_stem": "辛",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "癸",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "辛生辰月，为余气财。干透乙木，为偏财格。透戊土，芝正印格。透癸水，为食神格，若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_si",
+      "day_stem": "辛",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丙",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "辛生巳月，干透丙火，为正官格，透戊土，为正印格。若不透, 酌取之, 辛为天德, 喜身旺透官透财。忌生七煞、伤官, 岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_wu",
+      "day_stem": "辛",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "辛生午月、干透丁火，为七煞格，透己土，为偏印格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_wei",
+      "day_stem": "辛",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "辛生未月，为杂气财。干透己土，为偏印格。透丁火，大七煞格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_shen",
+      "day_stem": "辛",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "辛生申月，为羊刃格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "xin_you",
+      "day_stem": "辛",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "辛生酉月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "xin_xu",
+      "day_stem": "辛",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "辛生戌月，为杂气。干透戊土，为正印格。透丁火，为七煞格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "xin_hai",
+      "day_stem": "辛",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "壬",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "辛生亥月，干透甲木，为正财格。透壬水，为伤官格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_zi",
+      "day_stem": "壬",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "壬生子月，为羊刃格(劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "ren_chou",
+      "day_stem": "壬",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "壬生丑月，为杂气。干透己土，为正官格。透辛金，为正印格。若不透，酌取之。喜透印见官及刑冲。忌印伏，忌财伤印。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_yin",
+      "day_stem": "壬",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "王生寅月，干透甲木，为食神格。透丙火，为偏财格。透戊土，为七煞格。若全不透，酌取之。身旺喜财透干。四柱无财，只是伤官背禄。忌身弱正官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_mao",
+      "day_stem": "壬",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "壬生卯月，干透乙木，为伤官格。不透，酌取之。喜身旺坐财，忌劫财正官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_chen",
+      "day_stem": "壬",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "壬生辰月，为自库。干透乙木，为伤官格。透戊土，为七煞格。若不透，酌取之。喜身旺，行合制，忌行正官、伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_si",
+      "day_stem": "壬",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "庚",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "壬生巳月，干透戊土，为七煞格。透丙火，为偏财格。透庚金，为偏印格。若全不透，酌取之。喜身强、偏官，有合莫制。忌身弱露官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_wu",
+      "day_stem": "壬",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "壬生午月，干透丁火，为正财格。透己土，为正官格。若不透，酌取之。喜身旺财官。忌七煞、伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_wei",
+      "day_stem": "壬",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "伤官格"
+        }
+      ],
+      "raw_text": "壬生未月，为杂气财。干透己土，为正官格。透丁火，为正财格。透乙木，为伤官格。若全不透，酌取之。喜身旺透官透财，无伤官，无劫财为福。忌七煞，伤官、劫财。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_shen",
+      "day_stem": "壬",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "偏印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "壬生申月，为遇长生。干透庚金，为偏印格。透戊土，为七煞格。若不透，酌取之。透官露印，忌财伤印。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_you",
+      "day_stem": "壬",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "壬生酉月，干透辛金，为正印格。不透，酌取之。喜露官透印，忌财伤印。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_xu",
+      "day_stem": "壬",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "壬生戌月，为杂气。干透戊土，为七煞格。透丁火，为正财格。透辛金，为正印格。若全不透，酌取之。要身旺财官双透为贵。财透逢冲，则用材，官透逢冲，则用官。不透要冲。忌伏财无冲，忌比劫。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "ren_hai",
+      "day_stem": "壬",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "壬生亥月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "gui_zi",
+      "day_stem": "癸",
+      "month_branch": "子",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "建禄格"
+        }
+      ],
+      "raw_text": "癸生子月，为建禄格。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    },
+    {
+      "cell_key": "gui_chou",
+      "day_stem": "癸",
+      "month_branch": "丑",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "癸生丑月，为杂气。干透己土，为七煞格。透辛金，为偏印格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_yin",
+      "day_stem": "癸",
+      "month_branch": "寅",
+      "candidate_patterns": [
+        {
+          "visible_stem": "甲",
+          "pattern": "伤官格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "丙",
+          "pattern": "正财格"
+        }
+      ],
+      "raw_text": "癸生寅月，干透甲木，为伤官格。透戊土，为正官格。透丙火，为正财格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_mao",
+      "day_stem": "癸",
+      "month_branch": "卯",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "食神格"
+        }
+      ],
+      "raw_text": "癸生卯月，为遇长生。干透乙木，为食神格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_chen",
+      "day_stem": "癸",
+      "month_branch": "辰",
+      "candidate_patterns": [
+        {
+          "visible_stem": "乙",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "癸生辰月，为杂气。干透乙木，为食神格。透戊土，为正官格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_si",
+      "day_stem": "癸",
+      "month_branch": "巳",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丙",
+          "pattern": "正财格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "庚",
+          "pattern": "正印格"
+        }
+      ],
+      "raw_text": "癸生巳月，干透丙火，为正财格。透戊土，为正官格。透庚金，为正印格。若不透，酌取之。身旺喜财露官透。三合六合。忌七煞、伤官。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_wu",
+      "day_stem": "癸",
+      "month_branch": "午",
+      "candidate_patterns": [
+        {
+          "visible_stem": "丁",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "己",
+          "pattern": "七杀格"
+        }
+      ],
+      "raw_text": "癸生午月，干透丁火，为偏财格。透己土，为七煞格。若不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_wei",
+      "day_stem": "癸",
+      "month_branch": "未",
+      "candidate_patterns": [
+        {
+          "visible_stem": "己",
+          "pattern": "七杀格"
+        },
+        {
+          "visible_stem": "乙",
+          "pattern": "食神格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "偏财格"
+        }
+      ],
+      "raw_text": "癸生未月，为遇墓地。干透己土，为七煞格。透乙木，为食神格。透丁火，为偏财格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_shen",
+      "day_stem": "癸",
+      "month_branch": "申",
+      "candidate_patterns": [
+        {
+          "visible_stem": "庚",
+          "pattern": "正印格"
+        },
+        {
+          "visible_stem": "戊",
+          "pattern": "正官格"
+        }
+      ],
+      "raw_text": "癸生申月，干透庚金，为正印格。透戊土，为正官格。若不透, 酌取之。喜透官印, 忌财伤印。岁运亦然。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_you",
+      "day_stem": "癸",
+      "month_branch": "酉",
+      "candidate_patterns": [
+        {
+          "visible_stem": "辛",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "癸生酉月，干透辛金，为偏印格。不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_xu",
+      "day_stem": "癸",
+      "month_branch": "戌",
+      "candidate_patterns": [
+        {
+          "visible_stem": "戊",
+          "pattern": "正官格"
+        },
+        {
+          "visible_stem": "丁",
+          "pattern": "偏财格"
+        },
+        {
+          "visible_stem": "辛",
+          "pattern": "偏印格"
+        }
+      ],
+      "raw_text": "癸生戌月，为杂气。干透戊土，为正官格。透丁火，为偏财格。透辛金，为偏印格。若全不透，酌取之。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "discretionary_when_no_hidden_stem_visible"
+    },
+    {
+      "cell_key": "gui_hai",
+      "day_stem": "癸",
+      "month_branch": "亥",
+      "candidate_patterns": [
+        {
+          "visible_stem": null,
+          "pattern": "羊刃格"
+        }
+      ],
+      "raw_text": "癸生亥月，为羊刃格(劫财)。",
+      "source_mode": "direct_ocr_context_checked",
+      "fallback_policy": "not_stated"
+    }
+  ],
+  "notes": [
+    "119 cells are direct OCR-context entries; 丁辰 is a derived candidate pending scan review.",
+    "Candidates are not final pattern determinations."
+  ]
+}

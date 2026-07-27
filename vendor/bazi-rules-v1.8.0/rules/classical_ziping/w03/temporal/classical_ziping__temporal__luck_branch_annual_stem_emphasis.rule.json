@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.luck_branch_annual_stem_emphasis@1.0.0",
+  "title": "大运与流年的层内侧重作为参数保存",
+  "description": "《滴天髓》侧重大运地支、流年天干，但同时明确两层干支都要审查；不能删去另一半。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1300,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.active_layer_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.layer_emphasis",
+          "value": {
+            "luck": "branch_emphasis_not_exclusive",
+            "annual": "stem_emphasis_not_exclusive"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.luck_annual_emphasis.9aee147d5e",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000545",
+      "source_lines": {
+        "start": 1089,
+        "end": 1089
+      },
+      "anchor": "src:classic.di_tian_sui:L001089-L001089",
+      "quote": "原注：日主譬如吾身，局中之神，譬之舟马引从之人，大运譬所到之地，故重地支，未尝无天干。太岁譬所遇之人，故重天干，未偿无地支。必先明一日主，配合七字，权其轻重，看喜行行何运，忌行何运。如甲日以气机看春，以人心看仁，以物理看木，大率看气机而余在其中。遇庚辛申酉字面，如春而行之于秋，新伐其生生这机，又看喜与不喜，而行运生甲伐甲之地，何断其休咎也。太岁一至，休咎即显，于是详论战冲和好之势，而得胜负适从之机，则休咎了然在目。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、岁运"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

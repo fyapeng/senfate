@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_compound.v16_month_hidden_official@1.0.0",
+  "title": "月令暗官",
+  "description": "月令暗官；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "classical_ziping.pattern_compound",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 5002,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.special.month_hidden_official",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern_compound",
+        "proposition": {
+          "predicate": "classical_ziping.pattern_compound.v16_month_hidden_official",
+          "value": "月令暗官"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.27fa4e1e87",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000288",
+      "source_lines": {
+        "start": 575,
+        "end": 575
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000575-L000575",
+      "quote": "至于壬生午月，癸生巳月，单透财而亦贵，又月令有暗官也。如丙寅、癸巳、癸未、壬戌，林尚书命是也。又壬生巳月，单透财而亦贵，以其透丙藏戊，弃煞就财，美者存在赠者弃也。如丙辰、癸巳、壬戌、壬寅，王太仆命是也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "三十三、论财"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

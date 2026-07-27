@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_lifecycle.pattern_rank_by_coherence_and_force@1.0.0",
+  "title": "格局高低另由有情与有力评估",
+  "description": "成败之后另评估结构配合是否有情及关键作用是否有力，不以格名直接决定等级。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 520,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.lifecycle.pattern_confirmed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.rank",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.rank_dimensions",
+          "value": [
+            "coherence",
+            "effective_force"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.rank_coherence_force.b231c35f01",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000136",
+      "source_lines": {
+        "start": 271,
+        "end": 271
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000271-L000271",
+      "quote": "其理之大纲，亦在有情、有力无力之间而已",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "十二、 论用神格局高低"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

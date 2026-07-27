@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.flow_destination@1.0.0",
+  "title": "沿生化链追踪流向与停驻",
+  "description": "从源头沿五行生化边追踪，登记可达节点、终止节点和阻断位置。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2480,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.flow_graph_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.flow_destination",
+          "value": {
+            "$path": "facts.classical_ziping.w03.qi_flow.destinations"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.flow_destination.0e71994da8",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000343",
+      "source_lines": {
+        "start": 685,
+        "end": 685
+      },
+      "anchor": "src:classic.di_tian_sui:L000685-L000685",
+      "quote": "何处起根源？流到何方住？机括此中求，知来亦知去。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十九、源流"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

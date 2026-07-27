@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.recipe_gui_wei@1.0.0",
+  "title": "癸日主生未月的调候候选",
+  "description": "按《穷通宝鉴》对应月段登记有序候选。候选次序保留文本程序，不等于普适终局用神，也不越过格局、旺衰、气势和破坏条件。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 2887,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_available",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_key",
+        "operator": "equals",
+        "value": "癸.未"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.recipe_selected",
+        "value": [
+          "庚",
+          "辛",
+          "壬"
+        ],
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.recipe",
+        "proposition": {
+          "predicate": "classical_ziping.climate.ordered_candidates",
+          "value": [
+            "庚",
+            "辛",
+            "壬"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "day_stem": "癸",
+          "month_branch": "未",
+          "recipe_key": "癸.未",
+          "interpretation": "ordered_candidates_not_final_selection",
+          "condition_note": "上下半月条件",
+          "source_chunk_ids": [
+            "classic.qiong_tong_bao_jian#c001088"
+          ],
+          "derived_candidates": [
+            "癸",
+            "壬"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_____primary.ae5e776287",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c001088",
+      "source_lines": {
+        "start": 2299,
+        "end": 2299
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L002299-L002299",
+      "quote": "六月癸水，有上下月之分，下半月庚辛有气，上半月庚辛休囚，凡六癸日，多不验者，何也，俗士不知此理，因未中有乙巳同宫，破而不破，故癸水不能从杀，所以专用庚辛，如上半月金神衰弱，火气炎烈，宜比劫助身，可云富贵，与五月一理，下半月庚辛有气，即无比劫亦可，又忌丁透，即丁在支亦不吉，其生克制化，与五月略同。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "上下半月条件"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

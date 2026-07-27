@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "duan_li_xiang.w06@1.1.0",
+  "school_id": "duan_li_xiang",
+  "label": "段建业《段氏理象学》W06 体系（可得正文范围）",
+  "namespace": "duan_li_xiang",
+  "status": "production",
+  "allowed_namespaces": [
+    "common",
+    "duan_li_xiang",
+    "safety"
+  ],
+  "phase_order": [
+    "common.input_validation",
+    "common.fact_compilation",
+    "common.relation_candidates",
+    "school.procedure_resolution",
+    "school.host_body_resolution",
+    "school.configuration_resolution",
+    "school.entry_resolution",
+    "school.work_resolution",
+    "school.efficiency_resolution",
+    "school.catcher_thief_resolution",
+    "school.temporal_resolution",
+    "school.findings",
+    "safety.output"
+  ],
+  "modules": [
+    {
+      "module_id": "duan_li_xiang.procedure",
+      "phase": "school.procedure_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.host_body",
+      "phase": "school.host_body_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.configuration",
+      "phase": "school.configuration_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.entry",
+      "phase": "school.entry_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.host_body",
+        "duan_li_xiang.configuration"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.work",
+      "phase": "school.work_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.entry",
+        "duan_li_xiang.host_body",
+        "duan_li_xiang.configuration"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.efficiency",
+      "phase": "school.efficiency_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.work"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.temporal",
+      "phase": "school.temporal_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.work",
+        "duan_li_xiang.configuration"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR",
+        "StateIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.safety",
+      "phase": "safety.output",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.temporal"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.control_matrix",
+      "phase": "school.work_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.host_body",
+        "duan_li_xiang.configuration",
+        "duan_li_xiang.work"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.compound",
+      "phase": "school.work_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.work",
+        "duan_li_xiang.control_matrix"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.method_resolution",
+      "phase": "school.efficiency_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.compound",
+        "duan_li_xiang.control_matrix"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.catcher_thief",
+      "phase": "school.catcher_thief_resolution",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.control_matrix",
+        "duan_li_xiang.method_resolution"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "duan_li_xiang.semantics",
+      "phase": "school.findings",
+      "enabled": true,
+      "depends_on": [
+        "duan_li_xiang.catcher_thief",
+        "duan_li_xiang.compound"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    }
+  ],
+  "rule_packs": [
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_procedure.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_host_body.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_configuration.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_entry.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_work.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_efficiency.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_temporal.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_safety.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_control_matrix.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_compound.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_catcher_thief.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_method_resolution.pack.json",
+    "rules/duan_li_xiang/w06/duan_li_xiang.w06_semantics.pack.json"
+  ],
+  "parameters": {
+    "host_policy": "explicit_comparison_level",
+    "body_use_policy": "ten_god_role_with_contextual_output",
+    "entry_policy": "day_stem_combine_then_output_then_day_branch_then_lu_peer_then_image",
+    "work_policy": "graph_relations_with_direction_and_target",
+    "efficiency_policy": "transparent_qualitative_vector_no_total_score",
+    "temporal_policy": "recompile_host_configuration_work_per_state",
+    "example_policy": "no_rule_induction_from_examples",
+    "high_risk_output": "neutralize_or_block",
+    "control_matrix_policy": "explicit_party_target_and_ten_god_direction",
+    "compound_policy": "graph_patterns_not_method_count",
+    "catcher_thief_policy": "clean_control_plus_temporal_match_and_active_edge",
+    "semantic_policy": "neutral_theme_candidates_only"
+  },
+  "thresholds": {
+    "reference_party_min_nodes": 3,
+    "reference_party_margin": 1,
+    "reference_clean_control_max_residual_targets": 0,
+    "reference_target_isolation_max_supporters": 0,
+    "reference_distance_far_threshold": 2
+  },
+  "unknown_policy": "propagate",
+  "conflict_policy": "preserve_all",
+  "relation_resolution": {
+    "candidate_source": "common.relation_candidates",
+    "resolvers": [
+      "duan_li_xiang.w06.host_level",
+      "duan_li_xiang.w06.body_use_role",
+      "duan_li_xiang.w06.configuration_active",
+      "duan_li_xiang.w06.work_active",
+      "duan_li_xiang.w06.efficiency_vector",
+      "duan_li_xiang.w06.temporal_recompute",
+      "duan_li_xiang.w06.control_matrix_active",
+      "duan_li_xiang.w06.compound_active",
+      "duan_li_xiang.w06.method_resolution",
+      "duan_li_xiang.w06.catcher_thief_activation",
+      "duan_li_xiang.w06.semantic_theme"
+    ],
+    "default_unresolved_status": "unknown"
+  },
+  "output_policy_id": "safety.neutral_output.w07@2.0.0",
+  "notes": [
+    "W06 rules are active in this release.",
+    "The available normalized body ends at Chapter 7 question 9; Chapter 8 and the appendix occur only in the table of contents.",
+    "No rule is inferred from missing Chapter 8 examples or from unpublished image, technique, mnemonic, or exact-timing material.",
+    "All concrete medical, death, crime, marriage, status, career and financial claims remain neutralized, blocked, historical-only or unknown.",
+    "v1.8: 307 formal rules; adds ownership-context and propagation image chains."
+  ]
+}

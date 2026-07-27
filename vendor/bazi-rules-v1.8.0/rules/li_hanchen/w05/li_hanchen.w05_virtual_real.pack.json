@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "li_hanchen.w05_virtual_real@1.0.0",
+  "namespace": "li_hanchen.virtual_real",
+  "school_id": "li_hanchen",
+  "label": "虚神实神",
+  "status": "production",
+  "rule_files": [
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_definition.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__real_definition.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__token_universe.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__duplicate_real_once.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_useful_luck.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_unfavorable_luck.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__real_useful_luck.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__real_unfavorable_luck.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_real_same.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_real_opposite.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__real_real_same.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__real_real_opposite.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_virtual_same.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__virtual_virtual_opposite.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__stems_act_with_stems.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__branches_act_with_branches.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__six_type_algorithm_incomplete.rule.json",
+    "rules/li_hanchen/w05/virtual_real/li_hanchen__virtual_real__headline_not_deterministic.rule.json"
+  ],
+  "notes": [
+    "Only 《八字预测真踪》 author text is used as formal evidence.",
+    "Incomplete algorithms remain unknown; all rules are reviewed, not production."
+  ]
+}

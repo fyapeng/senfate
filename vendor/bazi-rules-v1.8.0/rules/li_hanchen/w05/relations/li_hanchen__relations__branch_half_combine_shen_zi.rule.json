@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.relations.branch_half_combine_shen_zi@1.0.0",
+  "title": "申子半合候选",
+  "description": "生成李涵辰命名空间中的关系候选；成化、成局和具体减力仍由本流派 resolver 判定。",
+  "namespace": "li_hanchen.relations",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.relations",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.relation_resolution",
+  "priority": 2731,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.relations.branch_half_combine_shen_zi",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.relations",
+        "proposition": {
+          "predicate": "li_hanchen.relations.branch_half_combine_shen_zi",
+          "value": "water"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w05.relations_branch_half_combine.0b4da1d942",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000043",
+      "source_lines": {
+        "start": 754,
+        "end": 936
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000754-L000936",
+      "quote": "申子半合",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

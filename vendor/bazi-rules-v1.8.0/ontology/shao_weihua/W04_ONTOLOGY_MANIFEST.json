@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "namespace": "shao_weihua",
+  "public_ontology_change": false,
+  "artifacts": [
+    "ontology/shao_weihua/W04_EVIDENCE_CATALOG.json",
+    "ontology/shao_weihua/W04_ONTOLOGY_MANIFEST.json",
+    "ontology/shao_weihua/W04_PATTERN_MATRIX.json",
+    "ontology/shao_weihua/W04_SHENSHA_CATALOG.json",
+    "ontology/shao_weihua/W04_TERM_REGISTRY.json",
+    "ontology/shao_weihua/W04_USEFUL_GOD_CASES.json"
+  ],
+  "notes": [
+    "W01 common ontology remains sealed.",
+    "All school-specific meanings remain under shao_weihua.*."
+  ]
+}

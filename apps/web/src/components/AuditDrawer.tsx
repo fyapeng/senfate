@@ -1,0 +1,11 @@
+import { useMemo } from "react";
+import { ArrowRight } from "@phosphor-icons/react";
+import "../styles/audit.css";
+
+export default function AuditDrawer({ school, label, year, annual, luck, verdict, audit }: any) {
+  const trace = useMemo(() => audit?.trace?.events ?? [], [audit]);
+  const fired = trace.filter((event: any) => event.event_type === "rule_evaluated" && event.result === "fired");
+  const excluded = trace.filter((event: any) => event.event_type === "rule_evaluated" && event.result === "not_fired");
+  const phases = [...new Set(trace.filter((event: any) => event.phase).map((event: any) => event.phase))] as string[];
+  return <aside className="detail-drawer"><p className="eyebrow">{label} / {year} {annual?.stem}{annual?.branch}</p><div className="insight-card"><span className="tag">年度核心判断</span><h2>{verdict?.headline || "本年度无公开结论"}</h2><p>{verdict?.primary_structure}</p></div><details open className="audit-fold"><summary><b>1</b><span>原局结构</span></summary><p>{verdict?.strength_or_axis || "未产生可公开的原局结构摘要。"}</p></details><details open className="audit-fold"><summary><b>2</b><span>大运作用 · {luck ? `${luck.stem}${luck.branch}` : "—"}</span></summary><p>{verdict?.primary_use || "未产生可公开的大运作用摘要。"}</p></details><details open className="audit-fold"><summary><b>3</b><span>流年关系 · {annual ? `${annual.stem}${annual.branch}` : "—"}</span></summary><p>共读取 {trace.length} 条审计事件，识别 {fired.length} 条已触发规则和 {excluded.length} 条未触发规则。</p><div className="audit-stats"><span>阶段 {phases.length}</span><span>触发 {fired.length}</span><span>排除 {excluded.length}</span></div></details><details className="audit-fold"><summary><b>4</b><span>已触发规则与来源</span></summary><ul className="rule-list">{fired.slice(0,12).map((event:any)=><li key={event.event_index}><a href={`/rules/${event.rule_id}`}>{event.rule_id}</a><small>{event.phase}</small></li>)}</ul></details><details className="audit-fold"><summary><b>5</b><span>未触发路径</span></summary><ul className="rule-list">{excluded.slice(0,12).map((event:any)=><li key={event.event_index}><a href={`/rules/${event.rule_id}`}>{event.rule_id}</a><small>{event.phase}</small></li>)}</ul></details><a className="drawer-action" href="/rules"><span>查看规则体系与公开依据</span><ArrowRight size={17}/></a></aside>;
+}

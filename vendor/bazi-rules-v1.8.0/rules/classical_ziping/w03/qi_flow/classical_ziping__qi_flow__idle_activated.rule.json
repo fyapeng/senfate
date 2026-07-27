@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.idle_activated@1.0.0",
+  "title": "闲神处于关键位置或岁运触发时重分类",
+  "description": "闲神在关键节点、冲合或活动层中取得作用时，重新分类为支持、抑制或冲突。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2280,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.idle_activated",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.idle_status",
+          "value": "activated"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.idle_activated.1686b0b098",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000444",
+      "source_lines": {
+        "start": 887,
+        "end": 887
+      },
+      "anchor": "src:classic.di_tian_sui:L000887-L000887",
+      "quote": "原注：喜神不必多也，一喜而十备矣；忌神不必多也。一忌而十害矣。自喜忌之外，不足以为喜，不足以为忌，皆闲神也。如以天干为用；成气成合，而地支之神，虚脱无气，冲合自适，升降无情；如以地支为用，成助成合，而天干之神，游散浮泛，不碍日主，主阳辅阳，而阳气停泊，不冲不动，不合不助；日月有情，年时不顾，日主无害，日主无气情；日时得所，年月不顾，日主无害，日主无冲无合，虽有闲神，只不去动他，但要紧之地，自结营寨。至于运道，只行自家边界，亦足为奇。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十一、闲神"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

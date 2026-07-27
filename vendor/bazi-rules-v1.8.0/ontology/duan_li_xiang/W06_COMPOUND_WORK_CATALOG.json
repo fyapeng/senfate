@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "structures": [
+    "pair_multi_method",
+    "parallel_sources_one_target",
+    "sequential_chain",
+    "source_target_joint_control",
+    "tomb_plus_control",
+    "enclosure",
+    "time_mode_switch"
+  ],
+  "method_count_is_not_layer_count": true,
+  "numeric_total_score": false
+}

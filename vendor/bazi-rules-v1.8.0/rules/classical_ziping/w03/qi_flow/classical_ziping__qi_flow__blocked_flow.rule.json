@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.blocked_flow@1.0.0",
+  "title": "生化链被阻时登记关节点",
+  "description": "存在相克或缺失中介而使流向中断时，记录阻断元素，不立即输出好坏。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2470,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.blocked",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.block_status",
+          "value": "blocked"
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.blocked_flow.25bd3e8b7a",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000344",
+      "source_lines": {
+        "start": 687,
+        "end": 687
+      },
+      "anchor": "src:classic.di_tian_sui:L000687-L000687",
+      "quote": "原注：不必论当令不发令，只论取最多最旺，而可以为满局之祖宗者，为源头也。看此源头，流到何方，流去之处，是所喜之神，即在此住了，乃为好归路，如辛酉，癸巳/戊申，丁巳，以火为源头，流至金水方即住了，所以富贵为最，若再流至木地，则气泄为乱。如未曾流到吉方，中间即遇阻节，看其阻住之神何神，以断其休咎，；流住之地何地，以知其地位。如癸丑、壬戌、癸丑、壬子，以土为源头，止水方，只生得一个身子，而戌中火土之气，得从引助，所以为憎也。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十九、源流"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

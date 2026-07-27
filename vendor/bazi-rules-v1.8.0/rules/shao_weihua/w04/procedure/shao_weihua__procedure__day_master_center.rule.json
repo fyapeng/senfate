@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.day_master_center@1.0.0",
+  "title": "日干为命局分析中心",
+  "description": "十神、旺衰、取用和六亲映射均以日干为中心编译。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2993,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.day_master_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.procedure.day_master_center",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_day_master_center.73fab1db19",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001074",
+      "source_lines": {
+        "start": 2141,
+        "end": 2141
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002141-L002141",
+      "quote": "唐李虚中发明用天干地支排出人的年柱、月柱、日柱, 并以日干为主测人一生之吉凶。到了宋朝，徐子平又发明了时柱, 至此四柱并立, 延用至今。日为人的一生之主, 为人一生吉凶祸福之地。因此，日柱的生旺休囚衰弱，关系到人的一生前途命运。",
+      "section_path": [
+        "四柱预测学",
+        "二、月。月在四柱中好比树干。树干粗壮、枝叶繁茂。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

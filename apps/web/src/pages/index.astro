@@ -1,19 +1,5 @@
 ---
-import { AnalysisWorkbench } from "../components/AnalysisWorkbench";
-import SiteLayout from "../layouts/SiteLayout.astro";
+import AppLayout from "../layouts/AppLayout.astro";
+import Overview from "../components/Overview";
 ---
-
-<SiteLayout active="analysis" title="排盘分析" description="从出生时空到原局、大运、流年的透明八字分析工作台。">
-  <section class="workbench-hero">
-    <div class="page-intro compact">
-      <div><span class="kicker">分析工作台</span><h1>命盘分析</h1></div>
-      <p>从出生时空、四柱与格局进入大运和逐年轨迹；图表支持缩放、拖动与年度下钻，判断条件和书证可以逐层核对。</p>
-    </div>
-    <AnalysisWorkbench client:load />
-  </section>
-  <section class="trust-strip">
-    <article><span>01</span><div><strong>出生时间精确换算</strong><p>结合历史时区、出生地点与真太阳时，处理换日和节气边界。</p></div></article>
-    <article><span>02</span><div><strong>命局与岁运共同分析</strong><p>原局、大运、流年和流月逐层叠加，关系变化在同一套口径下判断。</p></div></article>
-    <article><span>03</span><div><strong>结论来源可以查阅</strong><p>重要判断附带古籍来源与适用范围，也会明确显示分歧和不确定性。</p></div></article>
-  </section>
-</SiteLayout>
+<AppLayout title="总览"><Overview client:load /></AppLayout>

@@ -1,0 +1,5548 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.chart.001.natal.duan_li_xiang_w06p2",
+  "chart_id": "synthetic.chart.001",
+  "stage": "natal",
+  "school_profile_id": "duan_li_xiang.w06@1.1.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.state.synthetic.chart.001.natal.duan_li_xiang_w06p2.temporal_compilation_complete",
+      "subject": {
+        "ref_id": "synthetic.chart.001",
+        "entity_type": "chart",
+        "layer": "natal"
+      },
+      "predicate": "duan_li_xiang.temporal.phase2_compilation_complete",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "natal",
+        "state_id": "state.synthetic.chart.001.natal.duan_li_xiang_w06p2"
+      },
+      "source_type": "computed",
+      "algorithm_id": "duan_li_xiang.w06.phase2.compiler@1.1.0"
+    }
+  ],
+  "relations": [],
+  "findings": [],
+  "school_state": {
+    "duan_li_xiang": {
+      "w06": {
+        "procedure": {
+          "concepts_author_formalization": true,
+          "host_body_before_work": true,
+          "party_target_required": true,
+          "reject_strength_as_entry": true,
+          "reject_useful_god": true,
+          "active_profile": true,
+          "start_from_main_position": true,
+          "theory_reads_chart": true,
+          "theory_scope": true,
+          "three_methods": true,
+          "whole_structure_required": true,
+          "work_primary_not_exhaustive": true,
+          "evidence_compiled": true,
+          "analysis_sequence": [
+            "host_body",
+            "configuration",
+            "entry",
+            "work_graph",
+            "control_matrix",
+            "compound_work",
+            "qualitative_efficiency",
+            "method_resolution",
+            "catcher_thief",
+            "temporal_recompute",
+            "neutral_semantics",
+            "safe_findings"
+          ],
+          "entry_excludes": [
+            "day_master_strength",
+            "global_useful_god"
+          ],
+          "source_scope": "introductory_theory_with_explicit_incompleteness",
+          "unpublished_or_incomplete": [
+            "deep_image",
+            "technique",
+            "exact_timing",
+            "unseen_mnemonics"
+          ],
+          "examples_generalizable_by_default": false,
+          "phase2_compiler": true
+        },
+        "host_body": {
+          "body_day_master": true,
+          "body_lu": true,
+          "body_peer": true,
+          "body_resource": true,
+          "body_use_by_ten_god": true,
+          "day_branch_house": true,
+          "food_nearer_body": true,
+          "host_guest_layered": true,
+          "host_guest_self_external": true,
+          "hurting_nearer_use": true,
+          "level_day_hour": true,
+          "level_day_master": true,
+          "level_day_pillar": true,
+          "level_natal_time": true,
+          "output_contextual": true,
+          "position_before_association": true,
+          "positive_work": true,
+          "reverse_work": true,
+          "role_context_not_global": true,
+          "use_official": true,
+          "use_wealth": true,
+          "evidence_compiled": true,
+          "levels": [
+            "day_master",
+            "day_pillar",
+            "day_hour",
+            "natal_time"
+          ],
+          "default_comparison_level": "day_hour",
+          "tokens": [
+            {
+              "ref_id": "natal.year.stem",
+              "layer": "natal",
+              "position": "year",
+              "kind": "stem",
+              "token": "甲",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.year.branch",
+              "layer": "natal",
+              "position": "year",
+              "kind": "branch",
+              "token": "子",
+              "element": "water",
+              "ten_god": "正财",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.month.stem",
+              "layer": "natal",
+              "position": "month",
+              "kind": "stem",
+              "token": "丙",
+              "element": "fire",
+              "ten_god": "偏印",
+              "body_use": "body",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.month.branch",
+              "layer": "natal",
+              "position": "month",
+              "kind": "branch",
+              "token": "寅",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.day.stem",
+              "layer": "natal",
+              "position": "day",
+              "kind": "stem",
+              "token": "戊",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "host",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.day.branch",
+              "layer": "natal",
+              "position": "day",
+              "kind": "branch",
+              "token": "辰",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.hour.stem",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "stem",
+              "token": "庚",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.hour.branch",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "branch",
+              "token": "申",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            }
+          ],
+          "body_refs": [
+            "natal.month.stem",
+            "natal.day.stem",
+            "natal.day.branch"
+          ],
+          "use_refs": [
+            "natal.year.stem",
+            "natal.year.branch",
+            "natal.month.branch"
+          ],
+          "contextual_output_refs": [
+            "natal.hour.stem",
+            "natal.hour.branch"
+          ],
+          "role_counts": {
+            "use": 3,
+            "body": 3,
+            "body_leaning": 2
+          },
+          "host_counts_by_level": {
+            "day_master": 1,
+            "day_pillar": 2,
+            "day_hour": 4,
+            "natal_time": 8
+          },
+          "role_assignment_is_contextual": true
+        },
+        "configuration": {
+          "branch_no_plain_control_stem": true,
+          "branch_stem_combine": true,
+          "branch_stem_generate": true,
+          "four_tombs_no_original_stem": true,
+          "half_lu_bing_wu": true,
+          "half_lu_ding_ji": true,
+          "half_lu_ding_wei": true,
+          "half_lu_gui_chou": true,
+          "lu_is_stem_extension": true,
+          "lu_original_mapping": true,
+          "original_is_branch_extension": true,
+          "real_rooted_or_generated": true,
+          "self_combine_bing_xu_conditional": true,
+          "self_combine_ding_hai": true,
+          "self_combine_gui_si": true,
+          "self_combine_ji_hai": true,
+          "self_combine_jia_wu": true,
+          "self_combine_ren_wu": true,
+          "self_combine_ren_xu_conditional": true,
+          "self_combine_wu_zi": true,
+          "self_combine_xin_si": true,
+          "stem_controls_branch": true,
+          "three_configuration_families": true,
+          "virtual_not_strength": true,
+          "virtual_real_has_semantics": true,
+          "virtual_real_pillar_only": true,
+          "virtual_real_transition": true,
+          "virtual_unrooted_ungenerated": true,
+          "evidence_compiled": true,
+          "pillar_virtual_real": [
+            {
+              "pillar_ref": "natal.year",
+              "stem": "甲",
+              "branch": "子",
+              "rooted": false,
+              "generated_by_branch": true,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.month",
+              "stem": "丙",
+              "branch": "寅",
+              "rooted": true,
+              "generated_by_branch": true,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.day",
+              "stem": "戊",
+              "branch": "辰",
+              "rooted": true,
+              "generated_by_branch": false,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.hour",
+              "stem": "庚",
+              "branch": "申",
+              "rooted": true,
+              "generated_by_branch": false,
+              "virtual_real": "real"
+            }
+          ],
+          "real_pillars": [
+            "natal.year",
+            "natal.month",
+            "natal.day",
+            "natal.hour"
+          ],
+          "virtual_pillars": [],
+          "self_combine_candidates": [],
+          "active_self_combines": [],
+          "lu_connections": [
+            {
+              "pillar_ref": "natal.hour",
+              "stem": "庚",
+              "branch": "申",
+              "kind": "same_pillar_lu"
+            },
+            {
+              "stem_ref": "natal.year.stem",
+              "branch_ref": "natal.month.branch",
+              "stem": "甲",
+              "branch": "寅",
+              "kind": "lu_original_connection"
+            },
+            {
+              "stem_ref": "natal.hour.stem",
+              "branch_ref": "natal.hour.branch",
+              "stem": "庚",
+              "branch": "申",
+              "kind": "lu_original_connection"
+            }
+          ],
+          "half_lu_candidates": [
+            {
+              "stem_refs": [
+                "natal.month.stem",
+                "natal.day.stem"
+              ],
+              "stems": [
+                "丙",
+                "戊"
+              ],
+              "slug": "bing_wu"
+            }
+          ],
+          "four_tomb_branches": [
+            "辰"
+          ],
+          "plain_branch_controls_stem": false,
+          "stem_controls_branch_allowed": true,
+          "branch_generates_stem_allowed": true,
+          "virtual_real_scope": "same_pillar_configuration",
+          "virtual_real_is_strength": false
+        },
+        "entry": {
+          "combine_requires_work": false,
+          "day_branch_party": true,
+          "day_branch_relations": true,
+          "day_stem_combine": false,
+          "day_stem_combine_official": false,
+          "day_stem_combine_wealth": false,
+          "day_stem_output_second": true,
+          "fallback_day_branch": false,
+          "fallback_lu_peer": false,
+          "inspect_day_stem_first": true,
+          "output_adjacent": true,
+          "evidence_compiled": true,
+          "selected_route": "day_stem_output",
+          "day_stem_combine_paths": [],
+          "adjacent_output_refs": [
+            "natal.hour.stem"
+          ],
+          "day_branch_work_paths": [
+            "work.0004",
+            "work.0008",
+            "work.0009",
+            "work.0014",
+            "work.0017",
+            "work.0018",
+            "work.0025",
+            "work.0026",
+            "work.0027"
+          ],
+          "lu_peer_refs": [
+            "natal.month.stem"
+          ],
+          "fallback_image_status": "not_needed",
+          "combine_counterparts": []
+        },
+        "work": {
+          "clean_control": true,
+          "compound_not_layer_count": true,
+          "connected_root_protected": true,
+          "control_any_role_conditioned": true,
+          "definition": true,
+          "five_control_configurations": true,
+          "gong_participant": true,
+          "mode_combine": false,
+          "mode_compound": true,
+          "mode_control": true,
+          "mode_drain": true,
+          "mode_generate": true,
+          "mode_tomb": true,
+          "mode_transform": true,
+          "party_fire_dry_earth": true,
+          "party_metal_water": true,
+          "party_metal_wet_earth": true,
+          "party_momentum": true,
+          "party_water_wet_earth": true,
+          "party_water_wood": true,
+          "party_wood_fire": true,
+          "relation_clash": true,
+          "relation_combine": false,
+          "relation_control": true,
+          "relation_harm": false,
+          "relation_punish": true,
+          "relation_tomb": true,
+          "target_required": true,
+          "unclean_control_lower": true,
+          "waste_nonparticipant": false,
+          "evidence_compiled": true,
+          "work_graph": [
+            {
+              "work_id": "work.0001",
+              "participants": [
+                "natal.year.stem",
+                "natal.year.branch"
+              ],
+              "tokens": [
+                "甲",
+                "子"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.year.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0002",
+              "participants": [
+                "natal.year.stem",
+                "natal.month.stem"
+              ],
+              "tokens": [
+                "甲",
+                "丙"
+              ],
+              "relation_type": "generate",
+              "method": "generate",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.month.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0003",
+              "participants": [
+                "natal.year.stem",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "甲",
+                "戊"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0004",
+              "participants": [
+                "natal.year.stem",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "甲",
+                "辰"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0005",
+              "participants": [
+                "natal.year.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "甲",
+                "庚"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.stem",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0006",
+              "participants": [
+                "natal.year.branch",
+                "natal.month.branch"
+              ],
+              "tokens": [
+                "子",
+                "寅"
+              ],
+              "relation_type": "element_generate",
+              "method": "generate",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0007",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "子",
+                "戊"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0008",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "子",
+                "辰"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0009",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "子",
+                "辰"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0010",
+              "participants": [
+                "natal.year.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "子",
+                "庚"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0011",
+              "participants": [
+                "natal.year.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "子",
+                "申"
+              ],
+              "relation_type": "element_generate",
+              "method": "drain",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0012",
+              "participants": [
+                "natal.month.stem",
+                "natal.month.branch"
+              ],
+              "tokens": [
+                "丙",
+                "寅"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.month.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0013",
+              "participants": [
+                "natal.month.stem",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "丙",
+                "戊"
+              ],
+              "relation_type": "generate",
+              "method": "drain",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0014",
+              "participants": [
+                "natal.month.stem",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "丙",
+                "辰"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0015",
+              "participants": [
+                "natal.month.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "丙",
+                "庚"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0016",
+              "participants": [
+                "natal.month.stem",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "丙",
+                "申"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0017",
+              "participants": [
+                "natal.month.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "寅",
+                "辰"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0018",
+              "participants": [
+                "natal.month.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "寅",
+                "辰"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0019",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "寅",
+                "庚"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0020",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "clash",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0021",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "punishment",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0022",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0023",
+              "participants": [
+                "natal.day.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "戊",
+                "庚"
+              ],
+              "relation_type": "generate",
+              "method": "drain",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0024",
+              "participants": [
+                "natal.day.stem",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "戊",
+                "申"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0025",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "辰",
+                "庚"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0026",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "辰",
+                "申"
+              ],
+              "relation_type": "element_generate",
+              "method": "drain",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0027",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "辰",
+                "申"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            }
+          ],
+          "work_count": 27,
+          "compound_paths": [
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.year.branch"
+              ],
+              "component_work_ids": [
+                "work.0008",
+                "work.0009"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.month.branch"
+              ],
+              "component_work_ids": [
+                "work.0017",
+                "work.0018"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.hour.branch",
+                "natal.month.branch"
+              ],
+              "component_work_ids": [
+                "work.0020",
+                "work.0021",
+                "work.0022"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "component_work_ids": [
+                "work.0026",
+                "work.0027"
+              ],
+              "method": "compound"
+            }
+          ],
+          "compound_count": 4,
+          "relation_counts": {
+            "branch_generates_stem": 3,
+            "generate": 3,
+            "control": 3,
+            "stem_controls_branch": 4,
+            "element_generate": 3,
+            "element_control": 3,
+            "tomb_candidate": 3,
+            "stem_generates_branch": 3,
+            "clash": 1,
+            "punishment": 1
+          },
+          "method_counts": {
+            "generate": 5,
+            "control": 12,
+            "tomb": 3,
+            "drain": 7
+          },
+          "direction_counts": {
+            "mixed_or_unknown": 7,
+            "reverse": 11,
+            "positive": 9
+          },
+          "gong_refs": [
+            "natal.day.branch",
+            "natal.day.stem",
+            "natal.hour.branch",
+            "natal.hour.stem",
+            "natal.month.branch",
+            "natal.month.stem",
+            "natal.year.branch",
+            "natal.year.stem"
+          ],
+          "waste_refs": [],
+          "party_candidates": [
+            {
+              "party": "wood_fire",
+              "elements": [
+                "fire",
+                "wood"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "fire_dry_earth",
+              "elements": [
+                "earth",
+                "fire"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "metal_water",
+              "elements": [
+                "metal",
+                "water"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "water_wood",
+              "elements": [
+                "water",
+                "wood"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "metal_wet_earth",
+              "elements": [
+                "earth",
+                "metal"
+              ],
+              "node_count": 4,
+              "active": true
+            },
+            {
+              "party": "water_wet_earth",
+              "elements": [
+                "earth",
+                "water"
+              ],
+              "node_count": 3,
+              "active": true
+            }
+          ],
+          "hidden_total_score": false,
+          "graph_complete_for_phase1_relations": true
+        },
+        "control_matrix": {
+          "any_ten_god_can_be_target": true,
+          "clean_control_required_for_large_structure": true,
+          "connected_body_protected": true,
+          "contained_contents_follow_target": true,
+          "day_root_protected": true,
+          "dry_earth_targets": false,
+          "fire_dry_earth_targets": false,
+          "fire_targets": false,
+          "five_ten_god_pairs": true,
+          "main_position_care": true,
+          "metal_targets": false,
+          "metal_water_targets": false,
+          "metal_wet_earth_targets": true,
+          "official_controls_output": true,
+          "official_controls_peer": true,
+          "output_controls_official": true,
+          "output_controls_resource": false,
+          "party_required": true,
+          "peer_controls_official": true,
+          "peer_controls_wealth": true,
+          "resource_controls_output": true,
+          "resource_controls_wealth": false,
+          "six_single_tendencies": true,
+          "target_required": true,
+          "two_tendencies_can_party": true,
+          "unclean_control_lowers": true,
+          "water_targets": false,
+          "water_wet_earth_targets": false,
+          "water_wood_targets": true,
+          "wealth_controls_peer": false,
+          "wealth_controls_resource": false,
+          "wet_earth_targets": false,
+          "wood_fire_targets": true,
+          "wood_targets": false,
+          "evidence_compiled": true,
+          "tokens": [
+            {
+              "ref_id": "natal.year.stem",
+              "layer": "natal",
+              "position": "year",
+              "kind": "stem",
+              "token": "甲",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              },
+              "ten_god_group": "official",
+              "tendency": "wood",
+              "position_index": 0
+            },
+            {
+              "ref_id": "natal.year.branch",
+              "layer": "natal",
+              "position": "year",
+              "kind": "branch",
+              "token": "子",
+              "element": "water",
+              "ten_god": "正财",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              },
+              "ten_god_group": "wealth",
+              "tendency": "water",
+              "position_index": 0
+            },
+            {
+              "ref_id": "natal.month.stem",
+              "layer": "natal",
+              "position": "month",
+              "kind": "stem",
+              "token": "丙",
+              "element": "fire",
+              "ten_god": "偏印",
+              "body_use": "body",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              },
+              "ten_god_group": "resource",
+              "tendency": "fire",
+              "position_index": 1
+            },
+            {
+              "ref_id": "natal.month.branch",
+              "layer": "natal",
+              "position": "month",
+              "kind": "branch",
+              "token": "寅",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              },
+              "ten_god_group": "official",
+              "tendency": "wood",
+              "position_index": 1
+            },
+            {
+              "ref_id": "natal.day.stem",
+              "layer": "natal",
+              "position": "day",
+              "kind": "stem",
+              "token": "戊",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "host",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              },
+              "ten_god_group": "peer",
+              "tendency": "wet_earth",
+              "position_index": 2
+            },
+            {
+              "ref_id": "natal.day.branch",
+              "layer": "natal",
+              "position": "day",
+              "kind": "branch",
+              "token": "辰",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              },
+              "ten_god_group": "peer",
+              "tendency": "wet_earth",
+              "position_index": 2
+            },
+            {
+              "ref_id": "natal.hour.stem",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "stem",
+              "token": "庚",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              },
+              "ten_god_group": "output",
+              "tendency": "metal",
+              "position_index": 3
+            },
+            {
+              "ref_id": "natal.hour.branch",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "branch",
+              "token": "申",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              },
+              "ten_god_group": "output",
+              "tendency": "metal",
+              "position_index": 3
+            }
+          ],
+          "party_candidates": [
+            {
+              "party": "wood",
+              "components": [
+                "wood"
+              ],
+              "node_refs": [
+                "natal.month.branch",
+                "natal.year.stem"
+              ],
+              "node_count": 2,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "fire",
+              "components": [
+                "fire"
+              ],
+              "node_refs": [
+                "natal.month.stem"
+              ],
+              "node_count": 1,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "metal",
+              "components": [
+                "metal"
+              ],
+              "node_refs": [
+                "natal.hour.branch",
+                "natal.hour.stem"
+              ],
+              "node_count": 2,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "water",
+              "components": [
+                "water"
+              ],
+              "node_refs": [
+                "natal.year.branch"
+              ],
+              "node_count": 1,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "dry_earth",
+              "components": [
+                "dry_earth"
+              ],
+              "node_refs": [],
+              "node_count": 0,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "wet_earth",
+              "components": [
+                "wet_earth"
+              ],
+              "node_refs": [
+                "natal.day.branch",
+                "natal.day.stem"
+              ],
+              "node_count": 2,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "wood_fire",
+              "components": [
+                "fire",
+                "wood"
+              ],
+              "node_refs": [
+                "natal.month.branch",
+                "natal.month.stem",
+                "natal.year.stem"
+              ],
+              "node_count": 3,
+              "active": true,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "fire_dry_earth",
+              "components": [
+                "dry_earth",
+                "fire"
+              ],
+              "node_refs": [
+                "natal.month.stem"
+              ],
+              "node_count": 1,
+              "active": false,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "metal_water",
+              "components": [
+                "metal",
+                "water"
+              ],
+              "node_refs": [
+                "natal.hour.branch",
+                "natal.hour.stem",
+                "natal.year.branch"
+              ],
+              "node_count": 3,
+              "active": true,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "metal_wet_earth",
+              "components": [
+                "metal",
+                "wet_earth"
+              ],
+              "node_refs": [
+                "natal.day.branch",
+                "natal.day.stem",
+                "natal.hour.branch",
+                "natal.hour.stem"
+              ],
+              "node_count": 4,
+              "active": true,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "water_wet_earth",
+              "components": [
+                "water",
+                "wet_earth"
+              ],
+              "node_refs": [
+                "natal.day.branch",
+                "natal.day.stem",
+                "natal.year.branch"
+              ],
+              "node_count": 3,
+              "active": true,
+              "threshold_policy": "explicit_reference_min_nodes"
+            },
+            {
+              "party": "water_wood",
+              "components": [
+                "water",
+                "wood"
+              ],
+              "node_refs": [
+                "natal.month.branch",
+                "natal.year.branch",
+                "natal.year.stem"
+              ],
+              "node_count": 3,
+              "active": true,
+              "threshold_policy": "explicit_reference_min_nodes"
+            }
+          ],
+          "active_parties": [
+            "wood_fire",
+            "metal_water",
+            "metal_wet_earth",
+            "water_wet_earth",
+            "water_wood"
+          ],
+          "control_configurations": [
+            {
+              "work_id": "work.0003",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.stem",
+              "source_token": "甲",
+              "target_token": "戊",
+              "source_tendency": "wood",
+              "target_tendency": "wet_earth",
+              "source_ten_god_group": "official",
+              "target_ten_god_group": "peer",
+              "ten_god_direction": "official_to_peer",
+              "source_party_candidates": [
+                "wood",
+                "water_wood"
+              ],
+              "active_source_parties": [
+                "water_wood"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0004",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.branch",
+              "source_token": "甲",
+              "target_token": "辰",
+              "source_tendency": "wood",
+              "target_tendency": "wet_earth",
+              "source_ten_god_group": "official",
+              "target_ten_god_group": "peer",
+              "ten_god_direction": "official_to_peer",
+              "source_party_candidates": [
+                "wood",
+                "water_wood"
+              ],
+              "active_source_parties": [
+                "water_wood"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0005",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.stem",
+              "source_token": "庚",
+              "target_token": "甲",
+              "source_tendency": "metal",
+              "target_tendency": "wood",
+              "source_ten_god_group": "output",
+              "target_ten_god_group": "official",
+              "ten_god_direction": "output_to_official",
+              "source_party_candidates": [
+                "metal",
+                "metal_wet_earth"
+              ],
+              "active_source_parties": [
+                "metal_wet_earth"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0007",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.year.branch",
+              "source_token": "戊",
+              "target_token": "子",
+              "source_tendency": "wet_earth",
+              "target_tendency": "water",
+              "source_ten_god_group": "peer",
+              "target_ten_god_group": "wealth",
+              "ten_god_direction": "peer_to_wealth",
+              "source_party_candidates": [],
+              "active_source_parties": [],
+              "target_protected": false,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0008",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "source_token": "辰",
+              "target_token": "子",
+              "source_tendency": "wet_earth",
+              "target_tendency": "water",
+              "source_ten_god_group": "peer",
+              "target_ten_god_group": "wealth",
+              "ten_god_direction": "peer_to_wealth",
+              "source_party_candidates": [],
+              "active_source_parties": [],
+              "target_protected": false,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0009",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "source_token": "辰",
+              "target_token": "子",
+              "source_tendency": "wet_earth",
+              "target_tendency": "water",
+              "source_ten_god_group": "peer",
+              "target_ten_god_group": "wealth",
+              "ten_god_direction": "peer_to_wealth",
+              "source_party_candidates": [],
+              "active_source_parties": [],
+              "target_protected": false,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0015",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.stem",
+              "source_token": "丙",
+              "target_token": "庚",
+              "source_tendency": "fire",
+              "target_tendency": "metal",
+              "source_ten_god_group": "resource",
+              "target_ten_god_group": "output",
+              "ten_god_direction": "resource_to_output",
+              "source_party_candidates": [
+                "fire",
+                "wood_fire",
+                "fire_dry_earth"
+              ],
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0016",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.branch",
+              "source_token": "丙",
+              "target_token": "申",
+              "source_tendency": "fire",
+              "target_tendency": "metal",
+              "source_ten_god_group": "resource",
+              "target_ten_god_group": "output",
+              "ten_god_direction": "resource_to_output",
+              "source_party_candidates": [
+                "fire",
+                "wood_fire",
+                "fire_dry_earth"
+              ],
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0017",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.day.branch",
+              "source_token": "寅",
+              "target_token": "辰",
+              "source_tendency": "wood",
+              "target_tendency": "wet_earth",
+              "source_ten_god_group": "official",
+              "target_ten_god_group": "peer",
+              "ten_god_direction": "official_to_peer",
+              "source_party_candidates": [
+                "wood",
+                "water_wood"
+              ],
+              "active_source_parties": [
+                "water_wood"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0018",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.month.branch",
+              "source_token": "辰",
+              "target_token": "寅",
+              "source_tendency": "wet_earth",
+              "target_tendency": "wood",
+              "source_ten_god_group": "peer",
+              "target_ten_god_group": "official",
+              "ten_god_direction": "peer_to_official",
+              "source_party_candidates": [
+                "metal_wet_earth"
+              ],
+              "active_source_parties": [
+                "metal_wet_earth"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0019",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.month.branch",
+              "source_token": "庚",
+              "target_token": "寅",
+              "source_tendency": "metal",
+              "target_tendency": "wood",
+              "source_ten_god_group": "output",
+              "target_ten_god_group": "official",
+              "ten_god_direction": "output_to_official",
+              "source_party_candidates": [
+                "metal",
+                "metal_wet_earth"
+              ],
+              "active_source_parties": [
+                "metal_wet_earth"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0020",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "source_token": "寅",
+              "target_token": "申",
+              "source_tendency": "wood",
+              "target_tendency": "metal",
+              "source_ten_god_group": "official",
+              "target_ten_god_group": "output",
+              "ten_god_direction": "official_to_output",
+              "source_party_candidates": [
+                "wood",
+                "wood_fire"
+              ],
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0021",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "source_token": "寅",
+              "target_token": "申",
+              "source_tendency": "wood",
+              "target_tendency": "metal",
+              "source_ten_god_group": "official",
+              "target_ten_god_group": "output",
+              "ten_god_direction": "official_to_output",
+              "source_party_candidates": [
+                "wood",
+                "wood_fire"
+              ],
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0022",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.month.branch",
+              "source_token": "申",
+              "target_token": "寅",
+              "source_tendency": "metal",
+              "target_tendency": "wood",
+              "source_ten_god_group": "output",
+              "target_ten_god_group": "official",
+              "ten_god_direction": "output_to_official",
+              "source_party_candidates": [
+                "metal",
+                "metal_wet_earth"
+              ],
+              "active_source_parties": [
+                "metal_wet_earth"
+              ],
+              "target_protected": true,
+              "resolution": "active_candidate"
+            },
+            {
+              "work_id": "work.0027",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "source_token": "辰",
+              "target_token": "申",
+              "source_tendency": "wet_earth",
+              "target_tendency": "metal",
+              "source_ten_god_group": "peer",
+              "target_ten_god_group": "output",
+              "ten_god_direction": null,
+              "source_party_candidates": [],
+              "active_source_parties": [],
+              "target_protected": true,
+              "resolution": "candidate"
+            }
+          ],
+          "ten_god_direction_counts": {
+            "official_to_peer": 3,
+            "output_to_official": 3,
+            "peer_to_wealth": 3,
+            "resource_to_output": 2,
+            "peer_to_official": 1,
+            "official_to_output": 2
+          },
+          "protected_refs": [
+            {
+              "ref_id": "natal.day.branch",
+              "reasons": [
+                "connected_body",
+                "day_root_or_day_pillar"
+              ]
+            },
+            {
+              "ref_id": "natal.day.stem",
+              "reasons": [
+                "connected_body",
+                "day_master"
+              ]
+            },
+            {
+              "ref_id": "natal.hour.branch",
+              "reasons": [
+                "lu_original_connection"
+              ]
+            },
+            {
+              "ref_id": "natal.hour.stem",
+              "reasons": [
+                "lu_original_connection"
+              ]
+            },
+            {
+              "ref_id": "natal.month.branch",
+              "reasons": [
+                "lu_original_connection"
+              ]
+            },
+            {
+              "ref_id": "natal.year.stem",
+              "reasons": [
+                "lu_original_connection"
+              ]
+            }
+          ],
+          "clean_control_candidates": [
+            {
+              "work_id": "work.0003",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.stem",
+              "active_party": "water_wood",
+              "residual_target_refs": [
+                "natal.day.branch"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0004",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.branch",
+              "active_party": "water_wood",
+              "residual_target_refs": [
+                "natal.day.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0005",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.stem",
+              "active_party": "metal_wet_earth",
+              "residual_target_refs": [
+                "natal.month.branch"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0007",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.year.branch",
+              "active_party": null,
+              "residual_target_refs": [],
+              "target_protected": false,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0008",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "active_party": null,
+              "residual_target_refs": [],
+              "target_protected": false,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0009",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "active_party": null,
+              "residual_target_refs": [],
+              "target_protected": false,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0015",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.stem",
+              "active_party": "wood_fire",
+              "residual_target_refs": [
+                "natal.hour.branch"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0016",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.branch",
+              "active_party": "wood_fire",
+              "residual_target_refs": [
+                "natal.hour.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0017",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.day.branch",
+              "active_party": "water_wood",
+              "residual_target_refs": [
+                "natal.day.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0018",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.month.branch",
+              "active_party": "metal_wet_earth",
+              "residual_target_refs": [
+                "natal.year.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0019",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.month.branch",
+              "active_party": "metal_wet_earth",
+              "residual_target_refs": [
+                "natal.year.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0020",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "active_party": "wood_fire",
+              "residual_target_refs": [
+                "natal.hour.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0021",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "active_party": "wood_fire",
+              "residual_target_refs": [
+                "natal.hour.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0022",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.month.branch",
+              "active_party": "metal_wet_earth",
+              "residual_target_refs": [
+                "natal.year.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            },
+            {
+              "work_id": "work.0027",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "active_party": null,
+              "residual_target_refs": [
+                "natal.hour.stem"
+              ],
+              "target_protected": true,
+              "clean": false,
+              "resolution": "unclean_or_unresolved"
+            }
+          ],
+          "clean_control_count": 0,
+          "six_single_tendencies_catalog": [
+            "wood",
+            "fire",
+            "metal",
+            "water",
+            "dry_earth",
+            "wet_earth"
+          ],
+          "ten_god_control_direction_catalog": [
+            "official_to_output",
+            "official_to_peer",
+            "output_to_official",
+            "output_to_resource",
+            "peer_to_official",
+            "peer_to_wealth",
+            "resource_to_output",
+            "resource_to_wealth",
+            "wealth_to_peer",
+            "wealth_to_resource"
+          ],
+          "hidden_total_score": false,
+          "unknown_policy": "propagate"
+        },
+        "compound": {
+          "combine_body_guest_use": true,
+          "combine_broken_invalid": true,
+          "combine_whole_chart_required": true,
+          "drain_expression": true,
+          "each_mode_analyzed_separately": true,
+          "enclosure_compound": true,
+          "generate_host_output_to_guest_wealth": true,
+          "generate_host_wealth": true,
+          "generate_output_flourishes": true,
+          "method_count_not_layer_count": true,
+          "mode_changes_over_time": true,
+          "multiple_modes_allowed": true,
+          "parallel_sources_one_target": true,
+          "sequential_chain": true,
+          "source_target_joint_control": true,
+          "tomb_control_semantics": true,
+          "tomb_plus_control_chain": true,
+          "transform_chain": true,
+          "transform_requires_continuity": true,
+          "virtual_wealth_needs_referent": true,
+          "evidence_compiled": true,
+          "structures": {
+            "pair_multi_method": [
+              {
+                "participants": [
+                  "natal.day.branch",
+                  "natal.year.branch"
+                ],
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0009"
+                ],
+                "method": "compound"
+              },
+              {
+                "participants": [
+                  "natal.day.branch",
+                  "natal.month.branch"
+                ],
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0018"
+                ],
+                "method": "compound"
+              },
+              {
+                "participants": [
+                  "natal.hour.branch",
+                  "natal.month.branch"
+                ],
+                "component_work_ids": [
+                  "work.0020",
+                  "work.0021",
+                  "work.0022"
+                ],
+                "method": "compound"
+              },
+              {
+                "participants": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "component_work_ids": [
+                  "work.0026",
+                  "work.0027"
+                ],
+                "method": "compound"
+              }
+            ],
+            "parallel_sources_one_target": [
+              {
+                "target_ref": "natal.year.stem",
+                "source_refs": [
+                  "natal.hour.stem",
+                  "natal.year.branch"
+                ],
+                "component_work_ids": [
+                  "work.0001",
+                  "work.0005"
+                ],
+                "method_set": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "target_ref": "natal.month.stem",
+                "source_refs": [
+                  "natal.month.branch",
+                  "natal.year.stem"
+                ],
+                "component_work_ids": [
+                  "work.0002",
+                  "work.0012"
+                ],
+                "method_set": [
+                  "generate"
+                ]
+              },
+              {
+                "target_ref": "natal.day.stem",
+                "source_refs": [
+                  "natal.month.stem",
+                  "natal.year.stem"
+                ],
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0013"
+                ],
+                "method_set": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "target_ref": "natal.day.branch",
+                "source_refs": [
+                  "natal.month.branch",
+                  "natal.month.stem",
+                  "natal.year.stem"
+                ],
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0014",
+                  "work.0017"
+                ],
+                "method_set": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "target_ref": "natal.month.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch",
+                  "natal.hour.stem",
+                  "natal.year.branch"
+                ],
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0018",
+                  "work.0019",
+                  "work.0022"
+                ],
+                "method_set": [
+                  "control",
+                  "generate",
+                  "tomb"
+                ]
+              },
+              {
+                "target_ref": "natal.year.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.hour.branch",
+                  "natal.hour.stem"
+                ],
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0008",
+                  "work.0009",
+                  "work.0010",
+                  "work.0011"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ]
+              },
+              {
+                "target_ref": "natal.hour.stem",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.month.stem"
+                ],
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0023",
+                  "work.0025"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "target_ref": "natal.hour.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.month.branch",
+                  "natal.month.stem"
+                ],
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0020",
+                  "work.0021",
+                  "work.0024",
+                  "work.0026",
+                  "work.0027"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ]
+              }
+            ],
+            "sequential_chain": [
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0001",
+                  "work.0002"
+                ],
+                "methods": [
+                  "generate",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.day.stem",
+                "component_work_ids": [
+                  "work.0001",
+                  "work.0003"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0001",
+                  "work.0004"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0001"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0001"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0001"
+                ],
+                "methods": [
+                  "tomb",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0010",
+                  "work.0001"
+                ],
+                "methods": [
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0011",
+                  "work.0001"
+                ],
+                "methods": [
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0002"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.day.stem",
+                "component_work_ids": [
+                  "work.0002",
+                  "work.0013"
+                ],
+                "methods": [
+                  "generate",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0002",
+                  "work.0014"
+                ],
+                "methods": [
+                  "generate",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0002",
+                  "work.0015"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0002",
+                  "work.0016"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.day.stem",
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0003"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0007"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0023"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0024"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.year.stem",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0004"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0008"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0009"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0018"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0025"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0026"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.year.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0027"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0005"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0023",
+                  "work.0005"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.stem",
+                "component_work_ids": [
+                  "work.0025",
+                  "work.0005"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0006"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0006"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0006"
+                ],
+                "methods": [
+                  "tomb",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0010",
+                  "work.0006"
+                ],
+                "methods": [
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.branch",
+                "middle_ref": "natal.year.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0011",
+                  "work.0006"
+                ],
+                "methods": [
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0012"
+                ],
+                "methods": [
+                  "generate",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0017"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0020"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.year.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0021"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0013",
+                  "work.0007"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0008"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0008"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0009"
+                ],
+                "methods": [
+                  "drain",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0009"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0010"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0023",
+                  "work.0010"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0025",
+                  "work.0010"
+                ],
+                "methods": [
+                  "generate",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0011"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0020",
+                  "work.0011"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0021",
+                  "work.0011"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0024",
+                  "work.0011"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0026",
+                  "work.0011"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0027",
+                  "work.0011"
+                ],
+                "methods": [
+                  "tomb",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.day.stem",
+                "component_work_ids": [
+                  "work.0012",
+                  "work.0013"
+                ],
+                "methods": [
+                  "generate",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0012",
+                  "work.0014"
+                ],
+                "methods": [
+                  "generate",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0012",
+                  "work.0015"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.month.stem",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0012",
+                  "work.0016"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0018",
+                  "work.0012"
+                ],
+                "methods": [
+                  "tomb",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0019",
+                  "work.0012"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.month.stem",
+                "component_work_ids": [
+                  "work.0022",
+                  "work.0012"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0013",
+                  "work.0023"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.stem",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0013",
+                  "work.0024"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0018"
+                ],
+                "methods": [
+                  "drain",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0025"
+                ],
+                "methods": [
+                  "drain",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0026"
+                ],
+                "methods": [
+                  "drain",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0014",
+                  "work.0027"
+                ],
+                "methods": [
+                  "drain",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0019"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.stem",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0022"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0018"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0019",
+                  "work.0017"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0022",
+                  "work.0017"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.stem",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0025"
+                ],
+                "methods": [
+                  "control",
+                  "generate"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0026"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.day.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0027"
+                ],
+                "methods": [
+                  "control",
+                  "tomb"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0018",
+                  "work.0020"
+                ],
+                "methods": [
+                  "tomb",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0018",
+                  "work.0021"
+                ],
+                "methods": [
+                  "tomb",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0019",
+                  "work.0020"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.hour.stem",
+                "middle_ref": "natal.month.branch",
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0019",
+                  "work.0021"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0023",
+                  "work.0019"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.stem",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0025",
+                  "work.0019"
+                ],
+                "methods": [
+                  "generate",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0020",
+                  "work.0022"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.month.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0021",
+                  "work.0022"
+                ],
+                "methods": [
+                  "control",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.stem",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0024",
+                  "work.0022"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0026",
+                  "work.0022"
+                ],
+                "methods": [
+                  "drain",
+                  "control"
+                ]
+              },
+              {
+                "source_ref": "natal.day.branch",
+                "middle_ref": "natal.hour.branch",
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0027",
+                  "work.0022"
+                ],
+                "methods": [
+                  "tomb",
+                  "control"
+                ]
+              }
+            ],
+            "source_target_joint_control": [
+              {
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0015"
+                ],
+                "target_refs": [
+                  "natal.day.stem",
+                  "natal.hour.stem"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0016"
+                ],
+                "target_refs": [
+                  "natal.day.stem",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.day.stem",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.day.stem",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0003",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.day.stem",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0015"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.stem"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0016"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0007"
+                ],
+                "target_refs": [
+                  "natal.year.stem",
+                  "natal.year.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0008"
+                ],
+                "target_refs": [
+                  "natal.year.stem",
+                  "natal.year.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0005",
+                  "work.0009"
+                ],
+                "target_refs": [
+                  "natal.year.stem",
+                  "natal.year.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0015"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.stem"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0016"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0018"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0019"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0022"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0015"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.stem"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0016"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0018"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0019"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0022"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0008",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0015"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.stem"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0016"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0018"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0019"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0022"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.month.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0009",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.year.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0017"
+                ],
+                "target_refs": [
+                  "natal.hour.stem",
+                  "natal.day.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0017"
+                ],
+                "target_refs": [
+                  "natal.hour.branch",
+                  "natal.day.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0020"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0021"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              },
+              {
+                "component_work_ids": [
+                  "work.0017",
+                  "work.0027"
+                ],
+                "target_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch"
+                ],
+                "relation": "source_target_joint_control_candidate"
+              }
+            ],
+            "tomb_plus_control": [
+              {
+                "target_ref": "natal.day.branch",
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0014",
+                  "work.0017"
+                ],
+                "methods": [
+                  "control",
+                  "drain"
+                ]
+              },
+              {
+                "target_ref": "natal.month.branch",
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0018",
+                  "work.0019",
+                  "work.0022"
+                ],
+                "methods": [
+                  "control",
+                  "generate",
+                  "tomb"
+                ]
+              },
+              {
+                "target_ref": "natal.year.branch",
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0008",
+                  "work.0009",
+                  "work.0010",
+                  "work.0011"
+                ],
+                "methods": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ]
+              },
+              {
+                "target_ref": "natal.hour.branch",
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0020",
+                  "work.0021",
+                  "work.0024",
+                  "work.0026",
+                  "work.0027"
+                ],
+                "methods": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ]
+              }
+            ],
+            "enclosure": [
+              {
+                "target_ref": "natal.day.branch",
+                "source_refs": [
+                  "natal.month.branch",
+                  "natal.month.stem",
+                  "natal.year.stem"
+                ],
+                "component_work_ids": [
+                  "work.0004",
+                  "work.0014",
+                  "work.0017"
+                ],
+                "method_set": [
+                  "control",
+                  "drain"
+                ],
+                "left_side_source": true,
+                "right_side_source": false,
+                "stem_support": true,
+                "resolution": "enclosure_candidate"
+              },
+              {
+                "target_ref": "natal.month.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.hour.branch",
+                  "natal.hour.stem",
+                  "natal.year.branch"
+                ],
+                "component_work_ids": [
+                  "work.0006",
+                  "work.0018",
+                  "work.0019",
+                  "work.0022"
+                ],
+                "method_set": [
+                  "control",
+                  "generate",
+                  "tomb"
+                ],
+                "left_side_source": true,
+                "right_side_source": true,
+                "stem_support": true,
+                "resolution": "enclosure_candidate"
+              },
+              {
+                "target_ref": "natal.year.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.hour.branch",
+                  "natal.hour.stem"
+                ],
+                "component_work_ids": [
+                  "work.0007",
+                  "work.0008",
+                  "work.0009",
+                  "work.0010",
+                  "work.0011"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ],
+                "left_side_source": false,
+                "right_side_source": true,
+                "stem_support": true,
+                "resolution": "enclosure_candidate"
+              },
+              {
+                "target_ref": "natal.hour.stem",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.month.stem"
+                ],
+                "component_work_ids": [
+                  "work.0015",
+                  "work.0023",
+                  "work.0025"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "generate"
+                ],
+                "left_side_source": true,
+                "right_side_source": false,
+                "stem_support": true,
+                "resolution": "enclosure_candidate"
+              },
+              {
+                "target_ref": "natal.hour.branch",
+                "source_refs": [
+                  "natal.day.branch",
+                  "natal.day.stem",
+                  "natal.month.branch",
+                  "natal.month.stem"
+                ],
+                "component_work_ids": [
+                  "work.0016",
+                  "work.0020",
+                  "work.0021",
+                  "work.0024",
+                  "work.0026",
+                  "work.0027"
+                ],
+                "method_set": [
+                  "control",
+                  "drain",
+                  "tomb"
+                ],
+                "left_side_source": true,
+                "right_side_source": false,
+                "stem_support": true,
+                "resolution": "enclosure_candidate"
+              }
+            ]
+          },
+          "structure_counts": {
+            "pair_multi_method": 4,
+            "parallel_sources_one_target": 8,
+            "sequential_chain": 82,
+            "source_target_joint_control": 42,
+            "tomb_plus_control": 4,
+            "enclosure": 5
+          },
+          "compound_structure_count": 145,
+          "method_component_count": 323,
+          "layer_count_candidates": 128,
+          "method_count_is_not_layer_count": true,
+          "time_mode_switch": false,
+          "hidden_total_score": false,
+          "multiple_methods_preserved": true,
+          "analyze_each_method": true,
+          "luck_can_change_mode": false,
+          "tomb_control_layer_candidate": true,
+          "enclosure_candidate": true,
+          "sequential_chain_candidate": true,
+          "source_target_joint_control_candidate": true
+        },
+        "efficiency": {
+          "branch_above_stem": true,
+          "combine_low": true,
+          "combine_medium": false,
+          "combine_second_tier": true,
+          "combine_si_shen_high": true,
+          "enclosure_bonus": true,
+          "energy_each_token": true,
+          "harm_control_subset": true,
+          "harm_requires_force": true,
+          "no_hidden_total_score": true,
+          "party_supports_efficiency": true,
+          "plain_control_low": true,
+          "primary_auxiliary": true,
+          "source_and_target_controlled": true,
+          "surround_control_high": true,
+          "tomb_clash_high": false,
+          "tomb_control_bonus": true,
+          "useful_work_requires_output": true,
+          "waste_two_forms": true,
+          "wu_wei_no_control": true,
+          "yin_shen_si_hai_high": true,
+          "zi_wu_mao_you_lower": false,
+          "evidence_compiled": true,
+          "vectors": [
+            {
+              "work_id": "work.0001",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0002",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "generate",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0003",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0004",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0005",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0006",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0007",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0008",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0009",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "positive",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0010",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "positive",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0011",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "positive",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0012",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0013",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "drain",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0014",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0015",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0016",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0017",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0018",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "positive",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0019",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0020",
+              "tier": "high",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "yin_shen_si_hai_clash",
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0021",
+              "tier": "medium",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0022",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0023",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0024",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0025",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0026",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0027",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "mixed_or_unknown",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            }
+          ],
+          "tier_counts": {
+            "low": 22,
+            "unknown": 3,
+            "high": 1,
+            "medium": 1
+          },
+          "branch_path_count": 21,
+          "stem_only_path_count": 6,
+          "qualitative_dimensions": [
+            "carrier_layer",
+            "relation_method",
+            "direction",
+            "enclosure",
+            "target_control",
+            "source_support",
+            "residual_interference"
+          ],
+          "hidden_total_score": false,
+          "total_score": null,
+          "rank_mapping_enabled": false
+        },
+        "method_resolution": {
+          "clash_requires_party_margin": true,
+          "combine_catalog": true,
+          "damage_to_work_lowers": true,
+          "distance_can_reduce": true,
+          "enclosure_high": true,
+          "four_control_harms": false,
+          "harm_requires_force": true,
+          "low_combine_catalog": true,
+          "mao_xu_mao_shen_wu_hai_high": true,
+          "plain_control_low": true,
+          "si_shen_top": false,
+          "si_you_high_with_wood_fire": true,
+          "stems_support_enclosure": true,
+          "tomb_clash_punishment_top": false,
+          "two_generate_harms": false,
+          "waste_nodes_reduce_coherence": true,
+          "wu_wei_not_control": false,
+          "yin_shen_si_hai_high": true,
+          "zi_chou_yin_chou_medium": true,
+          "zi_wu_mao_you_lower": false,
+          "evidence_compiled": true,
+          "vectors": [
+            {
+              "work_id": "work.0001",
+              "method": "generate",
+              "relation_type": "branch_generates_stem",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.year.stem",
+              "relative_tier": "low_candidate",
+              "factors": [
+                "active_party",
+                "generate",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_water",
+                "water_wet_earth",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0002",
+              "method": "generate",
+              "relation_type": "generate",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.month.stem",
+              "relative_tier": "low_candidate",
+              "factors": [
+                "active_party",
+                "generate"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0003",
+              "method": "control",
+              "relation_type": "control",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.stem",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0004",
+              "method": "control",
+              "relation_type": "stem_controls_branch",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0005",
+              "method": "control",
+              "relation_type": "control",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.stem",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "distance_penalty",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "far",
+              "active_source_parties": [
+                "metal_water",
+                "metal_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0006",
+              "method": "generate",
+              "relation_type": "element_generate",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.month.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "generate",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_water",
+                "water_wet_earth",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0007",
+              "method": "control",
+              "relation_type": "stem_controls_branch",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.year.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0008",
+              "method": "control",
+              "relation_type": "element_control",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0009",
+              "method": "tomb",
+              "relation_type": "tomb_candidate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "tomb_candidate"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0010",
+              "method": "drain",
+              "relation_type": "stem_generates_branch",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "distance_penalty",
+                "drain",
+                "enclosure"
+              ],
+              "distance_class": "far",
+              "active_source_parties": [
+                "metal_water",
+                "metal_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0011",
+              "method": "drain",
+              "relation_type": "element_generate",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.year.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "distance_penalty",
+                "drain",
+                "enclosure"
+              ],
+              "distance_class": "far",
+              "active_source_parties": [
+                "metal_water",
+                "metal_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0012",
+              "method": "generate",
+              "relation_type": "branch_generates_stem",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.month.stem",
+              "relative_tier": "low_candidate",
+              "factors": [
+                "active_party",
+                "generate"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0013",
+              "method": "drain",
+              "relation_type": "generate",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.stem",
+              "relative_tier": "low_candidate",
+              "factors": [
+                "active_party",
+                "drain",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0014",
+              "method": "drain",
+              "relation_type": "stem_generates_branch",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "drain",
+                "enclosure",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0015",
+              "method": "control",
+              "relation_type": "control",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.stem",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0016",
+              "method": "control",
+              "relation_type": "stem_controls_branch",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0017",
+              "method": "control",
+              "relation_type": "element_control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.day.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0018",
+              "method": "tomb",
+              "relation_type": "tomb_candidate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.month.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "protected_target",
+                "tomb_candidate"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0019",
+              "method": "control",
+              "relation_type": "stem_controls_branch",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.month.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_water",
+                "metal_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0020",
+              "method": "control",
+              "relation_type": "clash",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "protected_target",
+                "yin_shen_or_si_hai_clash"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0021",
+              "method": "control",
+              "relation_type": "punishment",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "wood_fire",
+                "water_wood"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0022",
+              "method": "control",
+              "relation_type": "element_control",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.month.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "plain_control",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_water",
+                "metal_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0023",
+              "method": "drain",
+              "relation_type": "generate",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.stem",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "drain",
+                "enclosure",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0024",
+              "method": "drain",
+              "relation_type": "stem_generates_branch",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "drain",
+                "enclosure",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0025",
+              "method": "generate",
+              "relation_type": "branch_generates_stem",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.stem",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "generate",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0026",
+              "method": "drain",
+              "relation_type": "element_generate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "high_candidate",
+              "factors": [
+                "active_party",
+                "drain",
+                "enclosure",
+                "protected_target"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0027",
+              "method": "tomb",
+              "relation_type": "tomb_candidate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "relative_tier": "blocked_protected",
+              "factors": [
+                "active_party",
+                "enclosure",
+                "protected_target",
+                "tomb_candidate"
+              ],
+              "distance_class": "near_or_medium",
+              "active_source_parties": [
+                "metal_wet_earth",
+                "water_wet_earth"
+              ],
+              "clean_control": false,
+              "numeric_score": null
+            }
+          ],
+          "tier_counts": {
+            "low_candidate": 4,
+            "blocked_protected": 12,
+            "high_candidate": 11
+          },
+          "qualitative_only": true,
+          "hidden_total_score": false,
+          "total_score": null,
+          "ranking_is_conditional": true,
+          "enclosure_count": 21,
+          "protected_block_count": 12,
+          "distance_penalty_count": 3
+        },
+        "catcher_thief": {
+          "activation_match_element": true,
+          "activation_match_ten_god": true,
+          "activation_match_token": true,
+          "activation_recomputed_each_state": true,
+          "activation_requires_edge": true,
+          "catcher_only_luck_not_auto_good": true,
+          "catcher_party_strong": true,
+          "clean_control_candidate": true,
+          "matching_guest_activates": true,
+          "multiple_thief_candidates_preserved": false,
+          "no_thief_no_activation": true,
+          "requires_control_configuration": true,
+          "roles_named": true,
+          "target_isolated": true,
+          "evidence_compiled": true,
+          "stage": "natal",
+          "current_candidates": [],
+          "natal_candidates": [],
+          "activation_candidates": [],
+          "activation_count": 0,
+          "event_mapping": "unknown_incomplete",
+          "requires_clean_control": true,
+          "requires_active_edge": true,
+          "multiple_candidates_preserved": true,
+          "hidden_total_score": false,
+          "catcher_strong_thief_isolated": false,
+          "net_control_candidate": false,
+          "thief_luck_activation_candidate": false,
+          "activation_must_recompile": false,
+          "activation_event_unknown": true
+        },
+        "temporal": {
+          "catcher_thief_activation": false,
+          "compound_modes_by_luck": false,
+          "luck_annual_guest": false,
+          "multi_solution_allowed": true,
+          "recompute_relations": true,
+          "recompute_virtual_real": true,
+          "virtual_real_timing": false,
+          "evidence_compiled": true,
+          "stage": "natal",
+          "active_luck": null,
+          "active_annual": null,
+          "relations_recomputed": true,
+          "virtual_real_recomputed": true,
+          "work_recomputed": true,
+          "work_count": 27,
+          "virtual_real_transitions": [],
+          "deep_timing_status": "unknown_incomplete",
+          "phase2_compound_recomputed": true,
+          "phase2_catcher_thief_recomputed": true,
+          "compound_structure_count": 145,
+          "catcher_thief_activation_count": 0,
+          "event_mapping": "unknown_incomplete"
+        },
+        "semantics": {
+          "body_as_capability": true,
+          "combine_theme": true,
+          "compound_theme_plural": true,
+          "control_theme": true,
+          "day_branch_private_context": true,
+          "drain_theme": true,
+          "generate_theme": true,
+          "hour_gateway_output_context": true,
+          "month_origin_organization_context": true,
+          "multi_solution": true,
+          "official_theme": true,
+          "output_theme": true,
+          "palace_is_context_not_fact": true,
+          "peer_theme": true,
+          "positive_work_theme": true,
+          "resource_theme": true,
+          "reverse_work_theme": true,
+          "stem_visible_branch_internal": true,
+          "tomb_theme": true,
+          "transform_theme": true,
+          "use_as_goal": true,
+          "virtual_real_manifestation": true,
+          "wealth_theme": true,
+          "year_external_root_context": true,
+          "evidence_compiled": true,
+          "theme_candidates": [
+            {
+              "candidate_id": "theme.token.natal.year.stem",
+              "source_ref": "natal.year.stem",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "权责",
+                "根源语境",
+                "管理",
+                "组织约束",
+                "规则",
+                "较早阶段",
+                "远端环境"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.year.branch",
+              "source_ref": "natal.year.branch",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "交换",
+                "价值流",
+                "根源语境",
+                "资产",
+                "资源",
+                "较早阶段",
+                "远端环境"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.month.stem",
+              "source_ref": "natal.month.stem",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "凭证与保护",
+                "原生环境",
+                "同辈与组织场域",
+                "学习",
+                "支持",
+                "来源语境",
+                "知识"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.month.branch",
+              "source_ref": "natal.month.branch",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "原生环境",
+                "同辈与组织场域",
+                "权责",
+                "来源语境",
+                "管理",
+                "组织约束",
+                "规则"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.day.stem",
+              "source_ref": "natal.day.stem",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "主体与近身语境",
+                "协作",
+                "同伴关系",
+                "居所或私人情境",
+                "竞争",
+                "行动"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.day.branch",
+              "source_ref": "natal.day.branch",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "主体与近身语境",
+                "协作",
+                "同伴关系",
+                "居所或私人情境",
+                "竞争",
+                "行动"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.hour.stem",
+              "source_ref": "natal.hour.stem",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "产出接口",
+                "作品",
+                "后续阶段",
+                "对外连接",
+                "技能",
+                "服务与产出",
+                "表达"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.token.natal.hour.branch",
+              "source_ref": "natal.hour.branch",
+              "theme_type": "ten_god_and_position",
+              "themes": [
+                "产出接口",
+                "作品",
+                "后续阶段",
+                "对外连接",
+                "技能",
+                "服务与产出",
+                "表达"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0001",
+              "source_ref": "work.0001",
+              "theme_type": "method",
+              "themes": [
+                "支持",
+                "供给",
+                "投入",
+                "服务"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0002",
+              "source_ref": "work.0002",
+              "theme_type": "method",
+              "themes": [
+                "支持",
+                "供给",
+                "投入",
+                "服务"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0003",
+              "source_ref": "work.0003",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0004",
+              "source_ref": "work.0004",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0005",
+              "source_ref": "work.0005",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0006",
+              "source_ref": "work.0006",
+              "theme_type": "method",
+              "themes": [
+                "支持",
+                "供给",
+                "投入",
+                "服务"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0007",
+              "source_ref": "work.0007",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0008",
+              "source_ref": "work.0008",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0009",
+              "source_ref": "work.0009",
+              "theme_type": "method",
+              "themes": [
+                "聚合",
+                "存储",
+                "管理",
+                "占据"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0010",
+              "source_ref": "work.0010",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0011",
+              "source_ref": "work.0011",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0012",
+              "source_ref": "work.0012",
+              "theme_type": "method",
+              "themes": [
+                "支持",
+                "供给",
+                "投入",
+                "服务"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0013",
+              "source_ref": "work.0013",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0014",
+              "source_ref": "work.0014",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0015",
+              "source_ref": "work.0015",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0016",
+              "source_ref": "work.0016",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0017",
+              "source_ref": "work.0017",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0018",
+              "source_ref": "work.0018",
+              "theme_type": "method",
+              "themes": [
+                "聚合",
+                "存储",
+                "管理",
+                "占据"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0019",
+              "source_ref": "work.0019",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0020",
+              "source_ref": "work.0020",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0021",
+              "source_ref": "work.0021",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0022",
+              "source_ref": "work.0022",
+              "theme_type": "method",
+              "themes": [
+                "约束",
+                "管理",
+                "排除",
+                "重组"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0023",
+              "source_ref": "work.0023",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0024",
+              "source_ref": "work.0024",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0025",
+              "source_ref": "work.0025",
+              "theme_type": "method",
+              "themes": [
+                "支持",
+                "供给",
+                "投入",
+                "服务"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0026",
+              "source_ref": "work.0026",
+              "theme_type": "method",
+              "themes": [
+                "表达",
+                "释放",
+                "产出",
+                "展示"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            },
+            {
+              "candidate_id": "theme.work.work.0027",
+              "source_ref": "work.0027",
+              "theme_type": "method",
+              "themes": [
+                "聚合",
+                "存储",
+                "管理",
+                "占据"
+              ],
+              "certainty": "semantic_candidate",
+              "concrete_event": null
+            }
+          ],
+          "theme_candidate_count": 35,
+          "compound_theme_count": 145,
+          "catcher_thief_theme_count": 0,
+          "concrete_event_output": false,
+          "specific_occupation_output": false,
+          "disease_output": false,
+          "death_output": false,
+          "crime_output": false,
+          "marriage_outcome_output": false,
+          "financial_outcome_output": false,
+          "multi_solution_allowed": true,
+          "historical_accuracy_claim_runtime": false,
+          "no_specific_occupation": true
+        },
+        "safety": {
+          "example_not_general_rule": true,
+          "neutralize_marriage": true,
+          "neutralize_moral_labels": true,
+          "neutralize_status": true,
+          "neutralize_wealth": true,
+          "evidence_compiled": true,
+          "block_disease": true,
+          "block_death": true,
+          "block_crime": true,
+          "no_scientific_claim": true,
+          "output_scope": "traditional_structural_interpretation_only",
+          "block_specific_occupation": true,
+          "block_concrete_event_from_catcher_thief": true,
+          "historical_accuracy_claim_excluded": true
+        }
+      }
+    }
+  },
+  "trace_id": "trace.state.synthetic.chart.001.natal.duan_li_xiang_w06p2"
+}

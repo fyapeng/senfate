@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.control_matrix.protected_day_pillar_catalog@1.0.0",
+  "title": "连根日柱目录仅作待核参数",
+  "description": "原文列举的日柱作为扫描校勘清单，不能扩展为死亡断语。",
+  "namespace": "duan_li_xiang.control_matrix",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.control_matrix",
+  "status": [
+    "parameterized",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3968,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.control_matrix.protected_day_pillar_catalog",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.control_matrix",
+        "proposition": {
+          "predicate": "duan_li_xiang.control_matrix.protected_day_pillar_catalog",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.control_matrix_protected_day_pillar_catalog.8fcfae933d",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001627",
+      "source_lines": {
+        "start": 3251,
+        "end": 3251
+      },
+      "anchor": "src:modern.duan_li_xiang:L003251-L003251",
+      "quote": "另外象日主是丁巳、丙午、丁未都不能制",
+      "section_path": [
+        "段氏理象学",
+        "B. 印星制财局"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "scan_required",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "列举日柱需纸本逐页校勘；只用于结构保护。"
+    ]
+  }
+}

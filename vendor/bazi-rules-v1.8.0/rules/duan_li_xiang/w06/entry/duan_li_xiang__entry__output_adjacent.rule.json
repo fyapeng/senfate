@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.entry.output_adjacent@1.0.0",
+  "title": "食伤须贴近日干",
+  "description": "只把相邻月干或时干作为默认日干生出入口。",
+  "namespace": "duan_li_xiang.entry",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.entry",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.entry_resolution",
+  "priority": 4994,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.entry.output_adjacent",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.entry",
+        "proposition": {
+          "predicate": "duan_li_xiang.entry.output_adjacent",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.entry_output_adjacent.4f224a7034",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001234",
+      "source_lines": {
+        "start": 2465,
+        "end": 2465
+      },
+      "anchor": "src:modern.duan_li_xiang:L002465-L002465",
+      "quote": "看有无伤官与食神贴近日干",
+      "section_path": [
+        "段氏理象学",
+        "一、看四柱的功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.strong_output@1.0.0",
+  "title": "身强以食伤泄秀为抑",
+  "description": "该规则只输出扶抑方向，不直接输出主题吉凶。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 399,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.strength.resolved_side",
+    "operator": "equals",
+    "value": "strong"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.strength.strategy",
+        "proposition": {
+          "predicate": "classical_ziping.strength.preferred_operation",
+          "value": "output"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.strong_output.9bef19d34f",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c000970",
+      "source_lines": {
+        "start": 1939,
+        "end": 1939
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L001939-L001939",
+      "quote": "被泄：即我生",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

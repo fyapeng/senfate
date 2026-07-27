@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.pattern.month_xin_zi@1.0.0",
+  "title": "辛日生子月取格单元",
+  "description": "按《四柱预测学》日干生月取格表登记候选格局；候选仍须结合透干、旺衰和全局。",
+  "namespace": "shao_weihua.pattern",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.pattern_resolution",
+  "priority": 2715,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.pattern_cell_matches",
+    "args": {
+      "day_stem": "辛",
+      "month_branch": "子"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.pattern.month_lookup",
+        "proposition": {
+          "predicate": "shao_weihua.pattern.candidate_patterns",
+          "value": [
+            {
+              "visible_stem": "癸",
+              "pattern": "食神格"
+            }
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "cell_key": "xin_zi",
+          "raw_text": "辛生子月，为遇长生。干透癸水，为食神格。不透，酌取之。",
+          "fallback_policy": "discretionary_when_no_hidden_stem_visible",
+          "source_mode": "direct_ocr_context_checked"
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.pattern_xin_zi.99b56c99b1",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001176",
+      "source_lines": {
+        "start": 2345,
+        "end": 2345
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002345-L002345",
+      "quote": "辛生子月，为遇长生。干透癸水，为食神格。不透，酌取之。",
+      "section_path": [
+        "四柱预测学",
+        "第二节 日干生月取格法"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

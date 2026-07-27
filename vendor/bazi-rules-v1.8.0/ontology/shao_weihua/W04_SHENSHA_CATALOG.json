@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 37,
+  "entries": [
+    {
+      "shensha_id": "tianyi",
+      "label": "天乙贵人",
+      "source_chunk": 760,
+      "semantic": "support_network",
+      "detection_method": "year_or_day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "taiji",
+      "label": "太极贵人",
+      "source_chunk": 783,
+      "semantic": "learning_focus",
+      "detection_method": "year_or_day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "tiande",
+      "label": "天德贵人",
+      "source_chunk": 794,
+      "semantic": "supportive_modifier",
+      "detection_method": "month_to_stem_or_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "yuede",
+      "label": "月德贵人",
+      "source_chunk": 802,
+      "semantic": "supportive_modifier",
+      "detection_method": "month_group_to_stem",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "sanqi",
+      "label": "三奇贵人",
+      "source_chunk": 810,
+      "semantic": "ordered_stem_sequence",
+      "detection_method": "ordered_sequence_with_conditions",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "fuxing",
+      "label": "福星贵人",
+      "source_chunk": 824,
+      "semantic": "general_support",
+      "detection_method": "year_or_day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "wenchang",
+      "label": "文昌贵人",
+      "source_chunk": 828,
+      "semantic": "learning_expression",
+      "detection_method": "year_or_day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "kuigang",
+      "label": "魁罡",
+      "source_chunk": 835,
+      "semantic": "decisive_style",
+      "detection_method": "day_pillar_set",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "guoyin",
+      "label": "国印贵人",
+      "source_chunk": 842,
+      "semantic": "institutional_responsibility",
+      "detection_method": "year_or_day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "xuetang",
+      "label": "学堂",
+      "source_chunk": 850,
+      "semantic": "learning_candidate",
+      "detection_method": "nayin_parameterized",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "ciguan",
+      "label": "词馆",
+      "source_chunk": 852,
+      "semantic": "writing_candidate",
+      "detection_method": "stem_pillar_pair_nayin",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "dexiu",
+      "label": "德秀贵人",
+      "source_chunk": 859,
+      "semantic": "refinement_candidate",
+      "detection_method": "month_group_and_stems",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "yima",
+      "label": "驿马",
+      "source_chunk": 866,
+      "semantic": "mobility",
+      "detection_method": "year_or_day_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "huagai",
+      "label": "华盖",
+      "source_chunk": 873,
+      "semantic": "independent_creative_focus",
+      "detection_method": "year_or_day_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "jiangxing",
+      "label": "将星",
+      "source_chunk": 884,
+      "semantic": "coordination_leadership",
+      "detection_method": "year_or_day_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "jinyu",
+      "label": "金舆",
+      "source_chunk": 889,
+      "semantic": "material_support_symbol",
+      "detection_method": "day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "jinshen",
+      "label": "金神",
+      "source_chunk": 896,
+      "semantic": "special_structure",
+      "detection_method": "day_or_hour_pillar_set",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "tianyi_medical",
+      "label": "天医",
+      "source_chunk": 904,
+      "semantic": "healthcare_interest_symbol",
+      "detection_method": "month_to_previous_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "lushen",
+      "label": "禄神",
+      "source_chunk": 912,
+      "semantic": "same_element_support",
+      "detection_method": "day_stem_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "gonglu",
+      "label": "拱禄",
+      "source_chunk": 930,
+      "semantic": "virtual_arch_candidate",
+      "detection_method": "day_hour_pair",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "tianshe",
+      "label": "天赦",
+      "source_chunk": 941,
+      "semantic": "mitigating_symbol",
+      "detection_method": "season_and_day_pillar",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "tianluodiwang",
+      "label": "天罗地网",
+      "source_chunk": 953,
+      "semantic": "constraint_risk_symbol",
+      "detection_method": "branch_pair_author_variant",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "yangren",
+      "label": "羊刃",
+      "source_chunk": 965,
+      "semantic": "high_intensity_peer",
+      "detection_method": "day_stem_to_author_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "jiesha",
+      "label": "劫煞",
+      "source_chunk": 975,
+      "semantic": "disruption_symbol",
+      "detection_method": "year_or_day_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "zaisha",
+      "label": "灾煞",
+      "source_chunk": 982,
+      "semantic": "disruption_symbol",
+      "detection_method": "year_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "gou",
+      "label": "勾煞",
+      "source_chunk": 988,
+      "semantic": "entanglement_symbol",
+      "detection_method": "sex_yinyang_year_offset",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "jiao",
+      "label": "绞煞",
+      "source_chunk": 989,
+      "semantic": "entanglement_symbol",
+      "detection_method": "sex_yinyang_year_offset",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "guchen",
+      "label": "孤辰",
+      "source_chunk": 994,
+      "semantic": "independence_symbol",
+      "detection_method": "year_branch_group_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "guasu",
+      "label": "寡宿",
+      "source_chunk": 994,
+      "semantic": "independence_symbol",
+      "detection_method": "year_branch_group_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "wangshen",
+      "label": "亡神",
+      "source_chunk": 1004,
+      "semantic": "internal_loss_symbol",
+      "detection_method": "trine_required",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "yuanchen",
+      "label": "元辰",
+      "source_chunk": 1012,
+      "semantic": "instability_symbol",
+      "detection_method": "sex_yinyang_year_map",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "kongwang",
+      "label": "空亡",
+      "source_chunk": 1018,
+      "semantic": "availability_modifier",
+      "detection_method": "day_xun_void",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "shie_dabai",
+      "label": "十恶大败",
+      "source_chunk": 1026,
+      "semantic": "resource_gap_symbol",
+      "detection_method": "day_pillar_set",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "xianchi",
+      "label": "咸池",
+      "source_chunk": 1032,
+      "semantic": "social_aesthetic_expression",
+      "detection_method": "year_or_day_branch_to_branch",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "guluan",
+      "label": "孤鸾",
+      "source_chunk": 1040,
+      "semantic": "relationship_tension_symbol",
+      "detection_method": "day_hour_ambiguous",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "yinyang_chacuo",
+      "label": "阴阳差错",
+      "source_chunk": 1045,
+      "semantic": "relationship_tension_symbol",
+      "detection_method": "day_pillar_set",
+      "supplementary_only": true
+    },
+    {
+      "shensha_id": "sifei",
+      "label": "四废",
+      "source_chunk": 1051,
+      "semantic": "seasonal_mismatch_symbol",
+      "detection_method": "season_and_day_pillar",
+      "supplementary_only": true
+    }
+  ]
+}

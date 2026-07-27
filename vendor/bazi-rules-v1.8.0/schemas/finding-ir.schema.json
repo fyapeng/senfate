@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/finding-ir.schema.json",
+  "title": "FindingIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "finding_id",
+    "finding_type",
+    "namespace",
+    "topic",
+    "truth",
+    "scope",
+    "proposition",
+    "evidence_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "finding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finding_type": {
+      "type": "string",
+      "enum": [
+        "structural",
+        "procedural",
+        "semantic",
+        "theme",
+        "safety",
+        "comparison"
+      ]
+    },
+    "namespace": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "topic": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/EntityRef"
+      }
+    },
+    "proposition": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "predicate"
+      ],
+      "properties": {
+        "predicate": {
+          "$ref": "common.schema.json#/$defs/Namespace"
+        },
+        "value": {}
+      }
+    },
+    "truth": {
+      "$ref": "common.schema.json#/$defs/TruthValue"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "supportive",
+        "inhibitory",
+        "mixed",
+        "neutral",
+        "not_applicable",
+        "unknown"
+      ]
+    },
+    "scope": {
+      "$ref": "common.schema.json#/$defs/TemporalScope"
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "direct",
+        "derived",
+        "contested",
+        "incomplete",
+        "unknown"
+      ]
+    },
+    "source_rule_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/VersionedId"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "source-ref.schema.json"
+      }
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "risk_level",
+        "output_mode"
+      ],
+      "properties": {
+        "risk_level": {
+          "type": "string",
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "prohibited_default"
+          ]
+        },
+        "output_mode": {
+          "type": "string",
+          "enum": [
+            "structural_only",
+            "neutralized",
+            "historical_only",
+            "blocked"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

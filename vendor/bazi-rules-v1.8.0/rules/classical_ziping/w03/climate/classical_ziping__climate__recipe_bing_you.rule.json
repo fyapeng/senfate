@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.recipe_bing_you@1.0.0",
+  "title": "丙日主生酉月的调候候选",
+  "description": "按《穷通宝鉴》对应月段登记有序候选。候选次序保留文本程序，不等于普适终局用神，也不越过格局、旺衰、气势和破坏条件。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 2969,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_available",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.climate.recipe_key",
+        "operator": "equals",
+        "value": "丙.酉"
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.recipe_selected",
+        "value": [
+          "壬"
+        ],
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.recipe",
+        "proposition": {
+          "predicate": "classical_ziping.climate.ordered_candidates",
+          "value": [
+            "壬"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "day_stem": "丙",
+          "month_branch": "酉",
+          "recipe_key": "丙.酉",
+          "interpretation": "ordered_candidates_not_final_selection",
+          "condition_note": "仲秋丙火",
+          "source_chunk_ids": [
+            "classic.qiong_tong_bao_jian#c000250"
+          ],
+          "derived_candidates": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_____primary.a6e22055d5",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000250",
+      "source_lines": {
+        "start": 510,
+        "end": 510
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L000510-L000510",
+      "quote": "八月丙火，日近黄昏，丙之余光，存於湖海，仍用壬水辅映。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac",
+      "review_note": "仲秋丙火"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

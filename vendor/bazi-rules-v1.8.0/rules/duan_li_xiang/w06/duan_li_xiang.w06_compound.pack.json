@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_compound@1.0.0",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "label": "复合做功与路径组合",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__transform_chain.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__transform_requires_continuity.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__generate_host_wealth.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__generate_host_output_to_guest_wealth.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__generate_output_flourishes.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__drain_expression.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__combine_body_guest_use.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__combine_whole_chart_required.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__combine_broken_invalid.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__virtual_wealth_needs_referent.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__tomb_control_semantics.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__multiple_modes_allowed.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__each_mode_analyzed_separately.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__mode_changes_over_time.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__method_count_not_layer_count.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__parallel_sources_one_target.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__sequential_chain.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__source_target_joint_control.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__tomb_plus_control_chain.rule.json",
+    "rules/duan_li_xiang/w06/compound/duan_li_xiang__compound__enclosure_compound.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

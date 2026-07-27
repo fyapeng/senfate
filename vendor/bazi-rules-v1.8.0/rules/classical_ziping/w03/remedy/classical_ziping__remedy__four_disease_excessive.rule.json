@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.four_disease_excessive@1.0.0",
+  "title": "四病四药：旺",
+  "description": "把《神峰通考》的四病四药登记为程序类别；必须结合根、势与当前结构目标，不输出人物等级或健康结论。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1918,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.category_candidate",
+    "operator": "equals",
+    "value": "旺"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.disease_category",
+          "value": "overdeveloped_requires_reduction"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "historical_analogy_only"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.four_disease_excessive.6c486a80bd",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000049",
+      "source_lines": {
+        "start": 97,
+        "end": 97
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000097-L000097",
+      "quote": "何以为之枯也?风霜木之，春华之至可观焉。早魃之苗，得雨之机难遇焉。故冲霄之羽健。贵在三年之不飞，惊人之声雄，贵在三年之不鸣。是以清凉之候，恒伸于炎烈之余。和煦之时，每收于苦寒之后。故人之造化，官贵有枯也，行官旺地，贵不可言。财贵有枯，行财旺乡，财难计数。然又当喜其有根在苗先，实从花后，但贵具有根而枯也，不贵其有苗而枯也。苟若官星无根，则官从何出?财星无根，财从何生?是以财官印绶，贵有根而枯之病也。或若无根，而自为之枯焉，则亦非矣。是以八字贵有根而枯之病也。何以为之旺也?群芳茁长，可观真本之光辉，万物凋零，可识真金之肃杀，是以各全其质，各具其形。若木不木而金不金，旺不旺而弱不弱，则五行之质有亏矣。何以考人祸福也哉?若人之用木出也，则宜类聚，斯木性之不杂。若人之用火也，则宜照应，斯火性之不裂。若春林木旺，见水多益壮其神。夏月火炎，见木多愈资其烈。由此区别，则知其所以旺者，当何旺者，当何如耶。然或官星太旺者，宜行伤官运以去其官星；财星丈旺者，宜行比劫运以去财星；印星太旺者，宜行财星运以破其印星：日干太旺者，宜行官杀运以制其日干。一理如是，百理皆然。若其旺弱之相参，斯其下矣。是以八字贵有旺之病也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

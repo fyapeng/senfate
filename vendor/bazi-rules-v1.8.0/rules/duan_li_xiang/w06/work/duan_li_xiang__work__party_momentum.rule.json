@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.work.party_momentum@1.0.0",
+  "title": "一方之势是制局前提",
+  "description": "制用结构通常需一方成党成势。",
+  "namespace": "duan_li_xiang.work",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.work",
+  "status": [
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 4983,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.work.party_momentum",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.work",
+        "proposition": {
+          "predicate": "duan_li_xiang.work.party_momentum",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.work_party_momentum.55062300fd",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001516",
+      "source_lines": {
+        "start": 3029,
+        "end": 3029
+      },
+      "anchor": "src:modern.duan_li_xiang:L003029-L003029",
+      "quote": "制局结构中一般需要四柱有一方之势",
+      "section_path": [
+        "段氏理象学",
+        "第三节 制局通辨"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

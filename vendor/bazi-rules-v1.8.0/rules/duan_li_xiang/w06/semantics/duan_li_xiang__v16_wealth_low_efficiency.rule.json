@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.v16_wealth_low_efficiency@1.0.0",
+  "title": "去财低效率",
+  "description": "去财低效率；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.findings",
+  "priority": 5004,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.body_controls_guest_wealth",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.v16_wealth_low_efficiency",
+          "value": "去财低效率"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.98e8a9126b",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001632",
+      "source_lines": {
+        "start": 3261,
+        "end": 3261
+      },
+      "anchor": "src:modern.duan_li_xiang:L003261-L003261",
+      "quote": "此造主位是体, 宾位是财, 去财结构, 原局制得不好, 没有什么效率, 好在四柱杀星虚透，杀当财看。行戊午运，中富家庭。",
+      "section_path": [
+        "段氏理象学",
+        "B. 印星制财局"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

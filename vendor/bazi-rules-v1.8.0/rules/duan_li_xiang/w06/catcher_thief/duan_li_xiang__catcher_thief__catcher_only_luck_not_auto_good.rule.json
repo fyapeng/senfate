@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.catcher_thief.catcher_only_luck_not_auto_good@1.0.0",
+  "title": "行捕神不自动解释为有利",
+  "description": "原文命例中的好坏不能推广为统一公式。",
+  "namespace": "duan_li_xiang.catcher_thief",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.catcher_thief",
+  "status": [
+    "parameterized",
+    "example_only"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.catcher_thief_resolution",
+  "priority": 3988,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.catcher_thief.catcher_only_luck_not_auto_good",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.catcher_thief",
+        "proposition": {
+          "predicate": "duan_li_xiang.catcher_thief.catcher_only_luck_not_auto_good",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.catcher_thief_catcher_only_luck_not_auto_good.f50e1a8f20",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001700",
+      "source_lines": {
+        "start": 3397,
+        "end": 3397
+      },
+      "anchor": "src:modern.duan_li_xiang:L003397-L003397",
+      "quote": "“贼神”多“捕神”少又行“捕神”运",
+      "section_path": [
+        "段氏理象学",
+        "三、克制"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "该句来自命例，只用于阻止反向过度概括。"
+    ]
+  }
+}

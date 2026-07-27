@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "terms": [
+    {
+      "term_id": "shao_weihua.month_command",
+      "label": "月令",
+      "definition": "本体系普通取格和旺衰的首要入口，但仍与得地、得生、得助合看。"
+    },
+    {
+      "term_id": "shao_weihua.pattern",
+      "label": "格局",
+      "definition": "按日干生月、月支藏干透出与得力生成的候选结构。"
+    },
+    {
+      "term_id": "shao_weihua.useful_god",
+      "label": "用神",
+      "definition": "针对明确太过或不及而选择的结构性作用候选。"
+    },
+    {
+      "term_id": "shao_weihua.shensha",
+      "label": "神煞",
+      "definition": "作者选用的附加标志，不得决定或替代命局。"
+    },
+    {
+      "term_id": "shao_weihua.luck_annual",
+      "label": "大运流年",
+      "definition": "活动干支加入后与原局联合重算的时间状态。"
+    },
+    {
+      "term_id": "shao_weihua.kinship_palace",
+      "label": "六亲宫位",
+      "definition": "传统关系主题的结构位置，不是现实事件或人物品质断言。"
+    },
+    {
+      "term_id": "shao_weihua.theme",
+      "label": "主题映射",
+      "definition": "传统体系对资源、责任、学习、关系等领域的中性化表达。"
+    }
+  ]
+}

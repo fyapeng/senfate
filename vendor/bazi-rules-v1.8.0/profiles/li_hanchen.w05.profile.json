@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "li_hanchen.w05@1.0.0",
+  "school_id": "li_hanchen",
+  "label": "李涵辰《八字预测真踪》W05 体系",
+  "namespace": "li_hanchen",
+  "status": "production",
+  "allowed_namespaces": [
+    "common",
+    "li_hanchen",
+    "safety"
+  ],
+  "phase_order": [
+    "common.input_validation",
+    "common.fact_compilation",
+    "common.relation_candidates",
+    "school.procedure_resolution",
+    "school.relation_resolution",
+    "school.classification",
+    "school.useful_party_resolution",
+    "school.virtual_real_resolution",
+    "school.transform_resolution",
+    "school.temporal_resolution",
+    "school.kinship_resolution",
+    "school.findings",
+    "safety.output"
+  ],
+  "modules": [
+    {
+      "module_id": "li_hanchen.procedure",
+      "phase": "school.procedure_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.relations",
+      "phase": "school.relation_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "RelationIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.classification",
+      "phase": "school.classification",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.relations"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.useful_party",
+      "phase": "school.useful_party_resolution",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.classification"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.virtual_real",
+      "phase": "school.virtual_real_resolution",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.useful_party"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.transform",
+      "phase": "school.transform_resolution",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.relations",
+        "li_hanchen.classification"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.temporal",
+      "phase": "school.temporal_resolution",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.useful_party",
+        "li_hanchen.virtual_real"
+      ],
+      "produces": [
+        "StateIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "li_hanchen.kinship",
+      "phase": "school.kinship_resolution",
+      "enabled": true,
+      "depends_on": [
+        "li_hanchen.temporal"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    }
+  ],
+  "rule_packs": [
+    "rules/li_hanchen/w05/li_hanchen.w05_procedure.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_relations.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_classification.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_useful_party.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_virtual_real.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_transform.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_temporal.pack.json",
+    "rules/li_hanchen/w05/li_hanchen.w05_kinship.pack.json"
+  ],
+  "parameters": {
+    "strength_policy": "transparent_two_party_evidence",
+    "branch_policy": "main_qi_only_with_tomb_climate_exception",
+    "classification_policy": "fuyi_cong_transform",
+    "temporal_policy": "inherit_natal_classification_luck_annual_first",
+    "virtual_real_policy": "22_token_partition",
+    "unpublished_modules": "unknown",
+    "high_risk_output": "neutralize_or_block"
+  },
+  "thresholds": {
+    "reference_dominance_margin": 2,
+    "root_effective_min": 1,
+    "twice_restrained_count": 2
+  },
+  "unknown_policy": "propagate",
+  "conflict_policy": "preserve_all",
+  "relation_resolution": {
+    "candidate_source": "common.relation_candidates",
+    "resolvers": [
+      "li_hanchen.w05.relation_active",
+      "li_hanchen.w05.classification_matches",
+      "li_hanchen.w05.transform_matches",
+      "li_hanchen.w05.temporal_result"
+    ],
+    "default_unresolved_status": "unknown"
+  },
+  "output_policy_id": "safety.neutral_output.w07@2.0.0",
+  "notes": [
+    "Main source: modern.li_hanchen_ba_zi_yu_ce_zhen_zong.",
+    "The author's undisclosed four-character interaction rule, three temporal rules, virtual-real algorithms, Baishen, reverse rules and natal fengshui are not reconstructed.",
+    "All 296 W05 rules are active in this release.",
+    "v1.8: 325 formal rules; adds effective-support boundaries and token-level override precedence."
+  ]
+}

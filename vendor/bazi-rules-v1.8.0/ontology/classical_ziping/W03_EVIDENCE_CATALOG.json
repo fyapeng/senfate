@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "classical_ziping.w03_evidence@1.0.0",
+  "root": "facts.classical_ziping.w03",
+  "modules": {
+    "qi_flow": ["evidence_compiled", "element_units", "source_elements", "flow_chains", "destinations", "conflict_pairs", "bridge_elements", "bridge_present", "formed_momentum", "true_false_ambiguous"],
+    "climate": ["evidence_compiled", "recipe_key", "ordered_candidates", "primary_candidate_visibility", "candidate_can_function", "candidate_blocked", "new_imbalance", "resolved_candidate"],
+    "remedy": ["evidence_compiled", "focus_selected", "focus", "disease_candidates", "medicine_candidates", "medicine_excess", "resolved_medicine"],
+    "temporal": ["state_chain_valid", "recompute_complete", "active_layer_available", "clash_candidate", "pattern_completed", "pattern_changed", "hidden_exposed", "conflict_candidate", "rescue_available"],
+    "composite": ["inputs_available", "w02_baseline_available", "qi_flow_available", "climate_available", "remedy_available", "temporal_available", "conflicts_available"]
+  },
+  "policy": {
+    "missing": "unknown",
+    "annotations": "explicit_deep_merge_with_caller_provenance",
+    "counts": "transparent_units_not_hidden_score",
+    "temporal": "recompile_each_state"
+  }
+}

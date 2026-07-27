@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.bridge_from_temporal@1.0.0",
+  "title": "岁运可补通关缺项",
+  "description": "大运流年加入桥接元素或解除阻断时，在新 StateIR 中重新确认，不修改原局历史状态。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2430,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.temporal.recompute_complete",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w03.qi_flow.bridge_added_by_active_layer",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.bridge_status",
+          "value": "activated_by_temporal_layer"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.bridge_temporal.61cdab7611",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000348",
+      "source_lines": {
+        "start": 695,
+        "end": 695
+      },
+      "anchor": "src:classic.di_tian_sui:L000695-L000695",
+      "quote": "原注：天气欲不降，地气欲上升，欲相俣相和相生也。木土而要火，火金而要土，土水而要金，金林而要水，皆是牛郎织女之有情也。中间上下远隔，为物所间；前后远绝，或被刑冲，或被劫占，或隔一物，皆谓之关也。必得引用无合之神及刑冲所间之物，前后下下，授引得来，能胜劫占之神，能补所缺之物，明见暗会赠运相逢，乃为通关也。必得引用无合之神，及刑冲所间之物，前后上下，援引得来，能胜劫占之神，能补所缺之物，明见暗会，岁运相逢，乃为通关也。关爱而其愿遂矣，不犹牛郎织女之入洞房也哉？",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十、通关"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

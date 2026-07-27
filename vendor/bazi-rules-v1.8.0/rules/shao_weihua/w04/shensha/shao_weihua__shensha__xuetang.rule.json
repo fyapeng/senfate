@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.xuetang@1.0.0",
+  "title": "神煞检测：学堂",
+  "description": "按作者给出的查法登记学堂；只输出结构或文化语义，不单独决定事件。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2191,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.shensha_present",
+    "args": {
+      "shensha_id": "xuetang"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.shensha.marker",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.present",
+          "value": "xuetang"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_symbol_not_event_prediction"
+          ]
+        },
+        "attributes": {
+          "label": "学堂",
+          "semantic": "learning_candidate",
+          "detection_method": "nayin_parameterized",
+          "supplementary_only": true
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_xuetang.a7e8a6c665",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000850",
+      "source_lines": {
+        "start": 1693,
+        "end": 1693
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001693-L001693",
+      "quote": "金命见巳，辛巳为正；木命见亥，己亥为正；水命见申， 甲申为正；土命见申，戊申为正；火命见寅，丙寅为正。",
+      "section_path": [
+        "四柱预测学",
+        "学堂:"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

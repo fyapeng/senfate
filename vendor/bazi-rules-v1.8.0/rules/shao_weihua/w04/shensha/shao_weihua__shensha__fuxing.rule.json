@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.fuxing@1.0.0",
+  "title": "神煞检测：福星贵人",
+  "description": "按作者给出的查法登记福星贵人；只输出结构或文化语义，不单独决定事件。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2195,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.shensha_present",
+    "args": {
+      "shensha_id": "fuxing"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.shensha.marker",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.present",
+          "value": "fuxing"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_symbol_not_event_prediction"
+          ]
+        },
+        "attributes": {
+          "label": "福星贵人",
+          "semantic": "general_support",
+          "detection_method": "year_or_day_stem_to_branch",
+          "supplementary_only": true
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_fuxing.b96c002121",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000824",
+      "source_lines": {
+        "start": 1641,
+        "end": 1641
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001641-L001641",
+      "quote": "此为《渊海子平》起福星贵人法，是以年干或日干为主。 凡甲、丙两干见寅或子，乙、癸两干见卯或丑，戊干见申，己干见未，丁干见亥，庚干见午，辛干见巳，壬干见辰是也。",
+      "section_path": [
+        "四柱预测学",
+        "第五节 论福星贵人"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

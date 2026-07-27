@@ -1,0 +1,422 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 52,
+  "entries": [
+    {
+      "classification_rule_id": "li_hanchen.classification.strong_or_weak_only",
+      "label": "日元初判只设旺或弱",
+      "status": [
+        "contested",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.month_primary",
+      "label": "月令为首要证据",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.party_comparison",
+      "label": "比较印比党与财官食伤党",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.support_party",
+      "label": "印比构成帮扶党",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.restrain_party",
+      "label": "财官食伤构成制耗党",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.root_required",
+      "label": "天干无根不能仅凭多透判旺",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.fuyi_class",
+      "label": "旺能抑弱能扶为扶抑格",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_strong_class",
+      "label": "旺不能抑为从强",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_weak_class",
+      "label": "弱不能扶为从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.transform_class",
+      "label": "日干参与五合而化为化格",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.yang_dm_tomb_month_not_strong",
+      "label": "阳日干生墓月不作旺",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.yang_stem_other_tomb_root",
+      "label": "阳干年日时墓为根",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.jia_wei_not_root",
+      "label": "甲见未不作根",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.dm_useful_tomb_no_direct_event",
+      "label": "日干用神逢墓不直接定吉凶",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.jia_yi_four_tombs_wealth",
+      "label": "甲乙见四墓论财",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.chen_chou_not_support_wu_ji",
+      "label": "辰丑不帮戊己",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.chen_chou_generate_geng_xin",
+      "label": "辰丑生庚辛申酉",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.chen_chou_dim_fire_not_water",
+      "label": "辰丑晦火不克水",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.water_many_chen_chou_water",
+      "label": "水多辰丑以水论",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.wei_xu_support_wu_ji",
+      "label": "未戌帮戊己",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.wei_xu_brittle_metal",
+      "label": "未戌脆金",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.wei_xu_control_water_not_drain_fire",
+      "label": "未戌克水不泄火",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.fire_many_wei_xu_fire",
+      "label": "火多未戌以火论",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.four_pillar_storage_roots",
+      "label": "四组天干通根身库",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.chen_chou_role_by_dm",
+      "label": "辰丑按日干转换角色",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.wei_xu_role_by_dm",
+      "label": "未戌按日干转换角色",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.tomb_clash_punishment",
+      "label": "墓库冲刑目录",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.fuyi_strong_opposition_effective",
+      "label": "身旺而制耗党有力不从强",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.fuyi_weak_support_effective",
+      "label": "身弱而印比有力不从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.effective_visible_rooted",
+      "label": "天干出现且支中有根为有力",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.ineffective_unrooted",
+      "label": "天干出现但无根可判无力候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.ineffective_void_root",
+      "label": "根空亡为无力候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.ineffective_twice_restrained",
+      "label": "日支两次受制为无力候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.resource_peer_month_cong_strong",
+      "label": "印比月且制耗党无根或两制可从强",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.yang_dm_slight_root_no_cong_weak",
+      "label": "阳日干略有根不从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.yin_dm_easy_cong_weak_contested",
+      "label": "阴日干较易从弱仅作争议候选",
+      "status": [
+        "contested",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.resource_root_no_cong_weak",
+      "label": "印星有根不从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.extreme_weak_no_receive_generation",
+      "label": "衰弱至极且逢生不受生可从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.seated_resource_difficult_cong",
+      "label": "坐下印生难从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.seated_resource_twice_restrained",
+      "label": "坐下印两制可从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.seated_storage_difficult_cong",
+      "label": "自坐库根难从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.seated_storage_twice_damaged",
+      "label": "坐下库根两伤可从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.fuzzy_boundary",
+      "label": "扶抑与从格边界保持模糊",
+      "status": [
+        "contested",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.trial_method_historical",
+      "label": "试断法仅历史保存",
+      "status": [
+        "historical_only",
+        "incomplete"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_strong_subtype_resource",
+      "label": "印旺根源为从印候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_strong_subtype_peer",
+      "label": "比劫旺根源为从比候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_weak_subtype_wealth",
+      "label": "财旺根源为从财候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_weak_subtype_official",
+      "label": "官杀旺根源为从官候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_weak_subtype_output",
+      "label": "食伤旺根源为从儿候选",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.cong_weak_generic",
+      "label": "财官伤难辨时笼统从弱",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.five_gathering_as_cong_strong",
+      "label": "局会五格归入从强",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    },
+    {
+      "classification_rule_id": "li_hanchen.classification.structure_preservation",
+      "label": "岁运以不破坏原结构为原则",
+      "status": [
+        "executable",
+        "parameterized"
+      ]
+    }
+  ]
+}

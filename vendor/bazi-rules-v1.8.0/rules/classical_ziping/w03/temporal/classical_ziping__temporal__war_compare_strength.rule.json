@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.war_compare_strength@1.0.0",
+  "title": "岁运干克须比较双方力量与和解路径",
+  "description": "运年天干相克只生成战候选，并比较坐支、党援与通关，禁止固定方向硬判。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1290,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.stem_war_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.war_policy",
+          "value": "compare_strength_and_bridge"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.war_compare.0ff5d29f18",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000544",
+      "source_lines": {
+        "start": 1087,
+        "end": 1087
+      },
+      "anchor": "src:classic.di_tian_sui:L001087-L001087",
+      "quote": "休囚系乎运，尤系乎岁，战冲视孰降，和好视孰切。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、岁运"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    },
+    {
+      "source_ref_id": "src.w03.war_strength.a55a2abd74",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000547",
+      "source_lines": {
+        "start": 1093,
+        "end": 1093
+      },
+      "anchor": "src:classic.di_tian_sui:L001093-L001093",
+      "quote": "原注：如丙运庚年，谓之运伐岁。若日主喜庚，要丙降，得戊得丙者吉；日主喜丙，则岁不降运，得戊巳以和为妙。如庚坐寅午丙之力量大，则岁亦不得不降，降之亦保无祸，庚运丙年，谓之岁代运，日主喜庚，得戊己以和丙者吉；日主喜丙，则运不降岁，又不可用戊巳泄丙助庚。若庚坐寅午丙之力量大，则运自降岁，亦保无患。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、岁运"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

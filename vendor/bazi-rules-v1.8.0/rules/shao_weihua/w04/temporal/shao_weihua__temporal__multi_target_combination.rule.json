@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.temporal.multi_target_combination@1.0.0",
+  "title": "一对多合只输出长期牵连候选",
+  "description": "按作者岁运程序登记状态转换或关系候选；任何灾病、死亡、牢狱和亲属事件均不得作为确定事实输出。",
+  "namespace": "shao_weihua.temporal",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1882,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.temporal.multi_target_combination",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.temporal.state",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.aggregate_risk",
+          "value": "multi_target_combination"
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "no_deterministic_harm_event"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.temporal_multi_target_combination.2ae6f6948b",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000679",
+      "source_lines": {
+        "start": 1351,
+        "end": 1351
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001351-L001351",
+      "quote": "(十)大运、流年、命局中有四支合一支、四干合一干、 一支合四支或一干合四干, 主有感情风波、疾病或败财且拖延很久。",
+      "section_path": [
+        "四柱预测学",
+        "二、看大运流年。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

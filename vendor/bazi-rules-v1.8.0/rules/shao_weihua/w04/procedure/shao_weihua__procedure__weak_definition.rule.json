@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.weak_definition@1.0.0",
+  "title": "失令失地无生无助构成衰弱证据",
+  "description": "官杀、食伤、财星过重作为额外消耗或克制证据。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2990,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.weak_dimensions_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.strength.weak_evidence_dimensions",
+          "value": [
+            "loss_of_season",
+            "loss_of_root",
+            "no_resource",
+            "no_peer",
+            "excess_restraint"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_weak_definition.cc1d9b7bf9",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001079",
+      "source_lines": {
+        "start": 2151,
+        "end": 2151
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002151-L002151",
+      "quote": "日干衰弱:日干失令、失地、无助、无生为衰为弱，若然又受刑冲克破，为更弱也。日干休囚于月支为失令。日干休囚于年、日、时各支为失地。日干不逢印绶为无生。日干衰弱又无比劫、禄刃为无助。又官杀太重，日干受克无生；食伤太多, 日干泄气; 财星太重, 日干耗神也谓衰弱。",
+      "section_path": [
+        "四柱预测学",
+        "二、月。月在四柱中好比树干。树干粗壮、枝叶繁茂。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

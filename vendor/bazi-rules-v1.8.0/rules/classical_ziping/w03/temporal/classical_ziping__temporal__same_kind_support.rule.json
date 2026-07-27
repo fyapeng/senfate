@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.same_kind_support@1.0.0",
+  "title": "岁运同类登记同向支持候选",
+  "description": "同干同支类只登记候选，仍需结合阴阳、当前结构和过度风险。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1260,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.luck_annual_same_kind",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.same_kind_status",
+          "value": "support_candidate"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.same_kind.8f5fcf08d5",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000553",
+      "source_lines": {
+        "start": 1105,
+        "end": 1105
+      },
+      "anchor": "src:classic.di_tian_sui:L001105-L001105",
+      "quote": "原注：如庚运辛年，辛运庚年，申支酉年，酉支申年，则好。日主喜阳，则庚与申为好；喜阴，则辛与酉为好。凡此皆宜类推。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、岁运"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

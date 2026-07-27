@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.peer_robbery_not_eight_pattern@1.0.0",
+  "title": "比肩劫财不进入普通八格",
+  "description": "月令对应比肩或劫财时不强行映射为普通八格，转入建禄、月劫或外格路径。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 910,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.pattern.month_ten_god",
+    "operator": "in",
+    "value": [
+      "比肩",
+      "劫财"
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.routing",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.ordinary_eight_applicable",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.peer_not_eight.0acd10508c",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c001361",
+      "source_lines": {
+        "start": 2721,
+        "end": 2721
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L002721-L002721",
+      "quote": "比劫不能取格，禄刃非在八格之内",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    },
+    {
+      "source_ref_id": "src.w02.peer_not_eight_mlyy.da37d6a32e",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000047",
+      "source_lines": {
+        "start": 93,
+        "end": 93
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000093-L000093",
+      "quote": "其禄刃比劫，无论在干在支，均不以取格",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

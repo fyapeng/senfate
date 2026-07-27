@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.procedure.reject_strength_as_entry@1.0.0",
+  "title": "不以日主旺衰为入口",
+  "description": "本体系的正式程序不得先编译日主旺衰。",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.procedure",
+  "status": [
+    "procedural",
+    "contested"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 5000,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.procedure.reject_strength_as_entry",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.procedure",
+        "proposition": {
+          "predicate": "duan_li_xiang.procedure.reject_strength_as_entry",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.procedure_reject_strength_as_entry.3ca8780a91",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001091",
+      "source_lines": {
+        "start": 2179,
+        "end": 2179
+      },
+      "anchor": "src:modern.duan_li_xiang:L002179-L002179",
+      "quote": "盲派命理放弃了传统命理所注重的日主衰旺与用神",
+      "section_path": [
+        "段氏理象学",
+        "第一节 盲派命理与传统命理的区别"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "duan_li_xiang.analysis_entry",
+    "policy": "preserve_all",
+    "note": "与以日主旺衰为入口的其他流派程序并列保存。"
+  }
+}

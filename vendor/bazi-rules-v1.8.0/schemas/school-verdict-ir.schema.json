@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bazi-rules.local/schemas/school-verdict-ir.schema.json",
+  "title":"SchoolVerdictIR",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","verdict_id","school_id","profile_id","chart_id","stage","resolution","headline","primary_structure","strength_or_axis","primary_use","decisive_reasons","secondary_structures","rejected_routes","caveats","source_rule_ids","source_chunk_ids"],
+  "properties":{
+    "schema_version":{"$ref":"common.schema.json#/$defs/SemVer"},
+    "verdict_id":{"type":"string","minLength":1},
+    "school_id":{"type":"string","minLength":1},
+    "profile_id":{"$ref":"common.schema.json#/$defs/VersionedId"},
+    "chart_id":{"type":"string","minLength":1},
+    "stage":{"$ref":"common.schema.json#/$defs/Stage"},
+    "resolution":{"type":"string","enum":["resolved","two_route","insufficient"]},
+    "headline":{"type":"string","minLength":1},
+    "primary_structure":{"type":"object","additionalProperties":false,"required":["label","conclusion"],"properties":{"label":{"type":"string"},"conclusion":{"type":"string"}}},
+    "strength_or_axis":{"type":"object","additionalProperties":false,"required":["label","conclusion"],"properties":{"label":{"type":"string"},"conclusion":{"type":"string"}}},
+    "primary_use":{"type":"object","additionalProperties":false,"required":["label","roles","tokens","conclusion"],"properties":{"label":{"type":"string"},"roles":{"type":"array","items":{"type":"string"}},"tokens":{"type":"array","items":{"type":"string"}},"conclusion":{"type":"string"}}},
+    "decisive_reasons":{"type":"array","items":{"type":"string"},"minItems":1},
+    "secondary_structures":{"type":"array","items":{"type":"string"}},
+    "rejected_routes":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["route","reason"],"properties":{"route":{"type":"string"},"reason":{"type":"string"}}}},
+    "caveats":{"type":"array","items":{"type":"string"}},
+    "source_rule_ids":{"type":"array","items":{"$ref":"common.schema.json#/$defs/VersionedId"}},
+    "source_chunk_ids":{"type":"array","items":{"type":"string"}}
+  }
+}

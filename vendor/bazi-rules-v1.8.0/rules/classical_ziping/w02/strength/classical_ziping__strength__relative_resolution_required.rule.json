@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.relative_resolution_required@1.0.0",
+  "title": "强弱候选须经相对证据解析",
+  "description": "党援可使失令者转旺，孤弱受克可使得令者转弱；禁止只按月份或固定分数终判。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 380,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.strength.candidate_count",
+    "operator": "gt",
+    "value": 1
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.strength.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.strength.requires_resolver",
+          "value": "classical_ziping.strength.resolve_relative_evidence"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.relative_resolution.55f1f9b555",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000095",
+      "source_lines": {
+        "start": 189,
+        "end": 189
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000189-L000189",
+      "quote": "或党多援众，则秋木亦旺，势孤克众，则春木亦弱",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

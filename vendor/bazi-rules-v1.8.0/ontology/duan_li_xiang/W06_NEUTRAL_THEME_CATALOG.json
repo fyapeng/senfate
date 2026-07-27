@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "ten_god_themes": {
+    "resource": [
+      "support",
+      "learning",
+      "knowledge",
+      "credentials",
+      "organization",
+      "protection"
+    ],
+    "official": [
+      "rules",
+      "authority",
+      "responsibility",
+      "formal_organization",
+      "constraint"
+    ],
+    "wealth": [
+      "resources",
+      "assets",
+      "exchange",
+      "value_flow",
+      "control"
+    ],
+    "peer": [
+      "collaboration",
+      "competition",
+      "action",
+      "execution"
+    ],
+    "output": [
+      "expression",
+      "thought",
+      "skill",
+      "work_product",
+      "service"
+    ]
+  },
+  "method_themes": {
+    "control": [
+      "constraint",
+      "management",
+      "exclusion",
+      "reorganization"
+    ],
+    "transform": [
+      "conversion",
+      "absorption",
+      "mediation"
+    ],
+    "generate": [
+      "support",
+      "provision",
+      "service"
+    ],
+    "drain": [
+      "expression",
+      "release",
+      "output"
+    ],
+    "combine": [
+      "linkage",
+      "coordination",
+      "binding"
+    ],
+    "tomb": [
+      "aggregation",
+      "storage",
+      "management",
+      "control"
+    ]
+  },
+  "deterministic_event_output": false
+}

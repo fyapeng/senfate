@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "namespace": "li_hanchen",
+  "public_ontology_change": false,
+  "artifacts": [
+    "ontology/li_hanchen/W05_CLASSIFICATION_CATALOG.json",
+    "ontology/li_hanchen/W05_EVIDENCE_CATALOG.json",
+    "ontology/li_hanchen/W05_KINSHIP_FORMULA.json",
+    "ontology/li_hanchen/W05_ONTOLOGY_MANIFEST.json",
+    "ontology/li_hanchen/W05_RELATION_CATALOG.json",
+    "ontology/li_hanchen/W05_TEMPORAL_CATALOG.json",
+    "ontology/li_hanchen/W05_TERM_REGISTRY.json",
+    "ontology/li_hanchen/W05_TRANSFORM_CATALOG.json",
+    "ontology/li_hanchen/W05_USEFUL_PARTY_CATALOG.json",
+    "ontology/li_hanchen/W05_VIRTUAL_REAL_CATALOG.json"
+  ],
+  "notes": [
+    "W01 common ontology remains sealed.",
+    "All author-specific meanings remain under li_hanchen.*."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.assembly_position_urgency@1.0.0",
+  "title": "会局的时序紧迫度按原局位置保存",
+  "description": "年、日、时位置的会局触发按原书保留急缓标签，但不直接映射具体人生事件。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1310,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.assembly_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.assembly_urgency",
+          "value": {
+            "$path": "facts.classical_ziping.w03.temporal.assembly_urgency"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "event_mapping_deferred"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.assembly_position_urgency.25edd4ce0e",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000245",
+      "source_lines": {
+        "start": 489,
+        "end": 489
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000489-L000489",
+      "quote": "若命与运二支会局，亦作清论。如甲用酉官，本命有午，而运逢寅戌之类。然在年则重，在日次之，至于时生于午，而运逢寅戌会局，则缓而不急矣。虽格之成败高低，八字已有定论，与命中原有者不同，而此五年中，亦能炒其祸福。若月令之物，而运中透清，则与命中原有者，不甚相悬，即前篇所谓行运成格变格是也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十八、论支中喜忌逢运透清"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

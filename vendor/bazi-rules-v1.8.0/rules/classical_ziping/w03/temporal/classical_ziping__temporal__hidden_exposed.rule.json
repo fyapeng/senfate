@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.hidden_exposed@1.0.0",
+  "title": "支中喜忌逢运透清时转为可见",
+  "description": "活动天干透出原局支中成分时，登记显隐转换并重新运行相关模块。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1320,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.hidden_exposed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.visibility_transition",
+          "value": "hidden_to_visible"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.hidden_exposed.7e5bc79ebc",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000244",
+      "source_lines": {
+        "start": 487,
+        "end": 487
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000487-L000487",
+      "quote": "支中喜忌，固与干有别矣，而运逢透清，则静而待用者，正得其用，而喜忌之验，于此乃见。何谓透清？如甲用酉官，逢辰未即为财，而运透戊，逢午未即为伤，而运透丁之类是也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十八、论支中喜忌逢运透清"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

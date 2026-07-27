@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.compound.combine_whole_chart_required@1.0.0",
+  "title": "合用须看整体配合",
+  "description": "单独出现合不等于取得目标。",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.compound",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3993,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.compound.combine_whole_chart_required",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.compound",
+        "proposition": {
+          "predicate": "duan_li_xiang.compound.combine_whole_chart_required",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.compound_combine_whole_chart_required.12427973ea",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001428",
+      "source_lines": {
+        "start": 2853,
+        "end": 2853
+      },
+      "anchor": "src:modern.duan_li_xiang:L002853-L002853",
+      "quote": "可否让日主顺利得到想合之物，便要看四柱的整体配合了",
+      "section_path": [
+        "段氏理象学",
+        "四、合用结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.control_matrix.fire_dry_earth_targets@1.0.0",
+  "title": "复合党势目标目录",
+  "description": "登记 fire_dry_earth_targets 的作者明示目标集合。",
+  "namespace": "duan_li_xiang.control_matrix",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.control_matrix",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3989,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.control_matrix.fire_dry_earth_targets",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.control_matrix",
+        "proposition": {
+          "predicate": "duan_li_xiang.control_matrix.fire_dry_earth_targets",
+          "value": [
+            "water",
+            "water_contained_wood",
+            "metal_water",
+            "wet_earth"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.control_matrix_fire_dry_earth_targets.446392ee97",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001517",
+      "source_lines": {
+        "start": 3031,
+        "end": 3031
+      },
+      "anchor": "src:modern.duan_li_xiang:L003031-L003031",
+      "quote": "木火有势制金(若金中含水也同制); 火与燥土有势制水 (水中含木也同制) 或制金水或制湿土 (湿土中所含的东西也同制); 金水有势制火 (若火中含土也同制) 或制燥土 (燥土中所含的东西也同制); 金与湿土有势制木火; 水与湿土有势制燥土或火；水木有势制土(土中含的东西也同制)",
+      "section_path": [
+        "段氏理象学",
+        "第三节 制局通辨"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "transform_id": "safety.w07.language_transforms@1.0.0",
+  "status": "production",
+  "risk_classes": {
+    "none": {"output_mode":"structural_only"},
+    "low": {"output_mode":"neutralized"},
+    "financial": {"output_mode":"neutralized","required_caveat":"不构成收入、资产价格、投资回报或财务结果判断。"},
+    "status": {"output_mode":"neutralized","required_caveat":"不构成职位、权力、名望或社会等级判断。"},
+    "relationship": {"output_mode":"neutralized","required_caveat":"不构成婚姻、亲属关系或人际结果判断。"},
+    "personality": {"output_mode":"neutralized","required_caveat":"不构成人格诊断、道德评价或稳定特质判断。"},
+    "health": {"output_mode":"blocked","required_caveat":"相关内容仅属于传统文本象征，不构成疾病诊断、风险评估或医学建议。"},
+    "death": {"output_mode":"blocked","required_caveat":"不输出死亡时间、寿命或致命事件判断。"},
+    "crime": {"output_mode":"blocked","required_caveat":"不输出犯罪倾向、违法必然性或道德定性。"}
+  },
+  "forbidden_default_content": [
+    "raw_harmful_quote",
+    "medical_diagnosis",
+    "death_or_lifespan_prediction",
+    "crime_certainty",
+    "marriage_failure_certainty",
+    "investment_return_certainty",
+    "moral_or_gendered_label",
+    "scientific_accuracy_claim"
+  ],
+  "replacement_principles": [
+    "把确定结果改写为传统体系内部的结构候选或主题方向。",
+    "把身份和道德标签改写为互动压力、资源支持、权责冲突或表达方式。",
+    "无法安全转换时阻断用户层文本，但保留来源和内部审计状态。",
+    "unknown、contested 和 incommensurable 必须原样传播。"
+  ]
+}

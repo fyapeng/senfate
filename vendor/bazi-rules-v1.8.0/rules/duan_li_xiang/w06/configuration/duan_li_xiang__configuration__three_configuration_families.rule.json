@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.configuration.three_configuration_families@1.0.0",
+  "title": "干支配置三类",
+  "description": "配置模块分生克、互通和虚实。",
+  "namespace": "duan_li_xiang.configuration",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.configuration",
+  "status": [
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.configuration_resolution",
+  "priority": 5000,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.configuration.three_configuration_families",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.configuration",
+        "proposition": {
+          "predicate": "duan_li_xiang.configuration.three_configuration_families",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.configuration_three_configuration_families.ad1703fc14",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001142",
+      "source_lines": {
+        "start": 2281,
+        "end": 2281
+      },
+      "anchor": "src:modern.duan_li_xiang:L002281-L002281",
+      "quote": "包括: 干支生克原理、干支互借原理、干支虚实原理",
+      "section_path": [
+        "段氏理象学",
+        "第三节 干支配置原理"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "namespace": "duan_li_xiang",
+  "public_ontology_change": false,
+  "phase": "W06_phase2",
+  "artifacts": [
+    "ontology/duan_li_xiang/W06_TERM_REGISTRY.json",
+    "ontology/duan_li_xiang/W06_HOST_BODY_CATALOG.json",
+    "ontology/duan_li_xiang/W06_CONFIGURATION_CATALOG.json",
+    "ontology/duan_li_xiang/W06_WORK_METHOD_CATALOG.json",
+    "ontology/duan_li_xiang/W06_ONTOLOGY_MANIFEST.json",
+    "ontology/duan_li_xiang/W06_CONTROL_MATRIX_CATALOG.json",
+    "ontology/duan_li_xiang/W06_COMPOUND_WORK_CATALOG.json",
+    "ontology/duan_li_xiang/W06_CATCHER_THIEF_CATALOG.json",
+    "ontology/duan_li_xiang/W06_NEUTRAL_THEME_CATALOG.json"
+  ]
+}

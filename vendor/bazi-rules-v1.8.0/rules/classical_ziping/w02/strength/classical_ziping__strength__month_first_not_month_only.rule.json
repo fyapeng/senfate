@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.month_first_not_month_only@1.0.0",
+  "title": "旺衰先看月令但须合看全局",
+  "description": "月令是旺衰第一证据，年日时的根、扶助与克泄可以改变结果。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 500,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.strength.evidence_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.strength.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.strength.evidence_order",
+          "value": [
+            "month_command",
+            "roots",
+            "support",
+            "control_output_wealth"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.strength_month_first.741b61debf",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000095",
+      "source_lines": {
+        "start": 189,
+        "end": 189
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000189-L000189",
+      "quote": "若日主之为旺为弱，官煞、财印食伤之为旺为弱，亦先以月令推之",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    },
+    {
+      "source_ref_id": "src.w02.strength_whole_chart.180fc79838",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000101",
+      "source_lines": {
+        "start": 201,
+        "end": 201
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000201-L000201",
+      "quote": "年月日时，亦有损益之权",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "六、论十干得时不旺失时不弱"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

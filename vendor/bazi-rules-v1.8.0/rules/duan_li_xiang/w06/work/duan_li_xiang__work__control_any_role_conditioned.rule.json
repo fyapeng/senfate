@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.work.control_any_role_conditioned@1.0.0",
+  "title": "理论上各十神均可成为制神",
+  "description": "能否制取决于主位、连根、党势和目标，不设固定吉凶神。",
+  "namespace": "duan_li_xiang.work",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.work",
+  "status": [
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 4974,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.work.control_any_role_conditioned",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.work",
+        "proposition": {
+          "predicate": "duan_li_xiang.work.control_any_role_conditioned",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.work_control_any_role_conditioned.9742c8fcee",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001614",
+      "source_lines": {
+        "start": 3225,
+        "end": 3225
+      },
+      "anchor": "src:modern.duan_li_xiang:L003225-L003225",
+      "quote": "理论上什么都可以制",
+      "section_path": [
+        "段氏理象学",
+        "B. 印星制财局"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

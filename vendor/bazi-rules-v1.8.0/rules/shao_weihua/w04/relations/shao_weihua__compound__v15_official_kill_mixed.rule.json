@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.compound.v15_official_kill_mixed@1.0.0",
+  "title": "官杀混杂",
+  "description": "正官与七杀在活动层同时出现时登记官杀混杂。",
+  "namespace": "shao_weihua.compound",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.relations",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 1611,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.compound.official_kill_mixed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.compound",
+        "proposition": {
+          "predicate": "shao_weihua.compound.v15_official_kill_mixed",
+          "value": "官杀混杂"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.010eb9b66a",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c003029",
+      "source_lines": {
+        "start": 6047,
+        "end": 6047
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L006047-L006047",
+      "quote": "1989 年升官者, 柱中杀透官藏, 官杀混杂, 1989 已巳年, 甲己相合，去杀留官，劫杀被合，无官杀混杂争夺之忧，故有清官加任。",
+      "section_path": [
+        "四柱预测学",
+        "第一节 预测官运之一"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

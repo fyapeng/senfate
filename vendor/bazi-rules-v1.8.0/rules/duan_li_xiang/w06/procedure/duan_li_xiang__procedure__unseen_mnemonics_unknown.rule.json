@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.procedure.unseen_mnemonics_unknown@1.0.0",
+  "title": "未公开口诀保持 unknown",
+  "description": "学习资料或口传口诀不由命例反推。",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.procedure",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 4986,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.procedure.unseen_mnemonics_unknown",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.procedure",
+        "proposition": {
+          "predicate": "duan_li_xiang.procedure.unseen_mnemonics_unknown",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.procedure_unseen_mnemonics_unknown.241e909c02",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001793",
+      "source_lines": {
+        "start": 3583,
+        "end": 3583
+      },
+      "anchor": "src:modern.duan_li_xiang:L003583-L003583",
+      "quote": "这些都是我们今天已看不到的",
+      "section_path": [
+        "段氏理象学",
+        "1. 目前看命的方法有传统派，有新派，盲派命理比较前两者有什么特 点? 老师如何看待前两种看命方法?"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "口传口诀与学习资料未纳入当前语料。"
+    ]
+  }
+}

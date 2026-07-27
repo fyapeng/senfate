@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "classical_ziping.w02_term_registry@1.0.0",
+  "namespace": "classical_ziping",
+  "terms": [
+    {"term": "月令提纲", "id": "classical_ziping.pattern.month_command", "definition": "以月支及其实际可用藏干为普通格局的首要入口；不等于月令单独决定全局。"},
+    {"term": "八格", "id": "classical_ziping.pattern.eight_patterns", "definition": "正偏财、正官、七杀、正偏印、食神、伤官八类普通月令格；比劫禄刃另走专用路径。"},
+    {"term": "建禄月劫", "id": "classical_ziping.pattern.jianlu_yuejie", "definition": "月令与日主同类时的专门路径，继续查财官杀食透干会支。"},
+    {"term": "顺用", "id": "classical_ziping.pattern.forward_use", "definition": "对财官印食采用相生、保护等配合路径。"},
+    {"term": "逆用", "id": "classical_ziping.pattern.reverse_use", "definition": "对杀伤刃劫采用制伏、化解等配合路径；不承接历史道德化措辞。"},
+    {"term": "成格", "id": "classical_ziping.pattern.success", "definition": "候选格局满足书中指定配合且关键破坏因素不存在的结构状态。"},
+    {"term": "破格", "id": "classical_ziping.pattern.failure", "definition": "候选格局出现书中指定破坏关系；仍须继续检查救应。"},
+    {"term": "带忌", "id": "classical_ziping.pattern.taboo", "definition": "成格路径与破坏因素同时存在的混合状态。"},
+    {"term": "救应", "id": "classical_ziping.pattern.rescue", "definition": "对既有破坏关系的制化、会合或保护，使格局恢复为候选有效状态。"},
+    {"term": "相神", "id": "classical_ziping.pattern.assistant_star", "definition": "全局成格所赖的关键辅助对象，和月令用神分开记录。"},
+    {"term": "杂气", "id": "classical_ziping.pattern.mixed_storage", "definition": "辰戌丑未多藏造成的多候选月令结构，按透干、会支和有情无情裁决。"},
+    {"term": "外格", "id": "classical_ziping.pattern.outer_pattern", "definition": "月令本无可用对象时的权宜路径；月令格被破不等于本无可用。"},
+    {"term": "旺衰", "id": "classical_ziping.strength", "definition": "日主或六神在月令、通根、党援、克泄耗等相对证据下的传统强弱结构。"},
+    {"term": "得令失令", "id": "classical_ziping.strength.month_state", "definition": "月令对目标五行的支持或不支持状态，只是旺衰证据之一。"},
+    {"term": "通根", "id": "classical_ziping.strength.root", "definition": "目标天干在地支藏干中获得同类根气；根按重轻分级。"},
+    {"term": "扶抑", "id": "classical_ziping.strength.support_restrain", "definition": "对弱者施加生扶、对强者施加克泄耗，并继续检查过与不及。"},
+    {"term": "从格", "id": "classical_ziping.follow", "definition": "日主不可常规扶抑且全局由单一他神主导时顺从该势的特殊结构。"},
+    {"term": "从旺", "id": "classical_ziping.follow.cong_wang", "definition": "比劫一气主导、无官杀有效制约的顺旺结构。"},
+    {"term": "从强", "id": "classical_ziping.follow.cong_qiang", "definition": "日主与印绶共同主导、财官杀不成气的顺强结构。"},
+    {"term": "一行专旺", "id": "classical_ziping.one_element", "definition": "曲直、炎上、从革、润下、稼穑等由完整方局和月气支撑的一行主导结构。"},
+    {"term": "化气", "id": "classical_ziping.transform", "definition": "日干与月干或时干合而在足够化神支持下改变后续生克基准的特殊结构。"},
+    {"term": "真化假化", "id": "classical_ziping.transform.validity", "definition": "根据化神强弱、日主根苗劫印、妒合和破化之神区分实际成立与形式相合。"},
+    {"term": "妒合", "id": "classical_ziping.transform.competing_combine", "definition": "竞争相合或指定干介入，使日干合化不能专一成立。"}
+  ],
+  "boundary": "These meanings are valid only inside classical_ziping.* and are not common ontology truths."
+}

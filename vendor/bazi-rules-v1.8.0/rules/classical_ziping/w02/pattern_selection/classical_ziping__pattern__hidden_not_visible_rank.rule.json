@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.hidden_not_visible_rank@1.0.0",
+  "title": "月藏皆不透时比较人元轻重",
+  "description": "月支本气与余藏均不透时，在月支藏干内部比较轻重、有力与克合，保留候选及未知状态。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 930,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.month_hidden_none_visible",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.ranked_hidden_candidate_exists",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.candidate",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.selection_method",
+          "value": "rank_month_hidden_qi"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.hidden_not_visible_rank.55258b06e3",
+      "work_id": "classic.qian_li_ming_gao",
+      "normalized_path": "corpus/normalized/classic__qian_li_ming_gao.md",
+      "chunk_id": "classic.qian_li_ming_gao#c001360",
+      "source_lines": {
+        "start": 2719,
+        "end": 2719
+      },
+      "anchor": "src:classic.qian_li_ming_gao:L002719-L002719",
+      "quote": "以月内人元，轻重较量，择一有力而无克合者为格",
+      "section_path": [
+        "千里命稿",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "879d2a26b7a4202dda9edc9f60e2ff3b82673a831d3684ed187e0fab26796683"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

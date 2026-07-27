@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.branch_activated_by_assembly@1.0.0",
+  "title": "地支经会合可由静转为发用候选",
+  "description": "地支组合达到书内会局条件时，重新编译其藏干和结构作用。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1330,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.branch_activated_by_assembly",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.branch_status",
+          "value": "activated_by_assembly"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "derived",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.branch_activated.4f5b11521d",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000242",
+      "source_lines": {
+        "start": 483,
+        "end": 483
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000483-L000483",
+      "quote": "然亦有支而能作祸福者，何也？如甲用酉官，逢午酉未能伤，而又遇寅遇戌，不隔二位，二者合而火动，亦能伤矣。即此反观，如甲生甲月，午不制煞，会寅会戌，二者清局而火动，亦能矣。然必会有动，是正与干有别也。即此一端，余者可知。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十七、论喜忌干支有别"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

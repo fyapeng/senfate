@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_procedure@1.0.0",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "label": "分析程序与来源边界",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__reject_strength_as_entry.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__reject_useful_god.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__three_methods.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__theory_scope.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__theory_reads_chart.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__host_body_before_work.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__start_from_main_position.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__work_primary_not_exhaustive.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__image_fallback.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__work_not_all_charts.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__whole_structure_required.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__party_target_required.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__concepts_author_formalization.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__introductory_book.rule.json",
+    "rules/duan_li_xiang/w06/procedure/duan_li_xiang__procedure__unseen_mnemonics_unknown.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

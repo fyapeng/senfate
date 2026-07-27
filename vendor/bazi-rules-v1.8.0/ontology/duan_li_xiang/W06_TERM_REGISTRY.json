@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "namespace": "duan_li_xiang",
+  "terms": [
+    {
+      "term": "宾主",
+      "id": "duan_li_xiang.host_guest",
+      "definition": "按当前比较层区分主体与外部客体。",
+      "public_equivalent": null
+    },
+    {
+      "term": "体用",
+      "id": "duan_li_xiang.body_use",
+      "definition": "按十神角色区分工具侧与目标侧，不等于传统用神。",
+      "public_equivalent": null
+    },
+    {
+      "term": "做功",
+      "id": "duan_li_xiang.work",
+      "definition": "宾主、体用节点之间经 resolver 确认的有效作用路径。",
+      "public_equivalent": null
+    },
+    {
+      "term": "功神",
+      "id": "duan_li_xiang.gong_node",
+      "definition": "参与已确认做功路径的节点。",
+      "public_equivalent": null
+    },
+    {
+      "term": "废神",
+      "id": "duan_li_xiang.waste_node",
+      "definition": "未参与有效路径或耗散无效的节点；未知关系未解时仅为候选。",
+      "public_equivalent": null
+    },
+    {
+      "term": "党势",
+      "id": "duan_li_xiang.party_momentum",
+      "definition": "同向或相生节点形成的结构性联合。",
+      "public_equivalent": null
+    },
+    {
+      "term": "功量",
+      "id": "duan_li_xiang.work_level",
+      "definition": "作者对做功层次的定性/历史分层；默认运行时不映射财富官阶。",
+      "public_equivalent": null
+    },
+    {
+      "term": "效率",
+      "id": "duan_li_xiang.efficiency",
+      "definition": "由方法、党势、目标、净制、位置和路径完整性组成的透明定性向量。",
+      "public_equivalent": null
+    },
+    {
+      "term": "贼神",
+      "id": "duan_li_xiang.thief_node",
+      "definition": "净制结构中相对孤立的被制方。",
+      "public_equivalent": null
+    },
+    {
+      "term": "捕神",
+      "id": "duan_li_xiang.catcher_node",
+      "definition": "净制结构中成党成势的制方。",
+      "public_equivalent": null
+    },
+    {
+      "term": "原身",
+      "id": "duan_li_xiang.original_body",
+      "definition": "地支在天干的延伸。",
+      "public_equivalent": null
+    },
+    {
+      "term": "禄",
+      "id": "duan_li_xiang.lu_extension",
+      "definition": "天干在地支的延伸。",
+      "public_equivalent": null
+    },
+    {
+      "term": "虚实",
+      "id": "duan_li_xiang.pillar_virtual_real",
+      "definition": "仅就一柱干支判断的依附状态，不等于月令旺衰。",
+      "public_equivalent": null
+    }
+  ],
+  "notes": [
+    "All terms remain in the school namespace; W01 common ontology is unchanged."
+  ]
+}

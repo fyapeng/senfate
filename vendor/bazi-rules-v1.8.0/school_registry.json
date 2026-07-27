@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.2.0",
+  "project_version": "1.8.0-clean",
+  "schools": [
+    {
+      "id": "classical_ziping",
+      "label": "传统子平经典体系",
+      "status": "active",
+      "submodels": [
+        "classical_ziping.pattern",
+        "classical_ziping.strength",
+        "classical_ziping.qi_flow",
+        "classical_ziping.climate",
+        "classical_ziping.remedy",
+        "classical_ziping.temporal",
+        "classical_ziping.composite",
+        "classical_ziping.follow",
+        "classical_ziping.one_element",
+        "classical_ziping.transform"
+      ],
+      "primary_works": [
+        "classic.di_tian_sui",
+        "classic.qiong_tong_bao_jian",
+        "classic.zi_ping_zhen_quan",
+        "classic.yuan_hai_zi_ping",
+        "classic.qian_li_ming_gao",
+        "classic.shen_feng_tong_kao",
+        "classic.san_ming_tong_hui",
+        "classic.ming_li_yue_yan"
+      ],
+      "active_profile": "profiles/classical_ziping.composite.profile.json",
+      "active_rule_count": 391,
+      "completed_windows": [
+        "W01",
+        "W02",
+        "W03"
+      ],
+      "active_profile_id": "classical_ziping.composite@1.1.0"
+    },
+    {
+      "id": "shao_weihua",
+      "label": "邵伟华现代综合体系",
+      "status": "active",
+      "primary_works": [
+        "modern.shao_si_zhu_yu_ce_xue"
+      ],
+      "auxiliary_works": [
+        "aux.si_zhu_yu_ce_xue_jiang_yi"
+      ],
+      "submodels": [
+        "shao_weihua.procedure",
+        "shao_weihua.pattern",
+        "shao_weihua.strength",
+        "shao_weihua.useful_god",
+        "shao_weihua.shensha",
+        "shao_weihua.temporal",
+        "shao_weihua.kinship",
+        "shao_weihua.themes"
+      ],
+      "active_profile": "profiles/shao_weihua.w04.profile.json",
+      "active_rule_count": 345,
+      "completed_windows": [
+        "W01",
+        "W04"
+      ]
+    },
+    {
+      "id": "li_hanchen",
+      "label": "李涵辰体系",
+      "status": "active",
+      "primary_works": [
+        "modern.li_hanchen_ba_zi_yu_ce_zhen_zong"
+      ],
+      "submodels": [
+        "li_hanchen.procedure",
+        "li_hanchen.relations",
+        "li_hanchen.classification",
+        "li_hanchen.useful_party",
+        "li_hanchen.virtual_real",
+        "li_hanchen.transform",
+        "li_hanchen.temporal",
+        "li_hanchen.kinship"
+      ],
+      "active_profile": "profiles/li_hanchen.w05.profile.json",
+      "active_rule_count": 325,
+      "completed_windows": [
+        "W01",
+        "W05"
+      ]
+    },
+    {
+      "id": "duan_li_xiang",
+      "label": "段氏理象体系",
+      "status": "active",
+      "primary_works": [
+        "modern.duan_li_xiang"
+      ],
+      "submodels": [
+        "duan_li_xiang.procedure",
+        "duan_li_xiang.host_body",
+        "duan_li_xiang.configuration",
+        "duan_li_xiang.entry",
+        "duan_li_xiang.work",
+        "duan_li_xiang.control_matrix",
+        "duan_li_xiang.compound",
+        "duan_li_xiang.efficiency",
+        "duan_li_xiang.method_resolution",
+        "duan_li_xiang.catcher_thief",
+        "duan_li_xiang.temporal",
+        "duan_li_xiang.semantics",
+        "duan_li_xiang.safety"
+      ],
+      "active_profile": "profiles/duan_li_xiang.w06.profile.json",
+      "active_rule_count": 306,
+      "completed_windows": [
+        "W01",
+        "W06"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.strong_definition@1.0.0",
+  "title": "得令得地得生得助构成强旺证据",
+  "description": "四类证据分别保留，不用不可见的总分代替。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2991,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.strong_dimensions_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.strength.strong_evidence_dimensions",
+          "value": [
+            "season",
+            "root",
+            "resource",
+            "peer"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_strong_definition.d1621b21bb",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001078",
+      "source_lines": {
+        "start": 2149,
+        "end": 2149
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002149-L002149",
+      "quote": "日干强旺:日干得令、得地、得生、得助为强为旺。日干旺于月支为得令。日干于年、日、时各支中得长生、禄刃， 或逢墓库(阳干逢库有根，阴干则否)为得地。日干得印绶之生为得生。日干逢比劫为之得助。",
+      "section_path": [
+        "四柱预测学",
+        "二、月。月在四柱中好比树干。树干粗壮、枝叶繁茂。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

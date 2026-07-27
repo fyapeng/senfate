@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.root_before_temporal@1.0.0",
+  "title": "先审原局根本再审岁运强弱",
+  "description": "活动层分析以原局结构为基线，但不把原局结论冻结为不可变化。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1480,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.baseline_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.phase_order",
+          "value": [
+            "natal_baseline",
+            "active_layer_strength",
+            "joint_relations"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.root_before_temporal.5a047d08e3",
+      "work_id": "classic.san_ming_tong_hui",
+      "normalized_path": "corpus/normalized/classic__san_ming_tong_hui.md",
+      "chunk_id": "classic.san_ming_tong_hui#c006373",
+      "source_lines": {
+        "start": 12742,
+        "end": 12742
+      },
+      "anchor": "src:classic.san_ming_tong_hui:L012742-L012742",
+      "quote": "先论根本虚实，次论岁运强弱。",
+      "section_path": [
+        "三命通会",
+        "五、六月之木，喜雨水、夜生九奇，值此者富贵而寿。火盛无水者贫夭。夏令炎威火盛，烁石流金，木有枯槁之患，徐、扬人干火多者，有疯痨荧燎之凶，或水制，或夜生，或阴雨天，化凶为吉矣。得土以培其根，得水以达其枝，若水土同行，非惟富贵，且寿考康宁矣。见金不能克木，火旺金柔，有子复仇故也。若小暑以后土多，亦忌，盖衰木不能克旺土也。兖、青生者，为财。大抵夏木喜水，与他时不类。",
+        "八、九月之木，正凋零之时，昼火同躔者，贫夭，盖秋阳燥烈，木皆枯落故也。或夜生，或阴雨，或水解之，方吉。兖、青人文章富贵，见水有漂流之患，盖秋水非滋木之时也，冀、雍人尤忌。得土栽培，根基稳厚。见金反吉，盖金司令，则万物摧落，既无长养以遂其生，又未归根以复其命，所可借者，在一金耳，苟无金制以成其器，则为天地间一朽木，此所以仗斧斤之力斫削成器而为栋梁之用，正所谓斧斤以时入山林，木不可胜用也。气运宜往东方、南方。",
+        "五、满局贵气，身弱不任岁运克战日主，准上文。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "68b24294f1e517f10e44f6303c122e2e09607e9cd57ae1bfdc40d063168449d1"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

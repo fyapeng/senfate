@@ -1,0 +1,25 @@
+{
+  "schema_version":"1.0.0",
+  "output_id":"neutral.synthetic.001",
+  "chart_id":"synthetic.chart.001",
+  "policy_id":"safety.neutral_output.w07@2.0.0",
+  "context_prefix":"按照所选传统文本或流派的内部解释，",
+  "sections":[
+    {
+      "section_id":"neutral.synthetic.001.temporal",
+      "topic":"comparison.temporal.activation",
+      "topic_label":"阶段激活与结构变化",
+      "status":"same_direction_different_reason",
+      "output_mode":"structural_only",
+      "summary":"各体系在“阶段激活与结构变化”上的方向相同，但使用了不同的内部推断路径。",
+      "claims":[
+        {"claim_id":"claim.cz.temporal","text":"传统子平在活动时间层重新进入相关结构模块。","school_profile_id":"classical_ziping.composite@1.1.0","finding_ids":["finding.cz.temporal"],"source_rule_ids":["classical_ziping.composite.temporal_reenters_all@1.0.0"],"evidence_status":"direct"}
+      ],
+      "caveats":["该比较只说明程序结构，不表示现实事件必然发生。"],
+      "blocked_reason_codes":[]
+    }
+  ],
+  "global_disclaimer":"以下内容是传统文化规则的形式化比较，不代表科学预测，也不构成医学、法律、投资或其他专业建议。",
+  "provenance_complete":true,
+  "raw_source_quotes_included":false
+}

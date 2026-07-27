@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.four_medicine_reduce@1.0.0",
+  "title": "四病四药：损",
+  "description": "把《神峰通考》的四病四药登记为程序类别；必须结合根、势与当前结构目标，不输出人物等级或健康结论。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1916,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.category_candidate",
+    "operator": "equals",
+    "value": "损"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.medicine_category",
+          "value": "reduce_excess"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "historical_analogy_only"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.four_medicine_reduce.64eea071e8",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000052",
+      "source_lines": {
+        "start": 103,
+        "end": 103
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000103-L000103",
+      "quote": "何以谓之损?损者，损其有余也。然木生震位，正木气之当权也。金产克宫，正金神之得位。当权者不宜资助，得位者不必生扶。假或水又滋土，土或培金，若木有余之病，用金以制之；金气有余之病，用火以克之。官星之气有余，则损其官星：财星之气有余，则损其财星。壁如人身元气太旺为疾，当以凉剂通药以济之也。是以八字贵有损之之药也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.fixed_month_table_not_sufficient@1.0.0",
+  "title": "固定月份表不足以单独确认化气",
+  "description": "《命理约言》要求逐字检查助化与破化，月份只能作支持证据。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "contested",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 228,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.transform.fixed_month_only_support",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.transform.validity",
+        "proposition": {
+          "predicate": "classical_ziping.transform.confirmed",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.month_not_sufficient.e9d2f6778a",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000155",
+      "source_lines": {
+        "start": 309,
+        "end": 309
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000309-L000309",
+      "quote": "若旧书所载，某局生某月则化，不生某月则不化，亦不尽然",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.transform.fixed_month_table",
+    "policy": "preserve_all",
+    "note": "保留对《三命通会》固定月份口径的内部批评。"
+  }
+}

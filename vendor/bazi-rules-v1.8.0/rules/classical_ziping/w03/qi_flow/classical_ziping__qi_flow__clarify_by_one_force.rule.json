@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.clarify_by_one_force@1.0.0",
+  "title": "有力一神或适当岁运可澄浊",
+  "description": "当单一作用能解除冲突或活动层消除滞点时，登记从浊转清候选。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2390,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.clarification_signal",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.clarity_status",
+          "value": "clarification_candidate"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.clarify_turbid.7757f2998a",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000360",
+      "source_lines": {
+        "start": 719,
+        "end": 719
+      },
+      "anchor": "src:classic.di_tian_sui:L000719-L000719",
+      "quote": "原注：清者不徒一气成局之谓也。如正官格，身旺有财，身弱有印，并无伤官七杀杂之，纵有比肩食神财煞印绶杂之，皆循序得所，有安顿，或作闲神，不来破局，乃为清奇。又要有精神，不为枯弱者佳。浊非五行并出之谓。如正官格，身弱混之以煞，混之以财，以食神杂之，不能伤我之官，反与官星不和；以印绶杂之，不能扶我之身，反与财星相戕，俱为浊。或得一神有力，或行运得所，以扫其浊气，冲其滞气，皆为澄浊以求清，皆富贵命矣。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十三、清气"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

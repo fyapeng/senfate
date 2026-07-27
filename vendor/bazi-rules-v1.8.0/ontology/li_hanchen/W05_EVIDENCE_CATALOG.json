@@ -1,0 +1,1486 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 296,
+  "entries": [
+    {
+      "path": "facts.li_hanchen.w05.procedure.three_elements",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.strength_first",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.natal_luck_annual_relation",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.whole_chart_analysis",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.three_class_system",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.reject_month_hidden_pattern",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.reject_misc_patterns",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.no_shensha",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.yima_exception",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.seven_chars_two_parties",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.useful_exists_in_natal",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.unfavorable_equal_importance",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.no_idle_god",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.main_qi_only",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.tomb_climate_exception",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.no_numeric_score",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.exact_action_rule_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.temporal_rules_partly_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.virtual_real_details_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.baishen_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.reverse_rule_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.fengshui_withheld",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.neutral_output",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.procedure.source_scope",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_generate_catalog",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_control_catalog",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_same_polarity_stronger",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_opposite_polarity_smaller",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_jia_ji_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_jia_ji_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_yi_geng_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_yi_geng_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_bing_xin_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_bing_xin_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_ding_ren_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_ding_ren_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_wu_gui_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_combine_wu_gui_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_transform_adjacent",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_transform_support",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_environment_natal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_environment_temporal_natal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.stem_environment_luck_annual",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_generate_catalog",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_control_catalog",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.chen_chou_generate_metal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.wei_xu_brittle_metal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.wei_xu_control_water",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.chen_chou_not_control_water",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_same_polarity_stronger",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_opposite_polarity_smaller",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_zi_chou_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_zi_chou_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_yin_hai_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_yin_hai_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_mao_xu_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_mao_xu_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_chen_you_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_chen_you_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_si_shen_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_si_shen_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_wu_wei_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_six_combine_wu_wei_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_shen_zi_chen_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_shen_zi_chen_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_yin_wu_xu_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_yin_wu_xu_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_si_you_chou_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_si_you_chou_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_hai_mao_wei_candidate",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_three_combine_hai_mao_wei_bind",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_zi_wu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_chou_wei",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_yin_shen",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_mao_you",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_chen_xu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_clash_si_hai",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.clash_both_reduce",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.clash_stronger_loses_less",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.clash_weaker_loses_more",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.temporal_clash_hurts_natal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_punishment_chou_xu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_punishment_yin_si",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_generate_if_si_strong",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_generate_if_copresent",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_generate_if_si_unfavorable",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_punish_if_si_weak",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_punish_if_not_copresent",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.yin_si_punish_if_si_useful",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_meeting_yin_mao_chen",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_meeting_hai_zi_chou",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_meeting_shen_you_xu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_meeting_si_wu_wei",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_shen_zi",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_yin_wu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_si_you",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_hai_mao",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_zi_chen",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_wu_xu",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_you_chou",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_half_combine_mao_wei",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.meeting_not_automatic",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.half_combine_not_automatic",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_environment_natal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_environment_temporal_natal",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.relations.branch_environment_luck_annual",
+      "group": "relations",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.strong_or_weak_only",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.month_primary",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.party_comparison",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.support_party",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.restrain_party",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.root_required",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.fuyi_class",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_strong_class",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_weak_class",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.transform_class",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.yang_dm_tomb_month_not_strong",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.yang_stem_other_tomb_root",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.jia_wei_not_root",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.dm_useful_tomb_no_direct_event",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.jia_yi_four_tombs_wealth",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.chen_chou_not_support_wu_ji",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.chen_chou_generate_geng_xin",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.chen_chou_dim_fire_not_water",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.water_many_chen_chou_water",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.wei_xu_support_wu_ji",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.wei_xu_brittle_metal",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.wei_xu_control_water_not_drain_fire",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.fire_many_wei_xu_fire",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.four_pillar_storage_roots",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.chen_chou_role_by_dm",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.wei_xu_role_by_dm",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.tomb_clash_punishment",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.fuyi_strong_opposition_effective",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.fuyi_weak_support_effective",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.effective_visible_rooted",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.ineffective_unrooted",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.ineffective_void_root",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.ineffective_twice_restrained",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.resource_peer_month_cong_strong",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.yang_dm_slight_root_no_cong_weak",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.yin_dm_easy_cong_weak_contested",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.resource_root_no_cong_weak",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.extreme_weak_no_receive_generation",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.seated_resource_difficult_cong",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.seated_resource_twice_restrained",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.seated_storage_difficult_cong",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.seated_storage_twice_damaged",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.fuzzy_boundary",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.trial_method_historical",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_strong_subtype_resource",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_strong_subtype_peer",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_weak_subtype_wealth",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_weak_subtype_official",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_weak_subtype_output",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.cong_weak_generic",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.five_gathering_as_cong_strong",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.classification.structure_preservation",
+      "group": "classification",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.useful_definition",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.unfavorable_definition",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_fuyi_useful",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_fuyi_unfavorable",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_fuyi_useful",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_fuyi_unfavorable",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_official_many_resource_first",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_official_many_peer_second",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_wealth_many_peer_first",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_wealth_many_resource_second",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_output_many_resource_first",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.weak_output_many_peer_second",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_resource_many_wealth_first",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_resource_many_output_second",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_resource_many_official_third",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_peer_many_official_first",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_peer_many_output_second",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.strong_peer_many_wealth_third",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.throughpass_water_fire",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.throughpass_fire_metal",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.throughpass_metal_wood",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.throughpass_wood_earth",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.throughpass_earth_water",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_not_independent",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_cold",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_warm",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_dry",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_wet",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.climate_not_by_month_only",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.cong_strong_useful",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.cong_strong_unfavorable",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.cong_strong_output_conditional",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.cong_weak_useful",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.cong_weak_unfavorable",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.transform_useful_separate",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.useful_party.no_fixed_good_ten_god",
+      "group": "useful_party",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_definition",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.real_definition",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.token_universe",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.duplicate_real_once",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_useful_luck",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_unfavorable_luck",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.real_useful_luck",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.real_unfavorable_luck",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_real_same",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_real_opposite",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.real_real_same",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.real_real_opposite",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_virtual_same",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.virtual_virtual_opposite",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.stems_act_with_stems",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.branches_act_with_branches",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.six_type_algorithm_incomplete",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.virtual_real.headline_not_deterministic",
+      "group": "virtual_real",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.definition",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.day_month_adjacent",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.day_hour_adjacent",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.one_to_one",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.transform_element_strong",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.changing_stems_weak",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.pair_jia_ji",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.pair_yi_geng",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.pair_bing_xin",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.pair_ding_ren",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.pair_wu_gui",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.natal_only",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.temporal_transform_element_no_activation",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.no_exposed_transform_required",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.no_dragon_required",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.transform_element_useful",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.generators_useful",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.controllers_of_disruptors_useful",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.disruptors_unfavorable",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.no_true_false_split",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.kinship_identity_fixed",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.yang_dm_wealth_historical",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.yin_dm_official_historical",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.ancient_character_labels_rejected",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.no_deterministic_wealth_status",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.transform.same_temporal_method_after_party",
+      "group": "transform",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.natal_decides_topics",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.luck_annual_time_activation",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.fixed_classification",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.luck_annual_affect_natal",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.luck_annual_first",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.result_then_natal",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.reappearance",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.stem_branch_separate",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.useful_present_gain",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.useful_restrained_loss",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.unfavorable_present_loss",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.unfavorable_restrained_gain",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_official_wealth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_official_resource",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_official_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_official_peer",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_official_output",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_wealth_wealth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_wealth_resource",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_wealth_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_wealth_peer",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_wealth_output",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_resource_wealth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_resource_resource",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_resource_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_resource_peer",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_resource_output",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_peer_wealth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_peer_resource",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_peer_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_peer_peer",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_peer_output",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_output_wealth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_output_resource",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_output_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_output_peer",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.matrix_output_output",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.real_real_both_reduce",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.example_order_subsumes_direct",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.undisclosed_three_rules",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.advanced_tips_withheld",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.temporal.no_heaven_branch_cross_action",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_strong_support",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_weak_support",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_generated_capacity",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_restrained_capacity",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_near_closeness",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.useful_far_distance",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_strong_pressure",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_weak_pressure",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_generated_pressure",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_restrained_relief",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_near_pressure",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.unfavorable_far_relief",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.appearance_language_blocked",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.status_language_neutralized",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.relationship_not_deterministic",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.li_hanchen.w05.kinship.baishen_missing_roles_unknown",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    }
+  ]
+}

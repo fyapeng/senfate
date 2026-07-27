@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.namespace_registry@1.0.0",
+  "namespaces": [
+    {
+      "prefix": "common",
+      "owner": "W01",
+      "semantic": "可直接计算且跨流派共享的符号、事实、候选关系与技术类型",
+      "sealed": true
+    },
+    {
+      "prefix": "classical_ziping",
+      "owner": "W02/W03",
+      "semantic": "传统子平解释语义",
+      "sealed": false
+    },
+    {
+      "prefix": "shao_weihua",
+      "owner": "W04",
+      "semantic": "邵伟华体系语义",
+      "sealed": false
+    },
+    {
+      "prefix": "li_hanchen",
+      "owner": "W05",
+      "semantic": "李涵辰体系语义",
+      "sealed": false
+    },
+    {
+      "prefix": "duan_li_xiang",
+      "owner": "W06",
+      "semantic": "段氏理象体系语义",
+      "sealed": false
+    },
+    {
+      "prefix": "comparison",
+      "owner": "W07",
+      "semantic": "跨流派比较语义",
+      "sealed": false
+    },
+    {
+      "prefix": "safety",
+      "owner": "W07",
+      "semantic": "中性化与高风险输出策略",
+      "sealed": false
+    }
+  ],
+  "reserved_terms": [
+    "用神",
+    "体用",
+    "旺衰",
+    "格局",
+    "做功"
+  ],
+  "rule": "reserved_terms may appear only under an explicit school namespace; no common.* canonical meaning is assigned."
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.method_resolution.damage_to_work_lowers@1.0.0",
+  "title": "功神受损降低结构完整性",
+  "description": "关键参与节点被破坏时路径降级或否决。",
+  "namespace": "duan_li_xiang.method_resolution",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.method_resolution",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.efficiency_resolution",
+  "priority": 3982,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.method_resolution.damage_to_work_lowers",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.method_resolution",
+        "proposition": {
+          "predicate": "duan_li_xiang.method_resolution.damage_to_work_lowers",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.method_resolution_damage_to_work_lowers.d5e9ad534d",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001330",
+      "source_lines": {
+        "start": 2657,
+        "end": 2657
+      },
+      "anchor": "src:modern.duan_li_xiang:L002657-L002657",
+      "quote": "出现严重破坏做功意向者",
+      "section_path": [
+        "段氏理象学",
+        "3. 功量小或无功之差命"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.v18_remote_single_root_overwhelmed@1.0.0",
+  "title": "远位孤根被三重杀势压倒",
+  "description": "从煞裁决中，只有年位孤根而地支三重杀势会聚时，该远根不作为普通扶身依据；仍须由从煞完整条件共同确认。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 306,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.follow.remote_single_root_overwhelmed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow",
+        "proposition": {
+          "predicate": "classical_ziping.follow.root_effectiveness",
+          "value": "remote_single_root_overwhelmed"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.8477e31acd",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c002726",
+      "source_lines": {
+        "start": 5459,
+        "end": 5459
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L005459-L005459",
+      "quote": "此造乙木身弱，喜得四柱无一倚靠之神，地支三重酉，只作得从煞看",
+      "section_path": [
+        "神峰通考",
+        "卷四"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

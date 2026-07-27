@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.configuration.lu_is_stem_extension@1.0.0",
+  "title": "禄是天干在地支的延伸",
+  "description": "禄支可延伸天干的作用路径。",
+  "namespace": "duan_li_xiang.configuration",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.configuration",
+  "status": [
+    "semantic",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.configuration_resolution",
+  "priority": 4985,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.configuration.lu_is_stem_extension",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.configuration",
+        "proposition": {
+          "predicate": "duan_li_xiang.configuration.lu_is_stem_extension",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.configuration_lu_is_stem_extension.5978980ef6",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001155",
+      "source_lines": {
+        "start": 2307,
+        "end": 2307
+      },
+      "anchor": "src:modern.duan_li_xiang:L002307-L002307",
+      "quote": "禄是天干的延伸",
+      "section_path": [
+        "段氏理象学",
+        "原身、禄:"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

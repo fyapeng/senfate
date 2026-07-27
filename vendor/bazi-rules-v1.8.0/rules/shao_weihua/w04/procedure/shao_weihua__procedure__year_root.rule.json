@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.year_root@1.0.0",
+  "title": "年柱作为根基层",
+  "description": "年柱登记为根基和早期背景层，不据此单独输出祖业或寿夭结论。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2999,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.year_pillar_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.procedure.year_role",
+          "value": "root_layer"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_year_root.d6d5f69fa1",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001062",
+      "source_lines": {
+        "start": 2117,
+        "end": 2117
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002117-L002117",
+      "quote": "年为太岁，主人一生祸福。年为树之根，屋之基，人命之源。根枯树死，根深叶茂；基虚屋塌，基固屋实；源竭命蹇. 源丰命强。因此, 四柱是年为根, 月为干, 日为花, 时为果。",
+      "section_path": [
+        "四柱预测学",
+        "一、年。年在四柱中好比树之根。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

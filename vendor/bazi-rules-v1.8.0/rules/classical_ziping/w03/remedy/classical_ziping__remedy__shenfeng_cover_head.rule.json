@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.shenfeng_cover_head@1.0.0",
+  "title": "《神峰通考》盖头规则作为时层变体",
+  "description": "活动天干覆盖活动地支作用的说法只登记为该书参数化变体，不能把支作用统一抹除。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "procedural",
+    "contested"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1870,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.cover_head_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.temporal_variant",
+          "value": "cover_head_candidate"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.shenfeng_cover_head.4b081dead4",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000042",
+      "source_lines": {
+        "start": 83,
+        "end": 83
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000083-L000083",
+      "quote": "何以谓之盖头也?如人之一身，独有头为一身为端也。头与面相连，耳目鼻系焉，统而言之为之头也。其下若四肢肚腹，稍有不善，可以衣服以饰其不善也，若头之诸物，发见于外，则谓之动物。非若四肢肚腹所藏之物，不足为轻重也。大抵人之八字类如此。八字中上四个字是头也，下地支四字是肚腹四肢也。支中所藏之物，是五藏六腑也，如肚腹秀气，发出在面头上来，便是英发华出外来，一生富贵贫贱，只从头面上见得。如八字畏伤官，这伤官藏在内，尚不足畏，如天干透出此伤官，便是头面上已见了，怎能掩饰?凡有所害之物，露出头面，便是动物，就能作害。凡行运如原八字是乙日干，用丙丁火为伤官，乙日干伤重者，便以庚金官星为病，若八字上见了庚金，便要丙丁为疾病之神。如早年行壬申癸酉运，便是不好运。盖因壬癸水盖在申酉头上，是壬癸水盖了头，便不好也。后行甲戌、乙亥运，便好了，是甲乙木盖了头也。又行丙子丁丑运又好，盖得丙丁火盖了头来克庚也，虽下面地支有亥子丑水，其水被丙丁盖了头，亦不能为害。又如庚辛日干，喜甲乙丙丁四字为福神，庚辛壬癸四字为病神，行运望见甲乙丙丁数字盖了头便好。如望见庚辛壬癸数字，便是坏命，虽运上地支有甲乙丙丁，亦被庚辛壬癸盖坏了头，此地支虽有甲乙丙丁，亦不能作福。盖为庚辛壬癸，盖在上面，出头不得。看八字以此盖头字望见了，就识得人一生好歹，此是真传秘诀也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.temporal.stem_branch_precedence",
+    "policy": "preserve_all",
+    "note": "《子平真诠》强调逐干逐支统观，不支持统一盖头抹除。"
+  }
+}

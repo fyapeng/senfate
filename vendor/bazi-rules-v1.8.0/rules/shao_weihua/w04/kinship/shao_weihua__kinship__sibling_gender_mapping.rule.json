@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.kinship.sibling_gender_mapping@1.0.0",
+  "title": "月干月支的性别化兄妹口径仅历史保存",
+  "description": "保存作者的六亲结构映射；宫位和象征星只用于传统文化解释，不构成现实家庭事件断言。",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.kinship",
+  "status": [
+    "semantic",
+    "contested"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.kinship_resolution",
+  "priority": 1592,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.kinship.sibling_gender_mapping",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.kinship.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.kinship.sibling_gender_mapping",
+          "value": "historical_only"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "historical_only",
+          "reason_codes": [
+            "family_relationship_not_deterministic",
+            "gendered_legacy_mapping"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.kinship_sibling_gender_mapping.ca70c77310",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001690",
+      "source_lines": {
+        "start": 3371,
+        "end": 3371
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L003371-L003371",
+      "quote": "月为兄弟姐妹宫。男命，月干为兄弟，月支为姐妹。女命, 月干为姐妹, 月支为兄弟。月柱天干地支都处旺地, 一般来讲, 兄弟姐妹多而且身体较好。",
+      "section_path": [
+        "四柱预测学",
+        "第十四章 兄弟姐妹"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

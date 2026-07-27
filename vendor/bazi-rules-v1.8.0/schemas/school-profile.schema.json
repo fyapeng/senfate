@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/school-profile.schema.json",
+  "title": "SchoolProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profile_id",
+    "school_id",
+    "label",
+    "namespace",
+    "status",
+    "phase_order",
+    "modules",
+    "rule_packs",
+    "unknown_policy",
+    "conflict_policy",
+    "relation_resolution"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "profile_id": {
+      "$ref": "common.schema.json#/$defs/VersionedId"
+    },
+    "school_id": {
+      "type": "string",
+      "enum": [
+        "classical_ziping",
+        "shao_weihua",
+        "li_hanchen",
+        "duan_li_xiang"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "namespace": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "sample",
+        "provisional",
+        "reviewed",
+        "production",
+        "disabled"
+      ]
+    },
+    "allowed_namespaces": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Namespace"
+      }
+    },
+    "phase_order": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]+$"
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Module"
+      }
+    },
+    "rule_packs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^rules/.+\\.pack\\.json$"
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "unknown_policy": {
+      "type": "string",
+      "enum": [
+        "propagate",
+        "skip",
+        "profile_defined"
+      ]
+    },
+    "conflict_policy": {
+      "type": "string",
+      "enum": [
+        "preserve_all",
+        "ordered_with_trace",
+        "manual_review"
+      ]
+    },
+    "relation_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_source",
+        "resolvers"
+      ],
+      "properties": {
+        "candidate_source": {
+          "const": "common.relation_candidates"
+        },
+        "resolvers": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Namespace"
+          }
+        },
+        "default_unresolved_status": {
+          "type": "string",
+          "enum": [
+            "candidate",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "output_policy_id": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "module_id",
+        "phase",
+        "enabled"
+      ],
+      "properties": {
+        "module_id": {
+          "$ref": "common.schema.json#/$defs/Namespace"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Namespace"
+          }
+        },
+        "produces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

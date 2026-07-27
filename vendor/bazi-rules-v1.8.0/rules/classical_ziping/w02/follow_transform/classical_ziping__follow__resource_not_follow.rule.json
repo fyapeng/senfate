@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.resource_not_follow@1.0.0",
+  "title": "满局印绶不按从印处理",
+  "description": "《命理约言》明确拒绝以满局印绶类推从格，因为印绶仍直接生助日主。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 330,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.dominant_ten_god",
+        "operator": "in",
+        "value": [
+          "正印",
+          "偏印",
+          "印"
+        ]
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.dominance_full_chart",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow.candidate",
+        "proposition": {
+          "predicate": "classical_ziping.follow.route_allowed",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.resource_not_follow.4be053d5e3",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000153",
+      "source_lines": {
+        "start": 305,
+        "end": 305
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000305-L000305",
+      "quote": "若满柱皆印绶，则无从理，盖皆生助日主",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

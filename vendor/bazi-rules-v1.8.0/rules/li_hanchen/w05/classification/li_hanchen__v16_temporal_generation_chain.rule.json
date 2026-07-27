@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v16_temporal_generation_chain@1.0.0",
+  "title": "岁运连续生扶",
+  "description": "岁运连续生扶；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 5004,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.temporal.temporal_generation_chain_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v16_temporal_generation_chain",
+          "value": "岁运连续生扶"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.0f522e2ec2",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000126",
+      "source_lines": {
+        "start": 2403,
+        "end": 2414
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002403-L002414",
+      "quote": "八字决定了人一生的富贵程度，其富贵吉凶，当在大运流年上一一体现出来，从而构成了完整的命运。命运一定，是不是一切就没有丝毫改变了呢?从命运构成及运算法则看，一切自有定数。但岁数稍长一点的人，都会有这样的体会，生活中有些明显变化，是从某件大事开始的，并不都是从某一大运开始的，有的从父母去世开始，有的从结婚开始，有的从生下子女开始等。这些现象从八字运算中是解释不了的，这种变化又实实在在存在，这是八字的另一个特性——变化性。\n对于不同职业的人，论变化的着眼点也不同。为官者，掌实权后，或从基层调到大机关后，认为好运开始了；企业家，在扩大经营范围，生意扩大时为发财之时；小型服务业，在换了店面后，生意好坏变化明显；工人则从工作岗位调整后；普通百姓从搬新居后生活变化十分明显。所有这一切，需对不同的人而论。算命先生要根据不同行业的人，调整预测的着重点，这些经验对于搞好预测工作很有帮助。\n河北省新乐市刘先生\n劫比日元食\n癸巳壬戌壬戌甲辰\n印枭官杀才\n辛酉庚申己未戊午丁巳\n身弱用壬，比为用官命。\n庚申大运，庚生壬水，戊午年，戊生庚，庚生壬，本年当官。从一普通百姓到干部，身份变了。\n己未大运，甲子流年，子水空亡，戌土旺，掌实权，从一普通干部变成领导干部了，倍受尊重。\n戊午大运，戊制月干壬水，不当官，午火生戌土，戌旺事业大，断自己当老板，干个体户。\n戊午运，甲戌年，甲克戊局中壬水旺，生意很好，午火生戌力大，生意兴隆，本年必大发。从今年开始，成了人人羡慕的款爷了。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

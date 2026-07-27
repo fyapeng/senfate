@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/state-ir.schema.json",
+  "title": "StateIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "state_id",
+    "chart_id",
+    "stage",
+    "school_profile_id",
+    "active_context",
+    "facts",
+    "relations",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chart_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "$ref": "common.schema.json#/$defs/Stage"
+    },
+    "parent_state_id": {
+      "type": "string"
+    },
+    "school_profile_id": {
+      "$ref": "common.schema.json#/$defs/VersionedId"
+    },
+    "active_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "natal_chart_id"
+      ],
+      "properties": {
+        "natal_chart_id": {
+          "type": "string"
+        },
+        "luck_cycle_id": {
+          "type": "string"
+        },
+        "annual_id": {
+          "type": "string"
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "$ref": "fact-ir.schema.json"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "relation-ir.schema.json"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "finding-ir.schema.json"
+      }
+    },
+    "school_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "trace_id": {
+      "type": "string"
+    }
+  }
+}

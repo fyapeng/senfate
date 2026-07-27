@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.transform.true_transform_reclassifies_day_master@1.0.0",
+  "title": "真化后按化神重算生克",
+  "description": "化局确认后，后续十神与生克以化神元素重算；原日主标签保留在轨迹中。",
+  "namespace": "classical_ziping.transform",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.transform",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 195,
+  "when": {
+    "op": "resolver",
+    "resolver": "classical_ziping.transform.true_transform",
+    "args": {}
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.transform.result",
+        "proposition": {
+          "predicate": "classical_ziping.transform.recompute_basis",
+          "value": {
+            "$path": "facts.classical_ziping.w02.transform.transform_element"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.true_transform_reclassify.3fa6d69c15",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000155",
+      "source_lines": {
+        "start": 309,
+        "end": 309
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000309-L000309",
+      "quote": "化木以木论生克，化火以火论生克",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

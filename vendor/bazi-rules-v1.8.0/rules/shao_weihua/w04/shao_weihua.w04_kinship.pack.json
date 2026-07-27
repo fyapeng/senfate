@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "shao_weihua.w04_kinship@1.0.0",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "label": "六亲宫位与象征映射",
+  "status": "production",
+  "rule_files": [
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__parent_palace_competing.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__parent_methods_combine.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__father_star.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__mother_star.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__alternate_mother_star.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__ancestry_not_destiny.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__sibling_palace_month.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__sibling_stars.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__sibling_gender_mapping.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__sibling_count_parameterized.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__male_spouse_star.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__marriage_palace_month.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__spouse_palace_day.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__day_branch_relation.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__child_palace_hour.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__children_hour_strength.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__child_star_official_kill.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__child_star_output.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__child_star_conflict.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__palace_activation_year.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__parents_year_month_context.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__siblings_actual_markers_not_month_stems.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__children_method_not_sex_prediction.rule.json",
+    "rules/shao_weihua/w04/kinship/shao_weihua__kinship__kinship_neutralization.rule.json"
+  ],
+  "notes": [
+    "W04 reviewed rules; normalized OCR context checked, scan collation pending."
+  ]
+}

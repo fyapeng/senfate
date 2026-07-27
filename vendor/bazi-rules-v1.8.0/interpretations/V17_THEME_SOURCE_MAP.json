@@ -1,0 +1,17 @@
+{
+  "map_id":"v17.school_theme_sources@1.0.0",
+  "classical_ziping":{
+    "personality":["classic.di_tian_sui#c000488","classic.san_ming_tong_hui#c000963"],
+    "learning":["classic.san_ming_tong_hui#c000893","classic.san_ming_tong_hui#c000929"],
+    "wealth":["classic.di_tian_sui#c000411"],
+    "career":["classic.yuan_hai_zi_ping#c000241"],
+    "relationships":["classic.di_tian_sui#c000411"]
+  },
+  "li_hanchen":{
+    "personality":["modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000023"],
+    "learning":["modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000023"],
+    "wealth":["modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000023"],
+    "career":["modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000023"],
+    "relationships":["modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000023"]
+  }
+}

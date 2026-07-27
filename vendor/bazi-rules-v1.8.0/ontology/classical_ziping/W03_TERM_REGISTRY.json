@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "classical_ziping.w03_terms@1.0.0",
+  "terms": [
+    {"term": "体用", "namespace": "classical_ziping.qi_flow.body_use", "definition": "必须显式指定体与用的对象关系；不可与用神自动同义。"},
+    {"term": "源流", "namespace": "classical_ziping.qi_flow.source_flow", "definition": "从当前状态的集中气势出发，沿生化链追踪可达、停驻和阻断。"},
+    {"term": "通关", "namespace": "classical_ziping.qi_flow.bridge", "definition": "相克两端之间由连续相生关系形成的桥接候选，须检查可达与有效性。"},
+    {"term": "清浊", "namespace": "classical_ziping.qi_flow.clarity", "definition": "关键角色是否有序、互不妨碍且具有效力的结构标签。"},
+    {"term": "真假", "namespace": "classical_ziping.qi_flow.true_false", "definition": "令、局、党援和实际发用之间的相对结构标签；证据不足时保持 unknown。"},
+    {"term": "顺逆", "namespace": "classical_ziping.qi_flow.direction", "definition": "气势形成后是否适合顺势的候选程序，不替代 W02 从化条件。"},
+    {"term": "寒暖燥湿", "namespace": "classical_ziping.climate", "definition": "与月令格局和旺衰并列的调候维度。"},
+    {"term": "调候候选", "namespace": "classical_ziping.climate.recipe", "definition": "按日干月令文本生成的有序候选；不等于普适终局用神。"},
+    {"term": "病", "namespace": "classical_ziping.remedy.disease", "definition": "相对于指定结构焦点的直接妨碍。"},
+    {"term": "药", "namespace": "classical_ziping.remedy.medicine", "definition": "能够直接解除已识别妨碍且不造成更大偏颇的作用候选。"},
+    {"term": "雕枯旺弱", "namespace": "classical_ziping.remedy.four_diseases", "definition": "《神峰通考》的程序类别，默认输出改写为选择不足、发展不足、过度与根基性不足。"},
+    {"term": "损益生长", "namespace": "classical_ziping.remedy.four_medicines", "definition": "减过、补缺、助初生、制成熟过度的程序类别。"},
+    {"term": "岁运重算", "namespace": "classical_ziping.temporal.recompute", "definition": "将大运或流年加入父状态后重新编译事实、关系和所有流派模块。"},
+    {"term": "成格变格", "namespace": "classical_ziping.temporal.pattern_transition", "definition": "活动层补全或改变原局结构的子状态结论，原局历史状态不被覆盖。"}
+  ]
+}

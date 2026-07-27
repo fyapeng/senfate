@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "finding_id": "finding.synthetic.pattern_candidate",
+  "finding_type": "structural",
+  "namespace": "classical_ziping.pattern",
+  "topic": "classical_ziping.pattern.month_command",
+  "subjects": [
+    {
+      "ref_id": "synthetic.chart.001",
+      "entity_type": "chart",
+      "layer": "natal"
+    }
+  ],
+  "proposition": {
+    "predicate": "classical_ziping.pattern.candidate_ten_god",
+    "value": "七杀"
+  },
+  "truth": "true",
+  "direction": "neutral",
+  "scope": {
+    "stage": "natal",
+    "state_id": "state.synthetic.classical.natal"
+  },
+  "evidence_status": "derived",
+  "source_rule_ids": [
+    "classical_ziping.pattern.month_main_qi_visible@1.0.0"
+  ],
+  "safety": {
+    "risk_level": "none",
+    "output_mode": "structural_only",
+    "reason_codes": []
+  }
+}

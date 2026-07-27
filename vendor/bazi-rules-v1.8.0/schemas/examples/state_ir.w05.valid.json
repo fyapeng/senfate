@@ -1,0 +1,804 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05",
+  "chart_id": "synthetic.chart.001",
+  "stage": "annual",
+  "school_profile_id": "li_hanchen.w05@1.0.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001",
+    "luck_cycle_id": "luck.01",
+    "annual_id": "annual.2026"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05.temporal_compilation_complete",
+      "subject": {
+        "ref_id": "synthetic.chart.001",
+        "entity_type": "chart",
+        "layer": "annual"
+      },
+      "predicate": "li_hanchen.temporal.compilation_complete",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05"
+      },
+      "source_type": "computed",
+      "algorithm_id": "li_hanchen.w05.compiler@1.0.0"
+    }
+  ],
+  "relations": [
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05.1",
+      "relation_type": "common.relation.same_element",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.month.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "丙"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05.2",
+      "relation_type": "common.relation.element.controls",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.hour.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "庚"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05.3",
+      "relation_type": "common.relation.stem.combine",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.luck.01.stem",
+          "entity_type": "stem",
+          "layer": "luck",
+          "label": "辛"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05.4",
+      "relation_type": "common.relation.branch.clash",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.branch",
+          "entity_type": "branch",
+          "layer": "annual",
+          "label": "午"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.year.branch",
+          "entity_type": "branch",
+          "layer": "natal",
+          "label": "子"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    }
+  ],
+  "findings": [],
+  "school_state": {
+    "li_hanchen": {
+      "w05": {
+        "procedure": {
+          "main_qi_only": true,
+          "natal_luck_annual_relation": true,
+          "neutral_output": true,
+          "no_idle_god": true,
+          "no_numeric_score": true,
+          "no_shensha": true,
+          "reject_misc_patterns": true,
+          "reject_month_hidden_pattern": true,
+          "seven_chars_two_parties": true,
+          "source_scope": true,
+          "strength_first": true,
+          "three_class_system": true,
+          "three_elements": true,
+          "tomb_climate_exception": true,
+          "unfavorable_equal_importance": true,
+          "useful_exists_in_natal": true,
+          "whole_chart_analysis": true,
+          "yima_exception": true,
+          "evidence_compiled": true,
+          "unpublished_modules": [
+            "four_character_interaction_rule",
+            "three_temporal_rules",
+            "virtual_real_six_type_algorithm",
+            "baishen",
+            "reverse_rule",
+            "natal_fengshui"
+          ],
+          "source_scope_value": "author_text_only"
+        },
+        "relations": {
+          "branch_clash_chen_xu": false,
+          "branch_clash_chou_wei": false,
+          "branch_clash_mao_you": false,
+          "branch_clash_si_hai": false,
+          "branch_clash_yin_shen": true,
+          "branch_clash_zi_wu": true,
+          "branch_control_catalog": true,
+          "branch_environment_luck_annual": true,
+          "branch_environment_natal": true,
+          "branch_environment_temporal_natal": true,
+          "branch_generate_catalog": true,
+          "branch_half_combine_hai_mao": false,
+          "branch_half_combine_mao_wei": false,
+          "branch_half_combine_shen_zi": true,
+          "branch_half_combine_si_you": false,
+          "branch_half_combine_wu_xu": false,
+          "branch_half_combine_yin_wu": true,
+          "branch_half_combine_you_chou": false,
+          "branch_half_combine_zi_chen": true,
+          "branch_meeting_hai_zi_chou": false,
+          "branch_meeting_shen_you_xu": false,
+          "branch_meeting_si_wu_wei": false,
+          "branch_meeting_yin_mao_chen": false,
+          "branch_opposite_polarity_smaller": true,
+          "branch_punishment_chou_xu": false,
+          "branch_punishment_yin_si": false,
+          "branch_same_polarity_stronger": true,
+          "branch_six_combine_chen_you_bind": true,
+          "branch_six_combine_chen_you_candidate": true,
+          "branch_six_combine_mao_xu_bind": false,
+          "branch_six_combine_mao_xu_candidate": false,
+          "branch_six_combine_si_shen_bind": false,
+          "branch_six_combine_si_shen_candidate": false,
+          "branch_six_combine_wu_wei_bind": false,
+          "branch_six_combine_wu_wei_candidate": false,
+          "branch_six_combine_yin_hai_bind": false,
+          "branch_six_combine_yin_hai_candidate": false,
+          "branch_six_combine_zi_chou_bind": false,
+          "branch_six_combine_zi_chou_candidate": false,
+          "branch_three_combine_hai_mao_wei_bind": false,
+          "branch_three_combine_hai_mao_wei_candidate": false,
+          "branch_three_combine_shen_zi_chen_bind": true,
+          "branch_three_combine_shen_zi_chen_candidate": true,
+          "branch_three_combine_si_you_chou_bind": false,
+          "branch_three_combine_si_you_chou_candidate": false,
+          "branch_three_combine_yin_wu_xu_bind": false,
+          "branch_three_combine_yin_wu_xu_candidate": false,
+          "chen_chou_generate_metal": true,
+          "chen_chou_not_control_water": true,
+          "clash_both_reduce": true,
+          "clash_stronger_loses_less": true,
+          "clash_weaker_loses_more": true,
+          "half_combine_not_automatic": true,
+          "meeting_not_automatic": true,
+          "stem_combine_bing_xin_bind": true,
+          "stem_combine_bing_xin_candidate": true,
+          "stem_combine_ding_ren_bind": false,
+          "stem_combine_ding_ren_candidate": false,
+          "stem_combine_jia_ji_bind": false,
+          "stem_combine_jia_ji_candidate": false,
+          "stem_combine_wu_gui_bind": false,
+          "stem_combine_wu_gui_candidate": false,
+          "stem_combine_yi_geng_bind": false,
+          "stem_combine_yi_geng_candidate": false,
+          "stem_control_catalog": true,
+          "stem_environment_luck_annual": true,
+          "stem_environment_natal": true,
+          "stem_environment_temporal_natal": true,
+          "stem_generate_catalog": true,
+          "stem_opposite_polarity_smaller": true,
+          "stem_same_polarity_stronger": true,
+          "stem_transform_adjacent": true,
+          "stem_transform_support": true,
+          "temporal_clash_hurts_natal": true,
+          "wei_xu_brittle_metal": true,
+          "wei_xu_control_water": true,
+          "yin_si_generate_if_copresent": false,
+          "yin_si_generate_if_si_strong": true,
+          "yin_si_generate_if_si_unfavorable": true,
+          "yin_si_punish_if_not_copresent": true,
+          "yin_si_punish_if_si_useful": true,
+          "yin_si_punish_if_si_weak": true,
+          "evidence_compiled": true,
+          "active_stems": [
+            "甲",
+            "丙",
+            "戊",
+            "庚",
+            "辛",
+            "丙"
+          ],
+          "active_branches": [
+            "子",
+            "寅",
+            "辰",
+            "申",
+            "酉",
+            "午"
+          ],
+          "stage": "annual",
+          "polarity": {
+            "stems": {
+              "甲": "yang",
+              "丙": "yang",
+              "戊": "yang",
+              "庚": "yang",
+              "辛": "yin"
+            },
+            "branches": {
+              "子": "yang",
+              "寅": "yang",
+              "辰": "yang",
+              "申": "yang",
+              "酉": "yin",
+              "午": "yang"
+            }
+          },
+          "unresolved_activation_families": [
+            "meeting",
+            "half_combine",
+            "four_character_rule"
+          ]
+        },
+        "strength": {
+          "evidence_compiled": true,
+          "method": "transparent_two_party_evidence",
+          "hidden_numeric_score": false,
+          "day_element": "earth",
+          "seven_units": [
+            {
+              "unit": "stem.year",
+              "token": "甲",
+              "group": "official",
+              "party": "restraint"
+            },
+            {
+              "unit": "stem.month",
+              "token": "丙",
+              "group": "resource",
+              "party": "support"
+            },
+            {
+              "unit": "stem.hour",
+              "token": "庚",
+              "group": "output",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.year.main_qi",
+              "token": "子",
+              "group": "wealth",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.month.main_qi",
+              "token": "寅",
+              "group": "official",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.day.main_qi",
+              "token": "辰",
+              "group": "peer",
+              "party": "support"
+            },
+            {
+              "unit": "branch.hour.main_qi",
+              "token": "申",
+              "group": "output",
+              "party": "restraint"
+            }
+          ],
+          "support_evidence": [
+            {
+              "unit": "stem.month",
+              "token": "丙",
+              "group": "resource",
+              "party": "support"
+            },
+            {
+              "unit": "branch.day.main_qi",
+              "token": "辰",
+              "group": "peer",
+              "party": "support"
+            }
+          ],
+          "restraint_evidence": [
+            {
+              "unit": "stem.year",
+              "token": "甲",
+              "group": "official",
+              "party": "restraint"
+            },
+            {
+              "unit": "stem.hour",
+              "token": "庚",
+              "group": "output",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.year.main_qi",
+              "token": "子",
+              "group": "wealth",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.month.main_qi",
+              "token": "寅",
+              "group": "official",
+              "party": "restraint"
+            },
+            {
+              "unit": "branch.hour.main_qi",
+              "token": "申",
+              "group": "output",
+              "party": "restraint"
+            }
+          ],
+          "support_count": 2,
+          "restraint_count": 5,
+          "difference": -3,
+          "month_group": "official",
+          "month_supportive": false,
+          "root_positions": [
+            "branch.day.main_qi"
+          ],
+          "root_effective": true,
+          "category": "weak",
+          "thresholds": {
+            "reference_dominance_margin": 2,
+            "root_effective_min": 1,
+            "twice_restrained_count": 2
+          }
+        },
+        "classification": {
+          "chen_chou_dim_fire_not_water": true,
+          "chen_chou_generate_geng_xin": true,
+          "chen_chou_not_support_wu_ji": true,
+          "chen_chou_role_by_dm": true,
+          "cong_strong_class": false,
+          "cong_strong_subtype_peer": false,
+          "cong_strong_subtype_resource": false,
+          "cong_weak_class": false,
+          "cong_weak_generic": false,
+          "cong_weak_subtype_official": false,
+          "cong_weak_subtype_output": false,
+          "cong_weak_subtype_wealth": false,
+          "dm_useful_tomb_no_direct_event": true,
+          "effective_visible_rooted": true,
+          "extreme_weak_no_receive_generation": true,
+          "fire_many_wei_xu_fire": true,
+          "five_gathering_as_cong_strong": true,
+          "four_pillar_storage_roots": true,
+          "fuyi_class": true,
+          "fuyi_strong_opposition_effective": false,
+          "fuyi_weak_support_effective": true,
+          "fuzzy_boundary": true,
+          "ineffective_twice_restrained": true,
+          "ineffective_unrooted": true,
+          "ineffective_void_root": true,
+          "jia_wei_not_root": true,
+          "jia_yi_four_tombs_wealth": true,
+          "month_primary": true,
+          "party_comparison": true,
+          "resource_peer_month_cong_strong": true,
+          "resource_root_no_cong_weak": true,
+          "restrain_party": true,
+          "root_required": true,
+          "seated_resource_difficult_cong": true,
+          "seated_resource_twice_restrained": true,
+          "seated_storage_difficult_cong": true,
+          "seated_storage_twice_damaged": true,
+          "strong_or_weak_only": true,
+          "structure_preservation": true,
+          "support_party": true,
+          "tomb_clash_punishment": true,
+          "transform_class": false,
+          "water_many_chen_chou_water": true,
+          "wei_xu_brittle_metal": true,
+          "wei_xu_control_water_not_drain_fire": true,
+          "wei_xu_role_by_dm": true,
+          "wei_xu_support_wu_ji": true,
+          "yang_dm_slight_root_no_cong_weak": true,
+          "yang_dm_tomb_month_not_strong": true,
+          "yang_stem_other_tomb_root": true,
+          "yin_dm_easy_cong_weak_contested": true,
+          "evidence_compiled": true,
+          "classification": "fuyi_weak",
+          "strength_category": "weak",
+          "opposition_effective": true,
+          "support_effective": true,
+          "group_counts": {
+            "official": 2,
+            "resource": 1,
+            "output": 2,
+            "wealth": 1,
+            "peer": 1
+          },
+          "fixed_across_temporal_states": true
+        },
+        "useful_party": {
+          "climate_cold": true,
+          "climate_dry": true,
+          "climate_not_by_month_only": true,
+          "climate_not_independent": true,
+          "climate_warm": true,
+          "climate_wet": true,
+          "cong_strong_output_conditional": true,
+          "cong_strong_unfavorable": false,
+          "cong_strong_useful": false,
+          "cong_weak_unfavorable": false,
+          "cong_weak_useful": false,
+          "no_fixed_good_ten_god": true,
+          "strong_fuyi_unfavorable": false,
+          "strong_fuyi_useful": false,
+          "strong_peer_many_official_first": true,
+          "strong_peer_many_output_second": true,
+          "strong_peer_many_wealth_third": true,
+          "strong_resource_many_official_third": true,
+          "strong_resource_many_output_second": true,
+          "strong_resource_many_wealth_first": true,
+          "throughpass_earth_water": true,
+          "throughpass_fire_metal": true,
+          "throughpass_metal_wood": true,
+          "throughpass_water_fire": true,
+          "throughpass_wood_earth": true,
+          "transform_useful_separate": false,
+          "unfavorable_definition": true,
+          "useful_definition": true,
+          "weak_fuyi_unfavorable": true,
+          "weak_fuyi_useful": true,
+          "weak_official_many_peer_second": true,
+          "weak_official_many_resource_first": true,
+          "weak_output_many_peer_second": true,
+          "weak_output_many_resource_first": true,
+          "weak_wealth_many_peer_first": true,
+          "weak_wealth_many_resource_second": true,
+          "evidence_compiled": true,
+          "classification": "fuyi_weak",
+          "useful_groups": [
+            "resource",
+            "peer"
+          ],
+          "unfavorable_groups": [
+            "wealth",
+            "official",
+            "output"
+          ],
+          "conditional_groups": [],
+          "token_roles": {
+            "甲": "unfavorable",
+            "乙": "unfavorable",
+            "丙": "useful",
+            "丁": "useful",
+            "戊": "useful",
+            "己": "useful",
+            "庚": "unfavorable",
+            "辛": "unfavorable",
+            "壬": "unfavorable",
+            "癸": "unfavorable",
+            "子": "unfavorable",
+            "丑": "useful",
+            "寅": "unfavorable",
+            "卯": "unfavorable",
+            "辰": "useful",
+            "巳": "useful",
+            "午": "useful",
+            "未": "useful",
+            "申": "unfavorable",
+            "酉": "unfavorable",
+            "戌": "useful",
+            "亥": "unfavorable"
+          },
+          "no_idle_god": true
+        },
+        "virtual_real": {
+          "branches_act_with_branches": true,
+          "duplicate_real_once": true,
+          "headline_not_deterministic": true,
+          "real_definition": true,
+          "real_real_opposite": true,
+          "real_real_same": true,
+          "real_unfavorable_luck": true,
+          "real_useful_luck": true,
+          "stems_act_with_stems": true,
+          "token_universe": true,
+          "virtual_definition": true,
+          "virtual_real_opposite": true,
+          "virtual_real_same": true,
+          "virtual_unfavorable_luck": true,
+          "virtual_useful_luck": true,
+          "virtual_virtual_opposite": true,
+          "virtual_virtual_same": true,
+          "evidence_compiled": true,
+          "universe": [
+            "甲",
+            "乙",
+            "丙",
+            "丁",
+            "戊",
+            "己",
+            "庚",
+            "辛",
+            "壬",
+            "癸",
+            "子",
+            "丑",
+            "寅",
+            "卯",
+            "辰",
+            "巳",
+            "午",
+            "未",
+            "申",
+            "酉",
+            "戌",
+            "亥"
+          ],
+          "real_tokens": [
+            "甲",
+            "丙",
+            "戊",
+            "庚",
+            "子",
+            "寅",
+            "辰",
+            "申"
+          ],
+          "virtual_tokens": [
+            "乙",
+            "丁",
+            "己",
+            "辛",
+            "壬",
+            "癸",
+            "丑",
+            "卯",
+            "巳",
+            "午",
+            "未",
+            "酉",
+            "戌",
+            "亥"
+          ],
+          "real_count": 8,
+          "virtual_count": 14,
+          "partition_complete": true,
+          "real_useful": [
+            "丙",
+            "戊",
+            "辰"
+          ],
+          "real_unfavorable": [
+            "甲",
+            "庚",
+            "子",
+            "寅",
+            "申"
+          ],
+          "virtual_useful": [
+            "丁",
+            "己",
+            "丑",
+            "巳",
+            "午",
+            "未",
+            "戌"
+          ],
+          "virtual_unfavorable": [
+            "乙",
+            "辛",
+            "壬",
+            "癸",
+            "卯",
+            "酉",
+            "亥"
+          ],
+          "detailed_six_type_algorithm": null
+        },
+        "transform": {
+          "ancient_character_labels_rejected": true,
+          "changing_stems_weak": true,
+          "controllers_of_disruptors_useful": true,
+          "day_hour_adjacent": true,
+          "day_month_adjacent": true,
+          "definition": true,
+          "disruptors_unfavorable": true,
+          "generators_useful": true,
+          "kinship_identity_fixed": true,
+          "natal_only": true,
+          "no_deterministic_wealth_status": true,
+          "no_dragon_required": true,
+          "no_exposed_transform_required": true,
+          "no_true_false_split": true,
+          "one_to_one": false,
+          "pair_bing_xin": false,
+          "pair_ding_ren": false,
+          "pair_jia_ji": false,
+          "pair_wu_gui": false,
+          "pair_yi_geng": false,
+          "same_temporal_method_after_party": true,
+          "temporal_transform_element_no_activation": true,
+          "transform_element_strong": false,
+          "transform_element_useful": true,
+          "evidence_compiled": true,
+          "candidates": [],
+          "transform_element": null,
+          "confirmed": false
+        },
+        "temporal": {
+          "example_order_subsumes_direct": true,
+          "fixed_classification": true,
+          "luck_annual_affect_natal": true,
+          "luck_annual_first": true,
+          "luck_annual_time_activation": true,
+          "matrix_official_official": false,
+          "matrix_official_output": false,
+          "matrix_official_peer": false,
+          "matrix_official_resource": false,
+          "matrix_official_wealth": false,
+          "matrix_output_official": false,
+          "matrix_output_output": false,
+          "matrix_output_peer": false,
+          "matrix_output_resource": true,
+          "matrix_output_wealth": false,
+          "matrix_peer_official": false,
+          "matrix_peer_output": false,
+          "matrix_peer_peer": false,
+          "matrix_peer_resource": false,
+          "matrix_peer_wealth": false,
+          "matrix_resource_official": false,
+          "matrix_resource_output": false,
+          "matrix_resource_peer": false,
+          "matrix_resource_resource": false,
+          "matrix_resource_wealth": false,
+          "matrix_wealth_official": false,
+          "matrix_wealth_output": false,
+          "matrix_wealth_peer": false,
+          "matrix_wealth_resource": false,
+          "matrix_wealth_wealth": false,
+          "natal_decides_topics": true,
+          "no_heaven_branch_cross_action": true,
+          "real_real_both_reduce": false,
+          "reappearance": true,
+          "result_then_natal": true,
+          "stem_branch_separate": true,
+          "unfavorable_present_loss": true,
+          "unfavorable_restrained_gain": true,
+          "useful_present_gain": true,
+          "useful_restrained_loss": true,
+          "evidence_compiled": true,
+          "stage": "annual",
+          "classification_inherited": true,
+          "inherited_classification": "fuyi_weak",
+          "luck_group": "output",
+          "annual_group": "resource",
+          "matched_matrix": "matrix_output_resource",
+          "luck_real": false,
+          "annual_real": true,
+          "temporal_activation_only": true,
+          "unpublished_rules": null,
+          "useful_groups_inherited": [
+            "resource",
+            "peer"
+          ],
+          "unfavorable_groups_inherited": [
+            "wealth",
+            "official",
+            "output"
+          ],
+          "relation_count": 4,
+          "relations_compiled": true
+        },
+        "kinship": {
+          "appearance_language_blocked": true,
+          "relationship_not_deterministic": true,
+          "status_language_neutralized": true,
+          "unfavorable_far_relief": true,
+          "unfavorable_generated_pressure": true,
+          "unfavorable_near_pressure": true,
+          "unfavorable_restrained_relief": true,
+          "unfavorable_strong_pressure": true,
+          "unfavorable_weak_pressure": true,
+          "useful_far_distance": true,
+          "useful_generated_capacity": true,
+          "useful_near_closeness": true,
+          "useful_restrained_capacity": true,
+          "useful_strong_support": true,
+          "useful_weak_support": true,
+          "evidence_compiled": true,
+          "neutralized": true,
+          "token_roles": {
+            "甲": "unfavorable",
+            "乙": "unfavorable",
+            "丙": "useful",
+            "丁": "useful",
+            "戊": "useful",
+            "己": "useful",
+            "庚": "unfavorable",
+            "辛": "unfavorable",
+            "壬": "unfavorable",
+            "癸": "unfavorable",
+            "子": "unfavorable",
+            "丑": "useful",
+            "寅": "unfavorable",
+            "卯": "unfavorable",
+            "辰": "useful",
+            "巳": "useful",
+            "午": "useful",
+            "未": "useful",
+            "申": "unfavorable",
+            "酉": "unfavorable",
+            "戌": "useful",
+            "亥": "unfavorable"
+          },
+          "unpublished_baishen_formula": null,
+          "deterministic_appearance_status_relationship": false
+        }
+      }
+    }
+  },
+  "trace_id": "trace.state.synthetic.chart.001.annual.annual.2026.li_hanchen_w05",
+  "parent_state_id": "state.synthetic.chart.001.luck.luck.01.li_hanchen_w05"
+}

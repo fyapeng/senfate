@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.catcher_thief.multiple_thief_candidates_preserved@1.0.0",
+  "title": "多个贼神候选并列",
+  "description": "不同路径的目标不得多数投票合并。",
+  "namespace": "duan_li_xiang.catcher_thief",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.catcher_thief",
+  "status": [
+    "procedural",
+    "semantic"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.catcher_thief_resolution",
+  "priority": 3986,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.catcher_thief.multiple_thief_candidates_preserved",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.catcher_thief",
+        "proposition": {
+          "predicate": "duan_li_xiang.catcher_thief.multiple_thief_candidates_preserved",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.catcher_thief_multiple_thief_candidates_preserved.2f040ab79b",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001766",
+      "source_lines": {
+        "start": 3529,
+        "end": 3529
+      },
+      "anchor": "src:modern.duan_li_xiang:L003529-L003529",
+      "quote": "命理存在着双解或多解",
+      "section_path": [
+        "段氏理象学",
+        "1. 目前看命的方法有传统派，有新派，盲派命理比较前两者有什么特 点? 老师如何看待前两种看命方法?"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

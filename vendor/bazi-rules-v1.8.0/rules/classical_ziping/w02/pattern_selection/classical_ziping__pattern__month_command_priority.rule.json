@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.month_command_priority@1.0.0",
+  "title": "普通格局以月令为首要入口",
+  "description": "先从月令提纲生成普通格局候选，年日时只参与成败、变化与补充，不直接替代月令入口。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 1000,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.pattern.month_command_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.pattern.primary_entry",
+        "value": "month_command",
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.routing",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.primary_entry",
+          "value": "month_command"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.month_command_priority.8e5b09a63c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000113",
+      "source_lines": {
+        "start": 225,
+        "end": 225
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000225-L000225",
+      "quote": "八字用神，专求月令，以日干配月令地支，而生克不同，格局分焉",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "八、论用神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    },
+    {
+      "source_ref_id": "src.w02.month_command_priority_yh.e422106fa1",
+      "work_id": "classic.yuan_hai_zi_ping",
+      "normalized_path": "corpus/normalized/classic__yuan_hai_zi_ping.md",
+      "chunk_id": "classic.yuan_hai_zi_ping#c000822",
+      "source_lines": {
+        "start": 1643,
+        "end": 1643
+      },
+      "anchor": "src:classic.yuan_hai_zi_ping:L001643-L001643",
+      "quote": "凡格用月令提纲，勿于傍求年日时为格",
+      "section_path": [
+        "渊海子平"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "ce66fedb2402012a936248a336cc3cd276f7ac6c38e3739ed93a1bca659c296f"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

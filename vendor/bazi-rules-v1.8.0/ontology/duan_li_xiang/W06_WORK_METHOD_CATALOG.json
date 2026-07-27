@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "relation_candidates": [
+    "punish",
+    "clash",
+    "control",
+    "harm",
+    "combine",
+    "tomb",
+    "generate",
+    "drain"
+  ],
+  "modes": [
+    "control",
+    "transform",
+    "generate",
+    "drain",
+    "combine",
+    "tomb",
+    "compound"
+  ],
+  "directions": [
+    "positive",
+    "reverse",
+    "mixed",
+    "unknown"
+  ],
+  "node_roles": [
+    "primary_gong",
+    "auxiliary_gong",
+    "target",
+    "waste_candidate",
+    "thief",
+    "catcher"
+  ],
+  "efficiency_dimensions": [
+    "method_rank",
+    "party_momentum",
+    "target_isolation",
+    "clean_control",
+    "source_target_joint_control",
+    "tomb_or_enclosure",
+    "distance",
+    "damage_to_work"
+  ],
+  "numeric_total_score": false
+}

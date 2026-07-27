@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.themes.health_claims_blocked@1.0.0",
+  "title": "医学有效性断言不得进入默认输出",
+  "description": "主题规则只输出传统体系中的资源、责任、学习、关系或风险象征；不得替代专业判断或事实预测。",
+  "namespace": "shao_weihua.themes",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.themes",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.theme_mapping",
+  "priority": 1277,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.themes.health_claims_blocked",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "safety",
+        "topic": "shao_weihua.themes.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.themes.safety_policy",
+          "value": "medical_claim_blocked"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "prohibited_default",
+          "output_mode": "blocked",
+          "reason_codes": [
+            "medical_legal_or_harmful_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.themes_health_claims_blocked.fc58d66e15",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c003367",
+      "source_lines": {
+        "start": 6723,
+        "end": 6723
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L006723-L006723",
+      "quote": "《黄帝内径·阴阳应向大论篇》有:“阴阳者，天地之道也, 万物之纲纪, 变化之父母, 生杀之本始。” “天地之合, 不离于五。”世间万物，生生灭灭，周而复始，都离不开阴阳五行生克制化的规律。人有病或发生意外伤痛及其它凶灾，也都是阴阳五行在起决定作用，这一点，现代医学已经得到了证明。",
+      "section_path": [
+        "四柱预测学",
+        "第二十一章 病伤、凶灾"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

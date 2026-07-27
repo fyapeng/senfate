@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.pattern.month_jia_wu@1.0.0",
+  "title": "甲日生午月取格单元",
+  "description": "按《四柱预测学》日干生月取格表登记候选格局；候选仍须结合透干、旺衰和全局。",
+  "namespace": "shao_weihua.pattern",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.pattern_resolution",
+  "priority": 2793,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.pattern_cell_matches",
+    "args": {
+      "day_stem": "甲",
+      "month_branch": "午"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.pattern.month_lookup",
+        "proposition": {
+          "predicate": "shao_weihua.pattern.candidate_patterns",
+          "value": [
+            {
+              "visible_stem": "丁",
+              "pattern": "伤官格"
+            },
+            {
+              "visible_stem": "己",
+              "pattern": "正财格"
+            }
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "cell_key": "jia_wu",
+          "raw_text": "甲生午月，干透丁火，为伤官格。透己土为正财格。若不全透，酌情取之。月为财之源神，柱中喜财，忌土透，财源丰厚。柱中喜伤，丁火露，伤益壮，身旺喜财，身弱忌伤官泄气。岁运喜忌同此。",
+          "fallback_policy": "discretionary_when_no_hidden_stem_visible",
+          "source_mode": "direct_ocr_context_checked"
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.pattern_jia_wu.6220f1be05",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001094",
+      "source_lines": {
+        "start": 2181,
+        "end": 2181
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002181-L002181",
+      "quote": "甲生午月，干透丁火，为伤官格。透己土为正财格。若不全透，酌情取之。月为财之源神，柱中喜财，忌土透，财源丰厚。柱中喜伤，丁火露，伤益壮，身旺喜财，身弱忌伤官泄气。岁运喜忌同此。",
+      "section_path": [
+        "四柱预测学",
+        "第二节 日干生月取格法"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

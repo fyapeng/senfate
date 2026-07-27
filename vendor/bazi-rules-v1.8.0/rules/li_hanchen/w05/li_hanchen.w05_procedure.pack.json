@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "li_hanchen.w05_procedure@1.0.0",
+  "namespace": "li_hanchen.procedure",
+  "school_id": "li_hanchen",
+  "label": "分析程序与来源边界",
+  "status": "production",
+  "rule_files": [
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__three_elements.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__strength_first.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__natal_luck_annual_relation.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__whole_chart_analysis.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__three_class_system.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__reject_month_hidden_pattern.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__reject_misc_patterns.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__no_shensha.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__yima_exception.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__seven_chars_two_parties.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__useful_exists_in_natal.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__unfavorable_equal_importance.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__no_idle_god.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__main_qi_only.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__tomb_climate_exception.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__no_numeric_score.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__exact_action_rule_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__temporal_rules_partly_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__virtual_real_details_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__baishen_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__reverse_rule_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__fengshui_withheld.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__neutral_output.rule.json",
+    "rules/li_hanchen/w05/procedure/li_hanchen__procedure__source_scope.rule.json"
+  ],
+  "notes": [
+    "Only 《八字预测真踪》 author text is used as formal evidence.",
+    "Incomplete algorithms remain unknown; all rules are reviewed, not production."
+  ]
+}

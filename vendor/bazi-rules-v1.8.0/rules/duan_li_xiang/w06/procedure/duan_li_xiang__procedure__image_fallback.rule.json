@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.procedure.image_fallback@1.0.0",
+  "title": "无功时转象法",
+  "description": "日干、日支和禄比均无可解析做功时，转入象法候选并传播 unknown。",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.procedure",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 4992,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.procedure.image_fallback",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.procedure",
+        "proposition": {
+          "predicate": "duan_li_xiang.procedure.image_fallback",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.procedure_image_fallback.f3ad792c96",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001235",
+      "source_lines": {
+        "start": 2467,
+        "end": 2467
+      },
+      "anchor": "src:modern.duan_li_xiang:L002467-L002467",
+      "quote": "那我们还需要从 “象” 的角度去进一步分析",
+      "section_path": [
+        "段氏理象学",
+        "一、看四柱的功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "本书未公开完整象法与技法算法，默认只登记 fallback。"
+    ]
+  }
+}

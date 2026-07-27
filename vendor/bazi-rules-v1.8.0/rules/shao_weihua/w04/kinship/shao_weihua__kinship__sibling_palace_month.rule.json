@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.kinship.sibling_palace_month@1.0.0",
+  "title": "月柱登记为兄弟姐妹宫",
+  "description": "保存作者的六亲结构映射；宫位和象征星只用于传统文化解释，不构成现实家庭事件断言。",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.kinship",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.kinship_resolution",
+  "priority": 1594,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.kinship.sibling_palace_month",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.kinship.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.kinship.sibling_palace",
+          "value": "month_pillar"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "family_relationship_not_deterministic"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.kinship_sibling_palace_month.8332f5da88",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001688",
+      "source_lines": {
+        "start": 3367,
+        "end": 3367
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L003367-L003367",
+      "quote": "《三命通会》中关于六亲在四柱中的排法讲得很清楚: “凡推六亲，以年为父，以胎为母，月为兄弟官员，日为己身妻妾，时为儿女。”很明显，月为兄弟宫。我在预测中也是以月为兄弟宫的, 实践证明是正确的。",
+      "section_path": [
+        "四柱预测学",
+        "第十四章 兄弟姐妹"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

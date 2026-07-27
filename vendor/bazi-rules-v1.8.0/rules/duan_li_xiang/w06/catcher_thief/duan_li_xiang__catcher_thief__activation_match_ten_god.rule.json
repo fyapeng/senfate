@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.catcher_thief.activation_match_ten_god@1.0.0",
+  "title": "同十神组匹配",
+  "description": "同十神组只登记语义匹配，不能替代具体干支关系。",
+  "namespace": "duan_li_xiang.catcher_thief",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.catcher_thief",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.catcher_thief_resolution",
+  "priority": 3991,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.catcher_thief.activation_match_ten_god",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.catcher_thief",
+        "proposition": {
+          "predicate": "duan_li_xiang.catcher_thief.activation_match_ten_god",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.catcher_thief_activation_match_ten_god.b955525ec0",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001136",
+      "source_lines": {
+        "start": 2269,
+        "end": 2269
+      },
+      "anchor": "src:modern.duan_li_xiang:L002269-L002269",
+      "quote": "他就希望小偷出现, 一出现正好就被他抓住",
+      "section_path": [
+        "段氏理象学",
+        "五、駥神、捕神概念"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.month_luck_origin@1.0.0",
+  "title": "月柱作为运元入口",
+  "description": "大运从月柱排出；W04 接收排盘后的大运，不实现历法与起运换算。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2994,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.luck_cycles_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.month_as_luck_origin",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_month_luck_origin.08ebe2bc8a",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001071",
+      "source_lines": {
+        "start": 2135,
+        "end": 2135
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002135-L002135",
+      "quote": "月为运元, 行运从月上起。因此, 运元可补四柱中不足, 可生四柱之福神, 克四柱之凶神, 也可助四柱中之凶神。所以, 月与命关系密切, 定人终生。",
+      "section_path": [
+        "四柱预测学",
+        "二、月。月在四柱中好比树干。树干粗壮、枝叶繁茂。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.year_strength_by_month@1.0.0",
+  "title": "年柱旺衰首先受月令衡量",
+  "description": "年柱自身关系及其余三柱作用与月令共同进入年柱状态判断。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2998,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.year_strength_inputs_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.procedure.year_strength_inputs",
+          "value": [
+            "month_command",
+            "internal_relation",
+            "other_pillars"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_year_strength_by_month.55c9b42854",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001063",
+      "source_lines": {
+        "start": 2119,
+        "end": 2119
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002119-L002119",
+      "quote": "年柱是由一个天干和一个地支组成的, 它旺与不旺, 好与不好. 一是以月令来衡量; 二是看年干年支相互的生克关系; 三是以月、日、时对年柱生克制化来定的。",
+      "section_path": [
+        "四柱预测学",
+        "一、年。年在四柱中好比树之根。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

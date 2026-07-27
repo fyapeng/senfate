@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.useful_god.c3712243c2cb_strong_resource_many_24@1.0.0",
+  "title": "取用案例：正印格／resource_many",
+  "description": "依据作者成格取用段落登记条件化候选；候选不等同现实吉凶或固定终局用神。",
+  "namespace": "shao_weihua.useful_god",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.useful_god",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_god_resolution",
+  "priority": 2477,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.useful_god_case_matches",
+    "args": {
+      "case_id": "c3712243c2cb_strong_resource_many_24"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.useful_god.selection",
+        "proposition": {
+          "predicate": "shao_weihua.useful_god.candidate",
+          "value": "wealth"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "case_id": "c3712243c2cb_strong_resource_many_24",
+          "pattern": "正印格",
+          "strength": "strong",
+          "trigger": "resource_many",
+          "candidate": "wealth",
+          "fallback": false,
+          "note": ""
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.useful_god_c3712243c2cb_strong_resource_many_24.8014c14b29",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001230",
+      "source_lines": {
+        "start": 2453,
+        "end": 2453
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002453-L002453",
+      "quote": "日主旺, 比劫多, 官杀可制比劫, 故可取官杀为用神。食伤可泄比劫之气, 在无官杀的情况下, 可取食神伤官为用神。 如果格中财星多，官杀可泄财星之气，可取官杀为用神。又如印多, 财克印, 可取财星为用神。食神可耗印绶之气, 在无财的情况下，可取食伤为用神。",
+      "section_path": [
+        "四柱预测学",
+        "一、成格用神取法:"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

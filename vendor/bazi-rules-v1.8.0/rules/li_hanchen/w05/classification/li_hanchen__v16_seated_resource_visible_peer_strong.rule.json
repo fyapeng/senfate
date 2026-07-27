@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v16_seated_resource_visible_peer_strong@1.0.0",
+  "title": "坐印并见比肩作身旺",
+  "description": "坐印并见比肩作身旺；按角色和位置参数化，不绑定单一命例。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 5000,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.strength.seated_resource_with_visible_peer_strong",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v16_seated_resource_visible_peer_strong",
+          "value": "坐印并见比肩作身旺"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v16.5d5703a83e",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000131",
+      "source_lines": {
+        "start": 2438,
+        "end": 2480
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002438-L002480",
+      "quote": "正确全面地分析八字，是涵辰预测体系中最重要的内容之一。从八字预测术问世至今，一个八字在不同人手中，有不同的分析方法，这些分析之法，看起来似乎都有点理，分析八字是不是就没有章法了呢?绝对不是!只是从古到涵辰之前，确实无人发现其中的规律。\n分析八字共有五个要点：一，天干如何作用；二，地支如何作用；三，天干地支如何作用；四，先天风水分析；五，六亲分析。\n前三项是局中八个字之间作用的技巧，解决了千百年来八字分析杂乱无章的难题。干与干，支与支的作用规律只是四个字一句话，干与支的作用也不是古人说的盖头、截足，它有其独特的作用原则。先天风水分析，是涵辰风水预测术的技巧，但在八字预测中，不讲不行，此法因风水书未印刷，故未传任何人。六亲分析，实际就是“百神论”，“百神论”最初，我叫它“五十神论”，“百神论”不完全是个技巧，它反映出了一种思想，是一种全面认识问题的能力，它解决了八字中未出现的六亲的测算技巧，“百神论”是重多论中最大的论，是八字预测的技术核心，在每个级别的学习班上，涵辰都较详细讲解。\n山东省临沂市徐先生\n官比日元才\n乙巳戊子戊午癸亥\n印枭官杀才\n丁亥丙戌乙酉甲申癸未\n身旺用癸、亥，月干戊土为忌神，年干乙木官星制戊起好作用，乙木旺运中可当官。\n先天风水中，癸水旺，乙木旺，戊土弱。\n癸水旺，可断妻美，工资高。\n乙木旺，在单位中受领导赏识重用，自己能力强。\n戊土弱，同事兄弟，不能对我构成较重的伤害。\n断官运：\n乙木为官为用神，乙木旺时升官。\n丙戌运，壬申年，壬水克丙火，丙减力，乙木旺，得一领导赏识。丙减力，戊土弱，调到一重要工作岗位。\n乙酉运，癸酉年，癸水生乙木，乙力大提升，两酉耗局中巳火，掌实权，断本年破格提升。\n乙酉运，甲戌年，甲、乙混杂克月干戊土忌神，月戊不帮日戊，同行佩服。\n乙酉运，乙亥年，亥水泄酉，巳火旺不掌权，酉不泄月干戊土，改行干新工作，两乙木旺，领导极力挽留自己，两乙木克身力大，定干新行业，本年辞官经商，生意较好。\n断婚姻：\n时干癸水为妻之外环境，为脸蛋，癸旺主貌美，亥水为妻之身高，娘家等状况，亥帮癸力大，妻身材高大，癸水用神靠近日干，妻贤。\n断妻家庭状况，亥水帮癸，断妻姐妹四个，排行为老大，且姓氏为大姓(当地大姓)，答曰：姓“许”。涵辰立即说，她的村庄名叫许家庄，徐先生说：“许家围子”。\n亥水旺时结婚，戌运中辰土年，辰戌冲，戌减力，亥水旺结婚。\n断财运：\n时干癸水为财运，癸水旺时财吉。乙木为工作，乙木旺时工作顺利，巳火为工作单位，巳火弱时工作单位大。乙木弱时，工作单位外环境不好，乙木旺制癸水时，工作轻松不挣钱。\n乙酉运，酉金耗年支巳火，同性力大，巳减力。丁丑年，丑土空亡，丑不生酉金，酉金力小不制巳火，本年换了工作，到小单位。答曰：开出租车。工作单位只有出租车那么大，酉运制巳火力大，本运中单位大，开出租车也是大出租车，断到：开的是面包，而非轿车。答曰：“松花江车”。丁火泄乙木，戊土旺，本出租车没有营运执照，属非法经营。答：“正是”。\n乙酉运，戊寅年，寅木使酉减力小，想卖车但未卖掉。\n乙酉运，己卯年，己制乙木，癸水旺，跑长途多，收费高。卯酉冲，巳火旺，自己找了个司机开车。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

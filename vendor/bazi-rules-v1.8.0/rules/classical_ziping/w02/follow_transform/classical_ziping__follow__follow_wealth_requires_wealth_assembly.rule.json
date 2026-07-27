@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.follow_wealth_requires_wealth_assembly@1.0.0",
+  "title": "从财须财势会聚",
+  "description": "从财候选需要财星在结构上会聚成势，单见零散财星不足。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 310,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_type",
+        "operator": "equals",
+        "value": "财"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.wealth_assembled",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow.validity",
+        "proposition": {
+          "predicate": "classical_ziping.follow.assembly",
+          "value": "wealth_assembled"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.wealth_assembly.0a533c16c2",
+      "work_id": "classic.yuan_hai_zi_ping",
+      "normalized_path": "corpus/normalized/classic__yuan_hai_zi_ping.md",
+      "chunk_id": "classic.yuan_hai_zi_ping#c001902",
+      "source_lines": {
+        "start": 3803,
+        "end": 3803
+      },
+      "anchor": "src:classic.yuan_hai_zi_ping:L003803-L003803",
+      "quote": "弃命从财，须要会财",
+      "section_path": [
+        "渊海子平"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "ce66fedb2402012a936248a336cc3cd276f7ac6c38e3739ed93a1bca659c296f"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

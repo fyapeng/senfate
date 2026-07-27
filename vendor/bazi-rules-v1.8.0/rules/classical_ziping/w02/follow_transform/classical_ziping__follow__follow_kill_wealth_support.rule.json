@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.follow.follow_kill_wealth_support@1.0.0",
+  "title": "《渊海子平》从杀喜财规则",
+  "description": "保留《渊海子平》从杀以财资杀的特定口径。",
+  "namespace": "classical_ziping.follow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.follow",
+  "status": [
+    "contested",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.follow_transform_resolution",
+  "priority": 295,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_exists",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.candidate_type",
+        "operator": "equals",
+        "value": "七杀"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.follow.wealth_present",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.follow.validity",
+        "proposition": {
+          "predicate": "classical_ziping.follow.wealth_effect",
+          "value": "supportive"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.follow_kill_wealth.b38ef1b260",
+      "work_id": "classic.yuan_hai_zi_ping",
+      "normalized_path": "corpus/normalized/classic__yuan_hai_zi_ping.md",
+      "chunk_id": "classic.yuan_hai_zi_ping#c001904",
+      "source_lines": {
+        "start": 3807,
+        "end": 3807
+      },
+      "anchor": "src:classic.yuan_hai_zi_ping:L003807-L003807",
+      "quote": "从杀喜财",
+      "section_path": [
+        "渊海子平"
+      ],
+      "text_layer": "quotation",
+      "authority": "secondary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "ce66fedb2402012a936248a336cc3cd276f7ac6c38e3739ed93a1bca659c296f"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.follow.kill_with_wealth",
+    "policy": "preserve_all",
+    "note": "仅保存该书口径，不作为跨书默认覆盖。"
+  }
+}

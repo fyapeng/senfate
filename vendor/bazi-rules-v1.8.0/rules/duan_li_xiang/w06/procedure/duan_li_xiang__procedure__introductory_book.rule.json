@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.procedure.introductory_book@1.0.0",
+  "title": "本书只达入门范围",
+  "description": "未公开的深入象法、应期和专题不得由命例补齐。",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.procedure",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 4987,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.procedure.introductory_book",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.procedure",
+        "proposition": {
+          "predicate": "duan_li_xiang.procedure.introductory_book",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.procedure_introductory_book.4c201bd0ff",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001795",
+      "source_lines": {
+        "start": 3587,
+        "end": 3587
+      },
+      "anchor": "src:modern.duan_li_xiang:L003587-L003587",
+      "quote": "本书只是一本人门之书, 学习之后, 可以达到初级入门水平",
+      "section_path": [
+        "段氏理象学",
+        "1. 目前看命的方法有传统派，有新派，盲派命理比较前两者有什么特 点? 老师如何看待前两种看命方法?"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "深入象法、应期、婚姻、六亲、职业、疾病、牢狱算法未完整公开。"
+    ]
+  }
+}

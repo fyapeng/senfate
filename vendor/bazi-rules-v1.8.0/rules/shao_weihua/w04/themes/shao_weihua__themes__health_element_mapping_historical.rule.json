@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.themes.health_element_mapping_historical@1.0.0",
+  "title": "五行脏腑映射仅历史语义保存",
+  "description": "主题规则只输出传统体系中的资源、责任、学习、关系或风险象征；不得替代专业判断或事实预测。",
+  "namespace": "shao_weihua.themes",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.themes",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.theme_mapping",
+  "priority": 1276,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.themes.health_element_mapping_historical",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "safety",
+        "topic": "shao_weihua.themes.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.themes.health_symbol",
+          "value": "historical_only"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "prohibited_default",
+          "output_mode": "historical_only",
+          "reason_codes": [
+            "medical_legal_or_harmful_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.themes_health_element_mapping_historical.6899f7a534",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c003370",
+      "source_lines": {
+        "start": 6729,
+        "end": 6729
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L006729-L006729",
+      "quote": "天干地支分阴阳五行不但有气，还有色有光有电。如木气属青而生风, 火气属红而生热, 土气属黄而生燥, 金气属白而生寒, 水气属黑而生湿。故人有风热燥寒湿之变化、人体阴阳五行不和, 五脏六腑就不调。五行通于五脏, 六腑通于九窍。十干受克属六腑，十二支受克属五脏。因此，根据天干地支阴阳五行的盛衰变化, 而知脏腑之盛衰。所以就能达到防病治病的目的。",
+      "section_path": [
+        "四柱预测学",
+        "第二十一章 病伤、凶灾"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

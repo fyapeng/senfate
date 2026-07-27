@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.entry.day_stem_combine@1.0.0",
+  "title": "日干先查合",
+  "description": "日干与财官天干合时建立追求路径候选。",
+  "namespace": "duan_li_xiang.entry",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.entry",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.entry_resolution",
+  "priority": 4999,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.entry.day_stem_combine",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.entry",
+        "proposition": {
+          "predicate": "duan_li_xiang.entry.day_stem_combine",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.entry_day_stem_combine.d342c83e83",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001234",
+      "source_lines": {
+        "start": 2465,
+        "end": 2465
+      },
+      "anchor": "src:modern.duan_li_xiang:L002465-L002465",
+      "quote": "其一要看它是否有合",
+      "section_path": [
+        "段氏理象学",
+        "一、看四柱的功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

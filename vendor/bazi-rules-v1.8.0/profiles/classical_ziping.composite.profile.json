@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "classical_ziping.composite@1.1.0",
+  "school_id": "classical_ziping",
+  "label": "传统子平 W02+W03 综合模型 v1.1",
+  "namespace": "classical_ziping",
+  "status": "production",
+  "allowed_namespaces": [
+    "common",
+    "classical_ziping",
+    "safety"
+  ],
+  "phase_order": [
+    "common.input_validation",
+    "common.fact_compilation",
+    "common.relation_candidates",
+    "school.special_route_detection",
+    "school.pattern_selection",
+    "school.pattern_lifecycle",
+    "school.strength_resolution",
+    "school.follow_transform_resolution",
+    "school.relation_resolution",
+    "school.qi_flow_resolution",
+    "school.climate_resolution",
+    "school.remedy_resolution",
+    "school.temporal_recompute",
+    "school.composite_resolution",
+    "school.findings",
+    "safety.output"
+  ],
+  "modules": [
+    {
+      "module_id": "classical_ziping.pattern",
+      "phase": "school.pattern_selection",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation",
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.strength",
+      "phase": "school.strength_resolution",
+      "enabled": true,
+      "depends_on": [
+        "common.fact_compilation"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.follow",
+      "phase": "school.follow_transform_resolution",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.strength"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.one_element",
+      "phase": "school.special_route_detection",
+      "enabled": true,
+      "depends_on": [
+        "common.relation_candidates"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.transform",
+      "phase": "school.special_route_detection",
+      "enabled": true,
+      "depends_on": [
+        "common.relation_candidates",
+        "classical_ziping.strength"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.qi_flow",
+      "phase": "school.qi_flow_resolution",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.pattern",
+        "classical_ziping.strength"
+      ],
+      "produces": [
+        "FactIR",
+        "RelationIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.climate",
+      "phase": "school.climate_resolution",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.qi_flow"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.remedy",
+      "phase": "school.remedy_resolution",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.pattern",
+        "classical_ziping.strength",
+        "classical_ziping.qi_flow",
+        "classical_ziping.climate"
+      ],
+      "produces": [
+        "FactIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.temporal",
+      "phase": "school.temporal_recompute",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.pattern",
+        "classical_ziping.strength",
+        "classical_ziping.follow",
+        "classical_ziping.transform",
+        "classical_ziping.qi_flow",
+        "classical_ziping.climate",
+        "classical_ziping.remedy"
+      ],
+      "produces": [
+        "StateIR",
+        "FactIR",
+        "RelationIR",
+        "FindingIR",
+        "TraceIR"
+      ]
+    },
+    {
+      "module_id": "classical_ziping.composite",
+      "phase": "school.composite_resolution",
+      "enabled": true,
+      "depends_on": [
+        "classical_ziping.pattern",
+        "classical_ziping.strength",
+        "classical_ziping.follow",
+        "classical_ziping.transform",
+        "classical_ziping.qi_flow",
+        "classical_ziping.climate",
+        "classical_ziping.remedy",
+        "classical_ziping.temporal"
+      ],
+      "produces": [
+        "FindingIR",
+        "TraceIR"
+      ]
+    }
+  ],
+  "rule_packs": [
+    "rules/classical_ziping/w02/classical_ziping.w02_pattern_selection.pack.json",
+    "rules/classical_ziping/w02/classical_ziping.w02_pattern_lifecycle.v1_1.pack.json",
+    "rules/classical_ziping/w02/classical_ziping.w02_strength.pack.json",
+    "rules/classical_ziping/w02/classical_ziping.w02_follow_transform.pack.json",
+    "rules/classical_ziping/w03/classical_ziping.w03_climate.pack.json",
+    "rules/classical_ziping/w03/classical_ziping.w03_qi_flow.pack.json",
+    "rules/classical_ziping/w03/classical_ziping.w03_remedy.pack.json",
+    "rules/classical_ziping/w03/classical_ziping.w03_temporal.pack.json",
+    "rules/classical_ziping/w03/classical_ziping.w03_composite.pack.json"
+  ],
+  "parameters": {
+    "special_route_policy": "candidate_first_confirmation_after_strength",
+    "climate_matrix_policy": "ordered_candidates_not_final_selection",
+    "composite_policy": "parallel_dimensions_with_explicit_phase_order",
+    "temporal_policy": "full_state_recompile",
+    "conflict_policy_detail": "retain_book_and_module_rule_groups",
+    "historical_event_mapping": "disabled_by_default",
+    "validation_policy": "within_school_textual_fidelity"
+  },
+  "thresholds": {
+    "support_many_min": 4,
+    "restraint_many_min": 4,
+    "heavy_root_min_branches": 2,
+    "formed_momentum_min_units": 5,
+    "element_excess_candidate_min_units": 4
+  },
+  "unknown_policy": "propagate",
+  "conflict_policy": "preserve_all",
+  "relation_resolution": {
+    "candidate_source": "common.relation_candidates",
+    "resolvers": [
+      "classical_ziping.pattern.resolve_month_command",
+      "classical_ziping.pattern.resolve_mixed_storage",
+      "classical_ziping.strength.unique_resolution",
+      "classical_ziping.follow.resolve_dominance",
+      "classical_ziping.transform.true_transform",
+      "classical_ziping.qi_flow.bridge_effective",
+      "classical_ziping.climate.recipe_resolved",
+      "classical_ziping.remedy.medicine_matches_disease",
+      "classical_ziping.temporal.state_recompiled"
+    ],
+    "default_unresolved_status": "unknown"
+  },
+  "output_policy_id": "safety.neutral_output.w07@2.0.0",
+  "notes": [
+    "W02 原局格局、旺衰与从化结论保留为父状态；W03 增加气势、调候、病药和时层重算。",
+    "不同维度发生冲突时并列保存，不通过统一分数、后写覆盖或多数投票产生真值。",
+    "当前为研究和工程审计 Profile，未宣称经验预测有效性。",
+    "v1.1 将复合格局显式化，并将跨流派比较调整为可选展示，不作为规则正确性依据。"
+  ]
+}

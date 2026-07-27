@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.temporal.offend_tai_sui@1.0.0",
+  "title": "日干克流年干登记犯岁君候选",
+  "description": "按作者岁运程序登记状态转换或关系候选；任何灾病、死亡、牢狱和亲属事件均不得作为确定事实输出。",
+  "namespace": "shao_weihua.temporal",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1876,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.temporal.offend_tai_sui",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.temporal.state",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.annual_stem_conflict",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "mixed",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "no_deterministic_harm_event"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.temporal_offend_tai_sui.ac74e7c461",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000685",
+      "source_lines": {
+        "start": 1363,
+        "end": 1363
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001363-L001363",
+      "quote": "(十六)日干克犯流年天干(犯岁君)主凶，如有救(他干克合，泄日干或有天德贵人) 反主进财。",
+      "section_path": [
+        "四柱预测学",
+        "二、看大运流年。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

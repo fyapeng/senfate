@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/relation-ir.schema.json",
+  "title": "RelationIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "relation_id",
+    "relation_type",
+    "participants",
+    "truth",
+    "resolution_status",
+    "scope"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "relation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relation_type": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "participants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "common.schema.json#/$defs/EntityRef"
+      }
+    },
+    "truth": {
+      "$ref": "common.schema.json#/$defs/TruthValue"
+    },
+    "resolution_status": {
+      "type": "string",
+      "enum": [
+        "candidate",
+        "accepted",
+        "rejected",
+        "suppressed",
+        "unknown"
+      ]
+    },
+    "scope": {
+      "$ref": "common.schema.json#/$defs/TemporalScope"
+    },
+    "resolver_namespace": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "resolver_id": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_rule_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/VersionedId"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "source-ref.schema.json"
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

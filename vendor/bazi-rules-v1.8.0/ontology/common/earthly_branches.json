@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.earthly_branches@1.0.0",
+  "items": [
+    {
+      "branch": "子",
+      "element": "water",
+      "yin_yang": "yang",
+      "ordinal": 1,
+      "hidden_stems": [
+        {
+          "stem": "癸",
+          "role": "main",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "branch": "丑",
+      "element": "earth",
+      "yin_yang": "yin",
+      "ordinal": 2,
+      "hidden_stems": [
+        {
+          "stem": "己",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "癸",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "辛",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "寅",
+      "element": "wood",
+      "yin_yang": "yang",
+      "ordinal": 3,
+      "hidden_stems": [
+        {
+          "stem": "甲",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "丙",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "戊",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "卯",
+      "element": "wood",
+      "yin_yang": "yin",
+      "ordinal": 4,
+      "hidden_stems": [
+        {
+          "stem": "乙",
+          "role": "main",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "branch": "辰",
+      "element": "earth",
+      "yin_yang": "yang",
+      "ordinal": 5,
+      "hidden_stems": [
+        {
+          "stem": "戊",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "乙",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "癸",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "巳",
+      "element": "fire",
+      "yin_yang": "yin",
+      "ordinal": 6,
+      "hidden_stems": [
+        {
+          "stem": "丙",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "戊",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "庚",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "午",
+      "element": "fire",
+      "yin_yang": "yang",
+      "ordinal": 7,
+      "hidden_stems": [
+        {
+          "stem": "丁",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "己",
+          "role": "middle",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "branch": "未",
+      "element": "earth",
+      "yin_yang": "yin",
+      "ordinal": 8,
+      "hidden_stems": [
+        {
+          "stem": "己",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "丁",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "乙",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "申",
+      "element": "metal",
+      "yin_yang": "yang",
+      "ordinal": 9,
+      "hidden_stems": [
+        {
+          "stem": "庚",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "壬",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "戊",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "酉",
+      "element": "metal",
+      "yin_yang": "yin",
+      "ordinal": 10,
+      "hidden_stems": [
+        {
+          "stem": "辛",
+          "role": "main",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "branch": "戌",
+      "element": "earth",
+      "yin_yang": "yang",
+      "ordinal": 11,
+      "hidden_stems": [
+        {
+          "stem": "戊",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "辛",
+          "role": "middle",
+          "order": 2
+        },
+        {
+          "stem": "丁",
+          "role": "residual",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "branch": "亥",
+      "element": "water",
+      "yin_yang": "yin",
+      "ordinal": 12,
+      "hidden_stems": [
+        {
+          "stem": "壬",
+          "role": "main",
+          "order": 1
+        },
+        {
+          "stem": "甲",
+          "role": "middle",
+          "order": 2
+        }
+      ]
+    }
+  ],
+  "variant_policy": "藏干次序为项目默认公共配置；流派若采用不同表，须在 SchoolProfile 中显式声明并新增 ADR。"
+}

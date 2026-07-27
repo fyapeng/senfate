@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/trace-ir.schema.json",
+  "title": "TraceIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "trace_id",
+    "chart_id",
+    "school_profile_id",
+    "initial_state_id",
+    "events",
+    "final_state_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "chart_id": {
+      "type": "string"
+    },
+    "school_profile_id": {
+      "$ref": "common.schema.json#/$defs/VersionedId"
+    },
+    "initial_state_id": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Event"
+      }
+    },
+    "final_state_id": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_index",
+        "event_type",
+        "state_id",
+        "result"
+      ],
+      "properties": {
+        "event_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "phase_started",
+            "candidate_relation_generated",
+            "relation_resolved",
+            "rule_evaluated",
+            "exception_applied",
+            "action_executed",
+            "conflict_recorded",
+            "state_transition",
+            "warning"
+          ]
+        },
+        "state_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "rule_id": {
+          "$ref": "common.schema.json#/$defs/VersionedId"
+        },
+        "result": {
+          "type": "string"
+        },
+        "condition_truth": {
+          "$ref": "common.schema.json#/$defs/TruthValue"
+        },
+        "input_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "details": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

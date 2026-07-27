@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.missing_element_allowed@1.0.0",
+  "title": "原局缺失元素仍可作为用神候选",
+  "description": "缺失不等于不可取；是否能在时层发挥作用保持 unknown，且不输出方位改运建议。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2985,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.missing_element_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.useful_god.missing_element_policy",
+          "value": "candidate_allowed"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_missing_element_allowed.ffc1b88a27",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001219",
+      "source_lines": {
+        "start": 2431,
+        "end": 2431
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002431-L002431",
+      "quote": "在选用神的时候, 四柱中还往往会有病重药轻、病轻药重的现象. 遇有这种情况, 就要靠流年、大运、小运及命宫中的干神来补之不足，来平衡。还有有四柱干支中五行不全， 但用神正好是所缺的一行, 但仍然可以用缺的那一行为用神, 如四柱中天干一气为木, 地支有水土火, 无金, 若要以金为用神, 仍可选金为用, 以金制木。但无金怎样制呢? 这就要人为的调动工作、居住方位, 搬到出生地的西方去住, 去工作, 或者名字中加金。当然, 也可以以火为用神, 因火可以泄木之盛气。",
+      "section_path": [
+        "四柱预测学",
+        "第三节 论用神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

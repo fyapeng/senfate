@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.configuration.virtual_real_transition@1.0.0",
+  "title": "岁运可改变虚实状态",
+  "description": "原局与岁运之间的虚实变化需在子状态重算。",
+  "namespace": "duan_li_xiang.configuration",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.configuration",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.configuration_resolution",
+  "priority": 4973,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.configuration.virtual_real_transition",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.configuration",
+        "proposition": {
+          "predicate": "duan_li_xiang.configuration.virtual_real_transition",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.configuration_virtual_real_transition.9d60a591c1",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001180",
+      "source_lines": {
+        "start": 2357,
+        "end": 2357
+      },
+      "anchor": "src:modern.duan_li_xiang:L002357-L002357",
+      "quote": "原局实到大运虚, 或原局虚到大运实",
+      "section_path": [
+        "段氏理象学",
+        "三、干支虚实原理"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

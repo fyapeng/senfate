@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.efficiency.layer_office_rank_blocked@1.0.0",
+  "title": "官阶层级映射只作历史语义",
+  "description": "科处厅省等确定映射不得进入默认输出。",
+  "namespace": "duan_li_xiang.efficiency",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.efficiency",
+  "status": [
+    "historical_only",
+    "semantic"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.efficiency_resolution",
+  "priority": 4989,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.efficiency.layer_office_rank_blocked",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.efficiency",
+        "proposition": {
+          "predicate": "duan_li_xiang.efficiency.layer_office_rank_blocked",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "prohibited_default",
+          "output_mode": "blocked",
+          "reason_codes": [
+            "deterministic_status_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.efficiency_layer_office_rank_blocked.47505d1ec2",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001265",
+      "source_lines": {
+        "start": 2527,
+        "end": 2527
+      },
+      "anchor": "src:modern.duan_li_xiang:L002527-L002527",
+      "quote": "一层功能达到科级到处级",
+      "section_path": [
+        "段氏理象学",
+        "1. 做功等级大的四柱"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/source-ref.schema.json",
+  "title": "SourceRef",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_ref_id",
+    "work_id",
+    "normalized_path",
+    "chunk_id",
+    "source_lines",
+    "quote",
+    "text_layer",
+    "verification",
+    "corpus_content_version",
+    "normalized_sha256",
+    "anchor",
+    "authority",
+    "ocr_review"
+  ],
+  "properties": {
+    "source_ref_id": {
+      "type": "string",
+      "pattern": "^src\\.[a-z0-9_.-]+$"
+    },
+    "work_id": {
+      "$ref": "common.schema.json#/$defs/WorkId"
+    },
+    "normalized_path": {
+      "type": "string",
+      "pattern": "^corpus/normalized/.+\\.md$"
+    },
+    "chunk_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.]+#c[0-9]{6}$"
+    },
+    "source_lines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "anchor": {
+      "type": "string",
+      "pattern": "^src:[a-z0-9_.]+:L[0-9]{6}-L[0-9]{6}$"
+    },
+    "quote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "section_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "text_layer": {
+      "type": "string",
+      "enum": [
+        "author_text",
+        "original_commentary",
+        "later_commentary",
+        "editorial",
+        "quotation",
+        "example",
+        "modern_paraphrase",
+        "website_metadata",
+        "unknown"
+      ]
+    },
+    "authority": {
+      "type": "string",
+      "enum": [
+        "primary",
+        "secondary",
+        "auxiliary",
+        "unverified"
+      ]
+    },
+    "edition_note": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "string",
+      "enum": [
+        "context_checked",
+        "scan_checked",
+        "not_checked",
+        "blocked"
+      ]
+    },
+    "ocr_review": {
+      "type": "string",
+      "enum": [
+        "not_applicable",
+        "context_only",
+        "scan_required",
+        "scan_checked"
+      ]
+    },
+    "review_note": {
+      "type": "string"
+    },
+    "corpus_content_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "normalized_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 82,
+  "entries": [
+    {
+      "relation_id": "li_hanchen.relations.stem_generate_catalog",
+      "label": "天干五行相生目录",
+      "source_quote": "相生为：甲乙木生丙丁火",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_control_catalog",
+      "label": "天干五行相克目录",
+      "source_quote": "相克为：甲乙木克戊己土",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_same_polarity_stronger",
+      "label": "天干同性作用力较大",
+      "source_quote": "同性生克力大",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_opposite_polarity_smaller",
+      "label": "天干异性作用力较小",
+      "source_quote": "异性生克力小",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_jia_ji_candidate",
+      "label": "甲己五合候选",
+      "source_quote": "甲己合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_jia_ji_bind",
+      "label": "甲己不化则合绊",
+      "source_quote": "不化为合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_yi_geng_candidate",
+      "label": "乙庚五合候选",
+      "source_quote": "乙庚合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_yi_geng_bind",
+      "label": "乙庚不化则合绊",
+      "source_quote": "不化为合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_bing_xin_candidate",
+      "label": "丙辛五合候选",
+      "source_quote": "丙辛合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_bing_xin_bind",
+      "label": "丙辛不化则合绊",
+      "source_quote": "不化为合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_ding_ren_candidate",
+      "label": "丁壬五合候选",
+      "source_quote": "丁壬合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_ding_ren_bind",
+      "label": "丁壬不化则合绊",
+      "source_quote": "不化为合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_wu_gui_candidate",
+      "label": "戊癸五合候选",
+      "source_quote": "戊癸合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_combine_wu_gui_bind",
+      "label": "戊癸不化则合绊",
+      "source_quote": "不化为合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_transform_adjacent",
+      "label": "天干合化必须相邻",
+      "source_quote": "须为邻干",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_transform_support",
+      "label": "天干合化须地支辅化",
+      "source_quote": "地支载辅化神",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_environment_natal",
+      "label": "原局天干生克合环境",
+      "source_quote": "原命局中生、克、合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_environment_temporal_natal",
+      "label": "年运与命局天干环境",
+      "source_quote": "年运与命局的生、克、合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.stem_environment_luck_annual",
+      "label": "大运流年天干环境",
+      "source_quote": "大运流年间的生、克、合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_generate_catalog",
+      "label": "地支相生目录",
+      "source_quote": "相生：寅卯木生巳午火",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_control_catalog",
+      "label": "地支相克目录",
+      "source_quote": "相克：寅卯木克辰戌丑未土",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.chen_chou_generate_metal",
+      "label": "辰丑生申酉金",
+      "source_quote": "辰丑土生申酉金",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.wei_xu_brittle_metal",
+      "label": "未戌脆金",
+      "source_quote": "未戌中藏火，为干土能脆金",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.wei_xu_control_water",
+      "label": "未戌克亥子水",
+      "source_quote": "戌未土克亥子水",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.chen_chou_not_control_water",
+      "label": "辰丑不克水",
+      "source_quote": "辰丑土不克水",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_same_polarity_stronger",
+      "label": "地支同性作用力较大",
+      "source_quote": "地支生克力量的大小，同样是同性生克力大",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_opposite_polarity_smaller",
+      "label": "地支异性作用力较小",
+      "source_quote": "异性生克力小",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_zi_chou_candidate",
+      "label": "子丑六合候选",
+      "source_quote": "子丑合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_zi_chou_bind",
+      "label": "子丑化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_yin_hai_candidate",
+      "label": "寅亥六合候选",
+      "source_quote": "寅亥合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_yin_hai_bind",
+      "label": "寅亥化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_mao_xu_candidate",
+      "label": "卯戌六合候选",
+      "source_quote": "卯戌合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_mao_xu_bind",
+      "label": "卯戌化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_chen_you_candidate",
+      "label": "辰酉六合候选",
+      "source_quote": "辰酉合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_chen_you_bind",
+      "label": "辰酉化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_si_shen_candidate",
+      "label": "巳申六合候选",
+      "source_quote": "巳申合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_si_shen_bind",
+      "label": "巳申化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_wu_wei_candidate",
+      "label": "午未六合候选",
+      "source_quote": "午未合化",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_six_combine_wu_wei_bind",
+      "label": "午未化神不旺按绊",
+      "source_quote": "化神不旺论合绊",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_shen_zi_chen_candidate",
+      "label": "申子辰三合候选",
+      "source_quote": "申子辰合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_shen_zi_chen_bind",
+      "label": "申子辰不化按绊",
+      "source_quote": "三合局都须分合化合绊两种情况",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_yin_wu_xu_candidate",
+      "label": "寅午戌三合候选",
+      "source_quote": "寅午戌合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_yin_wu_xu_bind",
+      "label": "寅午戌不化按绊",
+      "source_quote": "三合局都须分合化合绊两种情况",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_si_you_chou_candidate",
+      "label": "巳酉丑三合候选",
+      "source_quote": "巳酉丑合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_si_you_chou_bind",
+      "label": "巳酉丑不化按绊",
+      "source_quote": "三合局都须分合化合绊两种情况",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_hai_mao_wei_candidate",
+      "label": "亥卯未三合候选",
+      "source_quote": "亥卯未合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_three_combine_hai_mao_wei_bind",
+      "label": "亥卯未不化按绊",
+      "source_quote": "三合局都须分合化合绊两种情况",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_zi_wu",
+      "label": "子午相冲候选",
+      "source_quote": "子午相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_chou_wei",
+      "label": "丑未相冲候选",
+      "source_quote": "丑未相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_yin_shen",
+      "label": "寅申相冲候选",
+      "source_quote": "寅申相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_mao_you",
+      "label": "卯酉相冲候选",
+      "source_quote": "卯酉相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_chen_xu",
+      "label": "辰戌相冲候选",
+      "source_quote": "辰戌相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_clash_si_hai",
+      "label": "巳亥相冲候选",
+      "source_quote": "巳亥相冲",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.clash_both_reduce",
+      "label": "相冲双方均减力",
+      "source_quote": "受冲双方均减力",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.clash_stronger_loses_less",
+      "label": "冲中强者减力较小",
+      "source_quote": "力大者减力小",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.clash_weaker_loses_more",
+      "label": "冲中弱者减力较大",
+      "source_quote": "力小者受伤大",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.temporal_clash_hurts_natal",
+      "label": "年运冲局优先记录局中字受制",
+      "source_quote": "年运冲局，局中字受伤",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_punishment_chou_xu",
+      "label": "丑戌互刑候选",
+      "source_quote": "丑——戌互刑",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_punishment_yin_si",
+      "label": "寅巳互刑候选",
+      "source_quote": "寅——巳互刑",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_generate_if_si_strong",
+      "label": "巳旺时寅生巳",
+      "source_quote": "巳火旺",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_generate_if_copresent",
+      "label": "寅巳同现可论生",
+      "source_quote": "局中寅巳同现",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_generate_if_si_unfavorable",
+      "label": "巳为忌时寅生巳",
+      "source_quote": "巳火为忌神时",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_punish_if_si_weak",
+      "label": "巳弱时寅刑巳",
+      "source_quote": "巳火弱",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_punish_if_not_copresent",
+      "label": "原局不同现时年运可构成刑候选",
+      "source_quote": "局中寅巳不同现",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.yin_si_punish_if_si_useful",
+      "label": "巳为用时寅刑巳",
+      "source_quote": "巳火为用神时",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_meeting_yin_mao_chen",
+      "label": "寅卯辰三会候选",
+      "source_quote": "寅卯辰会",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_meeting_hai_zi_chou",
+      "label": "亥子丑三会候选",
+      "source_quote": "亥子丑会",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_meeting_shen_you_xu",
+      "label": "申酉戌三会候选",
+      "source_quote": "申酉戌会",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_meeting_si_wu_wei",
+      "label": "巳午未三会候选",
+      "source_quote": "巳午未会",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_shen_zi",
+      "label": "申子半合候选",
+      "source_quote": "申子半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_yin_wu",
+      "label": "寅午半合候选",
+      "source_quote": "寅午半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_si_you",
+      "label": "巳酉半合候选",
+      "source_quote": "巳酉半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_hai_mao",
+      "label": "亥卯半合候选",
+      "source_quote": "亥卯半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_zi_chen",
+      "label": "子辰半合候选",
+      "source_quote": "子辰半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_wu_xu",
+      "label": "午戌半合候选",
+      "source_quote": "午戌半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_you_chou",
+      "label": "酉丑半合候选",
+      "source_quote": "酉丑半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_half_combine_mao_wei",
+      "label": "卯未半合候选",
+      "source_quote": "卯未半合",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.meeting_not_automatic",
+      "label": "三会字全不等于自动成局",
+      "source_quote": "真正成局者，只有很少的比例",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.half_combine_not_automatic",
+      "label": "半合需另行判成局或绊局",
+      "source_quote": "半合局成局与成绊局都有自己的条件",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_environment_natal",
+      "label": "原局地支作用环境",
+      "source_quote": "原命局中地支生克冲合刑",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_environment_temporal_natal",
+      "label": "年运与命局地支环境",
+      "source_quote": "年运与命局生克冲合刑",
+      "activation": "candidate_or_parameterized"
+    },
+    {
+      "relation_id": "li_hanchen.relations.branch_environment_luck_annual",
+      "label": "大运流年地支环境",
+      "source_quote": "大运流年间的生克冲合刑",
+      "activation": "candidate_or_parameterized"
+    }
+  ]
+}

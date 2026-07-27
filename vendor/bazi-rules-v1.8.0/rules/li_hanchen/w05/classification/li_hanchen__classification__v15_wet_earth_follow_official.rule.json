@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v15_wet_earth_follow_official@1.0.0",
+  "title": "湿土晦印从官",
+  "description": "两重湿土使近身火印失效，财生官且官合身时按从官观察。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 2400,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.strength.wet_earth_suppresses_fire_resource_for_official_follow",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v15_wet_earth_follow_official",
+          "value": "湿土晦印从官"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.d206eef22d",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000108",
+      "source_lines": {
+        "start": 2171,
+        "end": 2190
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002171-L002190",
+      "quote": "体育是衡量国民素质的一个重要标志，是和平时期增强国人凝聚力的最佳活动之一。一个运动员在赛场上能不能取得好成绩，平时刻苦训练很重要，但好运动员是需要天赋的，这个天赋就是良好的八字组合和行运。不论从事何种职业，只要命运为佳，都会在事业上做出成绩。一个好运动员也必须是用神旺逢生，忌神弱受制的八字组合，行运又吉，必能驰名世界体坛。为写本章，涵辰有意识测算了体校的一些运动员，从他们的比赛成绩上验证了这一点。\n全国摔跤冠军王某\n才官日元劫\n壬子甲辰己巳戊辰\n杀印枭劫比\n乙巳丙午丁未戊申己酉\n本命从官，局中巳火为忌，有两重辰土晦之，月干官星甲木为用合身，又得年干壬水相生，此命大吉，成绩突出。遗憾的是行印比运，为凶运，平时成绩好，赛时成绩差，不走运。\n全国游泳冠军徐某\n食才日元印\n癸卯甲子辛卯戊子\n食伤比劫枭\n癸亥壬戌辛酉庚申己未\n本命从财，月干甲木，日支卯木为用旺且逢生，命局组合为吉。\n无论何种好命，还须行运吉方为大吉。常见有些人命局好，被安排在重要岗位上工作，却毫无建树，恐怕时运不济。\n俗话说：兵熊熊一个，将熊熊一窝。好运动员需要好的体育教练，也只有八字好行运吉的教练才会培养出优秀的运动员。也不难理解，教练的成就是与运动员的成绩紧密相连的，一个十分走运的教练员，自然预示着他能培养出出类拔萃的运动员。由此可知，中国的足球要想取得好成绩，需要的是八字组合好，行运佳的教练，不一定非洋人不可。下面是世界冠军毕文静主导教练八字：\n食伤日元枭\n壬午癸丑庚午戊寅\n财才杀官枭\n甲寅乙卯丙辰丁巳戊午\n本命日干庚生于丑土墓库月力弱，年月壬癸水泄身，日支午火得时支寅木相生力大克身，唯时干戊土生身，力却十分衰弱，日干从弱，午火临坐下制身最为得力。本命为伤官伤尽，癸水为工作，癸水旺时，工作成绩突出，戊午运中，癸水有力，成绩十分突出，本人也因此荣获省“五一”劳动奖章。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

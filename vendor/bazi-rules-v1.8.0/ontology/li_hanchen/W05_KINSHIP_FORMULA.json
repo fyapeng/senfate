@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "dimensions": [
+    "useful_or_unfavorable",
+    "strength",
+    "generated_or_restrained",
+    "distance_to_day_master"
+  ],
+  "default_output": "neutralized",
+  "blocked_claims": [
+    "appearance",
+    "status",
+    "deterministic_relationship"
+  ]
+}

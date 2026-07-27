@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.compound.v18_repeated_clash_movement_semantic@1.0.0",
+  "title": "重复冲进入走动语义",
+  "description": "重复支冲已成立时，可登记走动与环境变化象；不得直接推出具体迁移事件。",
+  "namespace": "shao_weihua.compound",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.relations",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 6105,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.compound.repeated_clash_movement_semantic",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.compound",
+        "proposition": {
+          "predicate": "shao_weihua.compound.repeated_clash_theme",
+          "value": "movement_change"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.75aed3c694",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c003226",
+      "source_lines": {
+        "start": 6441,
+        "end": 6441
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L006441-L006441",
+      "quote": "冲者，走动之象",
+      "section_path": [
+        "四柱预测学",
+        "第一节 预测升学"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

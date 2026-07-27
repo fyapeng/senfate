@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.context_modifies_semantics@1.0.0",
+  "title": "神煞语义由生旺、冲破和主程序修饰",
+  "description": "同一神煞的书内语义受生旺、冲破、喜忌和其他结构共同修饰。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2049,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.shensha.context_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.shensha.policy",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.context_required",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_context_modifier.9c1f17bc9c",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000756",
+      "source_lines": {
+        "start": 1505,
+        "end": 1505
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001505-L001505",
+      "quote": "在信息预测中, 神煞不可不讲, 也不能把一百二十多种全用上，如果全用上，就会造成在某神中为吉，在某煞中为凶，既凶又吉繁杂混乱的现象而无从言吉凶。或者在此书此方面言吉神，在彼书另方面言凶煞，各说各的，互相矛盾而令读者无所适从。还有的书查吉凶神煞的方法不一，有的以年查, 有的以月查, 有的以日查。如《天喜》, 《选择宋镜》以正月戌、二月亥……查《天喜》。《飞星紫微斗数》则以年支查, 子年见酉, 丑年见申等。有的名称也不统一, 如 “大耗”煞星，有的称 “大耗”，有的称 “元辰”，如此等等，使后人无从应用。因此，吉神凶煞在信息预测中相当混乱。",
+      "section_path": [
+        "四柱预测学",
+        "第九章 论吉神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.one_element.yanshang@1.0.0",
+  "title": "炎上格候选",
+  "description": "日主五行与方局形成单一主气时登记一行专旺候选。",
+  "namespace": "classical_ziping.one_element",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.one_element",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.special_route_detection",
+  "priority": 269,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.day_element",
+        "operator": "equals",
+        "value": "fire"
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.one_element.complete_direction_or_trine",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.one_element.candidate",
+        "proposition": {
+          "predicate": "classical_ziping.one_element.type",
+          "value": "炎上格"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.yanshang_direction.407f997525",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000157",
+      "source_lines": {
+        "start": 313,
+        "end": 313
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000313-L000313",
+      "quote": "火日全巳午未，为炎上格；",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    },
+    {
+      "source_ref_id": "src.w02.yanshang_trine.25dc31c928",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000157",
+      "source_lines": {
+        "start": 313,
+        "end": 313
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000313-L000313",
+      "quote": "火日全寅午戌，亦为炎上格",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

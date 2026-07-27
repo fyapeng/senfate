@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.four_disease_weak@1.0.0",
+  "title": "四病四药：弱",
+  "description": "把《神峰通考》的四病四药登记为程序类别；必须结合根、势与当前结构目标，不输出人物等级或健康结论。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1917,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.category_candidate",
+    "operator": "equals",
+    "value": "弱"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.disease_category",
+          "value": "rooted_but_insufficient"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "historical_analogy_only"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.four_disease_weak.2521b95eab",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000050",
+      "source_lines": {
+        "start": 99,
+        "end": 99
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000099-L000099",
+      "quote": "何以为之弱也?雨露不足，则物性为之消磨。血气不充，人身为之羸瘦。天根可蹑，六阳之弱可闻乎，月窟可探，六阴之弱者可究也。是以六阳之弱，不至于终弱，而有《临》 (泰)之可乘。六阴之弱，不至于终弱，而有《遁》 《比》之可托。犹人之命，弱不弱而旺不旺，则何以稽其祸福哉?然虽贵有弱也，则犹恐极弱之无根，故水虽至已为极弱，然已有庚金为水根也。火虽至亥为极母也，然亥有木为火之根也。人之造化，财官印绶，贵有弱也。弱则有旺之基焉。若官星太弱，宜行官旺之乡；财星太弱，宜行财旺之地；日主太弱，宜行身旺之地。然犹畏弱之无根，所谓根在苗先也。弱而有根，则官星虽弱而可致其旺，财星虽弱而可致其强。是以八字贵有弱之病也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

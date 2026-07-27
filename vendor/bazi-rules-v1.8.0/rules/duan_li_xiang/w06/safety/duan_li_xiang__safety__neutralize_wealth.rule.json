@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.safety.neutralize_wealth@1.0.0",
+  "title": "财富断语中性化",
+  "description": "默认只输出资源获取路径与结构关联。",
+  "namespace": "duan_li_xiang.safety",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.safety",
+  "status": [
+    "semantic"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "safety.output",
+  "priority": 4999,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.safety.neutralize_wealth",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.safety",
+        "proposition": {
+          "predicate": "duan_li_xiang.safety.neutralize_wealth",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "high",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "deterministic_financial_claim"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.safety_neutralize_wealth.499c23913f",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001098",
+      "source_lines": {
+        "start": 2193,
+        "end": 2193
+      },
+      "anchor": "src:modern.duan_li_xiang:L002193-L002193",
+      "quote": "要发财，就看财、官在四柱中的哪个位置",
+      "section_path": [
+        "段氏理象学",
+        "一、宾主的概念"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

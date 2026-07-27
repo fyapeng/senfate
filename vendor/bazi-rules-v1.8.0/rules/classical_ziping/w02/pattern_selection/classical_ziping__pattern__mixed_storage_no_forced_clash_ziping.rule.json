@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.mixed_storage_no_forced_clash_ziping@1.0.0",
+  "title": "《子平真诠》反对强制冲库",
+  "description": "杂气透干会支已经可以取用，不要求额外刑冲；冲动还可能损害已透之气。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "contested",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 110,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.mixed_storage_month",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.pattern.forced_clash_proposed",
+        "operator": "equals",
+        "value": true
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.mixed_storage",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.forced_clash_required",
+          "value": false
+        },
+        "truth": "true",
+        "direction": "inhibitory",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.no_forced_clash.51497389d7",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000173",
+      "source_lines": {
+        "start": 345,
+        "end": 345
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000345-L000345",
+      "quote": "辰戌丑未，最喜刑冲，财官入库不冲不发——此说虽俗书盛称之，然子平先生造命，无是说也",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "十七、论墓库刑冲之说"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.pattern.mixed_storage_clash",
+    "policy": "preserve_all",
+    "note": "与《三命通会》的条件性冲刑口径并列。"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.kinship.parent_palace_competing@1.0.0",
+  "title": "父母宫存在年柱与月柱两种口径",
+  "description": "保存作者的六亲结构映射；宫位和象征星只用于传统文化解释，不构成现实家庭事件断言。",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.kinship",
+  "status": [
+    "semantic",
+    "contested"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.kinship_resolution",
+  "priority": 1600,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.kinship.parent_palace_competing",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.kinship.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.kinship.parent_palace_methods",
+          "value": [
+            "year_pillar",
+            "month_pillar"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "family_relationship_not_deterministic"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.kinship_parent_palace_competing.c660230aba",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001394",
+      "source_lines": {
+        "start": 2779,
+        "end": 2779
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002779-L002779",
+      "quote": "关于六亲中父母宫在四柱中的排法有两种。一种是以年柱为父母宫，另一种是以月柱为父母宫。对于这个问题，我在《周易与预测学》一书中已有论述, 故不再重复。",
+      "section_path": [
+        "四柱预测学",
+        "第十二章 父母"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "shao_weihua.kinship.parent_palace",
+    "policy": "preserve_all",
+    "note": "年柱与月柱父母宫并存。"
+  }
+}

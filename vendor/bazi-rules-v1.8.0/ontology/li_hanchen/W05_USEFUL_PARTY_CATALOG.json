@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 36,
+  "entries": [
+    {
+      "rule_id": "li_hanchen.useful_party.useful_definition@1.0.0",
+      "label": "用神定义为使命局趋向理想的实字"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.unfavorable_definition@1.0.0",
+      "label": "忌神定义为使命局趋向恶化的实字"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_fuyi_useful@1.0.0",
+      "label": "扶抑身旺财官伤为用"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_fuyi_unfavorable@1.0.0",
+      "label": "扶抑身旺印比为忌"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_fuyi_useful@1.0.0",
+      "label": "扶抑身弱印比为用"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_fuyi_unfavorable@1.0.0",
+      "label": "扶抑身弱财官伤为忌"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_official_many_resource_first@1.0.0",
+      "label": "身弱官杀多首取印"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_official_many_peer_second@1.0.0",
+      "label": "身弱官杀多无印取比劫"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_wealth_many_peer_first@1.0.0",
+      "label": "身弱财多首取比劫"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_wealth_many_resource_second@1.0.0",
+      "label": "身弱财多无比取印"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_output_many_resource_first@1.0.0",
+      "label": "身弱食伤多首取印"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.weak_output_many_peer_second@1.0.0",
+      "label": "身弱食伤多无印取比"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_resource_many_wealth_first@1.0.0",
+      "label": "身旺印多首取财"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_resource_many_output_second@1.0.0",
+      "label": "身旺印多次取食伤"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_resource_many_official_third@1.0.0",
+      "label": "身旺印多再次取官杀"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_peer_many_official_first@1.0.0",
+      "label": "身旺比劫多首取官杀"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_peer_many_output_second@1.0.0",
+      "label": "身旺比劫多次取食伤"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.strong_peer_many_wealth_third@1.0.0",
+      "label": "身旺比劫多再次取财"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.throughpass_water_fire@1.0.0",
+      "label": "水火相战以木通关"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.throughpass_fire_metal@1.0.0",
+      "label": "火金相战以土通关"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.throughpass_metal_wood@1.0.0",
+      "label": "金木相战以水通关"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.throughpass_wood_earth@1.0.0",
+      "label": "木土相战以火通关"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.throughpass_earth_water@1.0.0",
+      "label": "土水相战以金通关"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_not_independent@1.0.0",
+      "label": "调候归入扶抑特殊形式"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_cold@1.0.0",
+      "label": "辰丑为忌登记寒性"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_warm@1.0.0",
+      "label": "丙丁巳午为忌登记暖性"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_dry@1.0.0",
+      "label": "未戌为忌登记燥性"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_wet@1.0.0",
+      "label": "壬癸亥子为忌登记湿性"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.climate_not_by_month_only@1.0.0",
+      "label": "寒暖燥湿不由月令单独决定"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.cong_strong_useful@1.0.0",
+      "label": "从强印比为用"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.cong_strong_unfavorable@1.0.0",
+      "label": "从强官财伤为忌"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.cong_strong_output_conditional@1.0.0",
+      "label": "从强食伤有力可作条件用神"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.cong_weak_useful@1.0.0",
+      "label": "从弱财官伤为用"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.cong_weak_unfavorable@1.0.0",
+      "label": "从弱印比为忌"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.transform_useful_separate@1.0.0",
+      "label": "化格用忌由化神纯度确定"
+    },
+    {
+      "rule_id": "li_hanchen.useful_party.no_fixed_good_ten_god@1.0.0",
+      "label": "十神名称不自带吉凶"
+    }
+  ]
+}

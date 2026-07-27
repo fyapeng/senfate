@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.entry.image_after_no_work@1.0.0",
+  "title": "所有做功入口失败转象法",
+  "description": "只登记象法待解析，不生成具体事件。",
+  "namespace": "duan_li_xiang.entry",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.entry",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.entry_resolution",
+  "priority": 4989,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.entry.image_after_no_work",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.entry",
+        "proposition": {
+          "predicate": "duan_li_xiang.entry.image_after_no_work",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.entry_image_after_no_work.0cd99ee75e",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001235",
+      "source_lines": {
+        "start": 2467,
+        "end": 2467
+      },
+      "anchor": "src:modern.duan_li_xiang:L002467-L002467",
+      "quote": "需要从 “象” 的角度去进一步分析",
+      "section_path": [
+        "段氏理象学",
+        "一、看四柱的功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "W06 第一阶段不实现完整象法。"
+    ]
+  }
+}

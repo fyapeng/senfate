@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.useful_god.analog_secondary_patterns@1.0.0",
+  "title": "取用案例：['偏财格', '七杀格', '食神格']／analog_to_corresponding_regular_pattern",
+  "description": "依据作者成格取用段落登记条件化候选；候选不等同现实吉凶或固定终局用神。",
+  "namespace": "shao_weihua.useful_god",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.useful_god",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_god_resolution",
+  "priority": 2465,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.useful_god_case_matches",
+    "args": {
+      "case_id": "analog_secondary_patterns"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.useful_god.selection",
+        "proposition": {
+          "predicate": "shao_weihua.useful_god.candidate",
+          "value": "profile_defined"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "incomplete",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        },
+        "attributes": {
+          "case_id": "analog_secondary_patterns",
+          "pattern": [
+            "偏财格",
+            "七杀格",
+            "食神格"
+          ],
+          "strength": "any",
+          "trigger": "analog_to_corresponding_regular_pattern",
+          "candidate": "profile_defined",
+          "fallback": false,
+          "note": "原文仅称大致相同，不自动复制全部条件。"
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.useful_god_analog_secondary_patterns.f208e815e1",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001235",
+      "source_lines": {
+        "start": 2463,
+        "end": 2463
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002463-L002463",
+      "quote": "偏财，偏官，食神格的用神取法大致同正格相同，故不重述。",
+      "section_path": [
+        "四柱预测学",
+        "一、成格用神取法:"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

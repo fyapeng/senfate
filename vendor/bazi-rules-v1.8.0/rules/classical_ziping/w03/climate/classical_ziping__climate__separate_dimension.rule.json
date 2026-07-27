@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.separate_dimension@1.0.0",
+  "title": "调候作为独立结构维度",
+  "description": "寒暖燥湿作为结构条件单独计算，不由月令格名或日主旺衰自动替代。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 3150,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.climate.evidence_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.climate.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.climate.dimension",
+          "value": [
+            "cold_warm",
+            "dry_moist"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_dimension.dda8cddfe9",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000378",
+      "source_lines": {
+        "start": 755,
+        "end": 755
+      },
+      "anchor": "src:classic.di_tian_sui:L000755-L000755",
+      "quote": "天道有寒暖，发育万物，人道行之，不可过也。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十九、寒暖"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    },
+    {
+      "source_ref_id": "src.w03.dry_moist_dimension.b594fe0e25",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000381",
+      "source_lines": {
+        "start": 761,
+        "end": 761
+      },
+      "anchor": "src:classic.di_tian_sui:L000761-L000761",
+      "quote": "地道有燥湿，生成品泯，人道得之，不可偏也。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "三十、燥湿"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

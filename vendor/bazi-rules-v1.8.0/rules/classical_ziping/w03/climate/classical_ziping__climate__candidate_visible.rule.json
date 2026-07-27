@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.candidate_visible@1.0.0",
+  "title": "候选透干时登记可见性",
+  "description": "调候候选在活动天干层出现时，登记为可见候选；有效性仍由 resolver 另判。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 3110,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.climate.primary_candidate_visibility",
+    "operator": "equals",
+    "value": "visible"
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.climate.visible_candidate",
+        "value": "visible_candidate",
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.climate.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.climate.candidate_status",
+          "value": "visible_candidate"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_candidate_visible.1c0cd56d12",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000384",
+      "source_lines": {
+        "start": 767,
+        "end": 767
+      },
+      "anchor": "src:classic.di_tian_sui:L000767-L000767",
+      "quote": "吉神太露，起争夺之风；凶物深藏，成养虎之患。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "三十一、隐显"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

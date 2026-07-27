@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern.favorable_pattern_forward_use@1.0.0",
+  "title": "财官印食采用顺用路径",
+  "description": "对财、官、印、食候选登记生助保护的顺用方向；具体成格仍由成败救应规则裁决。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_selection",
+  "priority": 880,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w02.pattern.candidate_ten_god",
+    "operator": "in",
+    "value": [
+      "正财",
+      "偏财",
+      "正官",
+      "正印",
+      "偏印",
+      "食神"
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.pattern.strategy",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.use_direction",
+          "value": "forward"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.forward_use.6b12ce644c",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000113",
+      "source_lines": {
+        "start": 225,
+        "end": 225
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000225-L000225",
+      "quote": "财官印食，此用神之善而顺用之者也",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "八、论用神"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

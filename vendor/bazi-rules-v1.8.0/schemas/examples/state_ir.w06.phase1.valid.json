@@ -1,0 +1,1528 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.chart.001.natal.duan_li_xiang_w06",
+  "chart_id": "synthetic.chart.001",
+  "stage": "natal",
+  "school_profile_id": "duan_li_xiang.w06@1.0.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.state.synthetic.chart.001.natal.duan_li_xiang_w06.temporal_compilation_complete",
+      "subject": {
+        "ref_id": "synthetic.chart.001",
+        "entity_type": "chart",
+        "layer": "natal"
+      },
+      "predicate": "duan_li_xiang.temporal.compilation_complete",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "natal",
+        "state_id": "state.synthetic.chart.001.natal.duan_li_xiang_w06"
+      },
+      "source_type": "computed",
+      "algorithm_id": "duan_li_xiang.w06.phase1.compiler@1.0.0"
+    }
+  ],
+  "relations": [],
+  "findings": [],
+  "school_state": {
+    "duan_li_xiang": {
+      "w06": {
+        "procedure": {
+          "concepts_author_formalization": true,
+          "host_body_before_work": true,
+          "party_target_required": true,
+          "reject_strength_as_entry": true,
+          "reject_useful_god": true,
+          "active_profile": true,
+          "start_from_main_position": true,
+          "theory_reads_chart": true,
+          "theory_scope": true,
+          "three_methods": true,
+          "whole_structure_required": true,
+          "work_primary_not_exhaustive": true,
+          "evidence_compiled": true,
+          "analysis_sequence": [
+            "host_body",
+            "configuration",
+            "entry",
+            "work_graph",
+            "qualitative_efficiency",
+            "temporal_recompute",
+            "safe_findings"
+          ],
+          "entry_excludes": [
+            "day_master_strength",
+            "global_useful_god"
+          ],
+          "source_scope": "introductory_theory_with_explicit_incompleteness",
+          "unpublished_or_incomplete": [
+            "deep_image",
+            "technique",
+            "exact_timing",
+            "unseen_mnemonics"
+          ],
+          "examples_generalizable_by_default": false
+        },
+        "host_body": {
+          "body_day_master": true,
+          "body_lu": true,
+          "body_peer": true,
+          "body_resource": true,
+          "body_use_by_ten_god": true,
+          "day_branch_house": true,
+          "food_nearer_body": true,
+          "host_guest_layered": true,
+          "host_guest_self_external": true,
+          "hurting_nearer_use": true,
+          "level_day_hour": true,
+          "level_day_master": true,
+          "level_day_pillar": true,
+          "level_natal_time": true,
+          "output_contextual": true,
+          "position_before_association": true,
+          "positive_work": true,
+          "reverse_work": true,
+          "role_context_not_global": true,
+          "use_official": true,
+          "use_wealth": true,
+          "evidence_compiled": true,
+          "levels": [
+            "day_master",
+            "day_pillar",
+            "day_hour",
+            "natal_time"
+          ],
+          "default_comparison_level": "day_hour",
+          "tokens": [
+            {
+              "ref_id": "natal.year.stem",
+              "layer": "natal",
+              "position": "year",
+              "kind": "stem",
+              "token": "甲",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.year.branch",
+              "layer": "natal",
+              "position": "year",
+              "kind": "branch",
+              "token": "子",
+              "element": "water",
+              "ten_god": "正财",
+              "body_use": "use",
+              "pillar_ref": "natal.year",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.month.stem",
+              "layer": "natal",
+              "position": "month",
+              "kind": "stem",
+              "token": "丙",
+              "element": "fire",
+              "ten_god": "偏印",
+              "body_use": "body",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.month.branch",
+              "layer": "natal",
+              "position": "month",
+              "kind": "branch",
+              "token": "寅",
+              "element": "wood",
+              "ten_god": "七杀",
+              "body_use": "use",
+              "pillar_ref": "natal.month",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "guest",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.day.stem",
+              "layer": "natal",
+              "position": "day",
+              "kind": "stem",
+              "token": "戊",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "host",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.day.branch",
+              "layer": "natal",
+              "position": "day",
+              "kind": "branch",
+              "token": "辰",
+              "element": "earth",
+              "ten_god": "比肩",
+              "body_use": "body",
+              "pillar_ref": "natal.day",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "host",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.hour.stem",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "stem",
+              "token": "庚",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            },
+            {
+              "ref_id": "natal.hour.branch",
+              "layer": "natal",
+              "position": "hour",
+              "kind": "branch",
+              "token": "申",
+              "element": "metal",
+              "ten_god": "食神",
+              "body_use": "body_leaning",
+              "pillar_ref": "natal.hour",
+              "host_guest": {
+                "day_master": "guest",
+                "day_pillar": "guest",
+                "day_hour": "host",
+                "natal_time": "host"
+              }
+            }
+          ],
+          "body_refs": [
+            "natal.month.stem",
+            "natal.day.stem",
+            "natal.day.branch"
+          ],
+          "use_refs": [
+            "natal.year.stem",
+            "natal.year.branch",
+            "natal.month.branch"
+          ],
+          "contextual_output_refs": [
+            "natal.hour.stem",
+            "natal.hour.branch"
+          ],
+          "role_counts": {
+            "use": 3,
+            "body": 3,
+            "body_leaning": 2
+          },
+          "host_counts_by_level": {
+            "day_master": 1,
+            "day_pillar": 2,
+            "day_hour": 4,
+            "natal_time": 8
+          },
+          "role_assignment_is_contextual": true
+        },
+        "configuration": {
+          "branch_no_plain_control_stem": true,
+          "branch_stem_combine": true,
+          "branch_stem_generate": true,
+          "four_tombs_no_original_stem": true,
+          "half_lu_bing_wu": true,
+          "half_lu_ding_ji": true,
+          "half_lu_ding_wei": true,
+          "half_lu_gui_chou": true,
+          "lu_is_stem_extension": true,
+          "lu_original_mapping": true,
+          "original_is_branch_extension": true,
+          "real_rooted_or_generated": true,
+          "self_combine_bing_xu_conditional": true,
+          "self_combine_ding_hai": true,
+          "self_combine_gui_si": true,
+          "self_combine_ji_hai": true,
+          "self_combine_jia_wu": true,
+          "self_combine_ren_wu": true,
+          "self_combine_ren_xu_conditional": true,
+          "self_combine_wu_zi": true,
+          "self_combine_xin_si": true,
+          "stem_controls_branch": true,
+          "three_configuration_families": true,
+          "virtual_not_strength": true,
+          "virtual_real_has_semantics": true,
+          "virtual_real_pillar_only": true,
+          "virtual_real_transition": true,
+          "virtual_unrooted_ungenerated": true,
+          "evidence_compiled": true,
+          "pillar_virtual_real": [
+            {
+              "pillar_ref": "natal.year",
+              "stem": "甲",
+              "branch": "子",
+              "rooted": false,
+              "generated_by_branch": true,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.month",
+              "stem": "丙",
+              "branch": "寅",
+              "rooted": true,
+              "generated_by_branch": true,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.day",
+              "stem": "戊",
+              "branch": "辰",
+              "rooted": true,
+              "generated_by_branch": false,
+              "virtual_real": "real"
+            },
+            {
+              "pillar_ref": "natal.hour",
+              "stem": "庚",
+              "branch": "申",
+              "rooted": true,
+              "generated_by_branch": false,
+              "virtual_real": "real"
+            }
+          ],
+          "real_pillars": [
+            "natal.year",
+            "natal.month",
+            "natal.day",
+            "natal.hour"
+          ],
+          "virtual_pillars": [],
+          "self_combine_candidates": [],
+          "active_self_combines": [],
+          "lu_connections": [
+            {
+              "pillar_ref": "natal.hour",
+              "stem": "庚",
+              "branch": "申",
+              "kind": "same_pillar_lu"
+            },
+            {
+              "stem_ref": "natal.year.stem",
+              "branch_ref": "natal.month.branch",
+              "stem": "甲",
+              "branch": "寅",
+              "kind": "lu_original_connection"
+            },
+            {
+              "stem_ref": "natal.hour.stem",
+              "branch_ref": "natal.hour.branch",
+              "stem": "庚",
+              "branch": "申",
+              "kind": "lu_original_connection"
+            }
+          ],
+          "half_lu_candidates": [
+            {
+              "stem_refs": [
+                "natal.month.stem",
+                "natal.day.stem"
+              ],
+              "stems": [
+                "丙",
+                "戊"
+              ],
+              "slug": "bing_wu"
+            }
+          ],
+          "four_tomb_branches": [
+            "辰"
+          ],
+          "plain_branch_controls_stem": false,
+          "stem_controls_branch_allowed": true,
+          "branch_generates_stem_allowed": true,
+          "virtual_real_scope": "same_pillar_configuration",
+          "virtual_real_is_strength": false
+        },
+        "entry": {
+          "combine_requires_work": false,
+          "day_branch_party": true,
+          "day_branch_relations": true,
+          "day_stem_combine": false,
+          "day_stem_combine_official": false,
+          "day_stem_combine_wealth": false,
+          "day_stem_output_second": true,
+          "fallback_day_branch": false,
+          "fallback_lu_peer": false,
+          "inspect_day_stem_first": true,
+          "output_adjacent": true,
+          "evidence_compiled": true,
+          "selected_route": "day_stem_output",
+          "day_stem_combine_paths": [],
+          "adjacent_output_refs": [
+            "natal.hour.stem"
+          ],
+          "day_branch_work_paths": [
+            "work.0004",
+            "work.0008",
+            "work.0009",
+            "work.0014",
+            "work.0017",
+            "work.0018",
+            "work.0025",
+            "work.0026",
+            "work.0027"
+          ],
+          "lu_peer_refs": [
+            "natal.month.stem"
+          ],
+          "fallback_image_status": "not_needed",
+          "combine_counterparts": []
+        },
+        "work": {
+          "clean_control": true,
+          "compound_not_layer_count": true,
+          "connected_root_protected": true,
+          "control_any_role_conditioned": true,
+          "definition": true,
+          "five_control_configurations": true,
+          "gong_participant": true,
+          "mode_combine": false,
+          "mode_compound": true,
+          "mode_control": true,
+          "mode_drain": true,
+          "mode_generate": true,
+          "mode_tomb": true,
+          "mode_transform": true,
+          "party_fire_dry_earth": true,
+          "party_metal_water": true,
+          "party_metal_wet_earth": true,
+          "party_momentum": true,
+          "party_water_wet_earth": true,
+          "party_water_wood": true,
+          "party_wood_fire": true,
+          "relation_clash": true,
+          "relation_combine": false,
+          "relation_control": true,
+          "relation_harm": false,
+          "relation_punish": true,
+          "relation_tomb": true,
+          "target_required": true,
+          "unclean_control_lower": true,
+          "waste_nonparticipant": false,
+          "evidence_compiled": true,
+          "work_graph": [
+            {
+              "work_id": "work.0001",
+              "participants": [
+                "natal.year.stem",
+                "natal.year.branch"
+              ],
+              "tokens": [
+                "甲",
+                "子"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.year.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0002",
+              "participants": [
+                "natal.year.stem",
+                "natal.month.stem"
+              ],
+              "tokens": [
+                "甲",
+                "丙"
+              ],
+              "relation_type": "generate",
+              "method": "generate",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.month.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0003",
+              "participants": [
+                "natal.year.stem",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "甲",
+                "戊"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0004",
+              "participants": [
+                "natal.year.stem",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "甲",
+                "辰"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.year.stem",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0005",
+              "participants": [
+                "natal.year.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "甲",
+                "庚"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.stem",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0006",
+              "participants": [
+                "natal.year.branch",
+                "natal.month.branch"
+              ],
+              "tokens": [
+                "子",
+                "寅"
+              ],
+              "relation_type": "element_generate",
+              "method": "generate",
+              "source_ref": "natal.year.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0007",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "子",
+                "戊"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0008",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "子",
+                "辰"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0009",
+              "participants": [
+                "natal.year.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "子",
+                "辰"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0010",
+              "participants": [
+                "natal.year.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "子",
+                "庚"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0011",
+              "participants": [
+                "natal.year.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "子",
+                "申"
+              ],
+              "relation_type": "element_generate",
+              "method": "drain",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.year.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0012",
+              "participants": [
+                "natal.month.stem",
+                "natal.month.branch"
+              ],
+              "tokens": [
+                "丙",
+                "寅"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.month.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0013",
+              "participants": [
+                "natal.month.stem",
+                "natal.day.stem"
+              ],
+              "tokens": [
+                "丙",
+                "戊"
+              ],
+              "relation_type": "generate",
+              "method": "drain",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0014",
+              "participants": [
+                "natal.month.stem",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "丙",
+                "辰"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0015",
+              "participants": [
+                "natal.month.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "丙",
+                "庚"
+              ],
+              "relation_type": "control",
+              "method": "control",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.stem",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0016",
+              "participants": [
+                "natal.month.stem",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "丙",
+                "申"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.month.stem",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0017",
+              "participants": [
+                "natal.month.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "寅",
+                "辰"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.day.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0018",
+              "participants": [
+                "natal.month.branch",
+                "natal.day.branch"
+              ],
+              "tokens": [
+                "寅",
+                "辰"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0019",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "寅",
+                "庚"
+              ],
+              "relation_type": "stem_controls_branch",
+              "method": "control",
+              "source_ref": "natal.hour.stem",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0020",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "clash",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0021",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "punishment",
+              "method": "control",
+              "source_ref": "natal.month.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "reverse",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0022",
+              "participants": [
+                "natal.month.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "寅",
+                "申"
+              ],
+              "relation_type": "element_control",
+              "method": "control",
+              "source_ref": "natal.hour.branch",
+              "target_ref": "natal.month.branch",
+              "direction": "positive",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0023",
+              "participants": [
+                "natal.day.stem",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "戊",
+                "庚"
+              ],
+              "relation_type": "generate",
+              "method": "drain",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0024",
+              "participants": [
+                "natal.day.stem",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "戊",
+                "申"
+              ],
+              "relation_type": "stem_generates_branch",
+              "method": "drain",
+              "source_ref": "natal.day.stem",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0025",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.stem"
+              ],
+              "tokens": [
+                "辰",
+                "庚"
+              ],
+              "relation_type": "branch_generates_stem",
+              "method": "generate",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.stem",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0026",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "辰",
+                "申"
+              ],
+              "relation_type": "element_generate",
+              "method": "drain",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            },
+            {
+              "work_id": "work.0027",
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "tokens": [
+                "辰",
+                "申"
+              ],
+              "relation_type": "tomb_candidate",
+              "method": "tomb",
+              "source_ref": "natal.day.branch",
+              "target_ref": "natal.hour.branch",
+              "direction": "mixed_or_unknown",
+              "comparison_level": "day_hour",
+              "resolution_status": "candidate"
+            }
+          ],
+          "work_count": 27,
+          "compound_paths": [
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.year.branch"
+              ],
+              "component_work_ids": [
+                "work.0008",
+                "work.0009"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.month.branch"
+              ],
+              "component_work_ids": [
+                "work.0017",
+                "work.0018"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.hour.branch",
+                "natal.month.branch"
+              ],
+              "component_work_ids": [
+                "work.0020",
+                "work.0021",
+                "work.0022"
+              ],
+              "method": "compound"
+            },
+            {
+              "participants": [
+                "natal.day.branch",
+                "natal.hour.branch"
+              ],
+              "component_work_ids": [
+                "work.0026",
+                "work.0027"
+              ],
+              "method": "compound"
+            }
+          ],
+          "compound_count": 4,
+          "relation_counts": {
+            "branch_generates_stem": 3,
+            "generate": 3,
+            "control": 3,
+            "stem_controls_branch": 4,
+            "element_generate": 3,
+            "element_control": 3,
+            "tomb_candidate": 3,
+            "stem_generates_branch": 3,
+            "clash": 1,
+            "punishment": 1
+          },
+          "method_counts": {
+            "generate": 5,
+            "control": 12,
+            "tomb": 3,
+            "drain": 7
+          },
+          "direction_counts": {
+            "mixed_or_unknown": 7,
+            "reverse": 11,
+            "positive": 9
+          },
+          "gong_refs": [
+            "natal.day.branch",
+            "natal.day.stem",
+            "natal.hour.branch",
+            "natal.hour.stem",
+            "natal.month.branch",
+            "natal.month.stem",
+            "natal.year.branch",
+            "natal.year.stem"
+          ],
+          "waste_refs": [],
+          "party_candidates": [
+            {
+              "party": "wood_fire",
+              "elements": [
+                "fire",
+                "wood"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "fire_dry_earth",
+              "elements": [
+                "earth",
+                "fire"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "metal_water",
+              "elements": [
+                "metal",
+                "water"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "water_wood",
+              "elements": [
+                "water",
+                "wood"
+              ],
+              "node_count": 3,
+              "active": true
+            },
+            {
+              "party": "metal_wet_earth",
+              "elements": [
+                "earth",
+                "metal"
+              ],
+              "node_count": 4,
+              "active": true
+            },
+            {
+              "party": "water_wet_earth",
+              "elements": [
+                "earth",
+                "water"
+              ],
+              "node_count": 3,
+              "active": true
+            }
+          ],
+          "hidden_total_score": false,
+          "graph_complete_for_phase1_relations": true
+        },
+        "efficiency": {
+          "branch_above_stem": true,
+          "combine_low": true,
+          "combine_medium": false,
+          "combine_second_tier": true,
+          "combine_si_shen_high": true,
+          "enclosure_bonus": true,
+          "energy_each_token": true,
+          "harm_control_subset": true,
+          "harm_requires_force": true,
+          "no_hidden_total_score": true,
+          "party_supports_efficiency": true,
+          "plain_control_low": true,
+          "primary_auxiliary": true,
+          "source_and_target_controlled": true,
+          "surround_control_high": true,
+          "tomb_clash_high": false,
+          "tomb_control_bonus": true,
+          "useful_work_requires_output": true,
+          "waste_two_forms": true,
+          "wu_wei_no_control": true,
+          "yin_shen_si_hai_high": true,
+          "zi_wu_mao_you_lower": false,
+          "evidence_compiled": true,
+          "vectors": [
+            {
+              "work_id": "work.0001",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0002",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "generate",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0003",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0004",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0005",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0006",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0007",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0008",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0009",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "positive",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0010",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "positive",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0011",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "positive",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0012",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0013",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "drain",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0014",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "reverse",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0015",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0016",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0017",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0018",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "positive",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0019",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0020",
+              "tier": "high",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "yin_shen_si_hai_clash",
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0021",
+              "tier": "medium",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "reverse",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0022",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "control",
+              "direction": "positive",
+              "factors": [
+                "plain_or_relational_control"
+              ],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0023",
+              "tier": "low",
+              "carrier_layers": [
+                "stem"
+              ],
+              "branch_carrier": false,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0024",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0025",
+              "tier": "low",
+              "carrier_layers": [
+                "branch",
+                "stem"
+              ],
+              "branch_carrier": true,
+              "method": "generate",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0026",
+              "tier": "low",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "drain",
+              "direction": "mixed_or_unknown",
+              "factors": [],
+              "numeric_score": null
+            },
+            {
+              "work_id": "work.0027",
+              "tier": "unknown",
+              "carrier_layers": [
+                "branch"
+              ],
+              "branch_carrier": true,
+              "method": "tomb",
+              "direction": "mixed_or_unknown",
+              "factors": [
+                "tomb_candidate"
+              ],
+              "numeric_score": null
+            }
+          ],
+          "tier_counts": {
+            "low": 22,
+            "unknown": 3,
+            "high": 1,
+            "medium": 1
+          },
+          "branch_path_count": 21,
+          "stem_only_path_count": 6,
+          "qualitative_dimensions": [
+            "carrier_layer",
+            "relation_method",
+            "direction",
+            "enclosure",
+            "target_control",
+            "source_support",
+            "residual_interference"
+          ],
+          "hidden_total_score": false,
+          "total_score": null,
+          "rank_mapping_enabled": false
+        },
+        "temporal": {
+          "catcher_thief_activation": false,
+          "compound_modes_by_luck": false,
+          "luck_annual_guest": false,
+          "multi_solution_allowed": true,
+          "recompute_relations": true,
+          "recompute_virtual_real": true,
+          "virtual_real_timing": false,
+          "evidence_compiled": true,
+          "stage": "natal",
+          "active_luck": null,
+          "active_annual": null,
+          "relations_recomputed": true,
+          "virtual_real_recomputed": true,
+          "work_recomputed": true,
+          "work_count": 27,
+          "virtual_real_transitions": [],
+          "deep_timing_status": "unknown_incomplete"
+        },
+        "safety": {
+          "example_not_general_rule": true,
+          "neutralize_marriage": true,
+          "neutralize_moral_labels": true,
+          "neutralize_status": true,
+          "neutralize_wealth": true,
+          "evidence_compiled": true,
+          "block_disease": true,
+          "block_death": true,
+          "block_crime": true,
+          "no_scientific_claim": true,
+          "output_scope": "traditional_structural_interpretation_only"
+        }
+      }
+    }
+  },
+  "trace_id": "trace.state.synthetic.chart.001.natal.duan_li_xiang_w06"
+}

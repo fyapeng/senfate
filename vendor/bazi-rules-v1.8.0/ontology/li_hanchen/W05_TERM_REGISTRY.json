@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "terms": [
+    {
+      "term_id": "li_hanchen.fuyi",
+      "label": "扶抑格",
+      "definition": "日元旺可抑或弱可扶，以中和为结构目标。"
+    },
+    {
+      "term_id": "li_hanchen.cong_strong",
+      "label": "从强格",
+      "definition": "日元旺而有效制耗不足，顺其旺势。"
+    },
+    {
+      "term_id": "li_hanchen.cong_weak",
+      "label": "从弱格",
+      "definition": "日元弱而有效印比不足，顺其弱势。"
+    },
+    {
+      "term_id": "li_hanchen.transform",
+      "label": "化格",
+      "definition": "日干与相邻干一对一五合，化神旺且变性之神弱。"
+    },
+    {
+      "term_id": "li_hanchen.useful_party",
+      "label": "用神党",
+      "definition": "本体系中对原局结构起支持作用的实字集合。"
+    },
+    {
+      "term_id": "li_hanchen.unfavorable_party",
+      "label": "忌神党",
+      "definition": "本体系中使原局结构偏离其目标的实字集合。"
+    },
+    {
+      "term_id": "li_hanchen.virtual",
+      "label": "虚神",
+      "definition": "十干十二支全集中未在原局出现的字。"
+    },
+    {
+      "term_id": "li_hanchen.real",
+      "label": "实神",
+      "definition": "十干十二支全集中在原局出现的字。"
+    },
+    {
+      "term_id": "li_hanchen.temporal",
+      "label": "命局—大运—流年",
+      "definition": "原局分类固定，运年先相互作用，结果再作用原局。"
+    },
+    {
+      "term_id": "li_hanchen.baishen",
+      "label": "百神论",
+      "definition": "本书未完整公开的六亲替代映射模块，本窗口不执行。"
+    }
+  ]
+}

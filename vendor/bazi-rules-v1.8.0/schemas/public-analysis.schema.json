@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://bazi-rules.local/schemas/public-analysis.schema.json",
+  "title":"Public School-Separated Analysis",
+  "type":"object","additionalProperties":false,
+  "required":["analysis_id","chart_id","stage","schools","cross_school_comparison_included","comparison_note","scope_note"],
+  "properties":{
+    "analysis_id":{"type":["string","null"]},"chart_id":{"type":["string","null"]},"stage":{"type":["string","null"]},
+    "schools":{"type":"array","minItems":4,"maxItems":4,"items":{"type":"object","additionalProperties":false,
+      "required":["school","stage","verdict","themes","key_findings","note"],
+      "properties":{
+        "school":{"type":"string","minLength":1},"stage":{"type":"string"},
+        "verdict":{"type":"object","additionalProperties":false,
+          "required":["headline","primary_structure","strength_or_axis","primary_use","secondary_structures","rejected_routes","caveats"],
+          "properties":{"headline":{"type":"string"},"primary_structure":{"type":"string"},"strength_or_axis":{"type":"string"},"primary_use":{"type":"string"},"secondary_structures":{"type":"array","items":{"type":"string"}},"rejected_routes":{"type":"array","items":{"type":"string"}},"caveats":{"type":"array","items":{"type":"string"}}}},
+        "themes":{"type":"array","minItems":5,"maxItems":5,"items":{"type":"object","additionalProperties":false,
+          "required":["topic","assessment","headline","conclusion","supporting_factors","limiting_factors","time_effect"],
+          "properties":{"topic":{"type":"string"},"assessment":{"type":"string"},"headline":{"type":"string"},"conclusion":{"type":"string"},"supporting_factors":{"type":"array","items":{"type":"string"}},"limiting_factors":{"type":"array","items":{"type":"string"}},"time_effect":{"type":["string","null"]}}}},
+        "key_findings":{"type":"array","items":{"type":"string"}},"note":{"type":"string","minLength":1}
+      }}},
+    "cross_school_comparison_included":{"type":"boolean"},"comparison_note":{"type":"string","minLength":1},"scope_note":{"type":"string","minLength":1}
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.useful_party.climate_not_by_month_only@1.0.0",
+  "title": "寒暖燥湿不由月令单独决定",
+  "description": "将命局字分配到用神党或忌神党，并保存最得力候选；不输出确定现实结果。",
+  "namespace": "li_hanchen.useful_party",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.useful_party",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.useful_party_resolution",
+  "priority": 2172,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.useful_party.climate_not_by_month_only",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.useful_party",
+        "proposition": {
+          "predicate": "li_hanchen.useful_party.climate_not_by_month_only",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w05.useful_party_climate_not_by_month_only.5a9054fa0d",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000050",
+      "source_lines": {
+        "start": 964,
+        "end": 1080
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000964-L001080",
+      "quote": "并非是月令决定的，而是以寒暖燥湿在局中所起的作用定",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

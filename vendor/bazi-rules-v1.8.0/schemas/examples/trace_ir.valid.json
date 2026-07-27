@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "trace_id": "trace.synthetic.classical.natal",
+  "chart_id": "synthetic.chart.001",
+  "school_profile_id": "classical_ziping.composite.profile@1.8.0",
+  "initial_state_id": "state.synthetic.common.natal",
+  "events": [
+    {
+      "event_index": 0,
+      "event_type": "phase_started",
+      "state_id": "state.synthetic.common.natal",
+      "phase": "school.classification",
+      "result": "started",
+      "details": {}
+    },
+    {
+      "event_index": 1,
+      "event_type": "rule_evaluated",
+      "state_id": "state.synthetic.common.natal",
+      "phase": "school.classification",
+      "rule_id": "classical_ziping.pattern.month_main_qi_visible@1.0.0",
+      "result": "fired",
+      "condition_truth": "true",
+      "input_refs": [
+        "fact.synthetic.month_main_qi_visible"
+      ],
+      "output_refs": [
+        "finding.synthetic.pattern_candidate"
+      ],
+      "details": {}
+    }
+  ],
+  "final_state_id": "state.synthetic.classical.natal",
+  "warnings": []
+}

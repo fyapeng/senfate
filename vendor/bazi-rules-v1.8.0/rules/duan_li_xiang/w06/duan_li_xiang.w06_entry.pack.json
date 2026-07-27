@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_entry@1.0.0",
+  "namespace": "duan_li_xiang.entry",
+  "school_id": "duan_li_xiang",
+  "label": "四柱入手程序",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__inspect_day_stem_first.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_stem_combine.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_stem_combine_official.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_stem_combine_wealth.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__combine_requires_work.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_stem_output_second.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__output_adjacent.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__fallback_day_branch.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_branch_party.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__day_branch_relations.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__fallback_lu_peer.rule.json",
+    "rules/duan_li_xiang/w06/entry/duan_li_xiang__entry__image_after_no_work.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

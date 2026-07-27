@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.classification.v15_repeat_official_output_peer_no_reverse@1.0.0",
+  "title": "官食比重复不反断",
+  "description": "官星、食伤和比肩按作者明示的重复组合出现时，不使用普通反断。",
+  "namespace": "li_hanchen.classification",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.classification",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.classification",
+  "priority": 2401,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.strength.repeated_official_output_peer_no_reverse",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "li_hanchen.classification",
+        "proposition": {
+          "predicate": "li_hanchen.classification.v15_repeat_official_output_peer_no_reverse",
+          "value": "重复组合不反断"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v15.908af551d7",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000112",
+      "source_lines": {
+        "start": 2194,
+        "end": 2241
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L002194-L002241",
+      "quote": "杀印枭劫比\n癸未甲申乙酉丙戌丁亥\n身旺用酉金，局中有两个乙木相同，月干壬水为忌，忌神靠近日干，先天风水中，壬水旺为凶，残。癸未大运前行壬午运(行大运前也有大运，顺正常排出的大运，再往上排即是，可测本人出生至行运前之吉凶，大运继续往前排，可测父亲、爷爷、曾祖、高祖……)。壬午运，丁未年，丁、壬绊，局中之凶，在运中出现，丁火泄时干乙木用神，七杀为凶，患小儿麻痹症落残。\n贵州省织金县张先生\n比杀日元杀\n乙卯辛巳乙卯辛巳\n官财才食伤\n庚辰己卯戊寅丁丑丙子\n从弱格，局中两辛、丙乙、两巳、两卯，无反断，辛金为用神，辛金弱时凶。戊寅运，戊生辛力小，本运凶，丁丑流年，丁生戊力小，施工爆破时，飞来长条钢片穿透膝盖致残。",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

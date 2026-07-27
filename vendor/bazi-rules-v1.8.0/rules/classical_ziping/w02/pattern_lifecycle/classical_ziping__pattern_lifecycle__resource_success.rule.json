@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.pattern_lifecycle.resource_success@1.0.0",
+  "title": "印格成",
+  "description": "按《子平真诠》登记该格的成格条件；结论仅为传统结构状态。",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.pattern",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.pattern_lifecycle",
+  "priority": 698,
+  "when": {
+    "op": "all",
+    "args": [
+      {
+        "op": "fact",
+        "path": "facts.classical_ziping.w02.lifecycle.confirmed_pattern",
+        "operator": "equals",
+        "value": "印"
+      },
+      {
+        "op": "any",
+        "args": [
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.light_with_kill_generation",
+            "operator": "equals",
+            "value": true
+          },
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.official_resource_complete",
+            "operator": "equals",
+            "value": true
+          },
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.day_and_resource_strong_with_output",
+            "operator": "equals",
+            "value": true
+          },
+          {
+            "op": "fact",
+            "path": "facts.classical_ziping.w02.lifecycle.resource.many_with_light_rooted_wealth",
+            "operator": "equals",
+            "value": true
+          }
+        ]
+      }
+    ]
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_fact",
+      "payload": {
+        "subject": {
+          "ref_id": "chart",
+          "entity_type": "chart",
+          "layer": "natal"
+        },
+        "predicate": "classical_ziping.pattern.resource_success",
+        "value": {
+          "pattern": "印",
+          "status": "success"
+        },
+        "truth": "true",
+        "source_type": "rule_asserted"
+      }
+    },
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.pattern.lifecycle",
+        "proposition": {
+          "predicate": "classical_ziping.pattern.lifecycle_status",
+          "value": {
+            "pattern": "印",
+            "status": "success"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.resource_success.32c8f516cf",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000118",
+      "source_lines": {
+        "start": 235,
+        "end": 235
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000235-L000235",
+      "quote": "印轻逢煞，或官印双全，或身印两旺而用食伤泄气，或印多逢财而财透根轻，印格成也",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "九、论用神成败救应"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

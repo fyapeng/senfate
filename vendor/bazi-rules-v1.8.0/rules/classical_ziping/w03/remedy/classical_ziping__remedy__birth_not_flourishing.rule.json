@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.birth_not_flourishing@1.0.0",
+  "title": "长生不等于已经旺盛",
+  "description": "初生状态只表示气机开始，不能直接按旺盛处理。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1910,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.birth_stage_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.stage_policy",
+          "value": "birth_is_not_flourishing"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.birth_not_flourishing.44ed55145c",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000054",
+      "source_lines": {
+        "start": 107,
+        "end": 107
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000107-L000107",
+      "quote": "何以谓之生也?六阳生处，真为生也。如甲木生亥，亥有壬水，来滋甲木也。六阴生处，俱为弱。如乙木生于午也，午有丁火泄木之精英，有己土为乙木之挠屈。又如六阴死处俱为生，如乙木死于亥，亥有壬水，反来滋木也。六阳死处死真为死，如甲木死于午，且午中有丁火，泄木真精，已土为之挠屈。且如生之理，形气始分，赤子未离于襁褓，精华初判，婴儿初脱于胞胎。如木之生于亥，根气犹枯也，未可以木为旺也。如火之生于寅，气焰犹寒也，未可以火旺也。又或财官印临于生地，未可以财官印为旺也。凡气之不足，故贵济之有生之药也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

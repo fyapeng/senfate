@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.compound.multiple_modes_allowed@1.0.0",
+  "title": "一个命局可有多种做功方式",
+  "description": "每条路径分别建立，不以首条路径覆盖其余路径。",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.compound",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3989,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.compound.multiple_modes_allowed",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.compound",
+        "proposition": {
+          "predicate": "duan_li_xiang.compound.multiple_modes_allowed",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.compound_multiple_modes_allowed.eddf77568f",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001484",
+      "source_lines": {
+        "start": 2965,
+        "end": 2965
+      },
+      "anchor": "src:modern.duan_li_xiang:L002965-L002965",
+      "quote": "有的不仅仅是一种做功方式, 而是有多种方式做功",
+      "section_path": [
+        "段氏理象学",
+        "六、复合结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

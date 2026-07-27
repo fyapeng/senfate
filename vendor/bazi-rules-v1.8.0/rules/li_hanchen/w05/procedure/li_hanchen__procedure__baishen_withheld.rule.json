@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.procedure.baishen_withheld@1.0.0",
+  "title": "百神论不从命例反推",
+  "description": "正文明确把百神论留到其他资料。",
+  "namespace": "li_hanchen.procedure",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.procedure",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2981,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.procedure.baishen_withheld",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "li_hanchen.procedure",
+        "proposition": {
+          "predicate": "li_hanchen.procedure.baishen_status",
+          "value": "not_formalized"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "incomplete",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": [
+            "no_unpublished_algorithm_inference"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w05.procedure_baishen_withheld.5ad29cdd2d",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000038",
+      "source_lines": {
+        "start": 547,
+        "end": 752
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000547-L000752",
+      "quote": "这是“百神论”的技巧。将在学习班、《配套资料》和以后出版的书中详述",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "纸本页级核验后方可升级。"
+    ]
+  }
+}

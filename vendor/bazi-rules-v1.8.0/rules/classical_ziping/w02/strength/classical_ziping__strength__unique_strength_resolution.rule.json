@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.strength.unique_strength_resolution@1.0.0",
+  "title": "相对证据唯一时确认旺衰类别",
+  "description": "W02 解析器只有在候选唯一且无反向重证据时才确认类别；否则保持 unknown 或 mixed。",
+  "namespace": "classical_ziping.strength",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.strength",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.strength_resolution",
+  "priority": 370,
+  "when": {
+    "op": "resolver",
+    "resolver": "classical_ziping.strength.unique_resolution",
+    "args": {}
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.strength.category",
+        "proposition": {
+          "predicate": "classical_ziping.strength.resolved_category",
+          "value": {
+            "$path": "facts.classical_ziping.w02.strength.resolved_category"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w02.unique_resolution.7e338521dd",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000095",
+      "source_lines": {
+        "start": 189,
+        "end": 189
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000189-L000189",
+      "quote": "格局先取当令，次要得势",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "common.relation_catalog@1.0.0",
+  "policy": {
+    "common_output": "candidate_only",
+    "activation": "school_resolver_required",
+    "effect": "never_assigned_in_common_namespace"
+  },
+  "pair_relations": [
+    {
+      "relation_type": "common.relation.stem.combine",
+      "pairs": [
+        [
+          "甲",
+          "己"
+        ],
+        [
+          "乙",
+          "庚"
+        ],
+        [
+          "丙",
+          "辛"
+        ],
+        [
+          "丁",
+          "壬"
+        ],
+        [
+          "戊",
+          "癸"
+        ]
+      ],
+      "variant_sensitive": false
+    },
+    {
+      "relation_type": "common.relation.branch.six_harmony",
+      "pairs": [
+        [
+          "子",
+          "丑"
+        ],
+        [
+          "寅",
+          "亥"
+        ],
+        [
+          "卯",
+          "戌"
+        ],
+        [
+          "辰",
+          "酉"
+        ],
+        [
+          "巳",
+          "申"
+        ],
+        [
+          "午",
+          "未"
+        ]
+      ],
+      "variant_sensitive": false
+    },
+    {
+      "relation_type": "common.relation.branch.clash",
+      "pairs": [
+        [
+          "子",
+          "午"
+        ],
+        [
+          "丑",
+          "未"
+        ],
+        [
+          "寅",
+          "申"
+        ],
+        [
+          "卯",
+          "酉"
+        ],
+        [
+          "辰",
+          "戌"
+        ],
+        [
+          "巳",
+          "亥"
+        ]
+      ],
+      "variant_sensitive": false
+    },
+    {
+      "relation_type": "common.relation.branch.harm",
+      "pairs": [
+        [
+          "子",
+          "未"
+        ],
+        [
+          "丑",
+          "午"
+        ],
+        [
+          "寅",
+          "巳"
+        ],
+        [
+          "卯",
+          "辰"
+        ],
+        [
+          "申",
+          "亥"
+        ],
+        [
+          "酉",
+          "戌"
+        ]
+      ],
+      "variant_sensitive": false
+    },
+    {
+      "relation_type": "common.relation.branch.break",
+      "pairs": [
+        [
+          "子",
+          "酉"
+        ],
+        [
+          "丑",
+          "辰"
+        ],
+        [
+          "寅",
+          "亥"
+        ],
+        [
+          "卯",
+          "午"
+        ],
+        [
+          "巳",
+          "申"
+        ],
+        [
+          "未",
+          "戌"
+        ]
+      ],
+      "variant_sensitive": true
+    }
+  ],
+  "group_relations": [
+    {
+      "relation_type": "common.relation.branch.three_harmony",
+      "groups": [
+        [
+          "申",
+          "子",
+          "辰"
+        ],
+        [
+          "亥",
+          "卯",
+          "未"
+        ],
+        [
+          "寅",
+          "午",
+          "戌"
+        ],
+        [
+          "巳",
+          "酉",
+          "丑"
+        ]
+      ],
+      "variant_sensitive": false
+    },
+    {
+      "relation_type": "common.relation.branch.three_meeting",
+      "groups": [
+        [
+          "亥",
+          "子",
+          "丑"
+        ],
+        [
+          "寅",
+          "卯",
+          "辰"
+        ],
+        [
+          "巳",
+          "午",
+          "未"
+        ],
+        [
+          "申",
+          "酉",
+          "戌"
+        ]
+      ],
+      "variant_sensitive": true
+    },
+    {
+      "relation_type": "common.relation.branch.punishment",
+      "groups": [
+        [
+          "寅",
+          "巳",
+          "申"
+        ],
+        [
+          "丑",
+          "未",
+          "戌"
+        ],
+        [
+          "子",
+          "卯"
+        ]
+      ],
+      "self_members": [
+        "辰",
+        "午",
+        "酉",
+        "亥"
+      ],
+      "variant_sensitive": true
+    }
+  ],
+  "derived_relations": [
+    "common.relation.element.generates",
+    "common.relation.element.controls",
+    "common.relation.same_element"
+  ],
+  "note": "“候选”只表示符号组合满足，不表示合化、解冲、得失、吉凶或做功成立。"
+}

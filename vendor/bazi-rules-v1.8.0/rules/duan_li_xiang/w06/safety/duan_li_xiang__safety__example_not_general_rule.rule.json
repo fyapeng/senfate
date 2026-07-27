@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.safety.example_not_general_rule@1.0.0",
+  "title": "命例不得反推未明示通则",
+  "description": "第八章及正文命例只核对已声明规则。",
+  "namespace": "duan_li_xiang.safety",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.safety",
+  "status": [
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "safety.output",
+  "priority": 5000,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.safety.example_not_general_rule",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.safety",
+        "proposition": {
+          "predicate": "duan_li_xiang.safety.example_not_general_rule",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.safety_example_not_general_rule.21bdfcb185",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001735",
+      "source_lines": {
+        "start": 3467,
+        "end": 3467
+      },
+      "anchor": "src:modern.duan_li_xiang:L003467-L003467",
+      "quote": "本书只是一本推介性的盲派入门之书",
+      "section_path": [
+        "段氏理象学",
+        "1. 目前看命的方法有传统派，有新派，盲派命理比较前两者有什么特 点? 老师如何看待前两种看命方法?"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

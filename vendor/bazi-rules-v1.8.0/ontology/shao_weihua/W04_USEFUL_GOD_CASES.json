@@ -1,0 +1,380 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 37,
+  "entries": [
+    {
+      "case_id": "1a12c386be3b_strong_peer_many_01",
+      "pattern": "正财格",
+      "strength": "strong",
+      "trigger": "peer_many",
+      "candidate": "official_kill",
+      "fallback": false,
+      "chunk": 1224,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_strong_peer_many_no_official_kill_02",
+      "pattern": "正财格",
+      "strength": "strong",
+      "trigger": "peer_many_no_official_kill",
+      "candidate": "output",
+      "fallback": true,
+      "chunk": 1224,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_strong_resource_many_03",
+      "pattern": "正财格",
+      "strength": "strong",
+      "trigger": "resource_many",
+      "candidate": "wealth",
+      "fallback": false,
+      "chunk": 1224,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_strong_resource_many_no_wealth_04",
+      "pattern": "正财格",
+      "strength": "strong",
+      "trigger": "resource_many_no_wealth",
+      "candidate": "output",
+      "fallback": true,
+      "chunk": 1224,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_strong_output_many_05",
+      "pattern": "正财格",
+      "strength": "strong",
+      "trigger": "output_many",
+      "candidate": "wealth",
+      "fallback": false,
+      "chunk": 1224,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_weak_wealth_many_06",
+      "pattern": "正财格",
+      "strength": "weak",
+      "trigger": "wealth_many",
+      "candidate": "peer",
+      "fallback": false,
+      "chunk": 1225,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_weak_output_many_07",
+      "pattern": "正财格",
+      "strength": "weak",
+      "trigger": "output_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1225,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_weak_output_many_no_resource_08",
+      "pattern": "正财格",
+      "strength": "weak",
+      "trigger": "output_many_no_resource",
+      "candidate": "peer",
+      "fallback": true,
+      "chunk": 1225,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_weak_official_kill_many_09",
+      "pattern": "正财格",
+      "strength": "weak",
+      "trigger": "official_kill_many",
+      "candidate": "peer",
+      "fallback": false,
+      "chunk": 1225,
+      "note": ""
+    },
+    {
+      "case_id": "1a12c386be3b_weak_official_kill_many_no_peer_10",
+      "pattern": "正财格",
+      "strength": "weak",
+      "trigger": "official_kill_many_no_peer",
+      "candidate": "resource",
+      "fallback": true,
+      "chunk": 1225,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_peer_many_11",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "peer_many",
+      "candidate": "official_kill",
+      "fallback": false,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_peer_many_no_official_kill_12",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "peer_many_no_official_kill",
+      "candidate": "output",
+      "fallback": true,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_resource_many_13",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "resource_many",
+      "candidate": "wealth",
+      "fallback": false,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_resource_many_no_wealth_14",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "resource_many_no_wealth",
+      "candidate": "official_kill",
+      "fallback": true,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_output_many_15",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "output_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_strong_output_many_no_resource_16",
+      "pattern": "正官格",
+      "strength": "strong",
+      "trigger": "output_many_no_resource",
+      "candidate": "wealth",
+      "fallback": true,
+      "chunk": 1227,
+      "note": ""
+    },
+    {
+      "case_id": "d12790f5ddbe_weak_wealth_many_17",
+      "pattern": "正官格",
+      "strength": "weak",
+      "trigger": "wealth_many",
+      "candidate": "peer",
+      "fallback": false,
+      "chunk": 1228,
+      "note": "正官格不直接取食伤制官。"
+    },
+    {
+      "case_id": "d12790f5ddbe_weak_wealth_many_no_peer_18",
+      "pattern": "正官格",
+      "strength": "weak",
+      "trigger": "wealth_many_no_peer",
+      "candidate": "resource",
+      "fallback": true,
+      "chunk": 1228,
+      "note": "正官格不直接取食伤制官。"
+    },
+    {
+      "case_id": "d12790f5ddbe_weak_official_kill_many_19",
+      "pattern": "正官格",
+      "strength": "weak",
+      "trigger": "official_kill_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1228,
+      "note": "正官格不直接取食伤制官。"
+    },
+    {
+      "case_id": "d12790f5ddbe_weak_official_kill_many_no_resource_20",
+      "pattern": "正官格",
+      "strength": "weak",
+      "trigger": "official_kill_many_no_resource",
+      "candidate": "peer",
+      "fallback": true,
+      "chunk": 1228,
+      "note": "正官格不直接取食伤制官。"
+    },
+    {
+      "case_id": "c3712243c2cb_strong_peer_many_21",
+      "pattern": "正印格",
+      "strength": "strong",
+      "trigger": "peer_many",
+      "candidate": "official_kill",
+      "fallback": false,
+      "chunk": 1230,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_strong_peer_many_no_official_kill_22",
+      "pattern": "正印格",
+      "strength": "strong",
+      "trigger": "peer_many_no_official_kill",
+      "candidate": "output",
+      "fallback": true,
+      "chunk": 1230,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_strong_wealth_many_23",
+      "pattern": "正印格",
+      "strength": "strong",
+      "trigger": "wealth_many",
+      "candidate": "official_kill",
+      "fallback": false,
+      "chunk": 1230,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_strong_resource_many_24",
+      "pattern": "正印格",
+      "strength": "strong",
+      "trigger": "resource_many",
+      "candidate": "wealth",
+      "fallback": false,
+      "chunk": 1230,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_strong_resource_many_no_wealth_25",
+      "pattern": "正印格",
+      "strength": "strong",
+      "trigger": "resource_many_no_wealth",
+      "candidate": "output",
+      "fallback": true,
+      "chunk": 1230,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_weak_output_many_26",
+      "pattern": "正印格",
+      "strength": "weak",
+      "trigger": "output_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1231,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_weak_output_many_no_resource_27",
+      "pattern": "正印格",
+      "strength": "weak",
+      "trigger": "output_many_no_resource",
+      "candidate": "peer",
+      "fallback": true,
+      "chunk": 1231,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_weak_official_kill_many_28",
+      "pattern": "正印格",
+      "strength": "weak",
+      "trigger": "official_kill_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1231,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_weak_official_kill_many_no_resource_29",
+      "pattern": "正印格",
+      "strength": "weak",
+      "trigger": "official_kill_many_no_resource",
+      "candidate": "peer",
+      "fallback": true,
+      "chunk": 1231,
+      "note": ""
+    },
+    {
+      "case_id": "c3712243c2cb_weak_wealth_many_30",
+      "pattern": "正印格",
+      "strength": "weak",
+      "trigger": "wealth_many",
+      "candidate": "peer",
+      "fallback": false,
+      "chunk": 1231,
+      "note": ""
+    },
+    {
+      "case_id": "4c24ffa499cf_strong_peer_many_31",
+      "pattern": "伤官格",
+      "strength": "strong",
+      "trigger": "peer_many",
+      "candidate": "official_kill",
+      "fallback": false,
+      "chunk": 1233,
+      "note": "官伤并见由原文标为不理想，保留冲突。"
+    },
+    {
+      "case_id": "4c24ffa499cf_strong_resource_many_32",
+      "pattern": "伤官格",
+      "strength": "strong",
+      "trigger": "resource_many",
+      "candidate": "wealth",
+      "fallback": false,
+      "chunk": 1233,
+      "note": "官伤并见由原文标为不理想，保留冲突。"
+    },
+    {
+      "case_id": "4c24ffa499cf_strong_resource_many_no_wealth_33",
+      "pattern": "伤官格",
+      "strength": "strong",
+      "trigger": "resource_many_no_wealth",
+      "candidate": "official_kill",
+      "fallback": true,
+      "chunk": 1233,
+      "note": "官伤并见由原文标为不理想，保留冲突。"
+    },
+    {
+      "case_id": "4c24ffa499cf_weak_output_many_34",
+      "pattern": "伤官格",
+      "strength": "weak",
+      "trigger": "output_many",
+      "candidate": "resource",
+      "fallback": false,
+      "chunk": 1234,
+      "note": ""
+    },
+    {
+      "case_id": "4c24ffa499cf_weak_output_many_no_resource_35",
+      "pattern": "伤官格",
+      "strength": "weak",
+      "trigger": "output_many_no_resource",
+      "candidate": "peer",
+      "fallback": true,
+      "chunk": 1234,
+      "note": ""
+    },
+    {
+      "case_id": "analog_secondary_patterns",
+      "pattern": [
+        "偏财格",
+        "七杀格",
+        "食神格"
+      ],
+      "strength": "any",
+      "trigger": "analog_to_corresponding_regular_pattern",
+      "candidate": "profile_defined",
+      "fallback": false,
+      "chunk": 1235,
+      "note": "原文仅称大致相同，不自动复制全部条件。"
+    },
+    {
+      "case_id": "climate_when_pattern_unclear",
+      "pattern": "unclear_or_special",
+      "strength": "any",
+      "trigger": "seasonal_need",
+      "candidate": "climate_candidate",
+      "fallback": true,
+      "chunk": 1237,
+      "note": "调候只作为候选分支。"
+    }
+  ]
+}

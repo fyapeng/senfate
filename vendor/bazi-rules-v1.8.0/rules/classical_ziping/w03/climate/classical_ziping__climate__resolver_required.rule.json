@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.climate.resolver_required@1.0.0",
+  "title": "调候候选须经上下文解析",
+  "description": "日干月令矩阵仅生成候选；确认需要通根、成象、相激、制化和全局承接等显式证据。",
+  "namespace": "classical_ziping.climate",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.climate",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.climate_resolution",
+  "priority": 3080,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.climate.recipe_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.climate.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.climate.requires_resolver",
+          "value": "classical_ziping.climate.recipe_resolved"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.climate_resolver_required.9746e1942e",
+      "work_id": "classic.ming_li_yue_yan",
+      "normalized_path": "corpus/normalized/classic__ming_li_yue_yan.md",
+      "chunk_id": "classic.ming_li_yue_yan#c000346",
+      "source_lines": {
+        "start": 691,
+        "end": 691
+      },
+      "anchor": "src:classic.ming_li_yue_yan:L000691-L000691",
+      "quote": "人命生于春秋之月，寒暖得中，若生于盛夏，则偏于炎矣，炎则喜润，局中得水为佳。生于严冬，则偏于寒矣，寒则喜温，局中得火为美，然亦有不同焉，冬月水生木，木生火，其化克为生也易。夏月火生土，土生金，其化囚为生也难。故冬火但求得生，夏水或徒相激，若夏水不激，而成象通根，冬火逢生，而扬辉发焰。或为日主，或为六神，皆贵命也。",
+      "section_path": [
+        "命理约言",
+        "序"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3fbbcc665eb83dd9b594b5c12c4794dd3352dcc5d76b76c1bbeaeb77b2c4a4f7"
+    },
+    {
+      "source_ref_id": "src.w03.climate_resolver_middle.73ec5e7d91",
+      "work_id": "classic.qiong_tong_bao_jian",
+      "normalized_path": "corpus/normalized/classic__qiong_tong_bao_jian.md",
+      "chunk_id": "classic.qiong_tong_bao_jian#c000012",
+      "source_lines": {
+        "start": 23,
+        "end": 23
+      },
+      "anchor": "src:classic.qiong_tong_bao_jian:L000023-L000023",
+      "quote": "以义推之，夫万物负阴而抱阳，冲气以和。过与不及，皆为乖道。故高者抑之使平，下者举之使崇，或益其不及，或损其太过。所以贵在折衷，归於中道，使无有余不足之累，即才官印食贵人驿马之微意也。行运亦如之，识其微意，则於命理之说，思过半矣。",
+      "section_path": [
+        "穷通宝鉴"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "e5e8535b82b57e5fc9dbc05652ebcd026896b610d0b44e32a7bb4d5396474cac"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

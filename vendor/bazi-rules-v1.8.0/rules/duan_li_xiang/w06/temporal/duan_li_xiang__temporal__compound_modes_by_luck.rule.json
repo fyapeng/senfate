@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.temporal.compound_modes_by_luck@1.0.0",
+  "title": "岁运可改变做功方式",
+  "description": "同一原局在不同大运可由化用转合用或制用。",
+  "namespace": "duan_li_xiang.temporal",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_resolution",
+  "priority": 4996,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.temporal.compound_modes_by_luck",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.temporal",
+        "proposition": {
+          "predicate": "duan_li_xiang.temporal.compound_modes_by_luck",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.temporal_compound_modes_by_luck.3920a4c161",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001484",
+      "source_lines": {
+        "start": 2965,
+        "end": 2965
+      },
+      "anchor": "src:modern.duan_li_xiang:L002965-L002965",
+      "quote": "由于大运行运的不同, 也会有多种做功方式出现",
+      "section_path": [
+        "段氏理象学",
+        "六、复合结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

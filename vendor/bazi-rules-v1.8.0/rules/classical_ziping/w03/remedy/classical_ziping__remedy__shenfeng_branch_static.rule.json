@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.remedy.shenfeng_branch_static@1.0.0",
+  "title": "《神峰通考》地支静用规则",
+  "description": "该书将地支视为静而直接作用于地支，并包含杂气冲开说；只在书内变体中执行。",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.remedy",
+  "status": [
+    "procedural",
+    "contested"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.remedy_resolution",
+  "priority": 1880,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.remedy.shenfeng_branch_interaction",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.remedy.structure",
+        "proposition": {
+          "predicate": "classical_ziping.remedy.relation_variant",
+          "value": "shenfeng_branch_static"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "contested",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.shenfeng_branch_static.da595c2621",
+      "work_id": "classic.shen_feng_tong_kao",
+      "normalized_path": "corpus/normalized/classic__shen_feng_tong_kao.md",
+      "chunk_id": "classic.shen_feng_tong_kao#c000040",
+      "source_lines": {
+        "start": 79,
+        "end": 79
+      },
+      "anchor": "src:classic.shen_feng_tong_kao:L000079-L000079",
+      "quote": "何以为之静也?其体属阴，阴主静，故地承顺，方静守固而有常。故以人之八字地支隐藏于下者，为之静也。如八字地之庚金，但能克运上地支之甲木，不能克运上天干之甲木也。盖以静攻静为亲切，如女人只攻得女人也，不能攻在外之男人也。但虽不能被其攻，亦有摇动震惊之意也。如运上地支之庚金，亦不能破我八字天干之甲木也。是以地支之静，只能攻得地支之静，不能攻天干之动也，亦明矣。又如辰戌丑未四地支之物，乃天地四方收藏之库，极牢固，假如八字地支，辰有戊土、乙木、癸水运，或行寅，寅中虽有甲木，亦不能破其戊。又运行酉，酉中虽有辛金，亦不能破其乙。又或行午，午中虽有巳土，亦不能破其癸。非不能破也。盖其库中，锁钥甚牢，真要戍字运来冲开之，就如有了锁匙，开了其锁，而放出戊土、乙木、癸水出来。如丑字就要未字冲，别物不能攻之。故曰杂气财官喜见冲，正此意也。",
+      "section_path": [
+        "神峰通考",
+        "卷一",
+        "一、安身命宫，原取逢卯安命，逢西安身，其理何欤?然卯属东方正木，木主仁，仁主寿，故以命宫寓焉。西属西方之正金，金主义，义主宜，故以身宫寓焉。然命宫为受胎之初，故以仁木主之，仁有生生之意也。身宫为受胎之后，故以义金主之，义有成身之道也。身命之立，其原于此，理出于正也。",
+        "一、原出吕才《灭蛮》之说，只以男女年命，浪立数目，配合相成，名曰合婚。妄立天医、福德为上婚，游魂、归魂为中婚，五鬼、绝命为下婚，其谬甚矣。安可只以男女二年命，舍去月与日时，而能论人婚配者乎?若是有理，则天下之议婚者，俱择上中二婚者而配之，择下婚者而舍之，其书甚易而不难，宜乎天下无失婚之妇、丧偶之男矣。夫何后世又有孤媚之患者?婚虽出于宿世之所定，而亦由于议婚者之不明也。然议婚之礼，人道之端，亦不可不慎也。其理当何如耶?但当看男命带比肩、劫财重者，必择女命带伤官、食神重者配之；若女命带伤官、食神重者，必择男命带比肩、劫财重者配之。此系合婚之正理，岂可以吕才上中下三婚无根之说，无据之理，而议人之婚配也耶！吕才之说之谬，不足信也明矣。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "de39fb04d6b43d54eb2a239074975afe3ad71282c64a6de43f95916a320bcdf4"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "classical_ziping.relation.mixed_storage_clash",
+    "policy": "preserve_all",
+    "note": "W02 已保留杂气是否需刑冲的书际冲突。"
+  }
+}

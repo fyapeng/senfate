@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.follow_formed_momentum@1.0.0",
+  "title": "气势已成时登记顺势候选",
+  "description": "全局形成不可逆的集中势时，登记顺势路线；是否成立仍受 W02 从化与根气规则约束。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2350,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.formed_momentum",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.direction",
+          "value": "follow_formed_momentum"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.formed_momentum.76839969e2",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000375",
+      "source_lines": {
+        "start": 749,
+        "end": 749
+      },
+      "anchor": "src:classic.di_tian_sui:L000749-L000749",
+      "quote": "顺逆不齐也，不可逆者，其气势而已矣。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、顺逆"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    },
+    {
+      "source_ref_id": "src.w03.follow_momentum.e03120262b",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000376",
+      "source_lines": {
+        "start": 751,
+        "end": 751
+      },
+      "anchor": "src:classic.di_tian_sui:L000751-L000751",
+      "quote": "原注：刚柔之道，可顺而不可逆。昆仑之水，可顺而不可逆也，其势已成，可顺而不可逆也；权在一人，可顺而不可逆也；二人同心，可顺而不可逆也。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十八、顺逆"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

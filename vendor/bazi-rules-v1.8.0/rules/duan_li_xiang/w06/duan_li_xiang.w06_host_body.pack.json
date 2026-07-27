@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_host_body@1.0.0",
+  "namespace": "duan_li_xiang.host_body",
+  "school_id": "duan_li_xiang",
+  "label": "宾主与体用",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__host_guest_self_external.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__host_guest_layered.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__level_day_master.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__level_day_pillar.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__level_day_hour.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__level_natal_time.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__day_branch_house.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__position_before_association.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__body_use_by_ten_god.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__body_day_master.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__body_resource.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__body_lu.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__body_peer.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__use_wealth.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__use_official.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__output_contextual.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__food_nearer_body.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__hurting_nearer_use.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__positive_work.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__reverse_work.rule.json",
+    "rules/duan_li_xiang/w06/host_body/duan_li_xiang__host_body__role_context_not_global.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

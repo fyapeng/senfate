@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_temporal@1.0.0",
+  "namespace": "duan_li_xiang.temporal",
+  "school_id": "duan_li_xiang",
+  "label": "大运流年状态转换",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__luck_annual_guest.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__recompute_relations.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__recompute_virtual_real.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__virtual_real_timing.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__compound_modes_by_luck.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__catcher_thief_activation.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__deep_timing_incomplete.rule.json",
+    "rules/duan_li_xiang/w06/temporal/duan_li_xiang__temporal__multi_solution_allowed.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.control_matrix.five_ten_god_pairs@1.0.0",
+  "title": "十神制局分五组",
+  "description": "五组均保留双向制局。",
+  "namespace": "duan_li_xiang.control_matrix",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.control_matrix",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3983,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.control_matrix.five_ten_god_pairs",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.control_matrix",
+        "proposition": {
+          "predicate": "duan_li_xiang.control_matrix.five_ten_god_pairs",
+          "value": [
+            "peer_wealth",
+            "peer_official",
+            "output_official",
+            "resource_output",
+            "wealth_resource"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.control_matrix_five_ten_god_pairs.76767bd7a2",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001518",
+      "source_lines": {
+        "start": 3033,
+        "end": 3033
+      },
+      "anchor": "src:modern.duan_li_xiang:L003033-L003033",
+      "quote": "从十神之关系看, 有五种制法",
+      "section_path": [
+        "段氏理象学",
+        "第三节 制局通辨"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.kinship.ancestry_not_destiny@1.0.0",
+  "title": "祖业与个人结构、后天努力分离",
+  "description": "保存作者的六亲结构映射；宫位和象征星只用于传统文化解释，不构成现实家庭事件断言。",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.kinship",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.kinship_resolution",
+  "priority": 1595,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.kinship.ancestry_not_destiny",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.kinship.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.kinship.ancestry_role",
+          "value": "background_not_determinative"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "family_relationship_not_deterministic"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.kinship_ancestry_not_destiny.1b44a1895b",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001575",
+      "source_lines": {
+        "start": 3141,
+        "end": 3141
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L003141-L003141",
+      "quote": "祖业，多指祖父和父辈财产盛衰的信息标志。一个人是不是富贵之命，原则上与祖业的盛衰无关，主要决定于自己的四柱排列组合和后天努力奋斗的好坏。",
+      "section_path": [
+        "四柱预测学",
+        "第十三章 祖业"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

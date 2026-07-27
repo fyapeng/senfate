@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.v18_same_polarity_kill_as_wealth@1.0.0",
+  "title": "同极七杀按财象观察",
+  "description": "阳日主见同极阳七杀时，依作者明示可把该七杀节点作为财象候选；仍须宾主与做功路径确认其归属。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal"
+  ],
+  "phase": "school.findings",
+  "priority": 8101,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.same_polarity_kill_as_wealth",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.kill_image",
+          "value": "wealth_analogy"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_theme_not_outcome_prediction"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v18.83a8337653",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000309",
+      "source_lines": {
+        "start": 617,
+        "end": 617
+      },
+      "anchor": "src:modern.duan_li_xiang:L000617-L000617",
+      "quote": "凡阳日主见阳七杀者，为我所喜，可当钱财看",
+      "section_path": [
+        "段氏理象学",
+        "二、十干之克"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

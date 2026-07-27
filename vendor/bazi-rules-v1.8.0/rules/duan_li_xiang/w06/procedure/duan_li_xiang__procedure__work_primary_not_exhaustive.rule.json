@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.procedure.work_primary_not_exhaustive@1.0.0",
+  "title": "做功是主要但非唯一方法",
+  "description": "做功失败不得自动推出无象或无主题。",
+  "namespace": "duan_li_xiang.procedure",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.procedure",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 4993,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.procedure.work_primary_not_exhaustive",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.procedure",
+        "proposition": {
+          "predicate": "duan_li_xiang.procedure.work_primary_not_exhaustive",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.procedure_work_primary_not_exhaustive.cb7517812b",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001235",
+      "source_lines": {
+        "start": 2467,
+        "end": 2467
+      },
+      "anchor": "src:modern.duan_li_xiang:L002467-L002467",
+      "quote": "做功并不是理解四柱的唯一方法",
+      "section_path": [
+        "段氏理象学",
+        "一、看四柱的功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.kinship.palace_activation_year@1.0.0",
+  "title": "岁运冲入宫位只登记关系领域激活",
+  "description": "保存作者的六亲结构映射；宫位和象征星只用于传统文化解释，不构成现实家庭事件断言。",
+  "namespace": "shao_weihua.kinship",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.kinship",
+  "status": [
+    "semantic",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.kinship_resolution",
+  "priority": 1581,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.kinship.palace_activation_year",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.kinship.mapping",
+        "proposition": {
+          "predicate": "shao_weihua.kinship.palace_temporal_activation",
+          "value": "clash_signal"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "incomplete",
+        "safety": {
+          "risk_level": "medium",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "family_relationship_not_deterministic"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.kinship_palace_activation_year.fff4d5c7b0",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000682",
+      "source_lines": {
+        "start": 1357,
+        "end": 1357
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001357-L001357",
+      "quote": "(十三)大运、流年以二支冲一支, 冲入妻宫, 主妻有凶灾，冲入父母宫，主父母有凶灾，冲入子女宫，主子女有凶灾。",
+      "section_path": [
+        "四柱预测学",
+        "二、看大运流年。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

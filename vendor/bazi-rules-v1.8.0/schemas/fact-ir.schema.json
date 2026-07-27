@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bazi-rules.local/schemas/fact-ir.schema.json",
+  "title": "FactIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "fact_id",
+    "subject",
+    "predicate",
+    "truth",
+    "scope",
+    "source_type"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/SemVer"
+    },
+    "fact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject": {
+      "$ref": "common.schema.json#/$defs/EntityRef"
+    },
+    "predicate": {
+      "$ref": "common.schema.json#/$defs/Namespace"
+    },
+    "value": {},
+    "truth": {
+      "$ref": "common.schema.json#/$defs/TruthValue"
+    },
+    "scope": {
+      "$ref": "common.schema.json#/$defs/TemporalScope"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "input",
+        "computed",
+        "rule_asserted",
+        "human_review"
+      ]
+    },
+    "algorithm_id": {
+      "type": "string"
+    },
+    "source_rule_id": {
+      "$ref": "common.schema.json#/$defs/VersionedId"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "source-ref.schema.json"
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

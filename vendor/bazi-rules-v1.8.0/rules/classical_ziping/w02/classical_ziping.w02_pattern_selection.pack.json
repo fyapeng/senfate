@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "classical_ziping.w02_pattern_selection@1.0.0",
+  "namespace": "classical_ziping.pattern",
+  "school_id": "classical_ziping",
+  "label": "传统子平 W02 pattern_selection",
+  "status": "production",
+  "rule_files": [
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__month_command_priority.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__eight_pattern_catalog.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__main_qi_visible.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__main_qi_damaged_hidden_fallback.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__hidden_qi_visible.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__multiple_hidden_visible_rank.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__hidden_not_visible_rank.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__month_all_unusable_external_fallback.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__peer_robbery_not_eight_pattern.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__jianlu_yuejie_route.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__favorable_pattern_forward_use.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__adverse_pattern_reverse_use.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__outer_pattern_only_when_month_no_use.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__outer_pattern_blocked_by_month_use.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__broken_month_use_not_no_use.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__mixed_storage_transparent_selection.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__mixed_storage_branch_combination.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__mixed_storage_concurrent_candidates.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__variation_by_hidden_exposure.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__variation_by_branch_combination.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__variation_preserves_original_when_supported.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__mixed_storage_small_clash_sanming.rule.json",
+    "rules/classical_ziping/w02/pattern_selection/classical_ziping__pattern__mixed_storage_no_forced_clash_ziping.rule.json"
+  ],
+  "notes": [
+    "All rules are source-bound and logic-checked; maturity reviewed, not production."
+  ]
+}

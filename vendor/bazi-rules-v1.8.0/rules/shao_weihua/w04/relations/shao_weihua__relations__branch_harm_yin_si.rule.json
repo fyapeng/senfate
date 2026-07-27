@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.relations.branch_harm_yin_si@1.0.0",
+  "title": "寅巳相害",
+  "description": "按《四柱预测学》六害目录编译结构关系；是否被制解另行判断，不直接输出事件。",
+  "namespace": "shao_weihua.relations",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.relations",
+  "status": [
+    "executable",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 1512,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.relations.harm_flags.branch_harm_yin_si",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "shao_weihua.relations",
+        "proposition": {
+          "predicate": "shao_weihua.relations.branch_harm",
+          "value": "寅巳"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v12.3dc263d182",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000426",
+      "source_lines": {
+        "start": 851,
+        "end": 851
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L000851-L000851",
+      "quote": "寅巳相害",
+      "section_path": [
+        "四柱预测学",
+        "二、十二支相害。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    },
+    {
+      "source_ref_id": "src.v12.c621aa6416",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000435",
+      "source_lines": {
+        "start": 869,
+        "end": 869
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L000869-L000869",
+      "quote": "相害当然不好， 但还要看有制无制, 有制者无妨, 无制者不利。",
+      "section_path": [
+        "四柱预测学",
+        "二、十二支相害。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

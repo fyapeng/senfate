@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.qi_flow.war_can_be_resolved@1.0.0",
+  "title": "合会与有力收束可缓解战局",
+  "description": "若新关系有效合会、收束动气或明确一方胜负，登记缓解候选。",
+  "namespace": "classical_ziping.qi_flow",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.qi_flow",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.qi_flow_resolution",
+  "priority": 2260,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.qi_flow.war_resolution_signal",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.qi_flow.structure",
+        "proposition": {
+          "predicate": "classical_ziping.qi_flow.war_status",
+          "value": "resolution_candidate"
+        },
+        "truth": "true",
+        "direction": "supportive",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.war_resolution.2f9cea2847",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000471",
+      "source_lines": {
+        "start": 941,
+        "end": 941
+      },
+      "anchor": "src:classic.di_tian_sui:L000941-L000941",
+      "quote": "原注：干头遇庚乙辛谓之天战，而得地支顺者无害；地支寅申卯酉，谓之地战，则天干不能为力。其势速凶，盖天主动，地主静故也。皆见谓之天地交战，必凶无疑，遇岁运合之会之，视其胜负，亦有可存可发者。其有一冲两冲者，只得一个合神有力，或无库神贵神，以收其动气，息其争气，亦有佳者。至于喜神伏藏死绝者，又要冲动引用生发之气。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "十八、战局"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

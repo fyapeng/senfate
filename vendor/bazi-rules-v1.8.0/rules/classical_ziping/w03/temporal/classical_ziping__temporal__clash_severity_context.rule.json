@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.temporal.clash_severity_context@1.0.0",
+  "title": "冲的轻重取决于原活动层方向",
+  "description": "原本支持的结构受冲与原本抑制且再受冲的含义不同，须保留前置结论。",
+  "namespace": "classical_ziping.temporal",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1410,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.temporal.clash_candidate",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "classical_ziping.temporal.state",
+        "proposition": {
+          "predicate": "classical_ziping.temporal.clash_severity",
+          "value": {
+            "$path": "facts.classical_ziping.w03.temporal.clash_severity"
+          }
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.clash_severity.44e2e8cad9",
+      "work_id": "classic.zi_ping_zhen_quan",
+      "normalized_path": "corpus/normalized/classic__zi_ping_zhen_quan.md",
+      "chunk_id": "classic.zi_ping_zhen_quan#c000229",
+      "source_lines": {
+        "start": 457,
+        "end": 457
+      },
+      "anchor": "src:classic.zi_ping_zhen_quan:L000457-L000457",
+      "quote": "又有同是相冲而分轻重者，何也？运本美而逢冲则轻，运既忌面又冲则重也。",
+      "section_path": [
+        "子平真诠",
+        "凡例",
+        "二、论阴阳生克",
+        "二十五、论行运"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3c19aedfebcc721dec932ecbc66dbc51491acefca74225f392c4851eff9afe56"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

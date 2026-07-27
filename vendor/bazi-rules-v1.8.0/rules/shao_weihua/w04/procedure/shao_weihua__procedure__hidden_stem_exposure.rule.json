@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.procedure.hidden_stem_exposure@1.0.0",
+  "title": "月支藏干按透出和得力取格",
+  "description": "月支本气受损或藏干透出时，按作者程序生成多个候选并比较生旺得力。",
+  "namespace": "shao_weihua.procedure",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.procedure",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2995,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.procedure.month_hidden_stems_compiled",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.procedure.structure",
+        "proposition": {
+          "predicate": "shao_weihua.pattern.hidden_exposure_policy",
+          "value": "rank_by_exposure_and_force"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.procedure_hidden_stem_exposure.f953166a1e",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c001069",
+      "source_lines": {
+        "start": 2131,
+        "end": 2131
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L002131-L002131",
+      "quote": "月令又为取格之用。月令之支皆有所藏, 有藏一干. 有藏二千、三千者。如甲生寅月，先论甲木，次看丙火、戊土。 如果寅被冲克破坏，甲木无气而取丙戊，或者寅木无伤损者， 丙戊屮有一透干成象者，亦取之为用。又如寅木无损伤，甲丙戊俱透天干、或者二干透出者，取其生旺或取其得力者为用。",
+      "section_path": [
+        "四柱预测学",
+        "二、月。月在四柱中好比树干。树干粗壮、枝叶繁茂。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

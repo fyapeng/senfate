@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.shensha.yima@1.0.0",
+  "title": "神煞检测：驿马",
+  "description": "按作者给出的查法登记驿马；只输出结构或文化语义，不单独决定事件。",
+  "namespace": "shao_weihua.shensha",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.shensha",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.shensha_resolution",
+  "priority": 2188,
+  "when": {
+    "op": "resolver",
+    "resolver": "shao_weihua.w04.shensha_present",
+    "args": {
+      "shensha_id": "yima"
+    }
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "semantic",
+        "topic": "shao_weihua.shensha.marker",
+        "proposition": {
+          "predicate": "shao_weihua.shensha.present",
+          "value": "yima"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "neutralized",
+          "reason_codes": [
+            "traditional_symbol_not_event_prediction"
+          ]
+        },
+        "attributes": {
+          "label": "驿马",
+          "semantic": "mobility",
+          "detection_method": "year_or_day_branch_to_branch",
+          "supplementary_only": true
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.shensha_yima.d7edba7c7f",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000866",
+      "source_lines": {
+        "start": 1725,
+        "end": 1725
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001725-L001725",
+      "quote": "申子辰马在寅，寅午戌马在申，",
+      "section_path": [
+        "四柱预测学",
+        "第十一节 论驿马"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

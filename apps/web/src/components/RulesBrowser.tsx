@@ -1,0 +1,33 @@
+import { useEffect, useMemo, useState } from "react";
+
+const systems = [
+  ["传统子平", "子平格局体系", "以月令、格局、旺衰、调候与取用为主要阅读顺序。"],
+  ["现代综合", "邵伟华体系", "以四柱十神、五行平衡与岁运触发关系组织公开结论。"],
+  ["干支作用", "李涵辰体系", "以干支作用、宾主与制化关系展开命局与岁运判断。"],
+  ["理象做功", "段氏理象体系", "以体用、做功、流通与关系层级作为阅读入口。"],
+];
+const stems = [["甲", "木", "阳"], ["乙", "木", "阴"], ["丙", "火", "阳"], ["丁", "火", "阴"], ["戊", "土", "阳"], ["己", "土", "阴"], ["庚", "金", "阳"], ["辛", "金", "阴"], ["壬", "水", "阳"], ["癸", "水", "阴"]];
+const branches = [["子", "水", "癸"], ["丑", "土", "己、癸、辛"], ["寅", "木", "甲、丙、戊"], ["卯", "木", "乙"], ["辰", "土", "戊、乙、癸"], ["巳", "火", "丙、庚、戊"], ["午", "火", "丁、己"], ["未", "土", "己、丁、乙"], ["申", "金", "庚、壬、戊"], ["酉", "金", "辛"], ["戌", "土", "戊、辛、丁"], ["亥", "水", "壬、甲"]];
+const tigerStarts = [["甲、己", "丙寅"], ["乙、庚", "戊寅"], ["丙、辛", "庚寅"], ["丁、壬", "壬寅"], ["戊、癸", "甲寅"]];
+const ratStarts = [["甲、己", "甲子"], ["乙、庚", "丙子"], ["丙、辛", "戊子"], ["丁、壬", "庚子"], ["戊、癸", "壬子"]];
+const methods = [
+  { number: "1", title: "输入与时间校正", copy: "输入公历出生日期、当地钟表时间、出生区县（时区与参考经纬度）及传统顺逆行参数。先用固定 IANA 时区库把当地时间转换为 UTC；无效或重复的当地时间会停止计算并要求确认。", formula: "UTC = 当地钟表时间 − UTC 偏移\n真太阳时校正 = 均时差 EoT + 4 ×（出生经度 − 标准经线）分钟\n标准经线 = UTC 偏移分钟 ÷ 4；校正后的表观太阳时仅用于日、时柱边界。" },
+  { number: "2", title: "节气定年、定月", copy: "月柱不用农历月份，也不以公历每月 1 日换月。系统以认证星历给出的相邻“节”窗口定位，立春起寅月；出生时刻必须严格落在该节气窗口内。", formula: "年柱序号 = 八字年 − 4（对 60 取模）\n月支序号 = 2 + 节气月序号（寅 = 0，对 12 取模）\n月干序号 = (年干序号 mod 5) × 2 + 2 + 节气月序号（对 10 取模）" },
+  { number: "3", title: "日柱与时柱", copy: "日柱由儒略日数定位六十甲子。当前公开基准采用“子初换日”：表观太阳时跨入 23:00 后按次日纪日；若输入误差跨越换日或两小时的时辰边界，系统不会擅自给出单一结果。", formula: "日柱序号 = (格里历 JDN + 49) mod 60\n时支序号 = floor((表观太阳时小时 + 1) ÷ 2) mod 12\n时干序号 = ((日干序号 mod 5) × 2 + 时支序号) mod 10" },
+  { number: "4", title: "五行、藏干、十神", copy: "天干、地支和藏干均取固定公开映射表；十神只以日干为参照。先判五行关系，再用阴阳同性或异性确定具体十神。纳音取六十甲子对应表，十二长生以日干和地支的固定序列取得。", formula: "同我：同性比肩 / 异性劫财；我生：同性食神 / 异性伤官\n我克：同性偏财 / 异性正财；克我：同性七杀 / 异性正官\n生我：同性偏印 / 异性正印" },
+  { number: "5", title: "顺逆行与起运", copy: "本项目采用常见的“阳年男、阴年女顺行；阴年男、阳年女逆行”约定。顺行取出生时刻至下一个节的间隔；逆行取上一个节至出生时刻的间隔。计算使用 UTC 时刻差，避免时区与夏令时造成的表面差异。", formula: "起运年龄（年）= 间隔天数 ÷ 3\n顺行：间隔 = 下一节 UTC − 出生 UTC；逆行：间隔 = 出生 UTC − 上一节 UTC\n等价换算：1 日 = 4 个月，1 时辰（2 小时）= 10 日。" },
+  { number: "6", title: "十步大运与十年流年", copy: "以月柱为起点，不把月柱本身列作第一步大运。顺行时月柱在六十甲子序列中每步加一，逆行每步减一；第 n 步的起运年龄为首次起运年龄加 10n。专业命盘默认完整展示前八步。", formula: "第 n 步大运干支序号 = 月柱序号 ± n（n 从 1 起）\n第 n 步起运年龄 = 首次起运年龄 + (n − 1) × 10\n流年干支序号 = (公历年 − 1984) mod 60；年度以立春时刻作为认证边界。" },
+];
+
+export default function RulesBrowser() {
+  const [query, setQuery] = useState("");
+  const [mode, setMode] = useState<"method" | "system" | "rules">("method");
+  const [data, setData] = useState<any>();
+  useEffect(() => { let live = true; fetch(`/api/rules${query ? `?q=${encodeURIComponent(query)}` : ""}`).then(response => response.json()).then(result => { if (live) setData(result); }); return () => { live = false; }; }, [query]);
+  const books = useMemo(() => Array.from(new Set((data?.rules || []).flatMap((rule: any) => (rule.presentation?.sources || []).map((source: any) => source.work)).filter(Boolean))).sort(), [data]);
+  return <section className="page rules-hub"><p className="eyebrow">公开规则与来源</p><h1 className="page-title">规则</h1><p className="page-summary">此处公开排盘、五行、十神和岁运的计算链，并按流派体系与典籍来源整理实际可运行规则。不同体系独立展示，不合并为单一结论。</p><div className="rules-tabs"><button className={mode === "method" ? "active" : ""} onClick={() => setMode("method")}>排盘方法</button><button className={mode === "system" ? "active" : ""} onClick={() => setMode("system")}>流派体系</button><button className={mode === "rules" ? "active" : ""} onClick={() => setMode("rules")}>典籍与规则</button></div>
+    {mode === "method" && <div className="method-chain"><p className="method-intro">这是一份排盘工具指南：先查下列固定对照表，再按节气、日序和起运规则即可复算。算法细节收在页面下方，不干扰日常查表。</p><div className="lookup-guide"><section><h2>十天干五行表</h2><table><thead><tr><th>天干</th><th>五行</th><th>阴阳</th></tr></thead><tbody>{stems.map(row => <tr key={row[0]}>{row.map(cell => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></section><section><h2>十二地支、五行与藏干</h2><table><thead><tr><th>地支</th><th>五行</th><th>藏干</th></tr></thead><tbody>{branches.map(row => <tr key={row[0]}>{row.map(cell => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></section><section><h2>十神速查（以日干为参照）</h2><table><thead><tr><th>五行关系</th><th>同性</th><th>异性</th></tr></thead><tbody><tr><td>同我</td><td>比肩</td><td>劫财</td></tr><tr><td>我生</td><td>食神</td><td>伤官</td></tr><tr><td>我克</td><td>偏财</td><td>正财</td></tr><tr><td>克我</td><td>七杀</td><td>正官</td></tr><tr><td>生我</td><td>偏印</td><td>正印</td></tr></tbody></table></section><section><h2>月柱起月（五虎遁）</h2><table><thead><tr><th>年干</th><th>寅月起始</th></tr></thead><tbody>{tigerStarts.map(row => <tr key={row[0]}><td>{row[0]}</td><td>{row[1]}</td></tr>)}</tbody></table><h2>时柱起时（五鼠遁）</h2><table><thead><tr><th>日干</th><th>子时起始</th></tr></thead><tbody>{ratStarts.map(row => <tr key={row[0]}><td>{row[0]}</td><td>{row[1]}</td></tr>)}</tbody></table></section><section className="luck-lookup"><h2>顺逆行、起运与大运</h2><dl><div><dt>顺逆行</dt><dd>阳年男、阴年女顺行；阴年男、阳年女逆行。</dd></div><div><dt>取节方向</dt><dd>顺行取下一节；逆行取上一节。月柱以节令划分，非农历月。</dd></div><div><dt>起运换算</dt><dd>三日一岁；一日四个月；一时辰十日。</dd></div><div><dt>大运干支</dt><dd>从月柱下一柱开始，顺行每运加一柱，逆行每运减一柱；每运十年。</dd></div><div><dt>流年干支</dt><dd>按六十甲子逐年轮转；本项目的年度认证边界为立春时刻。</dd></div></dl></section></div><details className="algorithm-details"><summary>查看本项目实际执行的计算步骤与公式</summary>{methods.map(item => <article key={item.number}><b>{item.number}</b><div><h2>{item.title}</h2><p>{item.copy}</p><pre>{item.formula}</pre></div></article>)}<p className="method-boundary">本实现使用固定的 IANA 时区数据库和固定版本节气星历。临近节气、子初换日或时辰交界时，若输入误差区间跨边界，系统会标记为边界不确定，而非强行选择一柱。</p></details></div>}
+    {mode === "system" && <div className="system-reading">{systems.map(([short, title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h2>{title}</h2><b>{short}</b><p>{copy}</p><a href="#rule-list" onClick={() => setMode("rules")}>查看本体系规则</a></article>)}</div>}
+    {mode === "rules" && <><div className="book-index"><span>收录典籍</span>{books.map(book => <b key={book}>{book}</b>)}</div><label className="rule-search">检索规则<input value={query} onChange={event => setQuery(event.target.value)} placeholder="输入规则名称、流派或典籍关键词" /></label><p className="muted">{data?.total ?? "…"} 条可公开检索规则</p><div className="rule-cards" id="rule-list">{data?.rules?.slice(0, 100).map((rule: any) => <a className="rule-card" href={`/rules/${rule.rule_id}`} key={rule.rule_id}><div><span className="tag">{rule.presentation?.school} · {rule.presentation?.scope}</span><h2>{rule.title}</h2><p>{rule.description}</p></div><footer><span>{rule.presentation?.phase}</span><span>{rule.presentation?.sources?.[0]?.work || "来源待补"}</span><b>查看公开依据</b></footer></a>)}</div></>}
+  </section>;
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "li_hanchen.procedure.exact_action_rule_withheld@1.0.0",
+  "title": "四字作用口诀未公开",
+  "description": "规范化正文未给出作者称四字一句的完整算法。",
+  "namespace": "li_hanchen.procedure",
+  "school_id": "li_hanchen",
+  "module": "li_hanchen.procedure",
+  "status": [
+    "procedural",
+    "incomplete"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.procedure_resolution",
+  "priority": 2984,
+  "when": {
+    "op": "fact",
+    "path": "facts.li_hanchen.w05.procedure.exact_action_rule_withheld",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "li_hanchen.procedure",
+        "proposition": {
+          "predicate": "li_hanchen.procedure.interaction_algorithm_status",
+          "value": "incomplete"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "incomplete",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": [
+            "no_unpublished_algorithm_inference"
+          ]
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w05.procedure_exact_action_rule_withheld.cb2c17ee96",
+      "work_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong",
+      "normalized_path": "corpus/normalized/modern__li_hanchen_ba_zi_yu_ce_zhen_zong.md",
+      "chunk_id": "modern.li_hanchen_ba_zi_yu_ce_zhen_zong#c000034",
+      "source_lines": {
+        "start": 547,
+        "end": 752
+      },
+      "anchor": "src:modern.li_hanchen_ba_zi_yu_ce_zhen_zong:L000547-L000752",
+      "quote": "概括起来只是四个字的一句话",
+      "section_path": [
+        "八字预测真踪",
+        "第二章"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "52f08194eec6b53f9a285e60024a309a069d241414a1a6fc0eb13979142a0757"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": [
+      "纸本页级核验后方可升级。"
+    ]
+  }
+}

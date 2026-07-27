@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "classical_ziping.w03_composite@1.0.0",
+  "namespace": "classical_ziping.composite",
+  "school_id": "classical_ziping",
+  "label": "传统子平 W03 composite",
+  "status": "production",
+  "rule_files": [
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__phase_order.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__w02_preserved.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__climate_not_override.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__qi_flow_not_override.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__remedy_relative.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__temporal_reenters_all.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__preserve_conflicts.rule.json",
+    "rules/classical_ziping/w03/composite/classical_ziping__composite__neutral_structural_output.rule.json"
+  ],
+  "notes": [
+    "W03 formal rules; W01 samples and W02 rules are not counted here.",
+    "All rules remain reviewed, not production."
+  ]
+}

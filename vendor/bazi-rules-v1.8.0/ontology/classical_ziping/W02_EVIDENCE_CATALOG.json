@@ -1,0 +1,1260 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "classical_ziping.w02_evidence_catalog@1.8.0",
+  "fact_path_count": 208,
+  "items": [
+    {
+      "path": "facts.classical_ziping.w02.follow.candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.candidate_type",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.day_master_in_season",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.day_master_root_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.day_master_rootless",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.day_master_uncorrectably_weak",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.day_master_unrestrainably_strong",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.dominance_full_chart",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.dominant_ten_god",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.follower_attacked",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.follower_flourishing",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.kill_assembled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.kill_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.official_kill_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.peers_full_chart",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.peers_many",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.remote_single_root_overwhelmed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.resource_heavy",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.resource_optional",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.wealth_assembled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.wealth_official_kill_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.follow.wealth_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.assistant_star_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.assistant_star_damaged",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.food_or_hurt_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.heavy_resource_protection",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.hurt_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.kill_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.official_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.official_or_kill_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.blade.wealth_resource_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.compiled.kill_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.compiled.official_kill_mixed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.confirmed_pattern",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.failure_signal",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.generates_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.generates_wealth_and_kill_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.owl",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.route_to_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.wealth_protects_food",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.food.with_kill_no_wealth_abandon_food_use_kill_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.generates_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.generates_wealth_with_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.generates_wealth_with_rooted_day",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.kill_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.kill_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.non_metal_water_meets_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.resource_controls_hurt_with_roots",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.resource_scheme_hurt_light_day_strong",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.strong_hurt_weak_day_kill_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.hurt.with_kill_no_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.day_strong_and_controlled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.food_control",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.resource_protects_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.uncontrolled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.wealth_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.kill.wealth_removes_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.hurt_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.hurt_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.kill_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.kill_controlled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.kill_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.kill_resource_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.official_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.official_used",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.official_with_wealth_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.wealth_absent",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.wealth_used",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.lu.wealth_with_output",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.clash_resolved_by_combination",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.hurt_control",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.kill_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.kill_mixed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.no_punish_clash_break_harm",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.punish_clash",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.resource_protection",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.resource_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.official.wealth_support",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.pattern_confirmed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.rescue_signal",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.day_and_resource_strong_with_output",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.day_strong_resource_heavy_kill_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.light_with_kill_generation",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.light_with_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.many_with_light_rooted_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.official_resource_complete",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.output_releases_strong_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.robbery_relief",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.wealth_attack",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.wealth_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.resource.wealth_restrains_excess",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.body_resource_vigorous",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.body_wealth_both_vigorous",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.combine_kill_preserve_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.complete_branch_group_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.food_resource_both_used",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.food_resource_noninterfering",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.food_uses_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.heavy_resource_uses_visible_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.hurt_resource_structure",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.metal_water_food",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.metal_water_not_fear_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.month_hidden_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.multiple_resources_resolve_hurt",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.no_visible_hurt_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.no_visible_kill_mixed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.official_hurt_use_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.official_purified",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.official_resource_generation",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.output_release_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.resource_pattern_visible_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.resource_transforms_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.robbery_preserves_kill_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.vigorous_wealth_generates_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.visible_pattern_stem_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.weak_with_visible_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_carries_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_generates_kill_output_controls_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_removed_by_resource_combination",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_removes_resource_preserves_output",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_resource_both_used",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_resource_both_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_resource_noninterfering",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_uses_kill_resource",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_vigorous_generates_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.wealth_visible_not_taboo",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.special.winter_earth_thawed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.success_signal",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.taboo_signal",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.food_controls_kill",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.food_generates_and_day_strong_with_peer",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.food_generates_wealth",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.food_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.generates_official",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.kill_combined_away",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.kill_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.kill_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.light_peer_heavy",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.official_generated",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.resource_well_positioned",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.lifecycle.wealth.robbery",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.complete_direction_or_trine",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.complete_group",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.day_element",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.element",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.month_qi_connected",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.no_effective_break",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.one_element.resource_visible_and_body_pure",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.all_month_qi_unusable",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.candidate_class",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.candidate_ten_god",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.day_master_strong",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.external_dominant_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.forced_clash_proposed",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.hidden_qi_available",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.jianlu_or_yuejie_candidate",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.limited_clash_punishment",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.main_qi_damaged",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.main_qi_usable",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.main_qi_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.mixed_branch_combination_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.mixed_storage_month",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.mixed_transparent_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_command_available",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_hidden_none_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_intrinsically_no_use",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_pattern_broken",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_ten_god",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.month_use_available",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.multiple_mixed_candidates",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.multiple_secondary_hidden_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.no_hidden_qi_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.ordinary_pattern_route",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.original_pattern_still_supported",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.outer_pattern_candidate",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.ranked_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.ranked_hidden_candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.secondary_hidden_usable",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.secondary_hidden_visible",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.variation_by_branch_combination",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.variation_by_hidden_exposure",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.pattern.variation_detected",
+      "value_type": "boolean_or_enumerated",
+      "producer": "explicit_source_judgment",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.candidate_count",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.evidence_compiled",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.month_supportive",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.resolved_side",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.restraint_level",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.root_and_peer_evidence_available",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.root_level",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.root_present",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.rooted_boundary_can_bear",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.season_and_whole_chart_conflict",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.strength.support_level",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.candidate_exists",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.competing_combine",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.damaging_idle_god",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.day_master_rootless",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.day_root_peer_resource_support",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.day_stem_combine_candidate",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.day_stem_pair",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.fixed_month_only_support",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.month_branch",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.transform_god_flourishing",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.transform_god_sufficient",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.transformation_group_complete",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.trine_candidate",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    },
+    {
+      "path": "facts.classical_ziping.w02.transform.trine_complete",
+      "value_type": "boolean_or_enumerated",
+      "producer": "engine.classical_ziping_w02",
+      "open_world": true
+    }
+  ],
+  "policies": {
+    "missing_path": "unknown, never false",
+    "deterministic_compiler": "engine/classical_ziping_w02.py",
+    "annotation": "source-dependent judgments must be explicit and traceable; no hidden score is permitted"
+  }
+}

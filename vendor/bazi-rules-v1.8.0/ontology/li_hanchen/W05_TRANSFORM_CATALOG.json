@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "pairs": {
+    "甲己": "earth",
+    "乙庚": "metal",
+    "丙辛": "water",
+    "丁壬": "wood",
+    "戊癸": "fire"
+  },
+  "conditions": [
+    "one_to_one",
+    "transform_element_strong",
+    "changing_stems_weak"
+  ],
+  "natal_only": true
+}

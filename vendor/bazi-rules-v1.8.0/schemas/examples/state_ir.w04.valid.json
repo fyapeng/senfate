@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026",
+  "chart_id": "synthetic.chart.001",
+  "stage": "annual",
+  "school_profile_id": "shao_weihua.w04@1.0.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001",
+    "luck_cycle_id": "luck.01",
+    "annual_id": "annual.2026"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.state.synthetic.chart.001.shao_w04.annual.annual.2026.recompute_complete",
+      "subject": {
+        "ref_id": "synthetic.chart.001",
+        "entity_type": "chart",
+        "layer": "annual"
+      },
+      "predicate": "shao_weihua.temporal.recompute_complete",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026"
+      },
+      "source_type": "computed",
+      "algorithm_id": "shao_weihua.w04.compiler@1.0.0"
+    }
+  ],
+  "relations": [
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.shao_w04.annual.annual.2026.1",
+      "relation_type": "common.relation.same_element",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.month.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "丙"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.shao_w04.annual.annual.2026.2",
+      "relation_type": "common.relation.element.controls",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.hour.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "庚"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.shao_w04.annual.annual.2026.3",
+      "relation_type": "common.relation.stem.combine",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.luck.01.stem",
+          "entity_type": "stem",
+          "layer": "luck",
+          "label": "辛"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.shao_w04.annual.annual.2026.4",
+      "relation_type": "common.relation.branch.clash",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.branch",
+          "entity_type": "branch",
+          "layer": "annual",
+          "label": "午"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.year.branch",
+          "entity_type": "branch",
+          "layer": "natal",
+          "label": "子"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.shao_w04.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    }
+  ],
+  "findings": [],
+  "school_state": {
+    "shao_weihua": {
+      "w04": {
+        "procedure": {
+          "whole_chart_available": true,
+          "year_pillar_available": true,
+          "year_strength_inputs_compiled": true,
+          "month_command_available": true,
+          "phase_order_ready": true,
+          "month_hidden_stems_compiled": true,
+          "luck_cycles_available": true,
+          "day_master_available": true,
+          "strength_compiled": true,
+          "strong_dimensions_compiled": true,
+          "weak_dimensions_compiled": true,
+          "hour_support_compiled": true,
+          "structural_imbalance_detected": true,
+          "remedy_candidate_detected": true,
+          "useful_god_inputs_compiled": true,
+          "missing_element_candidate": true,
+          "temporal_remedy_candidate": true,
+          "climate_fallback_candidate": true,
+          "shensha_module_enabled": true,
+          "shensha_catalog_loaded": true
+        },
+        "pattern": {
+          "evidence_compiled": true,
+          "cell_key": "wu_yin",
+          "day_stem": "戊",
+          "month_branch": "寅",
+          "all_candidates": [
+            {
+              "visible_stem": "甲",
+              "pattern": "七杀格"
+            },
+            {
+              "visible_stem": "丙",
+              "pattern": "偏印格"
+            }
+          ],
+          "active_candidates": [
+            {
+              "visible_stem": "甲",
+              "pattern": "七杀格"
+            },
+            {
+              "visible_stem": "丙",
+              "pattern": "偏印格"
+            }
+          ],
+          "fallback_candidates": [],
+          "status": "active_candidates",
+          "source_mode": "direct_ocr_context_checked",
+          "raw_text": "戊生寅月，干透甲木，为七煞格。透丙火，为偏印。不透, 酌取之。喜身旺, 忌身弱。七煞有合莫制, 无合要制, 忌官星，忌再行七煞之乡。"
+        },
+        "strength": {
+          "evidence_compiled": true,
+          "month_supportive": false,
+          "support_count": 4,
+          "restraint_count": 6,
+          "support_level": "many",
+          "restraint_level": "many",
+          "root_positions": [
+            "month",
+            "day",
+            "hour"
+          ],
+          "root_level": "many",
+          "category": "weak",
+          "reasons": [
+            "stem:year:official_kill",
+            "stem:month:resource",
+            "stem:hour:output"
+          ],
+          "thresholds": {
+            "support_many_min": 4,
+            "restraint_many_min": 4,
+            "root_many_min": 2
+          }
+        },
+        "useful_god": {
+          "evidence_compiled": true,
+          "ten_god_group_counts": {
+            "official_kill": 3,
+            "wealth": 3,
+            "resource": 2,
+            "peer": 3,
+            "output": 2
+          },
+          "many_groups": [],
+          "matched_case_ids": [
+            "analog_secondary_patterns"
+          ],
+          "candidate_useful_gods": [
+            "profile_defined"
+          ]
+        },
+        "shensha": {
+          "evidence_compiled": true,
+          "detections": {
+            "tianyi": false,
+            "taiji": true,
+            "tiande": false,
+            "yuede": true,
+            "sanqi": false,
+            "fuxing": true,
+            "wenchang": true,
+            "kuigang": false,
+            "guoyin": false,
+            "xuetang": null,
+            "ciguan": null,
+            "dexiu": true,
+            "yima": true,
+            "huagai": true,
+            "jiangxing": true,
+            "jinyu": false,
+            "jinshen": false,
+            "tianyi_medical": false,
+            "lushen": false,
+            "gonglu": false,
+            "tianshe": false,
+            "tianluodiwang": false,
+            "yangren": false,
+            "jiesha": false,
+            "zaisha": false,
+            "gou": null,
+            "jiao": null,
+            "guchen": true,
+            "guasu": false,
+            "wangshen": false,
+            "yuanchen": null,
+            "kongwang": false,
+            "shie_dabai": false,
+            "xianchi": false,
+            "guluan": false,
+            "yinyang_chacuo": false,
+            "sifei": false
+          },
+          "present": [
+            "taiji",
+            "yuede",
+            "fuxing",
+            "wenchang",
+            "dexiu",
+            "yima",
+            "huagai",
+            "jiangxing",
+            "guchen"
+          ],
+          "unknown": [
+            "xuetang",
+            "ciguan",
+            "gou",
+            "jiao",
+            "yuanchen"
+          ],
+          "any_present": true,
+          "context_available": true,
+          "supplementary_only": true
+        },
+        "temporal": {
+          "evaluation_order": true,
+          "luck_ten_god_mapping": true,
+          "luck_stem_branch_weight": true,
+          "state_chain": true,
+          "luck_branch_full_effect": true,
+          "annual_branch_tai_sui_w04": true,
+          "favorable_stage": false,
+          "unfavorable_stage": false,
+          "neutral_stage": false,
+          "interaction_can_reverse": true,
+          "temporal_priority_interaction": true,
+          "latent_combination_transform": false,
+          "remove_unfavorable": false,
+          "remove_favorable": false,
+          "favorable_blocked": false,
+          "unfavorable_blocked": false,
+          "successful_transform": false,
+          "punishment_signal": false,
+          "heaven_earth_clash": false,
+          "mixed_heaven_earth": false,
+          "multi_target_conflict": false,
+          "multi_target_combination": false,
+          "hurt_official_vs_official": false,
+          "opposing_groups": false,
+          "palace_clash": false,
+          "kinship_star_punishment": false,
+          "repeated_punishment": false,
+          "offend_tai_sui": false,
+          "relations_compiled": true,
+          "relation_count": 4,
+          "stage": "annual"
+        },
+        "kinship": {
+          "parent_palace_competing": true,
+          "parent_methods_combine": true,
+          "father_star": true,
+          "mother_star": true,
+          "alternate_mother_star": true,
+          "ancestry_not_destiny": true,
+          "sibling_palace_month": true,
+          "sibling_stars": true,
+          "sibling_count_parameterized": true,
+          "male_spouse_star": true,
+          "marriage_palace_month": true,
+          "spouse_palace_day": true,
+          "day_branch_relation": true,
+          "child_palace_hour": true,
+          "children_hour_strength": true,
+          "child_star_official_kill": true,
+          "child_star_output": true,
+          "child_star_conflict": true,
+          "parents_year_month_context": true,
+          "siblings_actual_markers_not_month_stems": true,
+          "children_method_not_sex_prediction": true,
+          "kinship_neutralization": true,
+          "sibling_gender_mapping": false,
+          "palace_activation_year": true
+        },
+        "themes": {
+          "wealth_presence": true,
+          "wealth_storage": false,
+          "wealth_transparency": false,
+          "wealth_strong_day": false,
+          "wealth_weak_day": false,
+          "wealth_useful": false,
+          "wealth_output_generation": true,
+          "wealth_temporal_official": false,
+          "career_kill_strong": false,
+          "career_official_wealth": false,
+          "career_official_luck": false,
+          "career_no_official": false,
+          "career_official_damaged": false,
+          "career_mixed_official_kill": false,
+          "study_three_stars": true,
+          "study_three_stars_complete": true,
+          "study_strong_official": false,
+          "study_hurt_control": false,
+          "study_kill_resource": false,
+          "study_resource_lu": false,
+          "reputation_xuetang_without_official": false,
+          "reputation_hurt_kill": false,
+          "reputation_kill_resource": false,
+          "personality_no_official_freedom": false,
+          "theme_requires_structure": true,
+          "health_claims_blocked": true,
+          "health_element_mapping_historical": true,
+          "harm_chapter_incomplete": true,
+          "personality_elements_neutral": true,
+          "no_criminality_inference": true,
+          "no_death_timing": true,
+          "no_deterministic_marriage": true
+        }
+      }
+    }
+  },
+  "trace_id": "trace.state.synthetic.chart.001.shao_w04.annual.annual.2026",
+  "parent_state_id": "state.synthetic.chart.001.shao_w04.luck.luck.01"
+}

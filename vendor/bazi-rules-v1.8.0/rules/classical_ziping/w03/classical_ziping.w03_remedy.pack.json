@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "classical_ziping.w03_remedy@1.0.0",
+  "namespace": "classical_ziping.remedy",
+  "school_id": "classical_ziping",
+  "label": "传统子平 W03 remedy",
+  "status": "production",
+  "rule_files": [
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__select_focus_first.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__disease_relative.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__disease_candidate.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__medicine_direct_match.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__medicine_resolved.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__medicine_excess.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__disease_medicine_relative_force.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__pure_earth_examples_not_universal.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_disease_carve.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_disease_withered.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_disease_excessive.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_disease_weak.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_medicine_reduce.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_medicine_augment.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_medicine_birth.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__four_medicine_growth.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__birth_not_flourishing.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__growth_differs_birth.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__shenfeng_stem_dynamic.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__shenfeng_branch_static.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__shenfeng_cover_head.rule.json",
+    "rules/classical_ziping/w03/remedy/classical_ziping__remedy__neutral_output.rule.json"
+  ],
+  "notes": [
+    "W03 formal rules; W01 samples and W02 rules are not counted here.",
+    "All rules remain reviewed, not production."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "shao_weihua.temporal.evaluation_order@1.0.0",
+  "title": "评估顺序：流年为主、大运次之、小运看助向",
+  "description": "按作者岁运程序登记状态转换或关系候选；任何灾病、死亡、牢狱和亲属事件均不得作为确定事实输出。",
+  "namespace": "shao_weihua.temporal",
+  "school_id": "shao_weihua",
+  "module": "shao_weihua.temporal",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_recompute",
+  "priority": 1900,
+  "when": {
+    "op": "fact",
+    "path": "facts.shao_weihua.w04.temporal.evaluation_order",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "shao_weihua.temporal.state",
+        "proposition": {
+          "predicate": "shao_weihua.temporal.evaluation_order",
+          "value": [
+            "annual",
+            "luck",
+            "minor_luck"
+          ]
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "low",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w04.temporal_evaluation_order.d8976919c8",
+      "work_id": "modern.shao_si_zhu_yu_ce_xue",
+      "normalized_path": "corpus/normalized/modern__shao_si_zhu_yu_ce_xue.md",
+      "chunk_id": "modern.shao_si_zhu_yu_ce_xue#c000659",
+      "source_lines": {
+        "start": 1311,
+        "end": 1311
+      },
+      "anchor": "src:modern.shao_si_zhu_yu_ce_xue:L001311-L001311",
+      "quote": "大运、小运、流年之间的生克关系, 以及三者与四柱的关系极为复杂, 它是预测中决断吉凶最重要的环节之一。因此, 古人凡著书立说无不重视这方面的研究。虽有多如牛毛的论大运、论小运、论流年、总论岁运之精论，借其理论深邃, 观点繁杂, 章节甚多, 以致后学者无所适从。我根据自己的实践，有如下的体会:大运、流年与四柱的生克刑冲之关系以流年为主，大运次之，小运看是助太岁还是助大运，然后看四柱的用神、日元或四柱中各柱所喜所忌，用以决断人生之吉凶较之易掌握。现录《八字精解》“看流年大运”的论述, 以期与学者共赏析。",
+      "section_path": [
+        "四柱预测学",
+        "二、看大运流年。"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3063c5ced9b8f5af03b8d27b693554d776fdf407ab2d622f3b34f636480d94f8"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  },
+  "conflict": {
+    "group": "shao_weihua.temporal.priority",
+    "policy": "preserve_all",
+    "note": "同一段同时出现流年为主与关系变化时大运最先的表述，按场景分别保存。"
+  }
+}

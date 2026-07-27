@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "classical_ziping.composite.preserve_conflicts@1.0.0",
+  "title": "书际冲突在综合模型中继续并列",
+  "description": "杂气冲刑、盖头、岁运冲激轻重等冲突按规则组保存，不以多数投票或后写规则覆盖。",
+  "namespace": "classical_ziping.composite",
+  "school_id": "classical_ziping",
+  "module": "classical_ziping.composite",
+  "status": [
+    "procedural",
+    "executable"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.composite_resolution",
+  "priority": 940,
+  "when": {
+    "op": "fact",
+    "path": "facts.classical_ziping.w03.composite.conflicts_available",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "procedural",
+        "topic": "classical_ziping.composite.procedure",
+        "proposition": {
+          "predicate": "classical_ziping.composite.conflict_policy",
+          "value": "preserve_all"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w03.composite_conflict.e627d9724d",
+      "work_id": "classic.di_tian_sui",
+      "normalized_path": "corpus/normalized/classic__di_tian_sui.md",
+      "chunk_id": "classic.di_tian_sui#c000370",
+      "source_lines": {
+        "start": 739,
+        "end": 739
+      },
+      "anchor": "src:classic.di_tian_sui:L000739-L000739",
+      "quote": "原注：真神得令，假神得局而党多；假神得令，真神得局而党多。不见真假之迹，或真假皆得令得助，不能辨其胜负而参差者，其人难无大祸，一生迍否而少安乐。寅月生人，不透木火，而透金为用神，是为提纲不照也；得己土暗邀，戊土转生，地支卯多酉冲，乙庚暗化，运转西方，亦为有真，亦或发福。以上特举真假一端言耳，其会局、合神、从化、用神衰旺、情势象格，心迹才德邪正、缓急、生死、进退之例，莫不有真假，最宜详辨之。",
+      "section_path": [
+        "滴天髓",
+        "下篇六亲论",
+        "一、天道",
+        "二十六、假神"
+      ],
+      "text_layer": "original_commentary",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "not_applicable",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "3efd3435fd3279fda8a22788ffcd8cbdd2546b45270cb4b8f10c21342fc4bcf6"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

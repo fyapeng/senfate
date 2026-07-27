@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_method_resolution@1.0.0",
+  "namespace": "duan_li_xiang.method_resolution",
+  "school_id": "duan_li_xiang",
+  "label": "制法条件与效率裁决",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__combine_catalog.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__si_shen_top.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__mao_xu_mao_shen_wu_hai_high.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__si_you_high_with_wood_fire.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__zi_chou_yin_chou_medium.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__low_combine_catalog.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__wu_wei_not_control.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__tomb_clash_punishment_top.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__clash_requires_party_margin.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__yin_shen_si_hai_high.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__zi_wu_mao_you_lower.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__plain_control_low.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__enclosure_high.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__stems_support_enclosure.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__four_control_harms.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__two_generate_harms.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__harm_requires_force.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__distance_can_reduce.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__damage_to_work_lowers.rule.json",
+    "rules/duan_li_xiang/w06/method_resolution/duan_li_xiang__method_resolution__waste_nodes_reduce_coherence.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}

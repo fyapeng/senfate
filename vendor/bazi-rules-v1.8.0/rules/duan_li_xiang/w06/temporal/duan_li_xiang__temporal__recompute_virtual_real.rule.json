@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.temporal.recompute_virtual_real@1.0.0",
+  "title": "岁运重算虚实",
+  "description": "同一十神由干到支或由支到干时状态变化。",
+  "namespace": "duan_li_xiang.temporal",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.temporal",
+  "status": [
+    "procedural",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "luck",
+    "annual"
+  ],
+  "phase": "school.temporal_resolution",
+  "priority": 4998,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.temporal.recompute_virtual_real",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.temporal",
+        "proposition": {
+          "predicate": "duan_li_xiang.temporal.recompute_virtual_real",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06.temporal_recompute_virtual_real.3ef09b6329",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001221",
+      "source_lines": {
+        "start": 2439,
+        "end": 2439
+      },
+      "anchor": "src:modern.duan_li_xiang:L002439-L002439",
+      "quote": "四柱某字虚实之状态发生变化时",
+      "section_path": [
+        "段氏理象学",
+        "三、干支虚实原理"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

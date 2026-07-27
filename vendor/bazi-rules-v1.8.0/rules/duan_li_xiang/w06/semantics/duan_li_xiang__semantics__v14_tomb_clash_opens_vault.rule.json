@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.semantics.v14_tomb_clash_opens_vault@1.0.0",
+  "title": "冲开墓库",
+  "description": "辰戌或丑未冲及已识别墓库时，登记相应开库路径。",
+  "namespace": "duan_li_xiang.semantics",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.semantics",
+  "status": [
+    "semantic",
+    "procedural"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.findings",
+  "priority": 4116,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.semantics.tomb_clash_opens_vault_present",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.semantics",
+        "proposition": {
+          "predicate": "duan_li_xiang.semantics.v14_tomb_clash_opens_vault",
+          "value": "冲开墓库"
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.v14.a547b1ae05",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000480",
+      "source_lines": {
+        "start": 959,
+        "end": 959
+      },
+      "anchor": "src:modern.duan_li_xiang:L000959-L000959",
+      "quote": "辰戌冲，财库又被冲开的",
+      "section_path": [
+        "段氏理象学",
+        "辰 寅 亥 午"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    },
+    {
+      "source_ref_id": "src.v14.de515191b2",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c000519",
+      "source_lines": {
+        "start": 1037,
+        "end": 1037
+      },
+      "anchor": "src:modern.duan_li_xiang:L001037-L001037",
+      "quote": "未冲丑库，开了杀库",
+      "section_path": [
+        "段氏理象学",
+        "2. 十二支三合局"
+      ],
+      "text_layer": "example",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-27",
+    "open_questions": []
+  }
+}

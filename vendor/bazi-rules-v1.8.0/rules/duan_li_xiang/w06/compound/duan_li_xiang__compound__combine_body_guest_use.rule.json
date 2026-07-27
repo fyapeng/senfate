@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.compound.combine_body_guest_use@1.0.0",
+  "title": "体合宾位用构成合用",
+  "description": "日干或日支的体与宾位目标建立合用候选。",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.compound",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3994,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.compound.combine_body_guest_use",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.compound",
+        "proposition": {
+          "predicate": "duan_li_xiang.compound.combine_body_guest_use",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.compound_combine_body_guest_use.a6ca7fd766",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001428",
+      "source_lines": {
+        "start": 2853,
+        "end": 2853
+      },
+      "anchor": "src:modern.duan_li_xiang:L002853-L002853",
+      "quote": "日主或日支为“体”，合住宾位的“用”",
+      "section_path": [
+        "段氏理象学",
+        "四、合用结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

@@ -1,0 +1,1506 @@
+{
+  "schema_version": "1.0.0",
+  "entry_count": 300,
+  "entries": [
+    {
+      "path": "facts.shao_weihua.w04.procedure.whole_chart_available",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.year_pillar_available",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.year_strength_inputs_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.month_command_available",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.phase_order_ready",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.month_hidden_stems_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.luck_cycles_available",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.day_master_available",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.strength_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.strong_dimensions_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.weak_dimensions_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.hour_support_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.structural_imbalance_detected",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.remedy_candidate_detected",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.useful_god_inputs_compiled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.missing_element_candidate",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.temporal_remedy_candidate",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.climate_fallback_candidate",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.shensha_module_enabled",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.procedure.shensha_catalog_loaded",
+      "group": "procedure",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.pattern_cell_matches",
+      "group": "pattern",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.useful_god_case_matches",
+      "group": "useful_god",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "resolver:shao_weihua.w04.shensha_present",
+      "group": "shensha",
+      "source": "resolver"
+    },
+    {
+      "path": "facts.shao_weihua.w04.shensha.any_present",
+      "group": "shensha",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.shensha.context_available",
+      "group": "shensha",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.evaluation_order",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.luck_ten_god_mapping",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.luck_stem_branch_weight",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.favorable_stage",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.unfavorable_stage",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.neutral_stage",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.interaction_can_reverse",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.temporal_priority_interaction",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.latent_combination_transform",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.remove_unfavorable",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.remove_favorable",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.favorable_blocked",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.unfavorable_blocked",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.successful_transform",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.punishment_signal",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.heaven_earth_clash",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.mixed_heaven_earth",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.multi_target_conflict",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.multi_target_combination",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.hurt_official_vs_official",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.opposing_groups",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.palace_clash",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.kinship_star_punishment",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.repeated_punishment",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.offend_tai_sui",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.annual_branch_tai_sui_w04",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.luck_branch_full_effect",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.temporal.state_chain",
+      "group": "temporal",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.parent_palace_competing",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.parent_methods_combine",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.father_star",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.mother_star",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.alternate_mother_star",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.ancestry_not_destiny",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.sibling_palace_month",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.sibling_stars",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.sibling_gender_mapping",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.sibling_count_parameterized",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.male_spouse_star",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.marriage_palace_month",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.spouse_palace_day",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.day_branch_relation",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.child_palace_hour",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.children_hour_strength",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.child_star_official_kill",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.child_star_output",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.child_star_conflict",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.palace_activation_year",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.parents_year_month_context",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.siblings_actual_markers_not_month_stems",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.children_method_not_sex_prediction",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.kinship.kinship_neutralization",
+      "group": "kinship",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_presence",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_storage",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_transparency",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_strong_day",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_weak_day",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_useful",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_output_generation",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.wealth_temporal_official",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_kill_strong",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_official_wealth",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_official_luck",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_no_official",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_official_damaged",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.career_mixed_official_kill",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_three_stars",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_three_stars_complete",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_strong_official",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_hurt_control",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_kill_resource",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.study_resource_lu",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.reputation_xuetang_without_official",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.reputation_hurt_kill",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.reputation_kill_resource",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.health_claims_blocked",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.health_element_mapping_historical",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.harm_chapter_incomplete",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.personality_elements_neutral",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.personality_no_official_freedom",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.no_criminality_inference",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.no_death_timing",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.no_deterministic_marriage",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    },
+    {
+      "path": "facts.shao_weihua.w04.themes.theme_requires_structure",
+      "group": "themes",
+      "source": "compiler_or_annotation"
+    }
+  ]
+}

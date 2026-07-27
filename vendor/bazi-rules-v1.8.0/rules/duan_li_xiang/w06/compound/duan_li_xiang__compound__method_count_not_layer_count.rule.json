@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "rule_id": "duan_li_xiang.compound.method_count_not_layer_count@1.0.0",
+  "title": "方式数量不等于功层数",
+  "description": "禁止把方法数直接累加为功量。",
+  "namespace": "duan_li_xiang.compound",
+  "school_id": "duan_li_xiang",
+  "module": "duan_li_xiang.compound",
+  "status": [
+    "executable",
+    "parameterized"
+  ],
+  "maturity": "production",
+  "enabled": true,
+  "scope": [
+    "natal",
+    "luck",
+    "annual"
+  ],
+  "phase": "school.work_resolution",
+  "priority": 3986,
+  "when": {
+    "op": "fact",
+    "path": "facts.duan_li_xiang.w06.compound.method_count_not_layer_count",
+    "operator": "equals",
+    "value": true
+  },
+  "unknown_policy": "propagate",
+  "actions": [
+    {
+      "action": "emit_finding",
+      "payload": {
+        "finding_type": "structural",
+        "topic": "duan_li_xiang.compound",
+        "proposition": {
+          "predicate": "duan_li_xiang.compound.method_count_not_layer_count",
+          "value": true
+        },
+        "truth": "true",
+        "direction": "neutral",
+        "evidence_status": "direct",
+        "safety": {
+          "risk_level": "none",
+          "output_mode": "structural_only",
+          "reason_codes": []
+        }
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "source_ref_id": "src.w06p2.compound_method_count_not_layer_count.ec172c881a",
+      "work_id": "modern.duan_li_xiang",
+      "normalized_path": "corpus/normalized/modern__duan_li_xiang.md",
+      "chunk_id": "modern.duan_li_xiang#c001493",
+      "source_lines": {
+        "start": 2983,
+        "end": 2983
+      },
+      "anchor": "src:modern.duan_li_xiang:L002983-L002983",
+      "quote": "但论功量只有一层, 不是三层功",
+      "section_path": [
+        "段氏理象学",
+        "六、复合结构做功"
+      ],
+      "text_layer": "author_text",
+      "authority": "primary",
+      "verification": "context_checked",
+      "ocr_review": "context_only",
+      "corpus_content_version": "0.1.0",
+      "normalized_sha256": "21e8f6f03dec17c10d28824f49375bc01e7736ba0c71343f71a9066e7990059b"
+    }
+  ],
+  "review": {
+    "review_status": "logic_checked",
+    "reviewed_at": "2026-07-26",
+    "open_questions": []
+  }
+}

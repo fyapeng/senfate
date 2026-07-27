@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "li_hanchen.w05_transform@1.0.0",
+  "namespace": "li_hanchen.transform",
+  "school_id": "li_hanchen",
+  "label": "化格",
+  "status": "production",
+  "rule_files": [
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__definition.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__day_month_adjacent.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__day_hour_adjacent.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__one_to_one.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__transform_element_strong.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__changing_stems_weak.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__pair_jia_ji.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__pair_yi_geng.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__pair_bing_xin.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__pair_ding_ren.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__pair_wu_gui.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__natal_only.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__temporal_transform_element_no_activation.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__no_exposed_transform_required.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__no_dragon_required.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__transform_element_useful.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__generators_useful.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__controllers_of_disruptors_useful.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__disruptors_unfavorable.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__no_true_false_split.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__kinship_identity_fixed.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__yang_dm_wealth_historical.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__yin_dm_official_historical.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__ancient_character_labels_rejected.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__no_deterministic_wealth_status.rule.json",
+    "rules/li_hanchen/w05/transform/li_hanchen__transform__same_temporal_method_after_party.rule.json"
+  ],
+  "notes": [
+    "Only 《八字预测真踪》 author text is used as formal evidence.",
+    "Incomplete algorithms remain unknown; all rules are reviewed, not production."
+  ]
+}

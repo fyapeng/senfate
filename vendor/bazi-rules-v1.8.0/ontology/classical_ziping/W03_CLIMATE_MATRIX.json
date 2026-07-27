@@ -1,0 +1,2014 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_id": "classical_ziping.climate_matrix@1.0.0",
+  "entry_count": 120,
+  "policy": {
+    "coverage": "10_day_stems_x_12_month_branches",
+    "selection": "ordered_candidates",
+    "finality": "requires_context_resolver",
+    "temporal": "recompute_per_state"
+  },
+  "entries": [
+    {
+      "recipe_key": "甲.寅",
+      "day_stem": "甲",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000022",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000022"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春木气与寒润并审",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.卯",
+      "day_stem": "甲",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "庚",
+        "戊",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000028",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000028",
+        "classic.qiong_tong_bao_jian#c000027"
+      ],
+      "derived_candidates": [],
+      "condition_note": "旺木先取裁成并审辅助",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.辰",
+      "day_stem": "甲",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "庚",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000029",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000029"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春湿土中审庚壬",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.巳",
+      "day_stem": "甲",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "癸",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000037",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000037"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏先润后审火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.午",
+      "day_stem": "甲",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "癸",
+        "丁",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000041",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000041"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏润燥并审裁木",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.未",
+      "day_stem": "甲",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "丁",
+        "庚",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000041",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000041"
+      ],
+      "derived_candidates": [],
+      "condition_note": "月内条件次序须保留",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.申",
+      "day_stem": "甲",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "丁",
+        "庚",
+        "甲",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000059",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000059"
+      ],
+      "derived_candidates": [],
+      "condition_note": "秋初条件组合",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.酉",
+      "day_stem": "甲",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "丁",
+        "丙",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000060",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000060"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋木衰审火与金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.戌",
+      "day_stem": "甲",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "丁",
+        "癸",
+        "庚",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000067",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000067"
+      ],
+      "derived_candidates": [],
+      "condition_note": "燥土月多候选并列",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.亥",
+      "day_stem": "甲",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "庚",
+        "丁",
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000078",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000078"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬木寒审火金土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.子",
+      "day_stem": "甲",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丁",
+        "庚",
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000082",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000082"
+      ],
+      "derived_candidates": [],
+      "condition_note": "严冬先温并审根源",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "甲.丑",
+      "day_stem": "甲",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "庚",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000086",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000086"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬湿寒兼审裁成",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.寅",
+      "day_stem": "乙",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000092",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000092"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春乙木候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.卯",
+      "day_stem": "乙",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000095",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000095"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春乙木候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.辰",
+      "day_stem": "乙",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000100",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000100"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春润燥候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.巳",
+      "day_stem": "乙",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "癸",
+        "辛",
+        "庚",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000110",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000110"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏多条件候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.午",
+      "day_stem": "乙",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000113",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000113"
+      ],
+      "derived_candidates": [],
+      "condition_note": "上下半月条件不同",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.未",
+      "day_stem": "乙",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000116",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000116"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.申",
+      "day_stem": "乙",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "己",
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000127",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000127"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.酉",
+      "day_stem": "乙",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000131",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000131"
+      ],
+      "derived_candidates": [],
+      "condition_note": "秋分前后条件不同",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.戌",
+      "day_stem": "乙",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "癸",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000138",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000138"
+      ],
+      "derived_candidates": [],
+      "condition_note": "燥土月候选",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.亥",
+      "day_stem": "乙",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000142",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000142"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬温培",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.子",
+      "day_stem": "乙",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000144",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000144"
+      ],
+      "derived_candidates": [],
+      "condition_note": "严冬专候温暖",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "乙.丑",
+      "day_stem": "乙",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000148",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000148"
+      ],
+      "derived_candidates": [],
+      "condition_note": "冬木总论用于季冬",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.寅",
+      "day_stem": "丙",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "壬",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000158",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000158"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.卯",
+      "day_stem": "丙",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "壬",
+        "庚",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000180",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000180"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.辰",
+      "day_stem": "丙",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000192",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000192"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.巳",
+      "day_stem": "丙",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "壬",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000201",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000201"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.午",
+      "day_stem": "丙",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "壬",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000217",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000217"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.未",
+      "day_stem": "丙",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "壬",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000229",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000229"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.申",
+      "day_stem": "丙",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "壬",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000241",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000241",
+        "classic.qiong_tong_bao_jian#c000242"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.酉",
+      "day_stem": "丙",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000250",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000250"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.戌",
+      "day_stem": "丙",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "甲",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000262",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000262"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.亥",
+      "day_stem": "丙",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "甲",
+        "戊",
+        "庚",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000275",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000275",
+        "classic.qiong_tong_bao_jian#c000279"
+      ],
+      "derived_candidates": [],
+      "condition_note": "支局条件决定候选次序",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.子",
+      "day_stem": "丙",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "壬",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000288",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000288"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丙.丑",
+      "day_stem": "丙",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000302",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000302"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬丙火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.寅",
+      "day_stem": "丁",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000320",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000320"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.卯",
+      "day_stem": "丁",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "庚",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000333",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000333"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.辰",
+      "day_stem": "丁",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "甲",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000346",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000346"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.巳",
+      "day_stem": "丁",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "甲",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000352",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000352"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.午",
+      "day_stem": "丁",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "壬",
+        "庚",
+        "癸",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000364",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000364"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏条件分支",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.未",
+      "day_stem": "丁",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "甲",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000382",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000382"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.申",
+      "day_stem": "丁",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "甲",
+        "庚",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000394",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000394"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.酉",
+      "day_stem": "丁",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "甲",
+        "丙",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000395",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000395"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.戌",
+      "day_stem": "丁",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "甲",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000395",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000395"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋同段条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.亥",
+      "day_stem": "丁",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "庚",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000421",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000421"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.子",
+      "day_stem": "丁",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "甲",
+        "庚",
+        "戊",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000437",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000437"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬丁火",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "丁.丑",
+      "day_stem": "丁",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "甲",
+        "庚",
+        "戊",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000437",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000437"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬同段条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.寅",
+      "day_stem": "戊",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "丙",
+        "甲",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000461",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000461"
+      ],
+      "derived_candidates": [],
+      "condition_note": "春土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.卯",
+      "day_stem": "戊",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "丙",
+        "甲",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000461",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000461"
+      ],
+      "derived_candidates": [],
+      "condition_note": "春土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.辰",
+      "day_stem": "戊",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "甲",
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000468",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000468"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.巳",
+      "day_stem": "戊",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "甲",
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000485",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000485"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.午",
+      "day_stem": "戊",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "壬",
+        "甲",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000497",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000497"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.未",
+      "day_stem": "戊",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "癸",
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000503",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000503"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.申",
+      "day_stem": "戊",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "丙",
+        "癸",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000515",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000515"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.酉",
+      "day_stem": "戊",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "丙",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000526",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000526"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.戌",
+      "day_stem": "戊",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "甲",
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000532",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000532"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.亥",
+      "day_stem": "戊",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "甲",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000550",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000550"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.子",
+      "day_stem": "戊",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000563",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000563"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬戊土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "戊.丑",
+      "day_stem": "戊",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000563",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000563"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬同段条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.寅",
+      "day_stem": "己",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000578",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000578"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春己土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.卯",
+      "day_stem": "己",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "甲",
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000586",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000586"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春己土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.辰",
+      "day_stem": "己",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "丙",
+        "癸",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000597",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000597"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春己土",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.巳",
+      "day_stem": "己",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000608",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000608"
+      ],
+      "derived_candidates": [],
+      "condition_note": "夏土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.午",
+      "day_stem": "己",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000608",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000608"
+      ],
+      "derived_candidates": [],
+      "condition_note": "夏土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.未",
+      "day_stem": "己",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "癸",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000608",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000608"
+      ],
+      "derived_candidates": [],
+      "condition_note": "夏土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.申",
+      "day_stem": "己",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "癸",
+        "丙",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000624",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000624",
+        "classic.qiong_tong_bao_jian#c000630"
+      ],
+      "derived_candidates": [],
+      "condition_note": "秋土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.酉",
+      "day_stem": "己",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "癸",
+        "丙",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000624",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000624",
+        "classic.qiong_tong_bao_jian#c000630"
+      ],
+      "derived_candidates": [],
+      "condition_note": "秋土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.戌",
+      "day_stem": "己",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "癸",
+        "丙",
+        "辛",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000630",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000630"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋己土条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.亥",
+      "day_stem": "己",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "丙",
+        "甲",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000639",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000639"
+      ],
+      "derived_candidates": [],
+      "condition_note": "冬己土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.子",
+      "day_stem": "己",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000639",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000639"
+      ],
+      "derived_candidates": [],
+      "condition_note": "冬己土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "己.丑",
+      "day_stem": "己",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000639",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000639"
+      ],
+      "derived_candidates": [],
+      "condition_note": "冬己土总论",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.寅",
+      "day_stem": "庚",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "丙",
+        "甲",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000661",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000661",
+        "classic.qiong_tong_bao_jian#c000666"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.卯",
+      "day_stem": "庚",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "丁",
+        "甲",
+        "庚",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000673",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000673"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.辰",
+      "day_stem": "庚",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "甲",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000688",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000688"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.巳",
+      "day_stem": "庚",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "壬",
+        "戊",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000698",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000698"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.午",
+      "day_stem": "庚",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "壬",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000704",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000704"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.未",
+      "day_stem": "庚",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "丁",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000710",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000710"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.申",
+      "day_stem": "庚",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "丁",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000724",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000724"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.酉",
+      "day_stem": "庚",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "丁",
+        "甲",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000729",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000729"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.戌",
+      "day_stem": "庚",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "甲",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000742",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000742"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.亥",
+      "day_stem": "庚",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "丁",
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000754",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000754",
+        "classic.qiong_tong_bao_jian#c000755"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.子",
+      "day_stem": "庚",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丁",
+        "甲",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000764",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000764"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "庚.丑",
+      "day_stem": "庚",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "丁",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000776",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000776"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬庚金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.寅",
+      "day_stem": "辛",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "己",
+        "壬",
+        "庚",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000786",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000786"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.卯",
+      "day_stem": "辛",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000795",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000795"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.辰",
+      "day_stem": "辛",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000814",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000814"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.巳",
+      "day_stem": "辛",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "壬",
+        "癸",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000820",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000820"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.午",
+      "day_stem": "辛",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "壬",
+        "癸",
+        "己"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000828",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000828"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.未",
+      "day_stem": "辛",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "壬",
+        "庚",
+        "己",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000836",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000836"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.申",
+      "day_stem": "辛",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "壬",
+        "甲",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000848",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000848"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.酉",
+      "day_stem": "辛",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000853",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000853"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.戌",
+      "day_stem": "辛",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "壬",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000872",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000872"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.亥",
+      "day_stem": "辛",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "壬",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000887",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000887"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.子",
+      "day_stem": "辛",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "壬",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000893",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000893"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "辛.丑",
+      "day_stem": "辛",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "壬",
+        "戊",
+        "己"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000899",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000899",
+        "classic.qiong_tong_bao_jian#c000900"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬辛金",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.寅",
+      "day_stem": "壬",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "庚",
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000923",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000923"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.卯",
+      "day_stem": "壬",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "戊",
+        "辛",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000933",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000933"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.辰",
+      "day_stem": "壬",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "甲",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000940",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000940"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮春壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.巳",
+      "day_stem": "壬",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "壬",
+        "辛",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000949",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000949"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.午",
+      "day_stem": "壬",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "癸",
+        "庚",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000963",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000963"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.未",
+      "day_stem": "壬",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "辛",
+        "甲",
+        "癸"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000972",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000972"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季夏壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.申",
+      "day_stem": "壬",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "戊",
+        "丁"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000977",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000977"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.酉",
+      "day_stem": "壬",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "甲",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c000989",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c000989"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.戌",
+      "day_stem": "壬",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "甲",
+        "丙",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001004",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001004"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.亥",
+      "day_stem": "壬",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "戊",
+        "丙",
+        "庚"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001015",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001015",
+        "classic.qiong_tong_bao_jian#c001018"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.子",
+      "day_stem": "壬",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "戊",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001025",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001025"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬壬水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "壬.丑",
+      "day_stem": "壬",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001037",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001037"
+      ],
+      "derived_candidates": [],
+      "condition_note": "上下半月条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.寅",
+      "day_stem": "癸",
+      "month_branch": "寅",
+      "ordered_candidates": [
+        "辛",
+        "庚",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001046",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001046",
+        "classic.qiong_tong_bao_jian#c001050"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初春癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.卯",
+      "day_stem": "癸",
+      "month_branch": "卯",
+      "ordered_candidates": [
+        "庚",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001053",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001053"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲春癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.辰",
+      "day_stem": "癸",
+      "month_branch": "辰",
+      "ordered_candidates": [
+        "丙",
+        "辛",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001064",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001064"
+      ],
+      "derived_candidates": [],
+      "condition_note": "清明谷雨条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.巳",
+      "day_stem": "癸",
+      "month_branch": "巳",
+      "ordered_candidates": [
+        "辛",
+        "庚",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001080",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001080"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初夏癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.午",
+      "day_stem": "癸",
+      "month_branch": "午",
+      "ordered_candidates": [
+        "庚",
+        "辛",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001083",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001083"
+      ],
+      "derived_candidates": [],
+      "condition_note": "盛夏癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.未",
+      "day_stem": "癸",
+      "month_branch": "未",
+      "ordered_candidates": [
+        "庚",
+        "辛",
+        "壬"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001088",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001088"
+      ],
+      "derived_candidates": [
+        "癸",
+        "壬"
+      ],
+      "condition_note": "上下半月条件",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.申",
+      "day_stem": "癸",
+      "month_branch": "申",
+      "ordered_candidates": [
+        "丁",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001095",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001095"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初秋癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.酉",
+      "day_stem": "癸",
+      "month_branch": "酉",
+      "ordered_candidates": [
+        "辛",
+        "丙"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001105",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001105"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲秋癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.戌",
+      "day_stem": "癸",
+      "month_branch": "戌",
+      "ordered_candidates": [
+        "辛",
+        "甲"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001112",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001112"
+      ],
+      "derived_candidates": [],
+      "condition_note": "暮秋癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.亥",
+      "day_stem": "癸",
+      "month_branch": "亥",
+      "ordered_candidates": [
+        "庚",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001122",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001122"
+      ],
+      "derived_candidates": [],
+      "condition_note": "初冬癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.子",
+      "day_stem": "癸",
+      "month_branch": "子",
+      "ordered_candidates": [
+        "丙",
+        "辛"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001133",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001133"
+      ],
+      "derived_candidates": [],
+      "condition_note": "仲冬癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    },
+    {
+      "recipe_key": "癸.丑",
+      "day_stem": "癸",
+      "month_branch": "丑",
+      "ordered_candidates": [
+        "丙",
+        "壬",
+        "戊"
+      ],
+      "source_chunk_id": "classic.qiong_tong_bao_jian#c001140",
+      "source_chunk_ids": [
+        "classic.qiong_tong_bao_jian#c001140"
+      ],
+      "derived_candidates": [],
+      "condition_note": "季冬癸水",
+      "interpretation": "candidate_recipe_not_final_selection"
+    }
+  ]
+}

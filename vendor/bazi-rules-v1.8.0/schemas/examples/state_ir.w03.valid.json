@@ -1,0 +1,582 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "state.synthetic.chart.001.annual.annual.2026",
+  "chart_id": "synthetic.chart.001",
+  "stage": "annual",
+  "school_profile_id": "classical_ziping.composite@1.1.0",
+  "active_context": {
+    "natal_chart_id": "synthetic.chart.001",
+    "luck_cycle_id": "luck.01",
+    "annual_id": "annual.2026"
+  },
+  "facts": [
+    {
+      "schema_version": "1.0.0",
+      "fact_id": "fact.state.synthetic.chart.001.annual.annual.2026.recompute_complete",
+      "subject": {
+        "ref_id": "synthetic.chart.001",
+        "entity_type": "chart",
+        "layer": "annual"
+      },
+      "predicate": "classical_ziping.temporal.recompute_complete",
+      "value": true,
+      "truth": "true",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026"
+      },
+      "source_type": "computed",
+      "algorithm_id": "classical_ziping.w03.compiler@1.0.0"
+    }
+  ],
+  "relations": [
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.1",
+      "relation_type": "common.relation.same_element",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.month.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "丙"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.2",
+      "relation_type": "common.relation.element.controls",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.hour.stem",
+          "entity_type": "stem",
+          "layer": "natal",
+          "label": "庚"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.3",
+      "relation_type": "common.relation.stem.combine",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.stem",
+          "entity_type": "stem",
+          "layer": "annual",
+          "label": "丙"
+        },
+        {
+          "ref_id": "synthetic.chart.001.luck.01.stem",
+          "entity_type": "stem",
+          "layer": "luck",
+          "label": "辛"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "relation_id": "relation.state.synthetic.chart.001.annual.annual.2026.4",
+      "relation_type": "common.relation.branch.clash",
+      "participants": [
+        {
+          "ref_id": "synthetic.chart.001.annual.2026.branch",
+          "entity_type": "branch",
+          "layer": "annual",
+          "label": "午"
+        },
+        {
+          "ref_id": "synthetic.chart.001.pillar.year.branch",
+          "entity_type": "branch",
+          "layer": "natal",
+          "label": "子"
+        }
+      ],
+      "truth": "true",
+      "resolution_status": "candidate",
+      "scope": {
+        "stage": "annual",
+        "state_id": "state.synthetic.chart.001.annual.annual.2026"
+      },
+      "reason_codes": [
+        "active_prior_pair_match"
+      ]
+    }
+  ],
+  "findings": [],
+  "school_state": {
+    "classical_ziping": {
+      "w02": {
+        "pattern": {
+          "month_command_available": true,
+          "ordinary_pattern_route": true,
+          "main_qi_visible": true,
+          "main_qi_usable": true,
+          "main_qi_damaged": false,
+          "hidden_qi_available": true,
+          "secondary_hidden_visible": true,
+          "secondary_hidden_usable": true,
+          "multiple_secondary_hidden_visible": false,
+          "ranked_candidate_exists": true,
+          "month_hidden_none_visible": false,
+          "ranked_hidden_candidate_exists": true,
+          "all_month_qi_unusable": false,
+          "external_dominant_candidate_exists": false,
+          "month_ten_god": "七杀",
+          "candidate_ten_god": "七杀",
+          "candidate_class": "七杀",
+          "jianlu_or_yuejie_candidate": false,
+          "month_intrinsically_no_use": false,
+          "month_use_available": true,
+          "outer_pattern_candidate": false,
+          "month_pattern_broken": false,
+          "mixed_storage_month": false,
+          "mixed_transparent_candidate_exists": false,
+          "mixed_branch_combination_candidate_exists": false,
+          "multiple_mixed_candidates": false,
+          "variation_by_hidden_exposure": false,
+          "variation_by_branch_combination": false,
+          "variation_detected": false,
+          "original_pattern_still_supported": false,
+          "no_hidden_qi_visible": false,
+          "limited_clash_punishment": false,
+          "day_master_strong": false,
+          "forced_clash_proposed": false,
+          "compiled": {
+            "month_branch": "寅",
+            "main_hidden_stem": "甲",
+            "visible_stems": [
+              "甲",
+              "丙",
+              "庚"
+            ],
+            "visible_month_hidden_stems": [
+              "甲",
+              "丙"
+            ],
+            "visible_secondary_hidden_stems": [
+              "丙"
+            ]
+          }
+        },
+        "lifecycle": {},
+        "strength": {
+          "evidence_compiled": true,
+          "month_supportive": false,
+          "support_count": 4,
+          "restraint_count": 6,
+          "support_level": "many",
+          "restraint_level": "many",
+          "root_present": true,
+          "root_level": "heavy",
+          "root_branches": [
+            "month",
+            "day",
+            "hour"
+          ],
+          "root_and_peer_evidence_available": true,
+          "season_and_whole_chart_conflict": false,
+          "evidence_reasons": [
+            "stem:year:restraint:official_kill",
+            "stem:month:support:resource",
+            "stem:hour:restraint:output",
+            "branch:year:restraint",
+            "branch:month:support",
+            "branch:month:restraint",
+            "branch:day:support",
+            "branch:day:restraint",
+            "branch:hour:support",
+            "branch:hour:restraint"
+          ],
+          "thresholds": {
+            "support_many_min": 4,
+            "restraint_many_min": 4,
+            "heavy_root_min_branches": 2
+          },
+          "category_candidates": [
+            "中强",
+            "最弱"
+          ],
+          "candidate_count": 2,
+          "resolved_category": null,
+          "resolved_side": "mixed"
+        },
+        "follow": {
+          "day_master_rootless": false,
+          "day_master_root_present": true,
+          "dominant_ten_god": "财",
+          "dominance_full_chart": false,
+          "candidate_exists": false,
+          "candidate_type": "财",
+          "follower_flourishing": false,
+          "follower_attacked": false,
+          "day_master_uncorrectably_weak": false,
+          "day_master_unrestrainably_strong": false,
+          "wealth_assembled": false,
+          "kill_assembled": false,
+          "kill_present": true,
+          "wealth_present": true,
+          "peers_full_chart": false,
+          "official_kill_absent": false,
+          "resource_optional": true,
+          "resource_heavy": false,
+          "peers_many": true,
+          "day_master_in_season": false,
+          "wealth_official_kill_absent": false,
+          "counts": {
+            "七杀": 2,
+            "财": 3,
+            "印": 2,
+            "比肩": 3,
+            "正官": 1,
+            "食神": 2
+          }
+        },
+        "one_element": {
+          "day_element": "earth",
+          "element": "earth",
+          "complete_direction_or_trine": false,
+          "complete_group": false,
+          "candidate_exists": false,
+          "month_qi_connected": false,
+          "no_effective_break": true,
+          "matched_groups": []
+        },
+        "transform": {
+          "day_stem_combine_candidate": false,
+          "candidate_exists": false,
+          "day_stem_pair": null,
+          "transform_element": null,
+          "month_branch": "寅",
+          "transform_god_flourishing": false,
+          "competing_combine": false,
+          "day_root_peer_resource_support": true,
+          "day_master_rootless": false,
+          "transform_god_sufficient": false,
+          "damaging_idle_god": false,
+          "fixed_month_only_support": false,
+          "trine_candidate": true,
+          "trine_complete": true,
+          "true_transform": false
+        },
+        "parameters": {
+          "visible_stem_positions": [
+            "year",
+            "month",
+            "hour"
+          ],
+          "support_many_min": 4,
+          "restraint_many_min": 4,
+          "heavy_root_min_branches": 2,
+          "strength_unit_policy": "each non-day visible stem plus each branch contributes at most one support/restraint unit",
+          "transform_support_policy": "month branch same as or generating transformation element"
+        }
+      },
+      "w03": {
+        "climate": {
+          "evidence_compiled": true,
+          "recipe_available": true,
+          "recipe_key": "戊.寅",
+          "ordered_candidates": [
+            "丙",
+            "甲",
+            "癸"
+          ],
+          "primary_candidate": "丙",
+          "primary_candidate_visibility": "visible",
+          "candidate_visibility": {
+            "丙": "visible",
+            "甲": "visible",
+            "癸": "hidden"
+          },
+          "visible_stems": [
+            "丙",
+            "庚",
+            "戊",
+            "甲",
+            "辛"
+          ],
+          "hidden_stems": [
+            "丁",
+            "丙",
+            "乙",
+            "壬",
+            "己",
+            "庚",
+            "戊",
+            "甲",
+            "癸",
+            "辛"
+          ],
+          "winter": false,
+          "summer": false,
+          "spring_autumn_moderate_candidate": true,
+          "fire_present": true,
+          "water_present": true,
+          "element_units": {
+            "wood": 2,
+            "fire": 3,
+            "earth": 2,
+            "metal": 4,
+            "water": 1
+          },
+          "unit_policy": "visible_stem_plus_each_branch_main_qi",
+          "unit_reasons": [
+            "visible_stem:natal:year:wood",
+            "visible_stem:natal:month:fire",
+            "visible_stem:natal:day:earth",
+            "visible_stem:natal:hour:metal",
+            "visible_stem:luck:luck.01:metal",
+            "visible_stem:annual:annual.2026:fire",
+            "branch_main_qi:natal:year:water",
+            "branch_main_qi:natal:month:wood",
+            "branch_main_qi:natal:day:earth",
+            "branch_main_qi:natal:hour:metal",
+            "branch_main_qi:luck:luck.01:metal",
+            "branch_main_qi:annual:annual.2026:fire"
+          ],
+          "candidate_can_function": true,
+          "candidate_blocked": false,
+          "new_imbalance": false,
+          "resolved_candidate": "丙",
+          "source_chunk_id": "classic.qiong_tong_bao_jian#c000461",
+          "condition_note": "春土总论"
+        },
+        "qi_flow": {
+          "evidence_compiled": true,
+          "element_units": {
+            "wood": 2,
+            "fire": 3,
+            "earth": 2,
+            "metal": 4,
+            "water": 1
+          },
+          "unit_policy": "visible_stem_plus_each_branch_main_qi",
+          "unit_reasons": [
+            "visible_stem:natal:year:wood",
+            "visible_stem:natal:month:fire",
+            "visible_stem:natal:day:earth",
+            "visible_stem:natal:hour:metal",
+            "visible_stem:luck:luck.01:metal",
+            "visible_stem:annual:annual.2026:fire",
+            "branch_main_qi:natal:year:water",
+            "branch_main_qi:natal:month:wood",
+            "branch_main_qi:natal:day:earth",
+            "branch_main_qi:natal:hour:metal",
+            "branch_main_qi:luck:luck.01:metal",
+            "branch_main_qi:annual:annual.2026:fire"
+          ],
+          "source_candidates_available": true,
+          "source_elements": [
+            "metal"
+          ],
+          "flow_graph_available": true,
+          "flow_chains": {
+            "metal": [
+              "metal",
+              "water",
+              "wood",
+              "fire",
+              "earth"
+            ]
+          },
+          "destinations": [
+            "earth"
+          ],
+          "missing_generated_links": [],
+          "blocked": false,
+          "conflict_pairs": [
+            {
+              "controller": "wood",
+              "controlled": "earth",
+              "bridge": "fire",
+              "bridge_present": true
+            },
+            {
+              "controller": "earth",
+              "controlled": "water",
+              "bridge": "metal",
+              "bridge_present": true
+            },
+            {
+              "controller": "water",
+              "controlled": "fire",
+              "bridge": "wood",
+              "bridge_present": true
+            },
+            {
+              "controller": "fire",
+              "controlled": "metal",
+              "bridge": "earth",
+              "bridge_present": true
+            },
+            {
+              "controller": "metal",
+              "controlled": "wood",
+              "bridge": "water",
+              "bridge_present": true
+            }
+          ],
+          "bridge_candidates_available": true,
+          "bridge_elements": [
+            "fire",
+            "metal",
+            "wood",
+            "earth",
+            "water"
+          ],
+          "bridge_present": true,
+          "bridge_blocked": false,
+          "bridge_added_by_active_layer": false,
+          "ordered_roles": false,
+          "conflicting_roles": true,
+          "clear_candidate": false,
+          "effective_force": true,
+          "clarification_signal": false,
+          "month_assembly": false,
+          "false_party_many": false,
+          "true_false_ambiguous": false,
+          "formed_momentum": false,
+          "favored_overexposed": false,
+          "hidden_inhibitor_activated": false,
+          "visible_inhibitor": false,
+          "majority_minority_available": true,
+          "idle_candidates_available": false,
+          "idle_elements": [],
+          "idle_activated": false,
+          "war_candidate": true,
+          "war_resolution_signal": true,
+          "combination_candidate": false
+        },
+        "remedy": {
+          "evidence_compiled": true,
+          "focus_selected": true,
+          "focus": "whole_state_balance",
+          "disease_candidates_available": true,
+          "disease_candidates": [
+            {
+              "type": "element_excess",
+              "element": "metal",
+              "count": 4,
+              "focus": "whole_state_balance"
+            }
+          ],
+          "medicine_candidates_available": true,
+          "medicine_candidates": [
+            {
+              "operation": "control",
+              "element": "fire",
+              "targets": "metal"
+            },
+            {
+              "operation": "drain",
+              "element": "water",
+              "targets": "metal"
+            }
+          ],
+          "resolved_medicine": {
+            "operation": "control",
+            "element": "fire",
+            "targets": "metal"
+          },
+          "medicine_excess": false,
+          "relative_force_available": true,
+          "relative_force": "medicine_unknown",
+          "pure_earth_example_match": false,
+          "category_candidate": null,
+          "birth_stage_candidate": false,
+          "growth_stage_candidate": false,
+          "shenfeng_stem_interaction": false,
+          "shenfeng_branch_interaction": false,
+          "cover_head_candidate": false
+        },
+        "temporal": {
+          "state_chain_valid": true,
+          "recompute_complete": true,
+          "baseline_available": true,
+          "active_layer_available": true,
+          "active_stem": "丙",
+          "active_branch": "午",
+          "apparent_support_reversed": false,
+          "apparent_inhibitor_reversed": false,
+          "same_stem_class_candidate": true,
+          "same_branch_class_candidate": true,
+          "clash_candidate": true,
+          "clash_urgency": "requires_position_resolver",
+          "clash_severity": "requires_focus_resolver",
+          "clash_neutralized": false,
+          "paired_clash": false,
+          "pattern_completed": false,
+          "pattern_changed": false,
+          "completion_inhibited": false,
+          "change_rescued": false,
+          "branch_activated_by_assembly": false,
+          "hidden_exposed": true,
+          "assembly_candidate": false,
+          "assembly_urgency": "not_applicable",
+          "stem_war_candidate": true,
+          "luck_annual_clash": true,
+          "luck_annual_harmony": false,
+          "luck_annual_same_kind": true,
+          "conflict_candidate": true,
+          "rescue_available": false,
+          "luck_annual_conflict": true,
+          "follow_candidate_changed": false,
+          "transform_candidate_changed": false,
+          "relations_compiled": true
+        },
+        "composite": {
+          "inputs_available": true,
+          "w02_baseline_available": true,
+          "climate_available": true,
+          "qi_flow_available": true,
+          "remedy_available": true,
+          "temporal_available": true,
+          "conflicts_available": true
+        }
+      }
+    }
+  },
+  "trace_id": "trace.state.synthetic.chart.001.annual.annual.2026",
+  "parent_state_id": "state.synthetic.chart.001.luck.luck.01"
+}

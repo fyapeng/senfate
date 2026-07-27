@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "duan_li_xiang.w06_catcher_thief@1.0.0",
+  "namespace": "duan_li_xiang.catcher_thief",
+  "school_id": "duan_li_xiang",
+  "label": "净制、贼神捕神与岁运激活",
+  "status": "production",
+  "rule_files": [
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__requires_control_configuration.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__target_isolated.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__catcher_party_strong.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__roles_named.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__clean_control_candidate.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__no_thief_no_activation.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__matching_guest_activates.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_match_token.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_match_element.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_match_ten_god.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_requires_edge.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_recomputed_each_state.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__catcher_only_luck_not_auto_good.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__activation_event_unknown.rule.json",
+    "rules/duan_li_xiang/w06/catcher_thief/duan_li_xiang__catcher_thief__multiple_thief_candidates_preserved.rule.json"
+  ],
+  "notes": [
+    "W06 reviewed rule pack; not production.",
+    "Only the available author text is formal evidence.",
+    "Chapter 8 and appendix body are absent from the supplied source; no rule is reconstructed from their table-of-contents titles.",
+    "Scan-required items and unpublished algorithms remain unresolved or unknown."
+  ]
+}
