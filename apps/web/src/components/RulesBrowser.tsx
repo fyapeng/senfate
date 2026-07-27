@@ -23,7 +23,7 @@ export default function RulesBrowser() {
   const [query, setQuery] = useState("");
   const [mode, setMode] = useState<"method" | "system" | "rules">("method");
   const [data, setData] = useState<any>();
-  useEffect(() => { let live = true; fetch(`${import.meta.env.BASE_URL}api/rules.json`).then(response => response.json()).then(result => { if (live) setData(result); }).catch(() => { if (live) setData({ total: 0, rules: [] }); }); return () => { live = false; }; }, []);
+  useEffect(() => { let live = true; fetch(`${import.meta.env.BASE_URL}data/ruleir.v1.json`).then(response => response.json()).then(result => { if (live) setData({ total: result.rules?.length || 0, rules: result.rules || [] }); }).catch(() => { if (live) setData({ total: 0, rules: [] }); }); return () => { live = false; }; }, []);
   const visibleRules = useMemo(() => (data?.rules || []).filter((rule: any) => !query || `${rule.title} ${rule.description} ${rule.rule_id}`.toLowerCase().includes(query.toLowerCase())), [data, query]);
   const books = useMemo(() => Array.from(new Set((data?.rules || []).flatMap((rule: any) => (rule.presentation?.sources || []).map((source: any) => source.work)).filter(Boolean))).sort(), [data]);
   return <section className="page rules-hub"><p className="eyebrow">公开规则与来源</p><h1 className="page-title">规则</h1><p className="page-summary">此处公开排盘、五行、十神和岁运的计算链，并按流派体系与典籍来源整理实际可运行规则。不同体系独立展示，不合并为单一结论。</p><div className="rules-tabs"><button className={mode === "method" ? "active" : ""} onClick={() => setMode("method")}>排盘方法</button><button className={mode === "system" ? "active" : ""} onClick={() => setMode("system")}>流派体系</button><button className={mode === "rules" ? "active" : ""} onClick={() => setMode("rules")}>典籍与规则</button></div>

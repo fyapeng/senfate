@@ -32,6 +32,9 @@ importers:
       '@phosphor-icons/react':
         specifier: ^2.1.10
         version: 2.1.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@senfate/browser-ruleir':
+        specifier: workspace:*
+        version: link:../../packages/browser-ruleir
       '@senfate/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -60,6 +63,8 @@ importers:
       vitest:
         specifier: ^3.0.0
         version: 3.2.7(@types/debug@4.1.13)(@types/node@24.10.10)(lightningcss@1.33.0)(yaml@2.9.0)
+
+  packages/browser-ruleir: {}
 
   packages/core:
     dependencies:

@@ -9,3 +9,4 @@ local-data/
 .zcode/
 .kline-full-run.json
 .senfate-dev-*.log
+vendor/bazi-rules-v1.8.0/runtime/

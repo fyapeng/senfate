@@ -15,6 +15,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "@senfate/core": "workspace:*",
     "@senfate/ephemeris": "workspace:*",
+    "@senfate/browser-ruleir": "workspace:*",
     "astro": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

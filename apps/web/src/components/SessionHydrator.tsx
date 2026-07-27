@@ -10,23 +10,13 @@ function linkSession(id: string) {
 
 export default function SessionHydrator() {
   useEffect(() => {
-    if (window.location.hostname === "fyapeng.com" || window.location.hostname.endsWith(".github.io")) return;
     const url = new URL(window.location.href);
-    const id = url.searchParams.get("session") || sessionStorage.getItem("senfate.session");
-    if (!id) return;
-    linkSession(id);
-    if (!url.searchParams.has("session")) return;
-    fetch(`/api/session?id=${encodeURIComponent(id)}`)
-      .then(response => response.ok ? response.json() : null)
-      .then(value => {
-        if (!value?.compiled || !value?.analysis) return;
-        sessionStorage.setItem("senfate.session", id);
-        sessionStorage.setItem("senfate.compile", JSON.stringify(value.compiled));
-        sessionStorage.setItem("senfate.chart", JSON.stringify(value.compiled.result));
-        sessionStorage.setItem("senfate.analysis", JSON.stringify(value.analysis));
-        url.searchParams.delete("session");
-        window.location.replace(`${url.pathname}${url.search}${url.hash}`);
-      });
+    // Analysis is intentionally local-only.  Old URL session IDs are discarded
+    // rather than triggering a remote API request or exposing private chart data.
+    if (url.searchParams.has("session")) {
+      url.searchParams.delete("session");
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    }
   }, []);
   return null;
 }

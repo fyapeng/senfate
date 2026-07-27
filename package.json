@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:browser-data": "node scripts/build-browser-rule-data.mjs",
     "dev": "pnpm --filter @senfate/web dev",
     "build": "pnpm --filter @senfate/web build",
     "test": "C:\\Users\\ENAN\\miniforge3\\envs\\codex\\python.exe -m unittest discover -s apps/engine/tests -v && pnpm --filter @senfate/web test",
