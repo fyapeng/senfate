@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import node from "@astrojs/node";
 
 export default defineConfig({
+  site: "https://fyapeng.com",
+  base: "/senfate",
   integrations: [react()],
-  output: "server",
-  adapter: node({ mode: "standalone" }),
-  server: { host: "0.0.0.0" },
+  output: "static",
+  trailingSlash: "always",
 });

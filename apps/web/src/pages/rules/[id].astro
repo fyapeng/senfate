@@ -1,6 +1,9 @@
 ---
 import AppLayout from "../../layouts/AppLayout.astro";
 import { rulePresentation, rules } from "../../lib/rules";
+export async function getStaticPaths() {
+  return (await rules()).map((rule) => ({ params: { id: rule.rule_id } }));
+}
 const { id } = Astro.params;
 const rule = (await rules()).find((item) => item.rule_id === id);
 const presentation = rule ? rulePresentation(rule) : undefined;

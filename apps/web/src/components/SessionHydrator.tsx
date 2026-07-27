@@ -10,6 +10,7 @@ function linkSession(id: string) {
 
 export default function SessionHydrator() {
   useEffect(() => {
+    if (window.location.hostname === "fyapeng.com" || window.location.hostname.endsWith(".github.io")) return;
     const url = new URL(window.location.href);
     const id = url.searchParams.get("session") || sessionStorage.getItem("senfate.session");
     if (!id) return;

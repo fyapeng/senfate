@@ -3,8 +3,9 @@ import "../styles/global.css";
 import "../styles/pages.css";
 import SessionHydrator from "../components/SessionHydrator";
 const { title = "SenFate" } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const nav = [
-  ["总览", "/"], ["专业命盘", "/professional-chart"], ["规则", "/rules"], ["排盘计算", "/calculation"],
+  ["总览", base], ["专业命盘", `${base}professional-chart/`], ["规则", `${base}rules/`], ["排盘计算", `${base}calculation/`],
 ];
 const current = Astro.url.pathname;
 ---
@@ -12,7 +13,7 @@ const current = Astro.url.pathname;
 <html lang="zh-CN">
   <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>{title} · SenFate</title></head>
   <body>
-    <header class="topbar"><a class="brand" data-session-link href="/">SenFate<span>四派规则工作台</span></a><nav>{nav.map(([label, href]) => <a data-session-link class:list={["nav-link", current === href && "active"]} href={href}>{label}</a>)}</nav><a class="new-analysis" href="/calculation">新建排盘</a></header>
+    <header class="topbar"><a class="brand" data-session-link href={base}>SenFate<span>四派规则工作台</span></a><nav>{nav.map(([label, href]) => <a data-session-link class:list={["nav-link", current === href && "active"]} href={href}>{label}</a>)}</nav><a class="new-analysis" href={`${base}calculation/`}>新建排盘</a></header>
     <SessionHydrator client:load />
     <main><slot /></main>
   </body>

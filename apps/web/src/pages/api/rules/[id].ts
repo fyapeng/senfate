@@ -1,6 +1,10 @@
 import type { APIRoute } from "astro";
 import { rules } from "../../../lib/rules";
 
+export async function getStaticPaths() {
+  return (await rules()).map((rule) => ({ params: { id: rule.rule_id } }));
+}
+
 export const GET: APIRoute = async ({ params }) => {
   const id = params.id ? decodeURIComponent(params.id) : "";
   const rule = (await rules()).find((item) => item.rule_id === id);
