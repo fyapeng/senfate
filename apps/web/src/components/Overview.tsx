@@ -71,7 +71,7 @@ export default function Overview() {
   }, [analysis, compiled]);
 
   if (!analysis || !compiled) {
-    return <main className="empty-state"><p className="eyebrow">SenFate / 四派工作台</p><h1 className="page-title">从认证排盘开始</h1><p className="page-summary">完成认证排盘后，系统才会生成真实的四派年度图表与审计轨迹。</p><a className="button" href="/calculation">新建排盘 <ArrowRight size={17} /></a></main>;
+    return <main className="empty-state"><p className="eyebrow">SenFate / 四派工作台</p><h1 className="page-title">从认证排盘开始</h1><p className="page-summary">完成认证排盘后，系统才会生成真实的四派年度图表与审计轨迹。</p><a className="button" href={`${import.meta.env.BASE_URL}calculation/`}>新建排盘 <ArrowRight size={17} /></a></main>;
   }
 
   const calendar = compiled.result.calendar;

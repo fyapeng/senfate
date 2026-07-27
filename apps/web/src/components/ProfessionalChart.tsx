@@ -19,7 +19,7 @@ export default function ProfessionalChart() {
   const lucks = chart?.luckCycles?.slice(0, 8) || [];
   const activeLuck = lucks.find((item: any) => item.luck_cycle_id === luckId) || lucks.find((item: any) => analysis?.selectedYear >= item.start_year && analysis?.selectedYear <= item.end_year) || lucks[0];
   const annuals = useMemo(() => (chart?.annualContexts || []).filter((item: any) => item.year >= activeLuck?.start_year && item.year <= activeLuck?.end_year), [chart, activeLuck]);
-  if (!chart) return <section className="page"><p className="eyebrow">专业命盘</p><h1 className="page-title">请先完成认证排盘</h1><p className="page-summary">专业命盘读取认证出生时间生成的四柱、起运和八步大运，不另行推断。</p><a className="button" href="/calculation">前往排盘计算</a></section>;
+  if (!chart) return <section className="page"><p className="eyebrow">专业命盘</p><h1 className="page-title">请先完成认证排盘</h1><p className="page-summary">专业命盘读取认证出生时间生成的四柱、起运和八步大运，不另行推断。</p><a className="button" href={`${import.meta.env.BASE_URL}calculation/`}>前往排盘计算</a></section>;
   const pillars = chart.pillars || {};
   const birth = compiled?.result?.zonedBirth?.civilBirth;
   return <section className="professional-page">
