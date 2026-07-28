@@ -29,7 +29,7 @@ const themeMeta = [
   { topic: "relationships", label: "关系", tone: "relationship" },
   { topic: "health", label: "平衡", tone: "health" },
 ];
-const analysisSchema = "senfate-browser-ruleir.v2";
+const analysisSchema = "senfate-browser-ruleir.v3";
 const sentence = (value?: string) => value?.split("。").find(Boolean) || "未产生可公开的判断。";
 const clamp = (value: number) => Math.max(0, Math.min(100, Math.round(value)));
 const verdictLead = (value?: string) => value || "暂未形成原局摘要";
@@ -116,6 +116,8 @@ export default function Overview() {
   const hoveredIndex = hoveredCandle ? visibleLine.findIndex((item: any) => item.year === hoveredCandle.year) : -1;
   const judgmentRows = [
     { label: "原局特点", value: result?.verdict?.primary_structure },
+    { label: "调候", value: result?.verdict?.climate },
+    { label: "体用与做功", value: result?.verdict?.work },
     { label: "岁运关注", value: result?.verdict?.primary_use },
     { label: "补充观察", value: result?.verdict?.secondary_structures?.slice(0, 3).join("、") },
   ].filter(row => Boolean(row.value));

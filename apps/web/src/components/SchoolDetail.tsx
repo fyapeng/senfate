@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const labels: Record<string, string> = { classical_ziping: "传统子平", shao_weihua: "邵伟华体系", li_hanchen: "李涵辰体系", duan_li_xiang: "段氏理象体系" };
 const topicNames: Record<string, string> = { career: "事业", wealth: "财运", relationships: "关系", health: "平衡" };
-const analysisSchema = "senfate-browser-ruleir.v2";
+const analysisSchema = "senfate-browser-ruleir.v3";
 
 export default function SchoolDetail({ id }: { id: string }) {
   const [data, setData] = useState<any>();
