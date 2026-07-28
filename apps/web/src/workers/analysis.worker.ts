@@ -65,6 +65,7 @@ function verdict(schoolId: string, chart: any, findings: any[], context: any) {
   const strength = supportCount >= gods.length / 2 ? "身强" : "身弱";
   const monthGod = chart.pillars.month.stem_ten_god;
   const w02 = context.facts.classical_ziping.w02;
+  const w03 = context.facts.classical_ziping.w03;
   const w04 = context.facts.shao_weihua.w04;
   const w05 = context.facts.li_hanchen.w05;
   const w06 = context.facts.duan_li_xiang.w06;
