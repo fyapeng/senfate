@@ -13,14 +13,15 @@
     "@astrojs/react": "^4.0.0",
     "@aurouscia/china-areas": "^0.7.0",
     "@phosphor-icons/react": "^2.1.10",
+    "@senfate/browser-ruleir": "workspace:*",
     "@senfate/core": "workspace:*",
     "@senfate/ephemeris": "workspace:*",
-    "@senfate/browser-ruleir": "workspace:*",
     "astro": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.9",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.7.0",

@@ -29,8 +29,7 @@ const themeMeta = [
   { topic: "relationships", label: "关系", tone: "relationship" },
   { topic: "health", label: "平衡", tone: "health" },
 ];
-const analysisSchema = "senfate-browser-ruleir.v3";
-const sentence = (value?: string) => value?.split("。").find(Boolean) || "未产生可公开的判断。";
+const analysisSchema = "senfate-browser-ruleir.v5";
 const clamp = (value: number) => Math.max(0, Math.min(100, Math.round(value)));
 const verdictLead = (value?: string) => value || "暂未形成原局摘要";
 
@@ -80,9 +79,9 @@ export default function Overview() {
   const calendar = compiled.result.calendar;
   const birth = compiled.result.zonedBirth.civilBirth;
   const city = compiled.city || "上海市";
-  const elementCounts = Object.values(natalPillars).reduce((counts: Record<string, number>, pillar: any) => { const stemElement = pillar.stem_element || elementByStem[pillar.stem]; counts[stemElement] += 1; (pillar.hidden_stems || []).forEach((hidden: any) => { counts[hidden.element || elementByStem[hidden.stem]] += 1; }); return counts; }, { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 });
+  const elementCounts = Object.values(natalPillars).reduce((counts: Record<string, number>, pillar: any) => { const stemElement = pillar.stem_element || elementByStem[pillar.stem] || "earth"; counts[stemElement] = (counts[stemElement] ?? 0) + 1; (pillar.hidden_stems || []).forEach((hidden: any) => { const hiddenElement = hidden.element || elementByStem[hidden.stem] || "earth"; counts[hiddenElement] = (counts[hiddenElement] ?? 0) + 1; }); return counts; }, { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 });
   const elementTotal = Math.max(1, Object.values(elementCounts).reduce((sum, count) => sum + count, 0));
-  const elementStats = ["metal", "water", "wood", "fire", "earth"].map(element => ({ element, label: elementLabels[element], percent: Math.round(elementCounts[element] / elementTotal * 100) }));
+  const elementStats = ["metal", "water", "wood", "fire", "earth"].map(element => ({ element, label: elementLabels[element], percent: Math.round((elementCounts[element] ?? 0) / elementTotal * 100) }));
   const annualThemeSignals = selectedCandle?.themeSignals || result?.themes || [];
   const annualGod = annual?.stem_ten_god || "";
   const annualBase = selectedCandle?.close ?? 50;
@@ -95,7 +94,7 @@ export default function Overview() {
       : meta.topic === "relationships" ? (/(正财|偏财|正官|七杀)/.test(annualGod) ? 4 : 0)
       : 0;
     const score = clamp(annualBase + (stanceAdjust[stance] ?? 0) + godBias);
-    const fallback = meta.topic === "health" ? "以年度收盘与波动范围观察结构平衡。" : "该主题未设独立的公开年度结论。";
+    const fallback = meta.topic === "health" ? "本项只呈现结构波动，不输出疾病或寿命结论。" : "该主题没有形成独立结论。";
     return { ...meta, score, copy: theme?.headline || fallback, stance };
   });
   // 总览固定呈现八步大运；选择年度只更新解读，不改变观察范围。
@@ -114,13 +113,7 @@ export default function Overview() {
   const hoveredLuck = lucks.find((item: any) => item.luck_cycle_id === hoveredCandle?.luckCycleId);
   const hoveredAnnual = analysis?.chart?.annualContexts?.find((item: any) => item.year === hoveredCandle?.year);
   const hoveredIndex = hoveredCandle ? visibleLine.findIndex((item: any) => item.year === hoveredCandle.year) : -1;
-  const judgmentRows = [
-    { label: "原局特点", value: result?.verdict?.primary_structure },
-    { label: "调候", value: result?.verdict?.climate },
-    { label: "体用与做功", value: result?.verdict?.work },
-    { label: "岁运关注", value: result?.verdict?.primary_use },
-    { label: "补充观察", value: result?.verdict?.secondary_structures?.slice(0, 3).join("、") },
-  ].filter(row => Boolean(row.value));
+  const judgmentRows = result?.verdict?.natal_points || [];
   const overviewDetails = <>
     <div className="sidebar-title">
       <p className="eyebrow">命盘摘要</p>
@@ -132,7 +125,7 @@ export default function Overview() {
       <div className="natal-head"><div><p className="eyebrow">本命原局 / 以日干为轴</p><h2>四柱信息</h2></div><span>日主 · {natalPillars.day?.stem || calendar.pillars.day.stem}{natalPillars.day?.stem_element_zh ? `（${natalPillars.day.stem_element_zh}）` : ""}</span></div>
       <div className="natal-pillar-grid">{(["year", "month", "day", "hour"] as const).map((key) => { const pillar = natalPillars[key] || calendar.pillars[key]; const element = pillar.stem_element || elementByStem[pillar.stem] || "earth"; return <article className="natal-pillar" key={key}><header><span>{pillarLabels[key]}</span><small>{pillar.stem_ten_god || (key === "day" ? "日主" : "十神待载入")}</small></header><div className={`natal-ganzhi element-${element}`}><strong>{pillar.stem}{key === "day" && <sup className="overview-mark day-master">日主</sup>}</strong><b>{pillar.branch}{key === "month" && <sup className="overview-mark month-command">月令</sup>}{key === "day" && <sup className="overview-mark day-seat">日坐</sup>}</b></div><div className="natal-meta"><span>纳音</span><b>{pillar.nayin?.name || "—"}</b><span>十二长生</span><b>{pillar.twelve_growth_stage || "—"}</b></div><div className="hidden-stems"><span>藏干</span><div>{(pillar.hidden_stems || []).map((hidden: any) => <i className={`element-${hidden.element || elementByStem[hidden.stem] || "earth"}`} key={`${hidden.stem}-${hidden.order}`}>{hidden.stem}<small>{hidden.ten_god}</small></i>)}</div></div></article>; })}</div>
       <section className="element-summary" aria-label="五行比例"><div><p className="eyebrow">命局五行构成</p><span>按天干与藏干计数 · 不随流派改变</span></div><div className="element-bars">{elementStats.map(item => <article className={`element-bar element-${item.element}`} key={item.element}><header><strong>{item.label}</strong><span>{item.percent}%</span></header><i><b style={{ width: `${item.percent}%` }} /></i></article>)}</div></section>
-      <section className="school-judgment" aria-label="所选流派判断"><header><p className="eyebrow">所选流派的原局解读</p><span>{schoolDisplayLabels[school]} · {schoolOrigins[school]}</span></header><article className="final-verdict"><p>命局概览</p><h3>{verdictLead(result?.verdict?.headline)}</h3><strong>{result?.verdict?.strength_or_axis || "该体系以整体关系观察原局。"}</strong></article><div className="natal-judgments">{judgmentRows.map(row => <article key={row.label}><span>{row.label}</span><strong>{sentence(row.value)}</strong></article>)}</div><details className="verdict-basis"><summary>查看解读依据与说明</summary><p>这份解读按“{schoolDisplayLabels[school]}”的公开规则，将原局与岁运分别参看。</p>{result?.verdict?.caveats?.length ? <p>{result.verdict.caveats.join("；")}</p> : null}</details></section>
+      <section className="school-judgment" aria-label="所选流派的本命原局解读" aria-live="polite"><header><p className="eyebrow">本命原局解读</p><span>{schoolDisplayLabels[school]} · {schoolOrigins[school]}</span></header><article className="final-verdict"><p>本派结论</p><h3>{verdictLead(result?.verdict?.headline)}</h3><strong>{result?.verdict?.summary || "本派暂未形成可公开的原局结论。"}</strong></article>{judgmentRows.length ? <div className="natal-judgments">{judgmentRows.map((row: any) => <article key={row.label}><span>{row.label}</span><strong>{row.text}</strong></article>)}</div> : null}<details className="verdict-basis"><summary>方法与使用说明</summary>{result?.verdict?.method_note ? <p>{result.verdict.method_note}</p> : null}{result?.verdict?.caveats?.length ? <p>{result.verdict.caveats.join("；")}</p> : null}</details></section>
     </section>
   </>;
   return <main className="workbench lifecycle-workbench">
@@ -142,7 +135,7 @@ export default function Overview() {
     </aside>
 
     <section className="main-pane chart-pane">
-      <div className="top-school-tabs" aria-label="选择分析流派">{Object.entries(labels).map(([id]) => <button className={id === school ? "active" : ""} onClick={() => { setSchool(id); setHoveredCandle(undefined); }} key={id}><b>{schoolDisplayLabels[id]}</b><small>{schoolOrigins[id]}</small></button>)}</div>
+      <div className="top-school-tabs" aria-label="选择分析流派">{Object.entries(labels).map(([id]) => <button type="button" aria-pressed={id === school} className={id === school ? "active" : ""} onClick={() => { setSchool(id); setHoveredCandle(undefined); }} key={id}><b>{schoolDisplayLabels[id]}</b><small>{schoolOrigins[id]}</small></button>)}</div>
       <div className="chart-heading">
         <div><h2>八步大运 · 全生命周期年度结构波动</h2><p className="chart-subtitle">红色＝本年收盘高于开盘，绿色＝本年收盘低于开盘。八步大运完整展开；点击任一年度可查看该年的流年与所属大运。</p></div>
         <span>{line[0]?.year} — {line.at(-1)?.year} · 当前纵轴 {yMin} 至 {yMax}</span>

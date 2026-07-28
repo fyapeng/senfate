@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 const labels: Record<string, string> = { classical_ziping: "传统子平", shao_weihua: "邵伟华体系", li_hanchen: "李涵辰体系", duan_li_xiang: "段氏理象体系" };
-const analysisSchema = "senfate-browser-ruleir.v3";
+const analysisSchema = "senfate-browser-ruleir.v5";
 
 export default function Schools() {
   const [data, setData] = useState<any>();
