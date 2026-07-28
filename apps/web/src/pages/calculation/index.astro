@@ -2,4 +2,4 @@
 import AppLayout from "../../layouts/AppLayout.astro";
 import ChartCompiler from "../../components/ChartCompiler";
 ---
-<AppLayout title="排盘与计算"><section class="page"><p class="eyebrow">可复核排盘</p><h1 class="page-title">排盘与计算证书</h1><p class="page-summary">先搜索出生地至区县，再输入出生时间。系统会自动带入中国标准时区与当地参考坐标；精确坐标仅在高级地点校正中使用。</p><div class="grid-two"><section class="panel"><h2 class="section-title">新建排盘</h2><ChartCompiler client:load /></section><aside><h2 class="section-title">计算步骤</h2><ol class="steps"><li>区县对应的时区与参考地点</li><li>真太阳时修正：经度 + 均时差</li><li>JPL DE441 节气窗口定位</li><li>四柱、藏干、十神与起运计算</li><li>生成可供四派共享的 ChartIR</li></ol></aside></div></section></AppLayout>
+<AppLayout title="排盘与计算"><section class="page"><p class="eyebrow">可复核排盘</p><h1 class="page-title">排盘与计算</h1><p class="page-summary">搜索出生地至区县，再输入出生时间。系统会自动带入当地时区与参考地点；经纬度只在需要校正真太阳时时使用。</p><div class="grid-two"><section class="panel"><h2 class="section-title">新建排盘</h2><ChartCompiler client:load /></section><aside><h2 class="section-title">排盘步骤</h2><ol class="steps"><li>确认出生地、时区与出生时间</li><li>按当地经度校正真太阳时</li><li>按节气时刻确定年月柱边界</li><li>排出四柱、藏干、十神与起运时间</li><li>生成四个体系共用的命盘资料</li></ol></aside></div></section></AppLayout>

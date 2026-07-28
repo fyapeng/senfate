@@ -13,7 +13,7 @@ const harmonies = new Set(["子丑", "丑子", "寅亥", "亥寅", "卯戌", "�
 const growthWeight: Record<string, number> = { 长生: .32, 沐浴: .05, 冠带: .22, 临官: .42, 帝旺: .58, 衰: -.08, 病: -.26, 死: -.42, 墓: -.20, 绝: -.55, 胎: -.12, 养: .03 };
 let cachedRules: Promise<RuleData> | undefined;
 
-function rules(url: string) { return cachedRules ??= fetch(url).then(async response => { if (!response.ok) throw new Error("本地 RuleIR 数据包未能载入。"); return response.json() as Promise<RuleData>; }); }
+function rules(url: string) { return cachedRules ??= fetch(url).then(async response => { if (!response.ok) throw new Error("规则资料暂未加载完成，请刷新页面后重试。"); return response.json() as Promise<RuleData>; }); }
 function clamp(value: number, low = -0.98, high = .98) { return Math.max(low, Math.min(high, value)); }
 function display(value: number) { return Math.round((value + 100) / 2 * 100) / 100; }
 function relationPressure(month: any, pillars: any[]) {
@@ -63,24 +63,23 @@ function verdict(schoolId: string, chart: any, findings: any[], context: any) {
   const supportCount = gods.filter(item => supporting.has(item)).length;
   const strength = supportCount >= gods.length / 2 ? "身强" : "身弱";
   const monthGod = chart.pillars.month.stem_ten_god;
-  const structural = findings.find(row => row.finding_type === "structural")?.proposition?.value;
   const w02 = context.facts.classical_ziping.w02;
   const w04 = context.facts.shao_weihua.w04;
   const w05 = context.facts.li_hanchen.w05;
   const w06 = context.facts.duan_li_xiang.w06;
   const schoolResult = schoolId === "classical_ziping"
-    ? { axis: `${monthGod}月令为阅读起点`, strength: w02.strength.resolved_category || strength, use: `调候 / 流通优先观察：${(w02.strength.recommended_categories || []).join("、") || "以已命中规则为准"}` }
+    ? { headline: `${monthGod}当令，${w02.strength.resolved_category || strength}`, structure: `月令见${monthGod}，以月令、通关与全局平衡一同观察。`, strength: w02.strength.resolved_category || strength, use: `岁运宜留意${(w02.strength.recommended_categories || []).join("、") || "扶抑与通关"}的调节作用。` }
     : schoolId === "shao_weihua"
-      ? { axis: "五行与十神配置为阅读起点", strength: w04.strength.category === "balanced_or_contested" ? "均衡待辨" : w04.strength.category === "strong" ? "身强" : "身弱", use: w04.useful_god.specific_useful_available ? `用神候选：${w04.useful_god.specific_useful_tokens.join("、")}` : "用神候选须在已公开案例中继续核对" }
+      ? { headline: `五行配置${w04.strength.category === "balanced_or_contested" ? "较为均衡" : w04.strength.category === "strong" ? "偏强" : "偏弱"}`, structure: "五行分布与十神配置共同构成原局的观察重点。", strength: w04.strength.category === "balanced_or_contested" ? "力量较均衡" : w04.strength.category === "strong" ? "日主偏强" : "日主偏弱", use: w04.useful_god.specific_useful_available ? `岁运可重点留意${w04.useful_god.specific_useful_tokens.join("、")}的出现与配合。` : "岁运宜以五行是否相互扶持、是否失衡作为观察重点。" }
       : schoolId === "li_hanchen"
-        ? { axis: "干支作用与两党强弱为阅读起点", strength: w05.classification.classification === "strong" ? "身强" : "身弱", use: `取用党：${w05.useful_party.useful_groups.join("、")}` }
-        : { axis: "体用、虚实与做功图为阅读起点", strength: `${w06.work.work_count} 条已编译做功关系`, use: w06.entry.day_stem_combine ? "先从日干合的做功路径进入" : w06.entry.day_branch_relations ? "先从日支关系进入做功路径" : "未形成明确做功入口，保留取象未知" };
-  return { headline: `${schoolResult.axis}；${schoolResult.strength}${structural ? `，RuleIR 命中：${structural}` : ""}。`, primary_structure: schoolResult.axis, primary_use: schoolResult.use, strength_or_axis: schoolResult.strength, secondary_structures: ["原局固定映射", "岁运独立上下文"], rejected_routes: [], caveats: ["仅将已编译的浏览器事实参与 RuleIR；缺失专用事实的规则保留为未知，不会被伪造为命中。"] };
+        ? { headline: `干支作用为主，日主${w05.classification.classification === "strong" ? "偏强" : "偏弱"}`, structure: "观察原局干支之间的生、克、合、冲，并结合岁运看力量变化。", strength: w05.classification.classification === "strong" ? "日主偏强" : "日主偏弱", use: `岁运可留意${w05.useful_party.useful_groups.join("、") || "能够使力量趋于平衡的五行"}一侧的变化。` }
+        : { headline: "原局干支关系清晰可见", structure: "以体用、虚实及干支之间的合冲作用来观察原局。", strength: w06.work.work_count ? "原局有可观察的干支作用" : "原局关系需结合岁运继续观察", use: w06.entry.day_stem_combine ? "日干相合是岁运观察的重点之一。" : w06.entry.day_branch_relations ? "日支关系是岁运观察的重点之一。" : "岁运宜从干支之间是否形成新的合、冲、刑、害来观察。" };
+  return { headline: schoolResult.headline, primary_structure: schoolResult.structure, primary_use: schoolResult.use, strength_or_axis: schoolResult.strength, secondary_structures: ["原局为基础", "大运与流年分别参看"], rejected_routes: [], caveats: ["本页呈现的是传统命理的结构解读，供学习与比较使用，不对应现实事件的确定预测。"] };
 }
 function themes(close: number, annual: any) {
   const god = annual.stem_ten_god;
   const stance = supporting.has(god) ? "supportive" : /正财|偏财|正官|七杀/.test(god) ? "mixed" : "cautionary";
-  return [{ topic: "career", stance, headline: /正官|七杀/.test(god) ? "流年官杀进入主题层，观察职责与规则关系。" : "以年度结构收盘与流月波动观察行动节奏。" }, { topic: "wealth", stance: /正财|偏财/.test(god) ? "supportive" : stance, headline: /正财|偏财/.test(god) ? "流年财星进入主题层，按结构强弱观察资源配置。" : "本主题以流年十神和年度结构为公开参考。" }, { topic: "relationships", stance: /正财|偏财|正官|七杀/.test(god) ? "mixed" : "descriptive", headline: "关系主题不输出现实事件预测，只呈现结构条件。" }, { topic: "health", stance: "descriptive", headline: `当年流月波幅 ${Math.abs(close).toFixed(2)}（内部坐标），用于观察结构起伏。` }];
+  return [{ topic: "career", stance, headline: /正官|七杀/.test(god) ? "工作与责任更容易成为当年重点，适合把目标和节奏安排得更清楚。" : "行动节奏有变化，适合根据阶段轻重安排投入。" }, { topic: "wealth", stance: /正财|偏财/.test(god) ? "supportive" : stance, headline: /正财|偏财/.test(god) ? "资源安排与收支节奏值得留意，宜保持稳健。" : "财务主题以规划和节制为主，避免跟随短期波动。" }, { topic: "relationships", stance: /正财|偏财|正官|七杀/.test(god) ? "mixed" : "descriptive", headline: "人际相处宜重视沟通与边界，关系主题不对具体事件作预测。" }, { topic: "health", stance: "descriptive", headline: "年内节奏会有起伏，忙闲转换时宜为自己留出缓冲。" }];
 }
 async function analyze(request: Request) {
   const data = await rules(request.ruleDataUrl);
@@ -102,12 +101,14 @@ async function analyze(request: Request) {
     const trace = evaluateRulesWithTrace(profileRules, currentFacts, traceOptions);
     const findings = trace.evaluations.flatMap((row: any) => row.emitted_findings);
     schools.push({ school: labels[schoolId], verdict: verdict(schoolId, chart, findings, currentFacts), themes: themes(0, current) });
-    audits.push({ schoolId, ruleCount: profileRules.length, evaluationCounts: { evaluated: trace.evaluations.length, true: trace.evaluations.filter((row: any) => row.condition_truth === "true").length, unknown: trace.evaluations.filter((row: any) => row.condition_truth === "unknown").length }, warnings: [schoolId === "classical_ziping" ? "子平 W02 原局、W03 调候/流通/调剂与岁运关系已在浏览器编译；无法从公开 ChartIR 直接恢复的边界判断仍按 RuleIR 三值逻辑保留 unknown。" : schoolId === "shao_weihua" ? "邵伟华 W04 的格局候选、旺衰、用神案例、干支关系和岁运结构已在浏览器编译；神煞目录尚未迁入，相关规则保留 unknown。" : schoolId === "li_hanchen" ? "李涵辰 W05 的两党旺衰、干支作用与岁运上下文已在浏览器编译；原始资料未公开的细则保持 unknown。" : "段氏理象 W06 的体用、虚实、做功图与岁运重算已在浏览器编译；未公开的深层取象保持 unknown。"], trace: trace.evaluations, stateChain: { phaseOrder: profile?.phase_order || [] } });
+    const ruleTitles = new Map(profileRules.map((rule: any) => [rule.rule_id, { title: rule.title, description: rule.description }]));
+    const publicTrace = trace.evaluations.map((row: any) => ({ ...row, ...ruleTitles.get(row.rule_id) }));
+    audits.push({ schoolId, ruleCount: profileRules.length, evaluationCounts: { evaluated: trace.evaluations.length, true: trace.evaluations.filter((row: any) => row.condition_truth === "true").length, unknown: trace.evaluations.filter((row: any) => row.condition_truth === "unknown").length }, warnings: ["本次解读以该体系已公开的原局、岁运规则为依据；资料未覆盖的内容不会写入结论。"], trace: publicTrace, stateChain: { phaseOrder: profile?.phase_order || [] } });
     let previous: number | undefined;
     trajectory[schoolId] = annualContexts.map((annual: any) => { const luck = luckCycles.find((row: any) => annual.year >= row.start_year && annual.year <= row.end_year)!; const annualTrace = evaluateRulesWithTrace(profileRules, buildFacts(chart, luck, annual, data), { ...traceOptions, stateId: `state.${schoolId}.${annual.year}` }); const trueFindings = annualTrace.evaluations.flatMap((row: any) => row.emitted_findings).filter((row: any) => row.truth === "true"); const ruleAnchor = clamp((trueFindings.filter((row: any) => row.direction === "supportive").length - trueFindings.filter((row: any) => row.direction === "inhibitory").length) / 8); const raw = candle(chart, luck, annual, ruleAnchor, previous); previous = raw.close; return { year: annual.year, luckCycleId: luck.luck_cycle_id, annualRuleAnchor: display(ruleAnchor * 100), themeSignals: themes(raw.close, annual), open: display(raw.open), high: display(raw.high), low: display(raw.low), close: display(raw.close), monthOpen: display(raw.monthOpen), monthlySamples: raw.monthlySamples.map(row => ({ ...row, index: display(row.index) })) }; });
   }
   const selectedLuck = luckCycles.find((row: any) => target >= row.start_year && target <= row.end_year)!;
-  return { schema: "senfate-browser-ruleir.v1", analysisId: `browser.${Date.now()}`, chart: { pillars, luckCycles, annualContexts, activeLuck: selectedLuck, provenance: { provider: "senfate-browser-worker", input_boundary: "certified-calendar", notes: ["RuleIR 数据由 GitHub Pages 静态发布；计算发生在浏览器 Worker。"] } }, selectedYear: target, schools, trajectory, audit: audits, labels, calculationMethod: { annual: "浏览器 Worker 以认证原局、所属大运与流年分别构造事实上下文，再按流派独立执行 RuleIR。", monthlyCandle: "年度 K 线：开盘取上年收盘（首年取寅月），收盘取当年丑月，影线覆盖十二流月。内部支持/压力坐标经 Fisher 合成后映射为 0—100 公开结构指数。", unit: "0—100 结构指数，不是概率、收益或现实事件评分。" }, scope: "红色表示本年收盘高于开盘，绿色表示本年收盘低于开盘。计算与规则数据均在本机浏览器中完成。" };
+  return { schema: "senfate-browser-ruleir.v2", analysisId: `browser.${Date.now()}`, chart: { pillars, luckCycles, annualContexts, activeLuck: selectedLuck, provenance: { provider: "senfate-browser-worker", input_boundary: "certified-calendar", notes: ["规则资料与计算均在当前设备完成。"] } }, selectedYear: target, schools, trajectory, audit: audits, labels, calculationMethod: { annual: "每一年都会同时参看原局、所在大运、流年与十二个月的干支关系；四个体系各自给出解读。", monthlyCandle: "年度 K 线的开盘取年初状态，收盘取年末状态，影线表示十二个月间的变化范围。", unit: "0—100 是便于比较的相对结构刻度，不代表概率、收益或现实事件评分。" }, scope: "红色表示年末状态高于年初，绿色表示年末状态低于年初。" };
 }
 
 const worker: DedicatedWorkerGlobalScope = self as unknown as DedicatedWorkerGlobalScope;

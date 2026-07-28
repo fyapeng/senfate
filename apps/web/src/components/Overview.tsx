@@ -29,10 +29,10 @@ const themeMeta = [
   { topic: "relationships", label: "关系", tone: "relationship" },
   { topic: "health", label: "平衡", tone: "health" },
 ];
+const analysisSchema = "senfate-browser-ruleir.v2";
 const sentence = (value?: string) => value?.split("。").find(Boolean) || "未产生可公开的判断。";
 const clamp = (value: number) => Math.max(0, Math.min(100, Math.round(value)));
-const beforeClimate = (value?: string) => (value || "").split(/调候次序|调候信息/)[0].trim().replace(/[。；\s]+$/, "");
-const verdictLead = (value?: string) => (value || "未形成终局裁决").split("；")[0].replace("，", " · ");
+const verdictLead = (value?: string) => value || "暂未形成原局摘要";
 
 export default function Overview() {
   const [analysis, setAnalysis] = useState<any>();
@@ -43,7 +43,11 @@ export default function Overview() {
 
   useEffect(() => {
     try {
-      setAnalysis(JSON.parse(sessionStorage.getItem("senfate.analysis") || "null"));
+      const saved = JSON.parse(sessionStorage.getItem("senfate.analysis") || "null");
+      if (saved && saved.schema !== analysisSchema) {
+        sessionStorage.removeItem("senfate.analysis");
+        setAnalysis(undefined);
+      } else setAnalysis(saved);
       setCompiled(JSON.parse(sessionStorage.getItem("senfate.compile") || "null"));
     } catch { /* session storage is intentionally optional */ }
   }, []);
@@ -55,7 +59,6 @@ export default function Overview() {
   const result = useMemo(() => analysis?.schools?.find((item: any) => item.school === labels[school]), [analysis, school]);
   const selectedCandle = line.find((item: any) => item.year === selected);
   const natalPillars = analysis?.chart?.pillars || {};
-  const climate = result?.verdict?.primary_use?.match(/调候[^。]+/)?.[0];
   const lucks = analysis?.chart?.luckCycles?.slice(0, 8) || [];
 
   function select(target: number) {
@@ -71,7 +74,7 @@ export default function Overview() {
   }, [analysis, compiled]);
 
   if (!analysis || !compiled) {
-    return <main className="empty-state"><p className="eyebrow">SenFate / 四派工作台</p><h1 className="page-title">从认证排盘开始</h1><p className="page-summary">完成认证排盘后，系统才会生成真实的四派年度图表与审计轨迹。</p><a className="button" href={`${import.meta.env.BASE_URL}calculation/`}>新建排盘 <ArrowRight size={17} /></a></main>;
+    return <main className="empty-state"><p className="eyebrow">SenFate / 四派工作台</p><h1 className="page-title">从排盘开始</h1><p className="page-summary">完成排盘后，即可查看四个体系的原局解读、八步大运与年度变化。</p><a className="button" href={`${import.meta.env.BASE_URL}calculation/`}>新建排盘 <ArrowRight size={17} /></a></main>;
   }
 
   const calendar = compiled.result.calendar;
@@ -112,10 +115,9 @@ export default function Overview() {
   const hoveredAnnual = analysis?.chart?.annualContexts?.find((item: any) => item.year === hoveredCandle?.year);
   const hoveredIndex = hoveredCandle ? visibleLine.findIndex((item: any) => item.year === hoveredCandle.year) : -1;
   const judgmentRows = [
-    { label: "结构依据", value: result?.verdict?.primary_structure },
-    { label: "取用方向", value: beforeClimate(result?.verdict?.primary_use) },
-    { label: "调候", value: climate },
-    { label: "辅助关系", value: result?.verdict?.secondary_structures?.slice(0, 3).join("、") },
+    { label: "原局特点", value: result?.verdict?.primary_structure },
+    { label: "岁运关注", value: result?.verdict?.primary_use },
+    { label: "补充观察", value: result?.verdict?.secondary_structures?.slice(0, 3).join("、") },
   ].filter(row => Boolean(row.value));
   const overviewDetails = <>
     <div className="sidebar-title">
@@ -128,7 +130,7 @@ export default function Overview() {
       <div className="natal-head"><div><p className="eyebrow">本命原局 / 以日干为轴</p><h2>四柱信息</h2></div><span>日主 · {natalPillars.day?.stem || calendar.pillars.day.stem}{natalPillars.day?.stem_element_zh ? `（${natalPillars.day.stem_element_zh}）` : ""}</span></div>
       <div className="natal-pillar-grid">{(["year", "month", "day", "hour"] as const).map((key) => { const pillar = natalPillars[key] || calendar.pillars[key]; const element = pillar.stem_element || elementByStem[pillar.stem] || "earth"; return <article className="natal-pillar" key={key}><header><span>{pillarLabels[key]}</span><small>{pillar.stem_ten_god || (key === "day" ? "日主" : "十神待载入")}</small></header><div className={`natal-ganzhi element-${element}`}><strong>{pillar.stem}{key === "day" && <sup className="overview-mark day-master">日主</sup>}</strong><b>{pillar.branch}{key === "month" && <sup className="overview-mark month-command">月令</sup>}{key === "day" && <sup className="overview-mark day-seat">日坐</sup>}</b></div><div className="natal-meta"><span>纳音</span><b>{pillar.nayin?.name || "—"}</b><span>十二长生</span><b>{pillar.twelve_growth_stage || "—"}</b></div><div className="hidden-stems"><span>藏干</span><div>{(pillar.hidden_stems || []).map((hidden: any) => <i className={`element-${hidden.element || elementByStem[hidden.stem] || "earth"}`} key={`${hidden.stem}-${hidden.order}`}>{hidden.stem}<small>{hidden.ten_god}</small></i>)}</div></div></article>; })}</div>
       <section className="element-summary" aria-label="五行比例"><div><p className="eyebrow">命局五行构成</p><span>按天干与藏干计数 · 不随流派改变</span></div><div className="element-bars">{elementStats.map(item => <article className={`element-bar element-${item.element}`} key={item.element}><header><strong>{item.label}</strong><span>{item.percent}%</span></header><i><b style={{ width: `${item.percent}%` }} /></i></article>)}</div></section>
-      <section className="school-judgment" aria-label="所选流派判断"><header><p className="eyebrow">所选流派终局裁决</p><span>{schoolDisplayLabels[school]} · {schoolOrigins[school]}</span></header><article className="final-verdict"><p>原局结论</p><h3>{verdictLead(result?.verdict?.headline)}</h3><strong>{result?.verdict?.strength_or_axis || "该体系未以旺衰作为独立终局字段。"}</strong></article><div className="natal-judgments">{judgmentRows.map(row => <article key={row.label}><span>{row.label}</span><strong>{sentence(row.value)}</strong></article>)}</div><details className="verdict-basis"><summary>查看判定依据与边界</summary><p>{result?.verdict?.headline}</p>{result?.verdict?.rejected_routes?.length ? <p>未采路线：{result.verdict.rejected_routes.join("；")}</p> : null}{result?.verdict?.caveats?.length ? <p>保留说明：{result.verdict.caveats.join("；")}</p> : null}</details></section>
+      <section className="school-judgment" aria-label="所选流派判断"><header><p className="eyebrow">所选流派的原局解读</p><span>{schoolDisplayLabels[school]} · {schoolOrigins[school]}</span></header><article className="final-verdict"><p>命局概览</p><h3>{verdictLead(result?.verdict?.headline)}</h3><strong>{result?.verdict?.strength_or_axis || "该体系以整体关系观察原局。"}</strong></article><div className="natal-judgments">{judgmentRows.map(row => <article key={row.label}><span>{row.label}</span><strong>{sentence(row.value)}</strong></article>)}</div><details className="verdict-basis"><summary>查看解读依据与说明</summary><p>这份解读按“{schoolDisplayLabels[school]}”的公开规则，将原局与岁运分别参看。</p>{result?.verdict?.caveats?.length ? <p>{result.verdict.caveats.join("；")}</p> : null}</details></section>
     </section>
   </>;
   return <main className="workbench lifecycle-workbench">

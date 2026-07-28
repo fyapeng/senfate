@@ -5,7 +5,7 @@ export default function Timeline() {
   const [data, setData] = useState<any>();
   const [school, setSchool] = useState("classical_ziping");
   useEffect(() => { try { setData(JSON.parse(sessionStorage.getItem("senfate.analysis") || "null")); } catch { setData(null); } }, []);
-  if (!data?.trajectory || !data?.chart?.annualContexts) return <section className="page"><p className="eyebrow">年度轨迹</p><h1 className="page-title">请先运行分析</h1><p className="page-summary">时间线只读取已认证命盘产生的年度规则运行结果。</p><a className="button" href="/calculation">前往排盘计算</a></section>;
+  if (!data?.trajectory || !data?.chart?.annualContexts) return <section className="page"><p className="eyebrow">年度轨迹</p><h1 className="page-title">请先完成排盘</h1><p className="page-summary">时间线会显示原局、大运与逐年干支的对应关系。</p><a className="button" href="/calculation">前往排盘计算</a></section>;
 
   const rows = data.trajectory[school] || [];
   const annuals = data.chart.annualContexts || [];
